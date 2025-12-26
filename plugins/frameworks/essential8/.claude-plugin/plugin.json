@@ -1,0 +1,8 @@
+{
+  "name": "essential8",
+  "description": "Essential 8 Plugin - Australian Cyber Security Centre mitigation strategies with 3 maturity levels",
+  "version": "0.1.0",
+  "author": {"name": "Ethan Troy"},
+  "repository": "https://github.com/ethanolivertroy/claude-grc-engineering",
+  "license": "MIT"
+}

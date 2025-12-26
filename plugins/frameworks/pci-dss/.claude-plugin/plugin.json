@@ -1,0 +1,10 @@
+{
+  "name": "pci-dss",
+  "description": "PCI DSS v4.0.1 Plugin - Payment Card Industry compliance with ROC guidance, SAQ selection, and March 2025 mandatory requirements",
+  "version": "0.1.0",
+  "author": {
+    "name": "Ethan Troy"
+  },
+  "repository": "https://github.com/ethanolivertroy/claude-grc-engineering",
+  "license": "MIT"
+}

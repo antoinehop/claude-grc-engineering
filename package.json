@@ -1,0 +1,28 @@
+{
+  "name": "grc-engineering-plugin",
+  "version": "0.1.0",
+  "description": "Claude Code plugin for GRC Engineering - bridging infrastructure code and compliance requirements",
+  "type": "module",
+  "scripts": {
+    "map-control": "node scripts/map-control.js",
+    "generate-policy": "node scripts/generate-policy.js",
+    "review-pr": "node scripts/review-pr.js",
+    "collect-evidence": "node scripts/collect-evidence.js",
+    "transform-risk": "node scripts/transform-risk.js"
+  },
+  "keywords": [
+    "grc",
+    "compliance",
+    "security",
+    "audit",
+    "policy-as-code",
+    "claude-code-plugin"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "js-yaml": "^4.1.1",
+    "@octokit/rest": "^20.0.2"
+  }
+}
+

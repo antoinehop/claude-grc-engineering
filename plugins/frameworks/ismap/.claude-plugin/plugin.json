@@ -1,0 +1,10 @@
+{
+  "name": "ismap",
+  "description": "Japanese ISMAP government cloud security (ISO 27001/27017/27018)",
+  "version": "0.1.0",
+  "author": {
+    "name": "Ethan Troy"
+  },
+  "repository": "https://github.com/ethanolivertroy/claude-grc-engineering",
+  "license": "MIT"
+}
