@@ -2,6 +2,8 @@
 
 Generates comprehensive evidence collection checklists for CMMC 2.0 practices, organized by Level (1-3) and maturity requirements with Department of Defense contractor-specific guidance.
 
+> **Never commit evidence artifacts to source control.** The outputs below include real usernames, credential reports, MFA device states, and privileged-account inventories. `.gitignore` covers `evidence/` by default so `git add -A` will not sweep it up, but durable storage is your responsibility. Use an encrypted, access-controlled evidence locker (encrypted S3 with least-privilege IAM, a GRC platform, or a shared drive with full-disk encryption and MFA-gated access).
+
 ## Usage
 
 ```bash

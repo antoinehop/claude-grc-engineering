@@ -8,6 +8,10 @@
 /gap-assessment-*/
 *.normalized.json
 
+# Evidence artifacts (never commit: real usernames, credentials, PII)
+/evidence/
+**/evidence/
+
 # Node
 node_modules/
 npm-debug.log*

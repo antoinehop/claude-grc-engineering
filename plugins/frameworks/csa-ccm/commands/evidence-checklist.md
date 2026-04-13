@@ -2,6 +2,8 @@
 
 Generates comprehensive evidence collection checklists for CSA CCM v4 controls, optimized for cloud-native environments (AWS, Azure, GCP) with STAR attestation guidance.
 
+> **Never commit evidence artifacts to source control.** The outputs below include real usernames, credential reports, MFA device states, and privileged-account inventories. `.gitignore` covers `evidence/` by default so `git add -A` will not sweep it up, but durable storage is your responsibility. Use an encrypted, access-controlled evidence locker (encrypted S3 with least-privilege IAM, a GRC platform, or a shared drive with full-disk encryption and MFA-gated access).
+
 ## Usage
 
 ```bash

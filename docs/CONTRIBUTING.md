@@ -159,6 +159,7 @@ Reviewers will look for:
 
 - **Reporting vulnerabilities**: email (preferred) or open a private security advisory on GitHub. Don't file public issues for security problems.
 - **Secrets**: never commit credentials, tokens, org IDs, or internal URLs. The repo has a pre-commit hook that scans for common patterns: don't disable it with `--no-verify`.
+- **Evidence artifacts**: the evidence-checklist commands write to `evidence/` (gitignored). That directory holds real usernames, credential reports, MFA device states, and privileged-account inventories. Never commit it. If you find it in a PR, reject the PR and ask the contributor to rotate any exposed credentials. For GDPR-scoped work, raw exports may carry personal data subject to Art. 5 minimization and storage-limitation rules: keep only what you need and delete on a schedule.
 
 ## Questions?
 

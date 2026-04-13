@@ -2,6 +2,8 @@
 
 Generates comprehensive evidence collection checklists for EU General Data Protection Regulation (GDPR) compliance with focus on technical and organizational measures (TOMs) and data processing activities.
 
+> **Never commit evidence artifacts to source control.** The outputs below include real usernames, credential reports, MFA device states, and privileged-account inventories. For GDPR workflows, raw exports may carry personal data subject to Art. 5 minimization and storage-limitation rules. Keep only what you need and delete on a retention schedule. `.gitignore` covers `evidence/` by default so `git add -A` will not sweep it up, but durable storage is your responsibility. Use an encrypted, access-controlled evidence locker (encrypted S3 with least-privilege IAM, a GRC platform, or a shared drive with full-disk encryption and MFA-gated access).
+
 ## Usage
 
 ```bash
