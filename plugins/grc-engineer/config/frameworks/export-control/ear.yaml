@@ -67,7 +67,7 @@ controls:
           echo "  - 5D002: Encryption software"
           echo "  - 5A002: Encryption hardware"
           echo "  - 5E002: Encryption technology"
-          echo "  - EAR99: Items not on CCL (low-level)"
+          echo "  - EAR99: Items not on CCL (no license for most exports; end-user/use/destination rules still apply)"
       azure:
         commands:
           - cmd: "az resource list --query '[?tags.ECCN].{Name:name,ECCN:tags.ECCN}'"

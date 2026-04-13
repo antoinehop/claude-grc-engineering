@@ -29,7 +29,7 @@ Deep dive assessment for Export Administration Regulations (EAR) compliance. Foc
 - **5E002**: Encryption technology (technical data)
 - **3A001**: Electronic equipment
 - **4A003**: Digital computers
-- **EAR99**: Items not on CCL (low-level controls)
+- **EAR99**: Items not on CCL (no license required for most exports, but destination, end-user, and end-use rules still apply — see 15 CFR 744, 746)
 
 ### EAR-2: End-User and End-Use Screening
 
