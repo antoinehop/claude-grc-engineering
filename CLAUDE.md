@@ -119,7 +119,7 @@ claude --plugin-dir ./claude-grc-engineering
 
 This repository supports enterprise deployments via AWS Bedrock and Google Vertex AI. See `docs/ENTERPRISE-DEPLOYMENT.md` for:
 - AWS Bedrock configuration (FedRAMP High in GovCloud)
-- Google Vertex AI configuration (FedRAMP Moderate)
+- Google Vertex AI configuration (FedRAMP High as of October 2025)
 - IAM permissions and authentication
 - Compliance certifications (HIPAA, SOC 2)
 

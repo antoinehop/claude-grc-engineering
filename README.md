@@ -1,6 +1,6 @@
 # claude-grc-engineering
 
-I've worked both sides of FedRAMP: years as a 3PAO assessor, and I build open-source GRC tooling for the teams stuck doing the work by hand. Every team I've assessed ends up re-inventing the same pipeline: pull evidence from AWS, GitHub, GCP, and Okta; map it to SOC 2 or NIST 800-53 or FedRAMP Moderate; generate a gap report; fight with OSCAL. I wanted one toolkit that did the whole pipeline end-to-end without bolting me into a vendor platform. This is it.
+I've worked both sides of FedRAMP: years as a 3PAO assessor, and I build open-source GRC tooling for the teams stuck doing the work by hand. Every team I've assessed ends up re-inventing the same pipeline: pull evidence from AWS, GitHub, GCP, and Okta; map it to SOC 2 or NIST 800-53 or FedRAMP Moderate/High; generate a gap report; fight with OSCAL. I wanted one toolkit that did the whole pipeline end-to-end without bolting me into a vendor platform. This is it.
 
 Install as a [Claude Code](https://docs.claude.com/claude-code) plugin. Run:
 
