@@ -1,7 +1,8 @@
 {
   "name": "grc-engineering-suite",
   "owner": {
-    "name": "Ethan Troy"
+    "name": "GRC Engineering Club",
+    "url": "https://grcengclub.com"
   },
   "metadata": {
     "description": "GRC Engineering Plugin Suite - Tools for auditors, internal teams, TPRM, and framework-specific compliance",

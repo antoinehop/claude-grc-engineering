@@ -4,6 +4,21 @@ All notable changes follow the format from [Keep a Changelog](https://keepachang
 
 ## [Unreleased]
 
+### Changed
+
+**Ownership transfer to GRC Engineering Club**
+- Repository transferred from `ethanolivertroy/claude-grc-engineering` to [`GRCEngClub/claude-grc-engineering`](https://github.com/GRCEngClub/claude-grc-engineering). The toolkit is now the official open-source project of the [GRC Engineering Club](https://grcengclub.com).
+- `LICENSE` copyright updated to "GRC Engineering Club contributors" (MIT terms unchanged). Third-party attributions (SCF CC BY-ND 4.0, CIS Controls CC BY-SA 4.0) preserved.
+- All 30 `plugin.json` files: `author` and `repository` fields now reflect Club ownership.
+- `.claude-plugin/marketplace.json`: `owner` updated to the Club (homepage: grcengclub.com).
+- `package.json`: `author`, `repository`, `homepage`, `bugs`, and license URLs migrated.
+- `schemas/finding.schema.json`: `$id` updated to the Club-owned URL. Schema contract unchanged — still v1.0.0, no behavioral break.
+- Documentation and helper scripts: install commands and issue-tracker URLs point at the Club repo.
+- External tool references (e.g., `ethanolivertroy/oscal-cli`, `ethanolivertroy/frdocx-to-froscal-ssp`, `ethanolivertroy/compliance-trestle-skills`, `hackIDLE/*`) remain unchanged. These are independent upstream projects the toolkit wraps; their attribution stays accurate.
+- Founding author: Ethan Troy (`@ethanolivertroy`). Co-leads of the Club's leadership team: AJ Yawn (`@ajy0127`) and Ethan Troy. See forthcoming `GOVERNANCE.md` and `MAINTAINERS.md`.
+
+**Migration note for existing users**: If your `/plugin marketplace add` points at the old `ethanolivertroy/claude-grc-engineering` URL, re-add the marketplace using `GRCEngClub/claude-grc-engineering`. GitHub auto-redirects the old URL, but updating avoids future ambiguity.
+
 ### Added
 
 **Foundations**

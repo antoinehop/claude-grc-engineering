@@ -284,7 +284,7 @@ export ANTHROPIC_MODEL='us.anthropic.claude-sonnet-4-20250514'
 2. Configure authentication
 3. Install the GRC Engineering plugins:
    ```bash
-   /plugin marketplace add ethanolivertroy/claude-grc-engineering
-   /plugin install grc-engineer@ethanolivertroy-plugins
+   /plugin marketplace add GRCEngClub/claude-grc-engineering
+   /plugin install grc-engineer@grc-engineering-suite
    ```
 4. Start using GRC commands with enterprise-grade security!

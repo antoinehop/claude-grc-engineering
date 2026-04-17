@@ -68,7 +68,7 @@ frdocx_to_froscal.py, convert.py, src/main.py, or a __main__.py.
 Fix:
   - Inspect $TOOL_DIR/README.md for the current invocation.
   - Run the pipeline manually once; the plugin calls 'python <entrypoint>'.
-  - Or file an issue at ethanolivertroy/claude-grc-engineering.
+  - Or file an issue at GRCEngClub/claude-grc-engineering.
 EOF
   exit 5
 fi

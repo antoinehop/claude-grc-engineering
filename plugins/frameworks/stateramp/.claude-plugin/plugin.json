@@ -2,7 +2,7 @@
   "name": "stateramp",
   "description": "StateRAMP Plugin - State Risk and Authorization Management Program for state and local government cloud services",
   "version": "0.1.0",
-  "author": {"name": "Ethan Troy"},
-  "repository": "https://github.com/ethanolivertroy/claude-grc-engineering",
+  "author": {"name": "GRC Engineering Club Contributors"},
+  "repository": "https://github.com/GRCEngClub/claude-grc-engineering",
   "license": "MIT"
 }

@@ -2,8 +2,8 @@
   "name": "cis-controls",
   "description": "CIS Controls v8 Plugin - Center for Internet Security baseline with IG1/IG2/IG3 implementation groups and 153 safeguards",
   "version": "0.1.0",
-  "author": {"name": "Ethan Troy"},
-  "repository": "https://github.com/ethanolivertroy/claude-grc-engineering",
+  "author": {"name": "GRC Engineering Club Contributors"},
+  "repository": "https://github.com/GRCEngClub/claude-grc-engineering",
   "license": "CC-BY-SA-4.0 AND MIT",
   "license_note": "CIS-derived content (commands, skills) is CC BY-SA 4.0 per the upstream CIS Controls license. Original glue code is MIT. See LICENSE-CIS.md."
 }

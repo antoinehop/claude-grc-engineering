@@ -13,7 +13,7 @@ From zero to your first gap assessment in about 10 minutes. This walkthrough use
 
 ```bash
 # Inside Claude Code
-/plugin marketplace add ethanolivertroy/claude-grc-engineering
+/plugin marketplace add GRCEngClub/claude-grc-engineering
 ```
 
 ## 2. Install the core plugins
@@ -21,9 +21,9 @@ From zero to your first gap assessment in about 10 minutes. This walkthrough use
 You need the engineering hub, one connector, and at least one framework plugin.
 
 ```bash
-/plugin install grc-engineer@ethanolivertroy-plugins
-/plugin install github-inspector@ethanolivertroy-plugins
-/plugin install soc2@ethanolivertroy-plugins
+/plugin install grc-engineer@grc-engineering-suite
+/plugin install github-inspector@grc-engineering-suite
+/plugin install soc2@grc-engineering-suite
 ```
 
 Confirm with:
@@ -127,7 +127,7 @@ Cached findings are reused; only the crosswalk join re-runs.
 
 **Add AWS to the picture**:
 ```bash
-/plugin install aws-inspector@ethanolivertroy-plugins
+/plugin install aws-inspector@grc-engineering-suite
 /aws-inspector:setup
 /aws-inspector:collect --profile=default --region=us-east-1
 /grc-engineer:gap-assessment SOC2,FedRAMP-Moderate --sources=github-inspector,aws-inspector

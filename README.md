@@ -28,15 +28,15 @@ A few opinionated design choices worth naming up front, since they're most of wh
 
 ```bash
 # In Claude Code
-/plugin marketplace add ethanolivertroy/claude-grc-engineering
-/plugin install grc-engineer@ethanolivertroy-plugins
+/plugin marketplace add GRCEngClub/claude-grc-engineering
+/plugin install grc-engineer@grc-engineering-suite
 ```
 
 For a first run with no cloud credentials, use your GitHub account as the data source:
 
 ```bash
-/plugin install github-inspector@ethanolivertroy-plugins
-/plugin install soc2@ethanolivertroy-plugins
+/plugin install github-inspector@grc-engineering-suite
+/plugin install soc2@grc-engineering-suite
 /github-inspector:setup
 /github-inspector:collect --scope=@me
 /grc-engineer:gap-assessment SOC2 --sources=github-inspector

@@ -3,8 +3,8 @@
   "description": "GRC Third-Party Risk Management Plugin - Vendor assessments, questionnaire analysis, and risk scoring",
   "version": "0.1.0",
   "author": {
-    "name": "Ethan Troy"
+    "name": "GRC Engineering Club Contributors"
   },
-  "repository": "https://github.com/ethanolivertroy/claude-grc-engineering",
+  "repository": "https://github.com/GRCEngClub/claude-grc-engineering",
   "license": "MIT"
 }

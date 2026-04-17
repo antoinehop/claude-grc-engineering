@@ -20,7 +20,7 @@ CLAUDE-GRC PIPELINE STATUS (2026-04-13 15:04 UTC)
 
 github-inspector
   status:         ready
-  auth:           valid (ethanolivertroy, scopes: repo,read:org)
+  auth:           valid (octocat, scopes: repo,read:org)
   last run:       3h ago
   cached:         127 resources, 512 evaluations
   rate limit:     4872/5000 remaining

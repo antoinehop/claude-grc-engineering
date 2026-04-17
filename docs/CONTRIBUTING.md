@@ -53,7 +53,7 @@ mkdir -p plugins/connectors/<tool>/{commands,skills/<tool>-expert,scripts,tests/
   "description": "Connector for <tool>. Emits GRC findings against SCF + SOC 2/NIST/ISO/…",
   "author": "you <you@example.com>",
   "license": "MIT",
-  "repository": "https://github.com/ethanolivertroy/claude-grc-engineering",
+  "repository": "https://github.com/GRCEngClub/claude-grc-engineering",
   "keywords": ["grc", "compliance", "<tool>"]
 }
 ```
@@ -163,4 +163,4 @@ Reviewers will look for:
 
 ## Questions?
 
-Open a discussion at https://github.com/ethanolivertroy/claude-grc-engineering/discussions. "How would I add a connector for X?" is a welcome question.
+Open a discussion at https://github.com/GRCEngClub/claude-grc-engineering/discussions. "How would I add a connector for X?" is a welcome question.

@@ -19,7 +19,7 @@ bash plugins/connectors/github-inspector/scripts/status.sh
 github-inspector
   status:         ready
   gh:             /usr/local/bin/gh v2.59.0
-  auth:           valid (ethanolivertroy, scopes: repo,read:org)
+  auth:           valid (octocat, scopes: repo,read:org)
   config:         ~/.config/claude-grc/connectors/github-inspector.yaml
   scope:          @me
   last run:       2 hours ago (run_id 20260413-a1b2c3d4)

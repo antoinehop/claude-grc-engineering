@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/ethanolivertroy/claude-grc-engineering/schemas/finding.schema.json",
+  "$id": "https://github.com/GRCEngClub/claude-grc-engineering/schemas/finding.schema.json",
   "title": "GRC Finding",
   "description": "Canonical output contract for claude-grc-engineering connectors. One document per resource-evaluation batch. See docs/ARCHITECTURE.md for the pipeline model.",
   "type": "object",

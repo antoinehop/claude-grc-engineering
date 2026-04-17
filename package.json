@@ -28,18 +28,18 @@
   ],
   "license": "(MIT AND CC-BY-SA-4.0)",
   "licenses": [
-    { "type": "MIT", "url": "https://github.com/ethanolivertroy/claude-grc-engineering/blob/main/LICENSE" },
-    { "type": "CC-BY-SA-4.0", "url": "https://github.com/ethanolivertroy/claude-grc-engineering/blob/main/plugins/frameworks/cis-controls/LICENSE-CIS.md" }
+    { "type": "MIT", "url": "https://github.com/GRCEngClub/claude-grc-engineering/blob/main/LICENSE" },
+    { "type": "CC-BY-SA-4.0", "url": "https://github.com/GRCEngClub/claude-grc-engineering/blob/main/plugins/frameworks/cis-controls/LICENSE-CIS.md" }
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ethanolivertroy/claude-grc-engineering.git"
+    "url": "git+https://github.com/GRCEngClub/claude-grc-engineering.git"
   },
-  "homepage": "https://github.com/ethanolivertroy/claude-grc-engineering",
+  "homepage": "https://github.com/GRCEngClub/claude-grc-engineering",
   "bugs": {
-    "url": "https://github.com/ethanolivertroy/claude-grc-engineering/issues"
+    "url": "https://github.com/GRCEngClub/claude-grc-engineering/issues"
   },
-  "author": "Ethan Troy",
+  "author": "GRC Engineering Club Contributors",
   "dependencies": {
     "dotenv": "^16.4.5",
     "js-yaml": "^4.1.1",

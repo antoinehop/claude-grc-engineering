@@ -44,7 +44,7 @@ None. Reads from the environment:
 ```
 github-inspector:setup ✓
   gh version:       2.59.0
-  authenticated as: ethanolivertroy
+  authenticated as: octocat
   config written:   ~/.config/claude-grc/connectors/github-inspector.yaml
 
 Next: /github-inspector:collect --scope=@me

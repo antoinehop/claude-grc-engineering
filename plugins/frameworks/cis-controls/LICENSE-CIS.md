@@ -50,4 +50,4 @@ If you're unsure whether a contribution falls under CC BY-SA or MIT, bias toward
 ## Questions?
 
 - CIS Controls licensing: https://www.cisecurity.org/controls/v8
-- This plugin's licensing: open an issue at https://github.com/ethanolivertroy/claude-grc-engineering
+- This plugin's licensing: open an issue at https://github.com/GRCEngClub/claude-grc-engineering

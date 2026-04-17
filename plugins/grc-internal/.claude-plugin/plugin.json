@@ -3,8 +3,8 @@
   "description": "GRC Internal Plugin - Policy management, risk registers, and compliance tracking for internal GRC teams",
   "version": "0.1.0",
   "author": {
-    "name": "Ethan Troy"
+    "name": "GRC Engineering Club Contributors"
   },
-  "repository": "https://github.com/ethanolivertroy/claude-grc-engineering",
+  "repository": "https://github.com/GRCEngClub/claude-grc-engineering",
   "license": "MIT"
 }

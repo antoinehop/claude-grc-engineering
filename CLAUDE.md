@@ -99,7 +99,7 @@ templates:
 ### Local Testing
 ```bash
 # Clone and run with local plugins
-git clone https://github.com/ethanolivertroy/claude-grc-engineering.git
+git clone https://github.com/GRCEngClub/claude-grc-engineering.git
 claude --plugin-dir ./claude-grc-engineering
 ```
 
@@ -140,11 +140,11 @@ export ANTHROPIC_VERTEX_PROJECT_ID=your-project-id
 Users install plugins via:
 ```bash
 # Add marketplace (one-time)
-/plugin marketplace add ethanolivertroy/claude-grc-engineering
+/plugin marketplace add GRCEngClub/claude-grc-engineering
 
 # Install specific plugins
-/plugin install grc-engineer@ethanolivertroy-plugins
-/plugin install soc2@ethanolivertroy-plugins
+/plugin install grc-engineer@grc-engineering-suite
+/plugin install soc2@grc-engineering-suite
 ```
 
 ## Plugin Namespaces

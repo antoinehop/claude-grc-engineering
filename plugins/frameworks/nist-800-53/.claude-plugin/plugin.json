@@ -3,8 +3,8 @@
   "description": "NIST 800-53 Plugin - Control families, baseline selection (Low/Moderate/High), and FedRAMP alignment",
   "version": "0.1.0",
   "author": {
-    "name": "Ethan Troy"
+    "name": "GRC Engineering Club Contributors"
   },
-  "repository": "https://github.com/ethanolivertroy/claude-grc-engineering",
+  "repository": "https://github.com/GRCEngClub/claude-grc-engineering",
   "license": "MIT"
 }

@@ -528,7 +528,7 @@ function toSarif(r) {
     $schema: 'https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json',
     version: '2.1.0',
     runs: [{
-      tool: { driver: { name: 'claude-grc-engineering', version: '0.1.0', informationUri: 'https://github.com/ethanolivertroy/claude-grc-engineering' } },
+      tool: { driver: { name: 'claude-grc-engineering', version: '0.1.0', informationUri: 'https://github.com/GRCEngClub/claude-grc-engineering' } },
       invocations: [{ startTimeUtc: r.generated_at, endTimeUtc: r.generated_at }],
       results
     }]
