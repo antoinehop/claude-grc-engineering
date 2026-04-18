@@ -107,11 +107,13 @@ Get-AppLockerPolicy -Effective | Select-Object -ExpandProperty RuleCollections |
     Select-Object RuleCollectionType, EnforcementMode |
     Export-Csv "evidence/e8-1-enforcement-mode-$(Get-Date -Format 'yyyyMMdd').csv" -NoTypeInformation
 ```
+
 Collection Frequency: Monthly
 Retention: 18 months (ACSC recommendation)
 Purpose: Demonstrates application control is active
 
 ✓ **Application Control Event Logs (Blocked Attempts)**
+
 ```powershell
 # AppLocker blocked events (last 30 days)
 Get-WinEvent -FilterHashtable @{
@@ -139,11 +141,13 @@ Get-WinEvent -FilterHashtable @{
 } -MaxEvents 10000 |
     Export-Csv "evidence/e8-1-wdac-blocks-$(Get-Date -Format 'yyyyMMdd').csv" -NoTypeInformation
 ```
+
 Collection Frequency: Daily (centralized to SIEM/log aggregator)
 Retention: 18 months
 Purpose: Demonstrates application control is working + audit trail
 
 ✓ **Centralized Log Collection Evidence**
+
 ```bash
 # If using Splunk/ELK/Azure Sentinel
 # Show that AppLocker events are forwarded to central SIEM
@@ -163,11 +167,13 @@ Purpose: Demonstrates application control is working + audit trail
 # | stats count by host, UserName
 # | outputcsv evidence/e8-1-splunk-blocks-YYYYMMDD.csv
 ```
+
 Collection Frequency: Monthly summary report
 Retention: 18 months
 Purpose: Centralized logging (ML3 requirement)
 
 ✓ **Application Control Coverage (Endpoint Inventory)**
+
 ```powershell
 # Query all endpoints for AppLocker/WDAC status via AD
 # Requires remote WinRM access
@@ -208,11 +214,13 @@ $total = ($results | Measure-Object).Count
 $enabled = ($results | Where-Object { $_.AppLockerEnabled -eq $true } | Measure-Object).Count
 Write-Host "Application Control Coverage: $enabled / $total ($([math]::Round($enabled/$total*100,2))%)"
 ```
+
 Collection Frequency: Monthly
 Retention: 18 months
 Purpose: Coverage assessment (should be 100% for ML3)
 
 ✓ **Hash-Based Rules Evidence**
+
 ```powershell
 # Verify rules use cryptographic hashes (not just path/publisher)
 $policy = Get-AppLockerPolicy -Effective
@@ -239,6 +247,7 @@ $pathRules = $policy.RuleCollections | Where-Object { $_.RuleCollectionType -eq 
 
 # For ML3: Hash rules should be >80% of total rules
 ```
+
 Collection Frequency: Every 6 months (ML3 validation requirement)
 Retention: 18 months
 Purpose: Demonstrates cryptographic hash validation
@@ -246,76 +255,86 @@ Purpose: Demonstrates cryptographic hash validation
 ### Manual Evidence Collection
 
 □ **Semi-Annual Validation Review**
-  - Review application control policy effectiveness
-  - Test sample of blocked applications (10-20 samples)
-  - Review exception requests from last 6 months
-  - Update whitelist for new approved applications
-  - Document findings and improvements
-  - Evidence: Validation review report (every 6 months for ML3)
-  - Frequency: Every 6 months (ML3 requirement)
+
+- Review application control policy effectiveness
+- Test sample of blocked applications (10-20 samples)
+- Review exception requests from last 6 months
+- Update whitelist for new approved applications
+- Document findings and improvements
+- Evidence: Validation review report (every 6 months for ML3)
+- Frequency: Every 6 months (ML3 requirement)
 
 □ **Exception Request Approvals (Sample)**
-  - Sample size: 25 exception requests from last 6 months
-  - Required elements:
-    - Business justification for exception
-    - Security risk assessment
-    - Approval by IT Security
-    - Approval by business owner
-    - Hash value added to whitelist
-    - Exception expiry date (if temporary)
-  - Evidence: Folder of exception tickets with approvals
-  - Frequency: Every 6 months review
+
+- Sample size: 25 exception requests from last 6 months
+- Required elements:
+  - Business justification for exception
+  - Security risk assessment
+  - Approval by IT Security
+  - Approval by business owner
+  - Hash value added to whitelist
+  - Exception expiry date (if temporary)
+- Evidence: Folder of exception tickets with approvals
+- Frequency: Every 6 months review
 
 □ **Incident Response for Blocked Applications**
-  - Document process for investigating blocked attempts
-  - Sample of 10 blocked application incidents
-  - Required elements:
-    - Event details (user, application, timestamp)
-    - Investigation outcome (malware? user error? legitimate need?)
-    - Remediation action (educate user, add to whitelist, escalate)
-  - Evidence: Incident tickets + investigation notes
-  - Frequency: Every 6 months review
+
+- Document process for investigating blocked attempts
+- Sample of 10 blocked application incidents
+- Required elements:
+  - Event details (user, application, timestamp)
+  - Investigation outcome (malware? user error? legitimate need?)
+  - Remediation action (educate user, add to whitelist, escalate)
+- Evidence: Incident tickets + investigation notes
+- Frequency: Every 6 months review
 
 □ **Internet-Facing Server Coverage**
-  - List of all internet-facing servers
-  - Application control status for each server
-  - For servers WITHOUT application control:
-    - Justification (e.g., incompatible OS, vendor restriction)
-    - Compensating controls (e.g., WAF, IDS, containment)
-  - Evidence: Server inventory + application control status
-  - Frequency: Every 6 months review (ML3 requirement)
+
+- List of all internet-facing servers
+- Application control status for each server
+- For servers WITHOUT application control:
+  - Justification (e.g., incompatible OS, vendor restriction)
+  - Compensating controls (e.g., WAF, IDS, containment)
+- Evidence: Server inventory + application control status
+- Frequency: Every 6 months review (ML3 requirement)
 
 □ **Centralized Logging Configuration**
-  - Screenshots of Windows Event Forwarding (WEF) or SIEM config
-  - Show AppLocker/WDAC events forwarded to central log server
-  - Retention policy (18 months minimum)
-  - Evidence: SIEM configuration + forwarding rules screenshots
-  - Frequency: Annual review
+
+- Screenshots of Windows Event Forwarding (WEF) or SIEM config
+- Show AppLocker/WDAC events forwarded to central log server
+- Retention policy (18 months minimum)
+- Evidence: SIEM configuration + forwarding rules screenshots
+- Frequency: Annual review
 
 ## Maturity Level Assessment Criteria
 
 ### ML1 Assessment (Baseline)
+
 ✓ Application control implemented on workstations
 ✓ Microsoft's recommended block rules configured
 ✓ Policy documented
 
 **Typical Gaps:**
+
 - No coverage on servers
 - Path-based rules instead of hash-based
 - No validation process
 
 ### ML2 Assessment (Improved)
+
 ✓ ML1 + application control on internet-facing servers
 ✓ Microsoft's recommended driver block rules
 ✓ Annual validation performed
 ✓ Exceptions documented and approved
 
 **Typical Gaps:**
+
 - Validation only annual (not every 6 months)
 - Centralized logging not implemented
 - Incident response process undefined
 
 ### ML3 Assessment (Advanced) - ACSC Target
+
 ✓ ML2 + validation every 6 months
 ✓ Application control events logged centrally (SIEM)
 ✓ Cryptographic hash validation for >80% of rules
@@ -323,6 +342,7 @@ Purpose: Demonstrates cryptographic hash validation
 ✓ 100% coverage of in-scope systems
 
 **Evidence Required:**
+
 - 2 validation reports per year
 - Central SIEM logs showing AppLocker/WDAC events
 - Hash-based rules evidence
@@ -332,18 +352,21 @@ Purpose: Demonstrates cryptographic hash validation
 ## Common Assessment Findings
 
 ### Critical (Likely to be rated ML0 or ML1)
+
 ❌ No application control implemented
 ❌ Application control in audit mode only (not enforcing)
 ❌ Coverage <50% of workstations
 ❌ No policy documentation
 
 ### Moderate (Likely to be rated ML1 or ML2)
+
 ⚠️ No application control on internet-facing servers
 ⚠️ Path-based rules only (no hash validation)
 ⚠️ Validation not performed in last 12 months
 ⚠️ Events not centrally logged
 
 ### Minor (ML2 or ML3 with improvements needed)
+
 ⚠️ Validation every 12 months (need 6 months for ML3)
 ⚠️ Some hash-based rules but <80%
 ⚠️ Centralized logging exists but retention <18 months
@@ -352,6 +375,7 @@ Purpose: Demonstrates cryptographic hash validation
 ## Remediation Guidance
 
 ### If No Application Control Exists
+
 1. **Phase 1 (Weeks 1-4): Planning**
    - Select technology (AppLocker for Windows 10+, WDAC for Windows 11)
    - Identify all workstations and internet-facing servers
@@ -378,6 +402,7 @@ Purpose: Demonstrates cryptographic hash validation
 **Timeline**: 4-6 months to reach ML3
 
 ### If Application Control is Audit-Only
+
 1. Review audit logs for last 30 days
 2. Add commonly-used applications to whitelist (if appropriate)
 3. Educate users on exception request process
@@ -388,6 +413,7 @@ Purpose: Demonstrates cryptographic hash validation
 **Timeline**: 4-8 weeks
 
 ### If No Centralized Logging
+
 1. **Windows Event Forwarding (Free)**
    - Configure WEF collector server
    - Create GPO to forward AppLocker events
@@ -405,12 +431,14 @@ Purpose: Demonstrates cryptographic hash validation
 ## Cross-References
 
 ### Related Essential Eight Strategies
+
 - #2 - Patch Applications (approved applications must be patched)
 - #3 - Configure Microsoft Office Macro Settings (AppLocker can block macros)
 - #4 - User Application Hardening (web browsers are approved applications)
 - #7 - Multi-Factor Authentication (MFA for exception approvals)
 
 ### Maps to Other Frameworks
+
 - **NIST 800-53**: CM-7 (Least Functionality), SI-7 (Software Integrity)
 - **ISO 27001:2022**: A.8.19 (Installation of software on operational systems)
 - **CMMC 2.0**: CM.L2-3.4.7 (Least functionality)
@@ -419,18 +447,21 @@ Purpose: Demonstrates cryptographic hash validation
 ## Cost Estimates
 
 ### ML1 Implementation
+
 - Planning and policy development: 40 hours ($4,000)
 - Pilot deployment: 40 hours ($4,000)
 - Full deployment: 80 hours ($8,000)
 - **Total ML1**: ~$16k
 
 ### ML2 Implementation (from ML1)
+
 - Server deployment: 40 hours ($4,000)
 - Driver block rules: 16 hours ($1,600)
 - Annual validation: 24 hours/year ($2,400/year)
 - **Additional for ML2**: ~$8k
 
 ### ML3 Implementation (from ML2)
+
 - Centralized logging (SIEM): 80 hours + $10k-$50k SIEM ($18k-$58k)
 - Hash rule migration: 40 hours ($4,000)
 - Incident response process: 24 hours ($2,400)

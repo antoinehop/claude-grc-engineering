@@ -7,6 +7,7 @@ description: GLBA compliance readiness assessment
 Evaluates organizational readiness for Gramm-Leach-Bliley Act (GLBA) compliance.
 
 ## Arguments
+
 - `$1` - Assessment scope (required: full, safeguards, privacy, pretexting)
 - `$2` - Institution type (optional: bank, credit-union, securities-firm, insurance-company, other)
 
@@ -20,11 +21,13 @@ Evaluates organizational readiness for Gramm-Leach-Bliley Act (GLBA) compliance.
 ## GLBA Components
 
 ### Safeguards Rule (16 CFR Part 314)
+
 **Requirement**: Develop, implement, and maintain comprehensive information security program
 **Applies to**: Financial institutions handling customer information
 **Updated**: December 2021 (effective June 2023)
 
 **Nine Elements Required**:
+
 1. Risk assessment
 2. Security systems design and implementation
 3. Access controls and authorization
@@ -36,39 +39,50 @@ Evaluates organizational readiness for Gramm-Leach-Bliley Act (GLBA) compliance.
 9. Annual reporting to board of directors
 
 ### Privacy Rule (16 CFR Part 313)
+
 **Requirement**: Provide clear privacy notices to consumers
 **Key Elements**:
+
 - Initial privacy notice at account opening
 - Annual privacy notice (opt-out required if sharing with non-affiliates)
 - Opt-out rights for certain information sharing
 - Redelivery of notices after material changes
 
 ### Pretexting Protection (15 U.S.C. 6821)
+
 **Prohibition**: Obtaining customer information under false pretenses
 **Requirements**: Administrative, technical, and physical safeguards
 
 ## Assessment Scope Options
 
 ### Full Assessment
+
 Comprehensive evaluation across all three GLBA components:
+
 - Safeguards Rule compliance
 - Privacy Rule implementation
 - Pretexting prevention controls
 
 ### Safeguards-Only Assessment
+
 Focused on information security program:
+
 - Nine required elements evaluation
 - Technical controls review
 - Vendor management assessment
 
 ### Privacy-Only Assessment
+
 Privacy notice and opt-out compliance:
+
 - Notice delivery and content
 - Opt-out mechanisms
 - Sharing practices review
 
 ### Pretexting Assessment
+
 Social engineering and fraud prevention:
+
 - Authentication procedures
 - Employee training
 - Identity verification controls
@@ -118,11 +132,13 @@ Social engineering and fraud prevention:
 ### Safeguards Rule Requirements
 
 **Risk Assessment**:
+
 - Identify reasonably foreseeable internal/external threats
 - Assess likelihood and potential damage
 - Evaluate existing safeguards effectiveness
 
 **Security Program Elements**:
+
 - Designated qualified individual (CISO or equivalent)
 - Written information security plan
 - Access controls and authorization
@@ -135,6 +151,7 @@ Social engineering and fraud prevention:
 - Annual board reporting
 
 **Technical Controls**:
+
 - Network security (firewalls, segmentation)
 - Endpoint protection
 - Data loss prevention
@@ -145,6 +162,7 @@ Social engineering and fraud prevention:
 ### Privacy Rule Requirements
 
 **Privacy Notice Content**:
+
 - Information collected
 - How information is shared
 - How information is protected
@@ -152,12 +170,14 @@ Social engineering and fraud prevention:
 - Contact information
 
 **Delivery Requirements**:
+
 - Initial notice at customer relationship establishment
 - Annual notice (if required)
 - Notice of material changes
 - Clear and conspicuous delivery
 
 **Opt-Out Requirements**:
+
 - Reasonable means to opt-out (online, phone, mail)
 - 30-day minimum opt-out period
 - Honor opt-out requests
@@ -166,6 +186,7 @@ Social engineering and fraud prevention:
 ### Pretexting Protection
 
 **Prevention Measures**:
+
 - Customer authentication before releasing information
 - Employee training on social engineering
 - Verification procedures for third-party requests
@@ -211,6 +232,7 @@ Social engineering and fraud prevention:
 ## FTC Enforcement Focus Areas
 
 **Recent Enforcement Actions**:
+
 - Inadequate data security (e.g., Drizly, Chegg)
 - Failure to implement MFA
 - Lack of encryption
@@ -218,6 +240,7 @@ Social engineering and fraud prevention:
 - Misleading privacy statements
 
 **Penalties**:
+
 - Civil penalties up to $50,000+ per violation per day
 - Individual liability for officers/directors
 - Compliance monitoring requirements

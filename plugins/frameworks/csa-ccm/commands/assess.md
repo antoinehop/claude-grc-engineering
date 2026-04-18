@@ -7,6 +7,7 @@ description: CSA CCM compliance assessment for cloud security controls
 Evaluates organizational readiness for Cloud Security Alliance Cloud Controls Matrix (CCM) compliance.
 
 ## Arguments
+
 - `$1` - Assessment scope (required: full, domain-specific, service-model)
 - `$2` - Cloud service model (optional: IaaS, PaaS, SaaS, hybrid)
 
@@ -126,20 +127,24 @@ Evaluates organizational readiness for Cloud Security Alliance Cloud Controls Ma
 ## Shared Responsibility Model
 
 ### IaaS Example Controls
+
 - **Customer**: OS hardening, application security, data encryption, IAM
 - **Provider**: Physical security, network infrastructure, hypervisor
 
 ### PaaS Example Controls
+
 - **Customer**: Application code security, data protection, user access
 - **Provider**: OS patching, runtime security, platform infrastructure
 
 ### SaaS Example Controls
+
 - **Customer**: User management, data classification, access policies
 - **Provider**: Application security, infrastructure, encryption, logging
 
 ## Framework Mapping
 
 CCM maps to major compliance frameworks:
+
 - **ISO 27001/27002**: Information security management
 - **SOC 2**: Trust Services Criteria
 - **PCI DSS**: Payment card security
@@ -150,17 +155,20 @@ CCM maps to major compliance frameworks:
 ## Assessment Types
 
 ### Full Assessment
+
 - All 197 controls across 17 domains
 - Complete control implementation review
 - Evidence collection and validation
 - Comprehensive gap analysis
 
 ### Domain-Specific Assessment
+
 - Focus on specific domain (e.g., CEK, IAM, LOG)
 - Deep dive into domain controls
 - Targeted remediation planning
 
 ### Service Model Assessment
+
 - Tailored to IaaS, PaaS, or SaaS deployment
 - Shared responsibility analysis
 - Model-specific control applicability
@@ -184,6 +192,7 @@ CCM maps to major compliance frameworks:
 ## CAIQ Integration
 
 Assessment prepares organization for CSA CAIQ (Consensus Assessments Initiative Questionnaire):
+
 - Self-assessment questionnaire
 - 197 yes/no questions aligned to CCM
 - Publicly sharable security posture

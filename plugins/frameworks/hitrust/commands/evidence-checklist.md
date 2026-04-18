@@ -118,11 +118,13 @@ az ad user list --output json > evidence/hitrust-01a-azure-users-$(date +%Y%m%d)
 az ad user list --filter "userType eq 'Guest'" --output json \
   > evidence/hitrust-01a-guest-users-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly
 Retention: 6 years (HIPAA record retention requirement)
 Purpose: User registration inventory per HITRUST 01.a
 
 ✓ **User Provisioning/De-provisioning Logs**
+
 ```bash
 # AWS CloudTrail - User creation events (last 90 days)
 aws cloudtrail lookup-events \
@@ -153,11 +155,13 @@ az monitor activity-log list \
   --start-time $(date -u -d '90 days ago' +%Y-%m-%dT%H:%M:%S) \
   --output json > evidence/hitrust-01a-azure-audit-$(date +%Y%m).json
 ```
+
 Collection Frequency: Monthly
 Retention: 6 years
 Purpose: Audit trail of user registration/de-registration
 
 ✓ **Role Assignments**
+
 ```bash
 # AWS IAM - Users and their attached policies (roles)
 for user in $(aws iam list-users --query 'Users[].UserName' --output text); do
@@ -175,11 +179,13 @@ aws sso-admin list-permission-sets --instance-arn <INSTANCE-ARN> \
 az role assignment list --all --output json \
   > evidence/hitrust-01a-azure-role-assignments-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly
 Retention: 6 years
 Purpose: Role-based access control evidence
 
 ✓ **Access Review Evidence (Quarterly)**
+
 ```bash
 # Generate access review report for managers
 # This is typically a manual process, but can export current access for review
@@ -194,6 +200,7 @@ done
 # Add header
 sed -i '1i Username,CreatedDate,Groups' evidence/hitrust-01a-access-review-Q$(date +%q)-$(date +%Y).csv
 ```
+
 Collection Frequency: Quarterly (Q1, Q2, Q3, Q4)
 Retention: 6 years
 Purpose: Quarterly access review requirement
@@ -201,62 +208,68 @@ Purpose: Quarterly access review requirement
 ### Manual Evidence Collection
 
 □ **Quarterly Access Review Reports**
-  - Complete review of all user access every 90 days
-  - Required elements:
-    - List of all users with PHI access at review start date
-    - Manager certification of continued need for access
-    - Identified inappropriate access
-    - Remediation actions taken (within 30 days)
-    - Senior management sign-off
-  - Evidence: 4 quarterly access review reports per year
-  - Frequency: Quarterly (Q1, Q2, Q3, Q4)
-  - **CRITICAL**: HITRUST Level 2 requires 4 consecutive quarters for i1 certification
+
+- Complete review of all user access every 90 days
+- Required elements:
+  - List of all users with PHI access at review start date
+  - Manager certification of continued need for access
+  - Identified inappropriate access
+  - Remediation actions taken (within 30 days)
+  - Senior management sign-off
+- Evidence: 4 quarterly access review reports per year
+- Frequency: Quarterly (Q1, Q2, Q3, Q4)
+- **CRITICAL**: HITRUST Level 2 requires 4 consecutive quarters for i1 certification
 
 □ **Access Request Approvals (Sample)**
-  - Sample size: 25 access requests from last quarter
-  - Required elements:
-    - User name and role requested
-    - Business justification
-    - Manager approval (email/ticket)
-    - HR verification (employee status)
-    - Security team approval (for PHI access)
-    - Access granted date (within 5 business days of approval)
-    - Appropriate role assigned (matches RBAC matrix)
-  - Evidence: Folder of 25 approval tickets/emails
-  - Frequency: Quarterly review
+
+- Sample size: 25 access requests from last quarter
+- Required elements:
+  - User name and role requested
+  - Business justification
+  - Manager approval (email/ticket)
+  - HR verification (employee status)
+  - Security team approval (for PHI access)
+  - Access granted date (within 5 business days of approval)
+  - Appropriate role assigned (matches RBAC matrix)
+- Evidence: Folder of 25 approval tickets/emails
+- Frequency: Quarterly review
 
 □ **Termination Access Revocation (Sample)**
-  - Sample size: All terminations in last quarter (or 25 if >25)
-  - Required elements:
-    - HR termination notice
-    - Access revoked within 24 hours (HIPAA requirement)
-    - Confirmation from IT (screenshot/log)
-    - No subsequent access after termination (audit logs)
-  - Evidence: HR notices + revocation tickets + audit logs
-  - Frequency: Quarterly review
+
+- Sample size: All terminations in last quarter (or 25 if >25)
+- Required elements:
+  - HR termination notice
+  - Access revoked within 24 hours (HIPAA requirement)
+  - Confirmation from IT (screenshot/log)
+  - No subsequent access after termination (audit logs)
+- Evidence: HR notices + revocation tickets + audit logs
+- Frequency: Quarterly review
 
 □ **HR System Integration Evidence**
-  - Integration between HR system (Workday, BambooHR, etc.) and IAM
-  - Automated provisioning workflow (hire → create account)
-  - Automated de-provisioning workflow (termination → disable/delete account)
-  - Evidence: Integration configuration screenshots, workflow diagrams
-  - Frequency: Annual review
+
+- Integration between HR system (Workday, BambooHR, etc.) and IAM
+- Automated provisioning workflow (hire → create account)
+- Automated de-provisioning workflow (termination → disable/delete account)
+- Evidence: Integration configuration screenshots, workflow diagrams
+- Frequency: Annual review
 
 □ **Emergency Access Procedures**
-  - Break-glass / emergency access procedures for PHI
-  - Required elements:
-    - When emergency access is permitted
-    - Approval process (or post-hoc review)
-    - Audit logging of emergency access
-    - Review frequency (within 24 hours)
-  - Evidence: Emergency access procedure document + usage logs (if any)
-  - Frequency: Annual review
+
+- Break-glass / emergency access procedures for PHI
+- Required elements:
+  - When emergency access is permitted
+  - Approval process (or post-hoc review)
+  - Audit logging of emergency access
+  - Review frequency (within 24 hours)
+- Evidence: Emergency access procedure document + usage logs (if any)
+- Frequency: Annual review
 
 ## HITRUST Assessment Expectations
 
 HITRUST Validated Assessors will verify:
 
 ### Documentation Review
+
 ✓ Access control policy comprehensive and approved
 ✓ RBAC matrix defined and current
 ✓ User registration procedures documented
@@ -264,6 +277,7 @@ HITRUST Validated Assessors will verify:
 ✓ Quarterly access review procedures documented
 
 ### Implementation Review
+
 ✓ User provisioning automated (integration with HR)
 ✓ De-provisioning automated (<24 hours for PHI access)
 ✓ RBAC implemented (not everyone has admin access)
@@ -271,12 +285,14 @@ HITRUST Validated Assessors will verify:
 ✓ Quarterly access reviews performed (4 consecutive quarters)
 
 ### Testing Requirements
+
 ✓ Sample 25 access requests (test approval process)
 ✓ Sample 25 terminations (test <24hr revocation)
 ✓ Review 4 quarterly access review reports
 ✓ Test emergency access procedures
 
 ### Audit Trail
+
 ✓ CloudTrail/Azure AD logs show all access changes
 ✓ Logs retained for 6 years (HIPAA requirement)
 ✓ Logs centrally stored and protected from tampering
@@ -284,6 +300,7 @@ HITRUST Validated Assessors will verify:
 ## Common HITRUST Assessment Findings
 
 ### Critical (Likely to fail i1 certification)
+
 ❌ No access control policy
 ❌ No quarterly access reviews (must show 4 consecutive quarters)
 ❌ De-provisioning >24 hours after termination
@@ -292,6 +309,7 @@ HITRUST Validated Assessors will verify:
 ❌ Audit logs not retained for 6 years
 
 ### Moderate (Corrective Action Plan required)
+
 ⚠️ Access review missing manager sign-offs
 ⚠️ Access request samples show unapproved access
 ⚠️ RBAC matrix not current (roles changed, matrix not updated)
@@ -299,6 +317,7 @@ HITRUST Validated Assessors will verify:
 ⚠️ Some access not role-based (ad-hoc permissions)
 
 ### Minor (Observations)
+
 ⚠️ Access review documentation could be more detailed
 ⚠️ Emergency access procedures not tested
 ⚠️ HR integration manual (not automated)
@@ -306,6 +325,7 @@ HITRUST Validated Assessors will verify:
 ## Remediation Guidance
 
 ### If No Quarterly Access Reviews
+
 1. **Immediate (Week 1)**: Export all user access from all PHI systems
 2. **Week 2**: Send access lists to managers for validation
 3. **Week 3**: Collect manager sign-offs, identify inappropriate access
@@ -316,6 +336,7 @@ HITRUST Validated Assessors will verify:
 **Priority**: 🔴 CRITICAL (required for i1 certification)
 
 ### If De-Provisioning >24 Hours
+
 1. **Week 1**: Identify manual steps causing delay
 2. **Week 2**: Automate HR → IAM integration (use Workday/BambooHR APIs)
 3. **Weeks 3-4**: Test automated de-provisioning in non-prod
@@ -326,6 +347,7 @@ HITRUST Validated Assessors will verify:
 **Priority**: 🔴 CRITICAL (HIPAA requirement)
 
 ### If No RBAC
+
 1. **Week 1**: Define standard roles (Physician, Nurse, Billing, Admin, etc.)
 2. **Week 2**: Map current permissions to roles (create RBAC matrix)
 3. **Weeks 3-4**: Assign users to roles (remove ad-hoc permissions)
@@ -338,6 +360,7 @@ HITRUST Validated Assessors will verify:
 ## Cross-References
 
 ### Related HITRUST CSF Controls
+
 - 01.b - Privilege Management
 - 01.c - User Password Management
 - 01.f - Segregation of Duties
@@ -345,6 +368,7 @@ HITRUST Validated Assessors will verify:
 - 01.m - Teleworking (remote access for PHI)
 
 ### Maps to Other Frameworks
+
 - **HIPAA**: §164.312(a)(2)(i) - Unique User Identification, §164.308(a)(3)(i) - Workforce security
 - **NIST 800-53**: AC-2 (Account Management), AC-5 (Separation of Duties), AC-6 (Least Privilege)
 - **ISO 27001:2022**: A.5.15 (Access control), A.5.16 (Identity management), A.5.18 (Access rights)
@@ -354,6 +378,7 @@ HITRUST Validated Assessors will verify:
 ## Cost Estimates
 
 ### HITRUST CSF i1 Certification (Level 2, Small-Medium Healthcare Org)
+
 - HITRUST readiness assessment: 80 hours ($8,000)
 - Access control implementation (01.a + related): 120 hours ($12,000)
 - RBAC matrix development: 40 hours ($4,000)
@@ -363,12 +388,14 @@ HITRUST Validated Assessors will verify:
 - **Total Year 1**: ~$72k-$112k (one-time) + $16k/year (quarterly reviews)
 
 ### HITRUST i1 Certification Ongoing
+
 - Annual assessment: $40k-$80k/year
 - Quarterly access reviews: $16k/year
 - RBAC matrix updates: $2k/year
 - **Ongoing**: ~$58k-$98k/year
 
 ### Tools
+
 - Identity governance platform: $10k-$50k/year
 - HR system integration: $5k-$15k/year
 - GRC platform with HITRUST MyCSF: $15k-$40k/year

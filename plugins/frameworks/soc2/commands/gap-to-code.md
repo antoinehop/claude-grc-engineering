@@ -177,6 +177,7 @@ resource "aws_s3_bucket_policy" "enforce_encryption" {
 ```
 
 Validation Steps:
+
 ```bash
 # After applying, verify encryption
 aws s3api get-bucket-encryption --bucket legacy-backups-2019
@@ -187,6 +188,7 @@ aws s3api get-bucket-encryption --bucket logs-archive-old
 ```
 
 Evidence Collection:
+
 ```bash
 # Collect evidence for auditor
 aws s3api get-bucket-encryption --bucket legacy-backups-2019 > evidence/cc6-7-encryption.json
@@ -207,6 +209,7 @@ Effort: 2 minutes (terraform apply)
 Cost Impact: +$12/month (additional S3 storage + Glacier)
 
 Generated Code: ./remediation/modules/logging/cloudtrail_retention.tf
+
 ```terraform
 # Remediation for CC7.2 - Audit Log Retention
 # Satisfies: SOC 2 CC7.2/CC7.3, PCI-DSS 10.7, NIST AU-11
@@ -274,6 +277,7 @@ resource "aws_s3_bucket_object_lock_configuration" "cloudtrail_lock" {
 ```
 
 Validation Steps:
+
 ```bash
 # Verify CloudWatch retention
 aws logs describe-log-groups --log-group-name-prefix "/aws/cloudtrail" \
@@ -287,6 +291,7 @@ aws s3api get-object-lock-configuration --bucket cloudtrail-logs-production
 ```
 
 Evidence Collection:
+
 ```bash
 # Collect retention configuration evidence
 aws logs describe-log-groups --log-group-name-prefix "/aws/cloudtrail" > evidence/cc7-2-retention.json
@@ -307,6 +312,7 @@ Effort: 15 minutes (deploy Lambda + EventBridge)
 Cost Impact: +$2/month (Lambda executions)
 
 Generated Code: ./remediation/modules/access_control/automated_access_review.tf
+
 ```terraform
 # Remediation for CC6.1 - Automated Access Reviews
 # Satisfies: SOC 2 CC6.1, PCI-DSS 8.1.4, NIST AC-2
@@ -439,6 +445,7 @@ resource "aws_s3_bucket_versioning" "evidence_versioning" {
 ```
 
 Lambda Code: ./remediation/modules/access_control/access_review.py
+
 ```python
 import boto3
 import json
@@ -546,6 +553,7 @@ def handler(event, context):
 ```
 
 Deployment Steps:
+
 ```bash
 # Package Lambda function
 cd remediation/modules/access_control
@@ -562,6 +570,7 @@ cat response.json
 ```
 
 Validation Steps:
+
 ```bash
 # Verify EventBridge rule
 aws events describe-rule --name soc2-quarterly-access-review
@@ -684,6 +693,7 @@ NEXT STEPS
 6. Generate updated TSC matrix: /soc2:generate-tsc-matrix
 7. Collect evidence for remediated controls
 8. Continue with Phase 2 and 3 deployments
+
 ```
 
 ## Integration Workflow
@@ -718,21 +728,25 @@ terraform apply
 ## Cloud Provider Support
 
 ### AWS (Primary)
+
 - Terraform modules for IAM, S3, CloudTrail, CloudWatch, Lambda
 - AWS CLI commands for validation
 - boto3 Python scripts for automation
 
 ### Azure (Supported)
+
 - Terraform azurerm provider
 - Azure AD, Key Vault, Monitor, Storage
 - az-cli validation commands
 
 ### GCP (Supported)
+
 - Terraform google provider
 - Cloud IAM, Cloud Storage, Cloud Logging
 - gcloud validation commands
 
 ### Multi-Cloud (Advanced)
+
 - Generates IaC for all providers simultaneously
 - Cross-cloud control mapping
 - Unified evidence collection

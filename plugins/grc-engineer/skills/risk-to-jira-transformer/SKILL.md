@@ -11,11 +11,13 @@ Converts unstructured risk assessments into structured engineering tickets. Turn
 ## Quick Commands
 
 **Transform a risk assessment:**
+
 ```bash
 node scripts/transform-risk.js "Vulnerability in authentication service discovered during pen test. High likelihood, critical impact. Mitigation: Implement OAuth2 with PKCE." SEC
 ```
 
 **Transform with custom project:**
+
 ```bash
 node scripts/transform-risk.js "<risk description>" INFRA
 ```
@@ -23,6 +25,7 @@ node scripts/transform-risk.js "<risk description>" INFRA
 ## Input Format
 
 Accepts natural language risk descriptions. Automatically extracts:
+
 - **Risk Description** - What is the risk?
 - **Likelihood** - How likely is it to occur? (Low/Medium/High/Critical)
 - **Impact** - What is the impact? (Low/Medium/High/Critical)
@@ -62,6 +65,7 @@ Generates JSON formatted for Jira API:
 ## Risk Scoring
 
 Automatically calculates risk score:
+
 - **Critical** - High/Critical Likelihood × High/Critical Impact
 - **High** - Medium Likelihood × High Impact, or High Likelihood × Medium Impact
 - **Medium** - Other combinations
@@ -78,4 +82,3 @@ Automatically calculates risk score:
 - Risk description (natural language)
 - Optional: Jira project key (defaults to SEC)
 - Optional: Jira API credentials (for direct posting)
-

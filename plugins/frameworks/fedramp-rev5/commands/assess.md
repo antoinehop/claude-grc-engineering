@@ -7,20 +7,24 @@ description: Assess FedRAMP Rev 5 authorization readiness
 Evaluates readiness for traditional FedRAMP authorization under Rev 5.
 
 ## Arguments
+
 - `$1` - Impact level (required: low, moderate, high)
 - `$2` - Authorization path (optional: agency, jab)
 
 ## Impact Levels
 
 ### FedRAMP Low (~125 controls)
+
 - Low-impact data (public information)
 - Minimal security requirements
 
 ### FedRAMP Moderate (~325 controls)
+
 - Controlled unclassified information (CUI)
 - Most common authorization level
 
 ### FedRAMP High (~425 controls)
+
 - Highly sensitive data
 - Law enforcement, emergency services
 

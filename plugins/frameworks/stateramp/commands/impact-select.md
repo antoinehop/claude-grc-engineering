@@ -7,6 +7,7 @@ description: Determine appropriate StateRAMP impact level (Low vs Moderate)
 Helps determine the appropriate StateRAMP impact level based on system characteristics and data sensitivity.
 
 ## Arguments
+
 - `$1` - System type (optional: description of system/service)
 
 ## Impact Level Decision Framework
@@ -14,11 +15,13 @@ Helps determine the appropriate StateRAMP impact level based on system character
 StateRAMP uses FIPS 199 categorization based on three security objectives:
 
 ### Security Objectives
+
 1. **Confidentiality**: Unauthorized disclosure impact
 2. **Integrity**: Unauthorized modification impact
 3. **Availability**: System disruption impact
 
 ### Impact Ratings
+
 - **Low**: Limited adverse effect
 - **Moderate**: Serious adverse effect
 - **High**: Severe or catastrophic adverse effect
@@ -28,12 +31,14 @@ StateRAMP uses FIPS 199 categorization based on three security objectives:
 ## StateRAMP Low Impact
 
 ### When to Choose Low
+
 - Public information only (no CUI or PII)
 - Limited adverse effect if compromised
 - Non-critical government operations
 - Disruption has minimal impact
 
 ### Example Systems
+
 - Public-facing websites (informational)
 - Event calendars and scheduling
 - Public comment systems
@@ -42,12 +47,14 @@ StateRAMP uses FIPS 199 categorization based on three security objectives:
 - Public records (already disclosed)
 
 ### Data Types (Low)
+
 - Public information
 - Published government data
 - General announcements
 - Non-sensitive forms
 
 ### Control Requirements
+
 - ~125 NIST 800-53 controls
 - Lighter compliance burden
 - Simpler continuous monitoring
@@ -55,6 +62,7 @@ StateRAMP uses FIPS 199 categorization based on three security objectives:
 ## StateRAMP Moderate Impact
 
 ### When to Choose Moderate
+
 - Controlled Unclassified Information (CUI)
 - Personally Identifiable Information (PII)
 - Protected Health Information (PHI)
@@ -63,6 +71,7 @@ StateRAMP uses FIPS 199 categorization based on three security objectives:
 - Serious adverse effect if compromised
 
 ### Example Systems
+
 - Tax collection and processing
 - Benefits administration (SNAP, Medicaid, etc.)
 - Human resources and payroll
@@ -75,6 +84,7 @@ StateRAMP uses FIPS 199 categorization based on three security objectives:
 - Grant management with sensitive data
 
 ### Data Types (Moderate)
+
 - Social Security Numbers
 - Driver's license numbers
 - Financial account information
@@ -85,6 +95,7 @@ StateRAMP uses FIPS 199 categorization based on three security objectives:
 - Employee records
 
 ### Control Requirements
+
 - ~325 NIST 800-53 controls
 - More rigorous assessment
 - Enhanced continuous monitoring
@@ -110,10 +121,12 @@ Does system process/store any of:
 ### Confidentiality Impact
 
 **Low**: Public relations system
+
 - Information is already public
 - Disclosure has no privacy implications
 
 **Moderate**: Benefits administration
+
 - Contains PII and financial data
 - Unauthorized disclosure violates privacy
 - Could enable identity theft or fraud
@@ -121,10 +134,12 @@ Does system process/store any of:
 ### Integrity Impact
 
 **Low**: Public information website
+
 - Defacement is embarrassing but correctable
 - No safety or financial consequences
 
 **Moderate**: Licensing database
+
 - Incorrect licenses could enable fraud
 - Could compromise public safety
 - Financial harm to individuals/government
@@ -132,11 +147,13 @@ Does system process/store any of:
 ### Availability Impact
 
 **Low**: Event calendar
+
 - Citizens can call or visit in person
 - Alternative channels exist
 - Temporary inconvenience only
 
 **Moderate**: Emergency dispatch system
+
 - Critical for public safety
 - Lives at risk if unavailable
 - No immediate alternative
@@ -156,17 +173,21 @@ Does system process/store any of:
 ## Special Considerations
 
 ### Data Aggregation
+
 - Individual data points may be low impact
 - Aggregated data may elevate to moderate
 - Example: Individual addresses (low) vs. database of all addresses (moderate)
 
 ### External Interfaces
+
 - Connections to moderate systems may require moderate
 - API data exchange considerations
 - Integration security requirements
 
 ### State-Specific Requirements
+
 Some states may require:
+
 - Higher impact levels for certain data types
 - Additional controls beyond baseline
 - Specific categorization criteria
@@ -174,7 +195,9 @@ Some states may require:
 **Check** `/stateramp:state-specific` for state variations
 
 ### Business Impact Analysis
+
 Consider:
+
 - Mission criticality
 - Service disruption cost
 - Constituent impact
@@ -201,6 +224,7 @@ Consider:
 ## Impact Level Change
 
 **If system changes**:
+
 - New data types added → May require higher impact
 - System connections change → Re-evaluate
 - Significant change = new authorization required
@@ -234,6 +258,7 @@ The command provides:
 ## Next Steps
 
 After selecting impact level:
+
 1. Use `/stateramp:assess <level>` for readiness assessment
 2. Review `/stateramp:documentation` for required packages
 3. Engage stateramp-expert skill for control implementation guidance

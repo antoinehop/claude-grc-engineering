@@ -95,11 +95,13 @@ az ad user list --output json > evidence/cmmc-ac-3.1.1-azure-users-$(date +%Y%m)
 gcloud projects get-iam-policy <CUI-PROJECT-ID> --format=json \
   > evidence/cmmc-ac-3.1.1-gcp-iam-$(date +%Y%m).json
 ```
+
 Collection Frequency: Monthly snapshot
 Retention: 3 years (DFARS requirement)
 Purpose: Demonstrates authorized user inventory
 
 ✓ **Privileged Access Inventory (Weekly)**
+
 ```bash
 # AWS Administrator accounts
 aws iam list-users | jq '.Users[] | select(.Tags[]? | select(.Key == "PrivilegedAccess" and .Value == "true"))' \
@@ -117,11 +119,13 @@ done > evidence/cmmc-ac-3.1.1-admin-users-$(date +%Y%m%d).txt
 az ad directory role member list --role "Global Administrator" --output json \
   > evidence/cmmc-ac-3.1.1-azure-admins-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Weekly snapshot
 Retention: 3 years
 Purpose: Tracks privileged access for CUI systems
 
 ✓ **Access Grant/Revocation Logs (Monthly)**
+
 ```bash
 # AWS CloudTrail IAM events (last 30 days)
 aws cloudtrail lookup-events \
@@ -151,11 +155,13 @@ az monitor activity-log list \
   --start-time $(date -u -d '30 days ago' +%Y-%m-%dT%H:%M:%S) \
   --output json > evidence/cmmc-ac-3.1.1-azure-access-changes-$(date +%Y%m).json
 ```
+
 Collection Frequency: Monthly
 Retention: 3 years
 Purpose: Audit trail of access changes
 
 ✓ **Authentication Logs (Daily for CUI access)**
+
 ```bash
 # AWS CloudTrail console logins (last 24 hours)
 aws cloudtrail lookup-events \
@@ -176,6 +182,7 @@ az monitor activity-log list \
   --start-time $(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%S) \
   --output json > evidence/cmmc-ac-3.1.1-azure-signins-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Daily
 Retention: 3 years
 Purpose: Authentication audit trail for CUI access
@@ -183,71 +190,77 @@ Purpose: Authentication audit trail for CUI access
 ### Manual Evidence Collection
 
 □ **Access Request Approvals (Quarterly Sample)**
-  - Sample size: 25 access grants in last quarter (or 100% if <25)
-  - Required elements for each sample:
-    - Original access request (ticket/email)
-    - Business justification for access
-    - Manager approval (signed/timestamped)
-    - Security team approval (for privileged access)
-    - Date access granted (within 5 days of approval)
-    - Least privilege validation (appropriate role assigned)
-  - Evidence: Folder of 25 approval tickets with screenshots
-  - Frequency: Quarterly review
-  - Sampling method: Random selection using NIST SP 800-53A guidance
+
+- Sample size: 25 access grants in last quarter (or 100% if <25)
+- Required elements for each sample:
+  - Original access request (ticket/email)
+  - Business justification for access
+  - Manager approval (signed/timestamped)
+  - Security team approval (for privileged access)
+  - Date access granted (within 5 days of approval)
+  - Least privilege validation (appropriate role assigned)
+- Evidence: Folder of 25 approval tickets with screenshots
+- Frequency: Quarterly review
+- Sampling method: Random selection using NIST SP 800-53A guidance
 
 □ **Quarterly Access Reviews**
-  - Review all user access to CUI systems
-  - Required elements:
-    - Complete user access list at review start date
-    - Manager sign-off for each user's continued need for access
-    - Identification of inappropriate access
-    - Remediation of access issues within 30 days
-    - Senior management sign-off on review completion
-  - Evidence:
-    - Access review report (Q1, Q2, Q3, Q4 2024/2025)
-    - Manager sign-off emails/forms
-    - Remediation tickets for access issues
-  - Frequency: Quarterly (90-day maximum interval)
-  - **CRITICAL**: CMMC Level 2 requires 4 consecutive quarterly reviews
+
+- Review all user access to CUI systems
+- Required elements:
+  - Complete user access list at review start date
+  - Manager sign-off for each user's continued need for access
+  - Identification of inappropriate access
+  - Remediation of access issues within 30 days
+  - Senior management sign-off on review completion
+- Evidence:
+  - Access review report (Q1, Q2, Q3, Q4 2024/2025)
+  - Manager sign-off emails/forms
+  - Remediation tickets for access issues
+- Frequency: Quarterly (90-day maximum interval)
+- **CRITICAL**: CMMC Level 2 requires 4 consecutive quarterly reviews
 
 □ **Privileged Access Justifications**
-  - Document business need for all privileged accounts
-  - Required for: Administrators, root/sudo, service accounts with elevated privileges
-  - Required elements:
-    - User name and role
-    - Business justification for privileged access
-    - Alternative controls (e.g., just-in-time access, MFA)
-    - Annual re-certification
-  - Evidence: Privileged Access Register (spreadsheet or database)
-  - Frequency: Annual review, monthly updates
+
+- Document business need for all privileged accounts
+- Required for: Administrators, root/sudo, service accounts with elevated privileges
+- Required elements:
+  - User name and role
+  - Business justification for privileged access
+  - Alternative controls (e.g., just-in-time access, MFA)
+  - Annual re-certification
+- Evidence: Privileged Access Register (spreadsheet or database)
+- Frequency: Annual review, monthly updates
 
 □ **Termination/Transfer Access Revocation**
-  - Sample size: All terminations/transfers in last quarter (or 25 if >25)
-  - Required elements:
-    - HR termination/transfer notice
-    - Access revoked within 24 hours (termination) or 5 days (transfer)
-    - Confirmation from IT that all access removed
-    - CloudTrail/Azure AD logs showing account disabled
-  - Evidence:
-    - HR notices
-    - IT revocation tickets
-    - Access removal confirmation logs
-  - Frequency: Quarterly review
+
+- Sample size: All terminations/transfers in last quarter (or 25 if >25)
+- Required elements:
+  - HR termination/transfer notice
+  - Access revoked within 24 hours (termination) or 5 days (transfer)
+  - Confirmation from IT that all access removed
+  - CloudTrail/Azure AD logs showing account disabled
+- Evidence:
+  - HR notices
+  - IT revocation tickets
+  - Access removal confirmation logs
+- Frequency: Quarterly review
 
 □ **Unauthorized Access Attempts Review**
-  - Review failed authentication logs monthly
-  - Document investigation of repeated failures (>5 attempts in 24 hours)
-  - Evidence:
-    - Monthly failed login report
-    - Investigation notes for anomalies
-    - Remediation actions (account lockouts, security incidents)
-  - Frequency: Monthly
+
+- Review failed authentication logs monthly
+- Document investigation of repeated failures (>5 attempts in 24 hours)
+- Evidence:
+  - Monthly failed login report
+  - Investigation notes for anomalies
+  - Remediation actions (account lockouts, security incidents)
+- Frequency: Monthly
 
 ## CMMC Level 2 Assessment Objectives
 
 The CMMC Certified Assessor (C3PAO) will verify:
 
 ### Documentation Review (Level 2 Process Maturity)
+
 ✓ Access Control Policy exists, is approved, and covers all required elements
 ✓ Procedures documented with screenshots/workflows
 ✓ SSP accurately describes AC.L2-3.1.1 implementation
@@ -255,6 +268,7 @@ The CMMC Certified Assessor (C3PAO) will verify:
 ✓ Quarterly access reviews documented (4 consecutive quarters minimum)
 
 ### Implementation Review (Technical Controls)
+
 ✓ Access controls are implemented on all CUI systems
 ✓ Authentication required for all access
 ✓ Unauthorized users cannot access CUI systems
@@ -262,6 +276,7 @@ The CMMC Certified Assessor (C3PAO) will verify:
 ✓ Privileged access limited to authorized users only
 
 ### Interview Questions (Expect These)
+
 - "Walk me through how a new employee gets access to CUI systems"
 - "Show me evidence of your last quarterly access review"
 - "How do you ensure contractors/third parties only access what they need?"
@@ -269,18 +284,21 @@ The CMMC Certified Assessor (C3PAO) will verify:
 - "How do you track privileged access?"
 
 ### Artifact Inspection
+
 ✓ Assessor will select random samples (typically 10-25 items):
-  - Access request tickets
-  - Quarterly access review reports
-  - Termination access revocation tickets
+
+- Access request tickets
+- Quarterly access review reports
+- Termination access revocation tickets
 ✓ Assessor will log into systems and verify:
-  - Test unauthorized access (should be blocked)
-  - Review user lists match documented inventory
-  - Check privileged users match justifications
+- Test unauthorized access (should be blocked)
+- Review user lists match documented inventory
+- Check privileged users match justifications
 
 ## Common CMMC Assessment Findings
 
 ### Critical (Level 2 Failure)
+
 ❌ No quarterly access reviews performed (show 4 consecutive quarters)
 ❌ Policy not documented or not approved by management
 ❌ Unauthorized users can access CUI systems
@@ -288,6 +306,7 @@ The CMMC Certified Assessor (C3PAO) will verify:
 ❌ Privileged access not tracked or monitored
 
 ### Moderate (Gaps requiring remediation)
+
 ⚠️ Quarterly access reviews incomplete (missing manager sign-offs)
 ⚠️ Access granted without documented approval (samples failed)
 ⚠️ Privileged access not justified
@@ -295,6 +314,7 @@ The CMMC Certified Assessor (C3PAO) will verify:
 ⚠️ Policy not reviewed annually
 
 ### Minor (Best practice recommendations)
+
 ⚠️ Procedures lack screenshots/diagrams
 ⚠️ Access approval turnaround time >5 days
 ⚠️ Orphaned accounts exist (inactive >90 days)
@@ -303,6 +323,7 @@ The CMMC Certified Assessor (C3PAO) will verify:
 ## Remediation Guidance
 
 ### If No Quarterly Access Reviews
+
 1. **Immediate (Week 1)**: Run first quarterly access review
    - Export all user access from all CUI systems
    - Send to managers for validation
@@ -322,6 +343,7 @@ The CMMC Certified Assessor (C3PAO) will verify:
 **IMPORTANT**: Level 2 assessment requires proof of 4 consecutive quarterly reviews. Plan your assessment date accordingly.
 
 ### If Policy Missing or Incomplete
+
 1. Use DOD template (available at cyber.mil)
 2. Customize for your organization and CUI systems
 3. Get senior management approval (Authorizing Official)
@@ -331,6 +353,7 @@ The CMMC Certified Assessor (C3PAO) will verify:
 ## Cross-References
 
 ### Related CMMC Practices
+
 - AC.L2-3.1.2 - Limit system access to types of transactions and functions
 - AC.L2-3.1.20 - External connections to CUI systems
 - AC.L2-3.1.22 - Control CUI in accordance with approved authorizations
@@ -338,6 +361,7 @@ The CMMC Certified Assessor (C3PAO) will verify:
 - IA.L2-3.5.2 - Multi-factor authentication (MFA)
 
 ### Maps to Other Frameworks
+
 - **NIST SP 800-171**: 3.1.1 (direct mapping)
 - **NIST 800-53**: AC-2, AC-3, AC-6 (Account/Access Management)
 - **ISO 27001:2022**: A.5.15, A.5.16, A.5.18 (Access control)
@@ -348,6 +372,7 @@ The CMMC Certified Assessor (C3PAO) will verify:
 ## Cost Estimates
 
 ### Level 2 Implementation (from scratch)
+
 - Policy/procedure development: 40 hours ($4,000)
 - Technical implementation (AWS/Azure IAM): 80 hours ($8,000)
 - First quarterly access review: 16 hours ($1,600)
@@ -357,6 +382,7 @@ The CMMC Certified Assessor (C3PAO) will verify:
 - **Ongoing**: ~$4k/year
 
 ### Tools/Services
+
 - Identity governance platform (optional): $5k-$20k/year
 - C3PAO assessment (Level 2): $15k-$45k (one-time)
 - Annual surveillance (if required): $5k-$15k/year

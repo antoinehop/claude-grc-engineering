@@ -7,6 +7,7 @@ description: Manage the risk register and risk assessments
 Maintains the organizational risk register and performs risk assessments.
 
 ## Arguments
+
 - `$1` - Action (required: add, update, assess, report)
 - `$2` - Risk ID or description (required for add/update)
 

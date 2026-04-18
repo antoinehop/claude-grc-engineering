@@ -7,6 +7,7 @@ description: Help select the appropriate SAQ type
 Helps determine the appropriate Self-Assessment Questionnaire type.
 
 ## Arguments
+
 - `$1` - Business description or SAQ type (optional)
 
 ## SAQ Types
@@ -25,24 +26,28 @@ Helps determine the appropriate Self-Assessment Questionnaire type.
 
 ## Selection Criteria
 
-### SAQ A Eligibility:
+### SAQ A Eligibility
+
 - Card-not-present only (e-commerce, mail, phone)
 - All payment processing outsourced
 - No electronic cardholder data storage
 - Website hosted entirely by PCI DSS compliant provider
 
-### SAQ A-EP Eligibility:
+### SAQ A-EP Eligibility
+
 - E-commerce only
 - Website affects payment security (redirects, iframes)
 - All payment processing outsourced
 - No electronic cardholder data storage
 
-### SAQ B Eligibility:
+### SAQ B Eligibility
+
 - Imprint-only machines, OR
 - Standalone dial-out terminals (no IP)
 - No electronic cardholder data storage
 
-### SAQ C Eligibility:
+### SAQ C Eligibility
+
 - Payment application connected to internet
 - No electronic cardholder data storage
 - Standalone terminal or PC-based

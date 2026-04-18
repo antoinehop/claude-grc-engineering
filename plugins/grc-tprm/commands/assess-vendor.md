@@ -7,6 +7,7 @@ description: Perform vendor security assessment
 Conducts security and risk assessment of third-party vendors.
 
 ## Arguments
+
 - `$1` - Vendor name or assessment file (required)
 - `$2` - Assessment type (optional: initial, annual, incident)
 
@@ -28,6 +29,7 @@ Conducts security and risk assessment of third-party vendors.
 ## Output
 
 Generates vendor risk assessment report with:
+
 - Overall risk rating (Critical/High/Medium/Low)
 - Risk factors by category
 - Required contractual controls

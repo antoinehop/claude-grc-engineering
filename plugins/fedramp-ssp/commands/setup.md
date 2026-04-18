@@ -21,6 +21,7 @@ bash plugins/fedramp-ssp/scripts/setup.sh [--python=<python3-executable>]
 4. Verify that the entry-point script runs (`python cli.py --help` or equivalent).
 5. Warn (not fail) if Java 17 isn't available — it's only needed for optional oscal-cli validation inside the pipeline; the `/oscal:validate` command from this toolkit can fill that role.
 6. Write config:
+
    ```yaml
    version: 1
    source: fedramp-ssp

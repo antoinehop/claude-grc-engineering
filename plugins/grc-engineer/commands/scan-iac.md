@@ -336,11 +336,13 @@ NEXT STEPS
 
 5. Collect evidence after remediation:
    /grc-engineer:collect-evidence <control-id> <provider>
+
 ```
 
 ### Summary Mode
 
 ```
+
 IaC Compliance Scan: ./terraform
 Frameworks: SOC2, PCI-DSS, NIST 800-53
 
@@ -353,11 +355,13 @@ Issues:
   ✓ Passing: 42
 
 Top Issues:
+
 1. S3 encryption missing (affects 3 frameworks)
 2. Log retention too short (PCI-DSS violation)
 3. Security groups too permissive (network security)
 
 Run with 'detailed' for full analysis.
+
 ```
 
 ### JSON Output (for CI/CD)
@@ -403,6 +407,7 @@ Run with 'detailed' for full analysis.
 ### SARIF Output (for GitHub Security)
 
 Outputs SARIF 2.1.0 format compatible with:
+
 - GitHub Security tab
 - GitLab Security Dashboard
 - Azure DevOps Security
@@ -419,6 +424,7 @@ Outputs SARIF 2.1.0 format compatible with:
 ```
 
 **Auto-fixes:**
+
 - ✓ Add missing S3 bucket encryption
 - ✓ Enable S3 versioning
 - ✓ Add S3 public access blocks
@@ -487,6 +493,7 @@ compliance_scan:
 ## Supported Checks
 
 ### Encryption
+
 - S3 bucket encryption
 - EBS volume encryption
 - RDS encryption at rest
@@ -494,24 +501,28 @@ compliance_scan:
 - TLS/SSL enforcement
 
 ### Access Control
+
 - IAM policies (overly permissive)
 - Security group rules
 - S3 bucket policies
 - Resource-based policies
 
 ### Logging & Monitoring
+
 - CloudTrail configuration
 - VPC Flow Logs
 - Log retention periods
 - CloudWatch alarms
 
 ### Network Security
+
 - Security group egress/ingress
 - Network ACLs
 - VPC configuration
 - Public exposure
 
 ### Data Protection
+
 - S3 versioning
 - Backup configurations
 - Deletion protection

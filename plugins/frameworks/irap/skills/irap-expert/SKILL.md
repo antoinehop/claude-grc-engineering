@@ -40,6 +40,7 @@ Expertise in Australian government cloud security based on ISM and Essential Eig
 8. **Regular Backups**: Daily backups, offline storage
 
 **Maturity Levels**:
+
 - Level 1: Partly aligned (some mitigation)
 - Level 2: Mostly aligned (good protection)
 - Level 3: Fully aligned (excellent protection)
@@ -47,6 +48,7 @@ Expertise in Australian government cloud security based on ISM and Essential Eig
 ### ISM Controls
 
 Over 1,400 security controls organized by:
+
 - Governance
 - Physical security
 - Personnel security
@@ -60,6 +62,7 @@ Over 1,400 security controls organized by:
 ### IRAP Assessment
 
 **Process**:
+
 1. IRAP assessor engagement
 2. ISM control assessment
 3. Essential Eight maturity assessment

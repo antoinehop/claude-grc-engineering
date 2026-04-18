@@ -7,12 +7,14 @@ description: Assess compliance with ISO 27001 requirements
 Evaluates ISMS compliance against ISO 27001:2022 requirements.
 
 ## Arguments
+
 - `$1` - Assessment scope (optional: isms, annexa, specific-control)
 - `$2` - Control domain (optional, for Annex A assessment)
 
 ## Assessment Areas
 
 ### ISMS Clauses (4-10)
+
 - Clause 4: Context of the Organization
 - Clause 5: Leadership
 - Clause 6: Planning
@@ -22,6 +24,7 @@ Evaluates ISMS compliance against ISO 27001:2022 requirements.
 - Clause 10: Improvement
 
 ### Annex A Control Domains (2022)
+
 - A.5: Organizational Controls (37 controls)
 - A.6: People Controls (8 controls)
 - A.7: Physical Controls (14 controls)

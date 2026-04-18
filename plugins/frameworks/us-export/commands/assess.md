@@ -24,6 +24,7 @@ Evaluates readiness for US export controls compliance across both ITAR (defense 
 ## Assessment Output
 
 **ITAR Assessment** (7 controls):
+
 1. **US Person Verification** - Access limited to US citizens / permanent residents
 2. **Data-Residency Posture** - US-located storage by default; 22 CFR 120.54 encryption carve-out available with counsel sign-off
 3. **Encryption Requirements** - FIPS 140-2 validated encryption
@@ -33,6 +34,7 @@ Evaluates readiness for US export controls compliance across both ITAR (defense 
 7. **Third-Party Access Control** - CSP access restrictions
 
 **EAR Assessment** (7 controls):
+
 1. **Export Control Classification** - ECCN or EAR99 determination
 2. **End-User Screening** - Denied parties list checking (Entity List, DPL, SDN)
 3. **Encryption Compliance** - FIPS 140 for Category 5 Part 2 items
@@ -42,11 +44,13 @@ Evaluates readiness for US export controls compliance across both ITAR (defense 
 7. **License Exceptions** - ENC, TSU, BAG applicability determination
 
 **Jurisdiction Determination**:
+
 - Is the item on the USML (US Munitions List)? → ITAR
 - Is the item on the CCL (Commerce Control List)? → EAR with ECCN
 - Neither list? → Likely EAR99. No license for most destinations / end-users, but destination (15 CFR 746), end-user (Entity List / DPL / SDN), and end-use (15 CFR 744) rules still apply. The "knowledge" standard means a license can be required even for EAR99 if you know or have reason to know the item is destined for a prohibited use or user.
 
 **Compliance Status**:
+
 - Compliant, Non-Compliant, Partially Compliant
 - Gap analysis with prioritized remediation steps
 - Registration/licensing requirements (DDTC for ITAR, BIS for EAR)

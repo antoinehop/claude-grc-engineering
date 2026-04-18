@@ -7,6 +7,7 @@ description: Check FedRAMP 20X Key Security Indicators compliance
 Evaluates compliance with FedRAMP 20X Key Security Indicators.
 
 ## Arguments
+
 - `$1` - KSI category (optional, defaults to all)
 - `$2` - Evidence path (optional)
 
@@ -26,6 +27,7 @@ Evaluates compliance with FedRAMP 20X Key Security Indicators.
 ## 20X Approach
 
 FedRAMP 20X emphasizes:
+
 - **Automated validation** over manual assessment
 - **Continuous monitoring** over point-in-time audits
 - **Machine-readable policies** over PDF documents

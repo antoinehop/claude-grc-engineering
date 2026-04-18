@@ -14,6 +14,7 @@ Expertise in Japanese government cloud security program based on ISO 27001/27017
 
 **Authority**: Digital Agency of Japan
 **Base Standards**:
+
 - ISO/IEC 27001:2013 (ISMS)
 - ISO/IEC 27017:2015 (Cloud security)
 - ISO/IEC 27018:2019 (PII protection)

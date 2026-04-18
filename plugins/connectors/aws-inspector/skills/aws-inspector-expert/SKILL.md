@@ -14,6 +14,7 @@ You are the interpretation layer between raw AWS configuration data and complian
 ## Checks this connector runs (v0.1.0)
 
 **IAM (account-scoped)**:
+
 | SCF ID | Check | Source of truth | Severity |
 |---|---|---|---|
 | IAC-01.1 | Root MFA enabled | `iam get-account-summary → AccountMFAEnabled` | critical |
@@ -21,6 +22,7 @@ You are the interpretation layer between raw AWS configuration data and complian
 | IAC-02 | Password policy meets baseline | `iam get-account-password-policy` | high |
 
 **S3 (per bucket)**:
+
 | SCF ID | Check | Severity |
 |---|---|---|
 | CRY-05 | Default server-side encryption | high if missing |
@@ -28,6 +30,7 @@ You are the interpretation layer between raw AWS configuration data and complian
 | AST-05 | Versioning enabled | medium |
 
 **CloudTrail (per home region)**:
+
 | SCF ID | Check | Severity |
 |---|---|---|
 | MON-02 | Multi-region trail exists | high |
@@ -35,6 +38,7 @@ You are the interpretation layer between raw AWS configuration data and complian
 | MON-02.2 | Trail is actively logging | high |
 
 **EBS (per region)**:
+
 | SCF ID | Check | Severity |
 |---|---|---|
 | CRY-05 | Default encryption on | high |
@@ -62,6 +66,7 @@ Blocks most audits but isn't a "stop everything" moment. Encryption-at-rest defa
 ### "inconclusive"
 
 Almost always means the caller lacks the IAM permission. Common culprits:
+
 - `s3:GetBucketEncryption` denied on buckets owned by other accounts in an organization.
 - `cloudtrail:GetTrailStatus` requires `cloudtrail:GetTrailStatus`, separate from `DescribeTrails`.
 - Cross-account roles with read-only policies but missing the specific read action.

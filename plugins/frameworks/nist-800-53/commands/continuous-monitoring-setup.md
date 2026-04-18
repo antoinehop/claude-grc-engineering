@@ -465,9 +465,10 @@ NIST Requirement:
            based on empirical data.
 
 FedRAMP Requirement:
-  - Monthly deliverables (vulnerability scan, POA&M, change log, incidents)
-  - Annual assessment by 3PAO
-  - Quarterly self-assessment
+
+- Monthly deliverables (vulnerability scan, POA&M, change log, incidents)
+- Annual assessment by 3PAO
+- Quarterly self-assessment
 
 Implementation:
 
@@ -564,32 +565,37 @@ terraform apply
 What Gets Deployed:
 
 ✓ Vulnerability Scanning:
-  - Amazon Inspector (continuous)
-  - Tenable Cloud Connector (monthly)
-  - SSM Patch Manager (automated patching)
-  - EventBridge rules (scan scheduling)
+
+- Amazon Inspector (continuous)
+- Tenable Cloud Connector (monthly)
+- SSM Patch Manager (automated patching)
+- EventBridge rules (scan scheduling)
 
 ✓ Security Monitoring:
-  - GuardDuty (threat detection)
-  - Security Hub (aggregation)
-  - CloudWatch Logs (365-day retention)
-  - VPC Flow Logs
-  - CloudTrail (multi-region)
+
+- GuardDuty (threat detection)
+- Security Hub (aggregation)
+- CloudWatch Logs (365-day retention)
+- VPC Flow Logs
+- CloudTrail (multi-region)
 
 ✓ Configuration Management:
-  - AWS Config (all regions)
-  - FedRAMP compliance rules (20+ rules)
-  - Change detection and alerting
+
+- AWS Config (all regions)
+- FedRAMP compliance rules (20+ rules)
+- Change detection and alerting
 
 ✓ Alerting and Reporting:
-  - PagerDuty integration (critical alerts)
-  - Slack webhooks (medium alerts)
-  - Email notifications (daily digest)
-  - Monthly FedRAMP report automation
+
+- PagerDuty integration (critical alerts)
+- Slack webhooks (medium alerts)
+- Email notifications (daily digest)
+- Monthly FedRAMP report automation
 
 ✓ Dashboards:
-  - CloudWatch dashboard (real-time metrics)
-  - QuickSight dashboard (trend analysis, optional)
+
+- CloudWatch dashboard (real-time metrics)
+- QuickSight dashboard (trend analysis, optional)
 
 Deployment Time: 2-3 hours (automated), 1 day (manual)
 Cost: $500-$2,000/month (depending on data volume, SIEM choice)
@@ -667,6 +673,7 @@ Expected Results:
   ✓ SI-4: GuardDuty enabled, findings exported, alerts configured
   ✓ CM-3: Config enabled, change detection working, manual changes detected
   ✓ CA-7: Metrics collected, dashboards functioning, reports generated
+
 ```
 
 ## Related Commands

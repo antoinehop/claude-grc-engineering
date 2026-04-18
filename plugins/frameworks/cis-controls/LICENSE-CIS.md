@@ -16,16 +16,19 @@ This is a deliberate carve-out. The rest of `claude-grc-engineering` stays MIT; 
 ## What this means for you
 
 **You may**:
+
 - Use this plugin in both commercial and non-commercial settings.
 - Modify or extend it.
 - Redistribute your modifications.
 
 **You must**:
+
 - Attribute the Center for Internet Security as the source of the CIS Controls content. See "Attribution" below.
 - Release your modifications to this plugin's CIS-derived content under **the same CC BY-SA 4.0 license**. This is "share-alike."
 - Not add additional restrictions on the redistribution of this plugin.
 
 **You may NOT**:
+
 - Strip CIS attribution from the plugin's output or documentation.
 - Relicense CIS-derived content as MIT, Apache-2.0, or any proprietary license.
 

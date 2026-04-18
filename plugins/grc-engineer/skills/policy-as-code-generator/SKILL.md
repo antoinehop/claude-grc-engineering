@@ -11,16 +11,19 @@ Converts natural language compliance requirements into executable policy code. G
 ## Quick Commands
 
 **Generate OPA Rego policy:**
+
 ```bash
 node scripts/generate-policy.js "Ensure no S3 buckets are public and all must have a 'Department' tag" rego
 ```
 
 **Generate AWS Config Rule:**
+
 ```bash
 node scripts/generate-policy.js "All EC2 instances must have encryption enabled" aws-config
 ```
 
 **Generate Sentinel policy:**
+
 ```bash
 node scripts/generate-policy.js "Terraform plans must not create resources without required tags" sentinel
 ```
@@ -44,6 +47,7 @@ node scripts/generate-policy.js "Terraform plans must not create resources witho
 ## Output Structure
 
 Generated policies include:
+
 - Policy definition with clear logic
 - Test cases/examples
 - Documentation comments
@@ -53,4 +57,3 @@ Generated policies include:
 
 - Natural language requirement description
 - Optional: Output format (defaults to rego)
-

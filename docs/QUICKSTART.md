@@ -41,6 +41,7 @@ The connector needs to know where to find the external inspector binary and how 
 ```
 
 This command is idempotent. It will:
+
 - Clone `hackIDLE/github-sec-inspector` into `~/.local/share/claude-grc/tools/github-sec-inspector/`
 - Verify `gh auth status`
 - Write `~/.config/claude-grc/connectors/github-inspector.yaml` with sane defaults
@@ -57,6 +58,7 @@ If `gh` isn't authenticated, you'll get a clear error and remediation steps. No 
 Replace `my-org` with an org you own or admin. For a personal account, use `--scope=@me`.
 
 The connector:
+
 - Walks repos, branches, protections, actions settings, code-scanning alerts, deploy keys, webhooks, Dependabot configuration, and secret-scanning state
 - Maps each finding to SCF controls (and from there, into every framework via crosswalk)
 - Writes the results to `~/.cache/claude-grc/findings/github-inspector/<run_id>.json`
@@ -110,22 +112,27 @@ Remediation bundle: ./gap-assessment-2026-04-13/remediation/
 ## 6. Explore what you can do next
 
 **Turn a finding into Terraform**:
+
 ```bash
 /grc-engineer:generate-implementation branch_protection aws
 ```
 
 **Add another framework without re-collecting**:
+
 ```bash
 /grc-engineer:gap-assessment SOC2,ISO-27001-2022,NIST-800-53-r5 --sources=github-inspector
 ```
+
 Cached findings are reused; only the crosswalk join re-runs.
 
 **See the same control across every framework**:
+
 ```bash
 /grc-engineer:map-controls-unified CC6.1
 ```
 
 **Add AWS to the picture**:
+
 ```bash
 /plugin install aws-inspector@grc-engineering-suite
 /aws-inspector:setup
@@ -134,6 +141,7 @@ Cached findings are reused; only the crosswalk join re-runs.
 ```
 
 **Schedule it**:
+
 ```bash
 /grc-engineer:monitor-continuous SOC2 daily --sources=github-inspector,aws-inspector --slack-webhook=$SLACK_URL
 ```

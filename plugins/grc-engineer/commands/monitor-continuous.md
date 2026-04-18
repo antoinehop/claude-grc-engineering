@@ -37,24 +37,28 @@ Establishes continuous compliance monitoring with automated testing, trend analy
 ## Features
 
 ### 1. Automated Control Testing
+
 - Runs `/grc-engineer:test-control` on schedule
 - Tests all controls for selected frameworks
 - Tracks pass/fail rates over time
 - Identifies degrading controls
 
 ### 2. Trend Analysis
+
 - 30-day compliance trend visualization
 - Control effectiveness over time
 - Framework compliance scoring
 - Degradation detection
 
 ### 3. Alerting
+
 - Immediate alerts on control failures
 - Daily/weekly summary reports
 - Slack, email, or PagerDuty integration
 - Configurable thresholds
 
 ### 4. Compliance Dashboard
+
 - Real-time compliance status
 - Control health visualization
 - Framework comparison
@@ -277,6 +281,7 @@ The monitoring dashboard provides:
 - **Alert History**: All alerts sent in last 30 days
 
 Access dashboard:
+
 ```bash
 http://localhost:3000/compliance-dashboard
 ```
@@ -284,18 +289,21 @@ http://localhost:3000/compliance-dashboard
 ## Alerting Rules
 
 ### Critical Alerts (Immediate)
+
 - Overall compliance drops below 80%
 - Any control fails for 2+ consecutive days
 - PCI-DSS compliance drops below 90%
 - Security control fails (encryption, access control)
 
 ### Warning Alerts (Daily Digest)
+
 - Overall compliance 80-90%
 - Control degrading (5% drop in 7 days)
 - Non-security control failures
 - Upcoming audit deadline (<30 days)
 
 ### Info Alerts (Weekly Summary)
+
 - Compliance trend (improving/declining)
 - Controls tested this week
 - Evidence collection status

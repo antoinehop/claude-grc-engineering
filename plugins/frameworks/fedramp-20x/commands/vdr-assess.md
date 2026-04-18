@@ -7,24 +7,28 @@ description: Assess Vulnerability Detection and Response capabilities
 Evaluates Vulnerability Detection and Response capabilities per FedRAMP 20X.
 
 ## Arguments
+
 - `$1` - Assessment scope (optional: scanning, response, reporting)
 - `$2` - Evidence path (optional)
 
 ## VDR Requirements
 
 ### Detection
+
 - Continuous vulnerability scanning
 - Coverage of all system components
 - Authenticated and unauthenticated scans
 - Container and cloud-native scanning
 
 ### Response
+
 - Defined remediation timelines
 - Patching automation
 - Risk-based prioritization
 - Exception handling process
 
 ### Reporting
+
 - Automated reporting to FedRAMP
 - Machine-readable vulnerability data
 - Trend analysis and metrics

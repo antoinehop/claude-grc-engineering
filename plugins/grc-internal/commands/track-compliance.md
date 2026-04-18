@@ -7,6 +7,7 @@ description: Track compliance status across frameworks and controls
 Monitors and reports on compliance status across multiple frameworks.
 
 ## Arguments
+
 - `$1` - Framework or control set (optional, defaults to all)
 - `$2` - Output format (optional: summary, detailed, dashboard)
 

@@ -23,6 +23,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 ### Scope and Applicability
 
 **Financial Entities Subject to DORA**:
+
 - Credit institutions (banks)
 - Payment institutions and e-money institutions
 - Investment firms
@@ -41,6 +42,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Securitization repositories
 
 **ICT Third-Party Service Providers**:
+
 - Cloud service providers
 - Software providers
 - Data analytics providers
@@ -48,6 +50,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Any provider of ICT services supporting critical or important functions
 
 **Geographic Scope**:
+
 - All EU member states
 - Applies to entities operating in EU
 - Extraterritorial effect for third-party providers serving EU financial entities
@@ -55,6 +58,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 ### Why DORA Matters
 
 **Industry Drivers**:
+
 - Increasing cyber threats targeting financial sector
 - Growing dependence on ICT and third-party providers
 - Cloud concentration risk
@@ -62,6 +66,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Fragmented national approaches pre-DORA
 
 **Regulatory Response**:
+
 - Harmonized requirements across EU
 - Enhanced oversight of critical third-party providers
 - Mandatory incident reporting
@@ -69,6 +74,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Board-level accountability
 
 **Business Impact**:
+
 - Significant compliance investment required
 - Contract renegotiations with ICT providers
 - Enhanced governance and risk management
@@ -84,6 +90,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 #### Governance Requirements (Article 5)
 
 **Management Body Responsibilities**:
+
 - Define, approve, and oversee digital operational resilience strategy
 - Approve and oversee ICT risk management framework
 - Allocate appropriate budget and resources
@@ -93,6 +100,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Receive regular reporting on ICT risk profile
 
 **Documentation**:
+
 - ICT strategy document
 - ICT risk management policy
 - Board minutes approving framework
@@ -123,6 +131,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
    - Management reporting
 
 **Proportionality Principle**:
+
 - Framework complexity proportionate to entity size
 - Smaller entities may adopt simplified approaches
 - Risk-based tailoring of requirements
@@ -131,6 +140,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 #### Identification (Article 8)
 
 **Asset Management**:
+
 - Inventory of all ICT assets
 - Hardware, software, network components
 - Cloud services and SaaS applications
@@ -138,6 +148,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Data assets and flows
 
 **Business Impact Analysis (BIA)**:
+
 - Identify critical and important functions
 - Map ICT dependencies
 - Assess impact of disruptions
@@ -145,12 +156,14 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Determine recovery point objectives (RPO)
 
 **Dependency Mapping**:
+
 - Internal system interdependencies
 - Third-party dependencies
 - Data flows (internal and external)
 - Critical supply chains
 
 **Deliverables**:
+
 - ICT asset register
 - Business impact analysis report
 - Dependency maps
@@ -160,6 +173,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 #### Protection and Prevention (Article 9)
 
 **Security Policies**:
+
 - Information security policy
 - Access control policy
 - Cryptography policy
@@ -167,6 +181,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Physical security policy
 
 **Technical Controls**:
+
 - **Identity and Access Management**:
   - Multi-factor authentication (MFA)
   - Privileged access management (PAM)
@@ -207,6 +222,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
   - Email and web filtering
 
 **Awareness and Training**:
+
 - Regular security awareness training for all staff
 - Role-based training for IT/security personnel
 - Phishing simulations
@@ -214,6 +230,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Annual refresher training
 
 **Physical and Environmental Security**:
+
 - Data center access controls
 - Environmental monitoring (temperature, humidity)
 - Fire suppression systems
@@ -223,6 +240,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 #### Detection (Article 10)
 
 **Continuous Monitoring**:
+
 - 24/7 monitoring of critical systems (for significant entities)
 - Security information and event management (SIEM)
 - Log aggregation and analysis
@@ -230,6 +248,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Anomaly detection
 
 **Detection Capabilities**:
+
 - Intrusion detection systems (IDS)
 - Network traffic analysis
 - User behavior analytics (UBA)
@@ -237,6 +256,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - File integrity monitoring
 
 **Logging Requirements**:
+
 - Comprehensive logging of security events
 - Log retention (typically 6-12 months minimum)
 - Secure log storage
@@ -244,6 +264,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Audit trails for privileged actions
 
 **Metrics and KPIs**:
+
 - Time to detect (TTD)
 - Mean time to detect (MTTD)
 - False positive rates
@@ -253,6 +274,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 #### Response and Recovery (Article 11)
 
 **Business Continuity Planning**:
+
 - Business continuity policy
 - Business continuity plans (BCPs) for critical functions
 - Disaster recovery plans (DRPs) for ICT systems
@@ -260,12 +282,14 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Communication plans
 
 **Recovery Objectives**:
+
 - Recovery Time Objective (RTO): Maximum acceptable downtime
 - Recovery Point Objective (RPO): Maximum acceptable data loss
 - Defined for each critical/important function
 - Documented and tested
 
 **Incident Response**:
+
 - Incident response plan
 - Incident response team and roles
 - Incident classification procedures
@@ -275,6 +299,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Post-incident review process
 
 **Backup and Restoration**:
+
 - Regular backups of critical data and systems
 - Backup frequency aligned with RPO
 - Offsite backup storage
@@ -283,6 +308,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Backup integrity verification
 
 **Testing Requirements**:
+
 - Annual testing of BCPs/DRPs (minimum)
 - Tabletop exercises
 - Simulation exercises
@@ -293,6 +319,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 #### Learning and Evolving (Article 12)
 
 **Post-Incident Reviews**:
+
 - Mandatory for all major incidents
 - Recommended for significant non-major incidents
 - Root cause analysis
@@ -301,6 +328,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Corrective action tracking
 
 **Continuous Improvement**:
+
 - Regular review of ICT risk framework
 - Updates based on lessons learned
 - Incorporation of new threats
@@ -308,6 +336,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 - Regulatory changes
 
 **Metrics and KPIs**:
+
 - Incident frequency and severity
 - Mean time to respond (MTTR)
 - Mean time to recover (MTTR)
@@ -318,18 +347,21 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 #### Communication (Article 13)
 
 **Internal Communication**:
+
 - Clear communication channels during incidents
 - Stakeholder notification procedures
 - Status update protocols
 - Escalation communication
 
 **External Communication**:
+
 - Client communication during disruptions
 - Media relations protocols
 - Regulatory communication (incident reporting)
 - Third-party provider communication
 
 **Crisis Communication**:
+
 - Crisis communication team
 - Pre-approved messaging templates
 - Spokesperson designation
@@ -344,12 +376,14 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 #### Incident Management Process (Article 17)
 
 **Detection**:
+
 - Continuous monitoring systems
 - User reporting mechanisms
 - Automated alerting
 - Threat intelligence feeds
 
 **Management Process**:
+
 1. **Detection and Logging**: Incident identified and logged
 2. **Assessment**: Initial impact and classification
 3. **Containment**: Stop spread of incident
@@ -360,6 +394,7 @@ Deep expertise in Digital Operational Resilience Act (DORA) for EU financial ent
 8. **Reporting**: To authorities if major incident
 
 **Incident Response Plan Elements**:
+
 - Roles and responsibilities (incident response team)
 - Communication procedures
 - Technical response procedures
@@ -400,6 +435,7 @@ An incident is **major** if it meets **one or more** of these:
    - Client compensation required
 
 **Classification Decision**:
+
 - Use documented criteria and thresholds
 - Involve senior management and risk/compliance
 - When in doubt, classify as major (can downgrade later)
@@ -407,6 +443,7 @@ An incident is **major** if it meets **one or more** of these:
 - Re-assess if incident evolves
 
 **Entity-Specific Thresholds**:
+
 - Defined based on entity size, complexity, risk profile
 - Approved by management body
 - Aligned with business impact analysis
@@ -421,18 +458,21 @@ An incident is **major** if it meets **one or more** of these:
 | **1 month** | Final report | Comprehensive analysis, definitive root cause, remediation, lessons learned, preventive measures |
 
 **Reporting Channels**:
+
 - To relevant national competent authority (NCA)
 - Via designated single point of contact
 - Using standardized templates (technical standards under development)
 - Electronic submission (secure portal or encrypted email)
 
 **Significant Updates**:
+
 - Required when material changes to impact assessment
 - Discovery of additional affected systems/data
 - Incident evolves or escalates
 - Timeline for updates: As soon as reasonably practicable
 
 **Cross-Border Incidents**:
+
 - Report to home member state NCA
 - NCA coordinates with other affected member states
 - May require parallel notifications (follow NCA guidance)
@@ -440,17 +480,20 @@ An incident is **major** if it meets **one or more** of these:
 #### Voluntary Notification (Article 20)
 
 **Cyber Threats**:
+
 - Financial entities may voluntarily report cyber threats
 - Significant vulnerabilities discovered
 - Attempted attacks (even if unsuccessful)
 - Threat intelligence about targeting
 
 **Benefits**:
+
 - Helps collective defense
 - Supports threat landscape understanding
 - Liability protection for good faith sharing
 
 **Process**:
+
 - Report to NCA or designated body
 - Share with information-sharing communities
 - No penalties for reporting
@@ -458,6 +501,7 @@ An incident is **major** if it meets **one or more** of these:
 #### Centralized Incident Reporting (Article 21-22)
 
 **ESA Responsibilities**:
+
 - Develop single EU hub for incident reporting
 - Anonymize and aggregate incident data
 - Analyze trends and patterns
@@ -465,6 +509,7 @@ An incident is **major** if it meets **one or more** of these:
 - Publish annual reports on incidents
 
 **Financial Entity Benefit**:
+
 - Insights into sector-wide threats
 - Benchmarking against peers
 - Early warning of emerging risks
@@ -541,11 +586,13 @@ An incident is **major** if it meets **one or more** of these:
     - APIs and interfaces
 
 **Testing Frequency**:
+
 - **Minimum**: Annual testing
 - **Risk-based**: More frequent for critical systems
 - **Triggered**: After significant changes, major incidents
 
 **Testing Documentation**:
+
 - Testing policy and procedures
 - Test plans
 - Test results and reports
@@ -555,16 +602,19 @@ An incident is **major** if it meets **one or more** of these:
 #### Advanced Testing - TLPT (Articles 26-27)
 
 **Threat-Led Penetration Testing (TLPT)**:
+
 - Sophisticated, intelligence-led red team testing
 - Simulates real-world attacks by threat actors
 - Based on TIBER-EU framework or equivalent
 
 **Applicability**:
+
 - **Mandatory** for significant financial entities
 - **At least every 3 years**
 - May be required more frequently based on risk
 
 **TIBER-EU Framework**:
+
 - **Threat Intelligence-Based Ethical Red Teaming**
 - Developed by European Central Bank (ECB)
 - Harmonized approach across EU
@@ -573,6 +623,7 @@ An incident is **major** if it meets **one or more** of these:
 **TLPT Phases**:
 
 **Phase 1: Preparation**
+
 - Scoping of critical functions and systems
 - Threat intelligence gathering
 - Scenario development based on real threat actors
@@ -581,6 +632,7 @@ An incident is **major** if it meets **one or more** of these:
 - Stakeholder preparation
 
 **Phase 2: Testing**
+
 - Red team executes attack scenarios
 - Uses realistic tactics, techniques, procedures (TTPs)
 - Blue team (internal) defends and responds
@@ -589,6 +641,7 @@ An incident is **major** if it meets **one or more** of these:
 - No actual harm to production (controlled environment)
 
 **Phase 3: Closure**
+
 - Debriefing and knowledge sharing
 - Red team report with findings
 - Blue team response analysis
@@ -623,12 +676,14 @@ An incident is **major** if it meets **one or more** of these:
   - Identify gaps and improvements
 
 **TLPT Scope**:
+
 - Critical functions and services (per BIA)
 - Crown jewel systems and data
 - Key dependencies and integrations
 - Third-party connections (if material)
 
 **Remediation**:
+
 - Address critical findings within 30 days
 - High findings within 90 days
 - Track and validate remediation
@@ -636,6 +691,7 @@ An incident is **major** if it meets **one or more** of these:
 - NCA notification if required
 
 **Inherited TLPT**:
+
 - May leverage cloud provider's TLPT results
 - If critical services fully outsourced
 - Must verify applicability to entity's use
@@ -650,11 +706,13 @@ An incident is **major** if it meets **one or more** of these:
 #### ICT Third-Party Risk (Article 28)
 
 **Third-Party Register**:
+
 - **Mandatory** register of all ICT third-party service providers
 - Updated at least annually
 - Submitted to NCA upon request
 
 **Register Contents**:
+
 - Provider name and contact information
 - Description of services provided
 - Countries where services are provided
@@ -693,6 +751,7 @@ An incident is **major** if it meets **one or more** of these:
    - Alternative provider identified
 
 **Concentration Risk**:
+
 - Assess dependence on single or few providers
 - Identify single points of failure
 - Consider systemic risk (e.g., cloud provider used by many entities)
@@ -766,6 +825,7 @@ An incident is **major** if it meets **one or more** of these:
     - Jurisdiction for enforcement
 
 **Contract Review and Renegotiation**:
+
 - All existing contracts must be updated to include DORA provisions
 - Deadline: Typically within 12-24 months of DORA effective date (check regulatory technical standards for specifics)
 - Priority: Critical providers first
@@ -774,6 +834,7 @@ An incident is **major** if it meets **one or more** of these:
 #### Critical ICT Third-Party Service Providers
 
 **Designation Process**:
+
 - Designated by European Supervisory Authorities (ESAs)
 - Based on systemic importance criteria:
   - Number of financial entities served
@@ -782,6 +843,7 @@ An incident is **major** if it meets **one or more** of these:
   - Interconnectedness with financial system
 
 **Examples of Likely Critical Providers**:
+
 - Major cloud service providers (AWS, Azure, Google Cloud)
 - Core banking system vendors
 - Payment processing platforms
@@ -789,6 +851,7 @@ An incident is **major** if it meets **one or more** of these:
 - Widely-used cybersecurity tool providers
 
 **Oversight Framework**:
+
 - **Lead Overseer**: One ESA designated as lead
 - **Oversight Responsibilities**:
   - On-site and remote inspections
@@ -798,6 +861,7 @@ An incident is **major** if it meets **one or more** of these:
   - Enforcement actions (fines, restrictions)
 
 **Critical Provider Obligations**:
+
 - Register with lead overseer
 - Provide information upon request
 - Submit to inspections and audits
@@ -807,6 +871,7 @@ An incident is **major** if it meets **one or more** of these:
 - Cooperate with oversight activities
 
 **Financial Entity Benefit**:
+
 - Reduced due diligence burden (ESA oversight provides assurance)
 - Access to oversight reports (where permitted)
 - Collective bargaining power through regulatory oversight
@@ -821,11 +886,13 @@ An incident is **major** if it meets **one or more** of these:
 #### Information Sharing Frameworks
 
 **Participation**:
+
 - Financial entities encouraged to join information-sharing communities
 - Voluntary participation
 - No penalties for sharing in good faith
 
 **Types of Information Shared**:
+
 - **Cyber Threat Intelligence**:
   - Indicators of Compromise (IOCs): IPs, domains, file hashes
   - Tactics, Techniques, Procedures (TTPs) of threat actors
@@ -845,6 +912,7 @@ An incident is **major** if it meets **one or more** of these:
   - Best practices
 
 **Confidentiality and Liability Protection**:
+
 - Information shared in good faith is protected
 - No liability for sharing threat intelligence
 - Confidentiality of shared information maintained
@@ -920,6 +988,7 @@ An incident is **major** if it meets **one or more** of these:
    - Participate in working groups
 
 **Benefits**:
+
 - Early warning of threats targeting financial sector
 - Collective defense against common adversaries
 - Reduced time to detect and respond
@@ -927,6 +996,7 @@ An incident is **major** if it meets **one or more** of these:
 - Enhanced situational awareness
 
 **Challenges**:
+
 - Legal and confidentiality concerns (addressed by DORA protections)
 - Resource constraints (automated feeds help)
 - Competitive sensitivity (anonymization helps)
@@ -939,6 +1009,7 @@ An incident is **major** if it meets **one or more** of these:
 ### Pre-Effective Date (Before January 17, 2025)
 
 **Months 1-3: Gap Assessment and Planning**
+
 - Conduct comprehensive DORA gap assessment
 - Map current state to 5 pillars
 - Identify critical gaps
@@ -946,6 +1017,7 @@ An incident is **major** if it meets **one or more** of these:
 - Secure executive commitment and budget
 
 **Months 4-6: Governance and Policy**
+
 - Establish ICT risk management framework
 - Draft/update policies (ICT risk, incident response, third-party risk, testing)
 - Board approval of framework and policies
@@ -953,6 +1025,7 @@ An incident is **major** if it meets **one or more** of these:
 - Define roles and responsibilities
 
 **Months 7-9: ICT Risk Management Implementation**
+
 - Complete ICT asset inventory
 - Conduct business impact analysis (BIA)
 - Create dependency maps and data flow diagrams
@@ -961,6 +1034,7 @@ An incident is **major** if it meets **one or more** of these:
 - Establish 24/7 monitoring (for significant entities)
 
 **Months 10-12: Incident Management and Third-Party Risk**
+
 - Define major incident classification criteria
 - Implement incident management system
 - Develop incident response playbooks
@@ -969,6 +1043,7 @@ An incident is **major** if it meets **one or more** of these:
 - Begin contract renegotiations (DORA clauses)
 
 **Months 13-15: Testing Program**
+
 - Develop digital resilience testing policy
 - Conduct initial vulnerability assessments
 - Perform gap analysis against DORA
@@ -976,6 +1051,7 @@ An incident is **major** if it meets **one or more** of these:
 - Plan TLPT (for significant entities)
 
 **Months 16-18: Final Preparation**
+
 - Complete critical third-party contract updates
 - Finalize incident reporting procedures
 - Conduct dry run of major incident reporting
@@ -1003,6 +1079,7 @@ An incident is **major** if it meets **one or more** of these:
 ## Regulatory Technical Standards (RTS) and Implementing Technical Standards (ITS)
 
 **ESAs Developing Standards**:
+
 - European Banking Authority (EBA)
 - European Securities and Markets Authority (ESMA)
 - European Insurance and Occupational Pensions Authority (EIOPA)
@@ -1034,10 +1111,12 @@ An incident is **major** if it meets **one or more** of these:
    - Testing frequency and scope
 
 **Timeline**:
+
 - Most RTS/ITS expected by mid-2024 to late 2024
 - Allow financial entities time to implement before Jan 2025
 
 **Monitoring**:
+
 - Watch ESA websites for consultations and final standards
 - Participate in industry consultations
 - Update compliance programs as standards finalized
@@ -1049,10 +1128,12 @@ An incident is **major** if it meets **one or more** of these:
 ### Administrative Fines
 
 **Maximum Penalties** (Article 50):
+
 - Serious breaches: Up to **1% of annual turnover**
 - Repeated breaches: Up to **2% of annual turnover**
 
 **Breach Examples**:
+
 - Failure to report major incident
 - Inadequate ICT risk management framework
 - Non-compliance with testing requirements
@@ -1060,6 +1141,7 @@ An incident is **major** if it meets **one or more** of these:
 - Failure to implement NCAs recommendations
 
 **Aggravating Factors**:
+
 - Duration of breach
 - Intentional vs. negligent
 - Previous violations
@@ -1067,6 +1149,7 @@ An incident is **major** if it meets **one or more** of these:
 - Impact on financial stability
 
 **Mitigating Factors**:
+
 - Self-reporting
 - Prompt remediation
 - Cooperation with investigation
@@ -1155,42 +1238,52 @@ An incident is **major** if it meets **one or more** of these:
 ## Common Pitfalls and How to Avoid Them
 
 ### Pitfall 1: Underestimating Complexity
+
 **Problem**: Viewing DORA as just another compliance exercise
 **Solution**: Treat DORA as strategic transformation, not checklist compliance
 
 ### Pitfall 2: Insufficient Budget/Resources
+
 **Problem**: Underfunding DORA implementation
 **Solution**: Conduct thorough cost assessment, build business case, secure executive commitment
 
 ### Pitfall 3: Lack of Board Engagement
+
 **Problem**: Board treats DORA as IT issue
 **Solution**: Board training, regular reporting, frame as business resilience (not just IT)
 
 ### Pitfall 4: Incomplete Third-Party Register
+
 **Problem**: Missing or inaccurate register of ICT providers
 **Solution**: Comprehensive discovery process, procurement coordination, regular updates
 
 ### Pitfall 5: Contract Renegotiation Delays
+
 **Problem**: Providers slow to agree to DORA clauses
 **Solution**: Start early, prioritize critical providers, consider alternatives if provider refuses
 
 ### Pitfall 6: Inadequate Incident Classification
+
 **Problem**: Misclassifying incidents (major vs. non-major)
 **Solution**: Clear, documented criteria; risk/compliance involvement; err on side of reporting
 
 ### Pitfall 7: Unrealistic Testing Scope
+
 **Problem**: Testing program too limited or too ambitious
 **Solution**: Risk-based prioritization, phased approach, leverage external expertise
 
 ### Pitfall 8: Siloed Implementation
+
 **Problem**: IT/security implementing DORA without business involvement
 **Solution**: Cross-functional steering committee, business unit engagement, shared ownership
 
 ### Pitfall 9: Documentation Gaps
+
 **Problem**: Controls implemented but not documented
 **Solution**: Documentation discipline, centralized repository, regular reviews
 
 ### Pitfall 10: "Set and Forget" Mentality
+
 **Problem**: Treating DORA as one-time project
 **Solution**: Continuous monitoring, regular updates, embed in BAU processes
 
@@ -1201,6 +1294,7 @@ An incident is **major** if it meets **one or more** of these:
 ### Interaction with Other EU Regulations
 
 **GDPR (General Data Protection Regulation)**:
+
 - DORA complements GDPR
 - GDPR: Data protection and privacy
 - DORA: Digital operational resilience
@@ -1208,35 +1302,42 @@ An incident is **major** if it meets **one or more** of these:
 - Coordination: DORA incident reporting does not replace GDPR breach notification (both may apply)
 
 **NIS2 Directive (Network and Information Security Directive)**:
+
 - NIS2 applies to broader set of entities (including some financial)
 - DORA is lex specialis for financial sector (takes precedence)
 - Financial entities under DORA not subject to NIS2
 - Similar requirements: Risk management, incident reporting, supply chain security
 
 **MiCA (Markets in Crypto-Assets Regulation)**:
+
 - MiCA regulates crypto-asset service providers (CASPs)
 - DORA applies to CASPs
 - MiCA has specific requirements for CASPs; DORA adds operational resilience layer
 
 **EMIR/SFTR (Derivatives and Securities Financing Transactions)**:
+
 - DORA complements with operational resilience requirements
 - CCPs, trade repositories subject to both EMIR and DORA
 
 ### Alignment with International Standards
 
 **ISO 27001**: Information security management
+
 - DORA aligns with ISO 27001 principles
 - ISO certification helpful but not sufficient for DORA compliance
 
 **NIST Cybersecurity Framework**:
+
 - DORA's risk management framework similar to NIST CSF
 - Identify, Protect, Detect, Respond, Recover
 
 **TIBER-EU**:
+
 - DORA explicitly adopts TIBER-EU for TLPT
 - Harmonized threat-led testing across EU
 
 **SWIFT Customer Security Programme (CSP)**:
+
 - Banks using SWIFT also subject to CSP
 - DORA and SWIFT CSP complementary
 - Some overlap in controls (reduce duplication)
@@ -1246,29 +1347,36 @@ An incident is **major** if it meets **one or more** of these:
 ## Resources and References
 
 **Official DORA Regulation**:
+
 - Regulation (EU) 2022/2554 (OJ L 333, 27.12.2022)
 
 **European Supervisory Authorities**:
+
 - European Banking Authority (EBA): eba.europa.eu
 - European Securities and Markets Authority (ESMA): esma.europa.eu
 - European Insurance and Occupational Pensions Authority (EIOPA): eiopa.europa.eu
 
 **European Central Bank**:
+
 - TIBER-EU Framework: ecb.europa.eu
 
 **National Competent Authorities**:
+
 - Varies by member state (e.g., Bundesbank, Banque de France, Bank of Italy)
 
 **Industry Associations**:
+
 - European Banking Federation (EBF)
 - Insurance Europe
 - AFME (Association for Financial Markets in Europe)
 
 **Threat Intelligence and Information Sharing**:
+
 - FS-ISAC (Financial Services Information Sharing and Analysis Center): fsisac.com
 - ENISA (EU Agency for Cybersecurity): enisa.europa.eu
 
 **Standards and Frameworks**:
+
 - ISO 27001:2013 Information Security Management
 - NIST Cybersecurity Framework
 - TIBER-EU

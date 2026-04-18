@@ -410,9 +410,11 @@ Generate project plan:
 ```
 
 Import to project management tools:
+
 - Jira: Export as CSV, import as Epic with subtasks
 - Asana: Copy milestones, create project
 - Microsoft Project: Export as XML
+
 ```
 
 ## Related Commands

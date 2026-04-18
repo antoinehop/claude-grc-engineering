@@ -7,17 +7,20 @@ description: GDPR compliance readiness assessment
 Evaluates organizational readiness for General Data Protection Regulation (GDPR) compliance.
 
 ## Arguments
+
 - `$1` - Assessment scope (optional: full, data-mapping, rights-management, security-measures)
 - `$2` - Organization type (optional: controller, processor, joint-controller)
 
 ## GDPR Applicability
 
 **Territorial Scope**:
+
 - Establishment in EU (regardless of processing location)
 - Offering goods/services to EU data subjects
 - Monitoring behavior of EU data subjects
 
 **Data Subject Rights Territory**:
+
 - EU/EEA countries
 - UK (UK GDPR post-Brexit)
 - Switzerland (via adequacy decision)
@@ -63,6 +66,7 @@ Organizations must identify one lawful basis for each processing activity:
 ## Key Compliance Areas
 
 ### Data Mapping and Inventory
+
 - Systems processing personal data
 - Data flows (collection, storage, transfer, deletion)
 - Data categories and special categories
@@ -71,6 +75,7 @@ Organizations must identify one lawful basis for each processing activity:
 - Third-party processors
 
 ### Privacy Notices
+
 - Identity and contact of controller
 - DPO contact (if applicable)
 - Purposes and lawful basis
@@ -82,6 +87,7 @@ Organizations must identify one lawful basis for each processing activity:
 - Right to complain to supervisory authority
 
 ### Data Subject Rights (8 Rights)
+
 1. Right to be informed
 2. Right of access (Article 15)
 3. Right to rectification (Article 16)
@@ -92,6 +98,7 @@ Organizations must identify one lawful basis for each processing activity:
 8. Rights related to automated decision-making (Article 22)
 
 ### Security Measures (Article 32)
+
 - Encryption and pseudonymization
 - Confidentiality, integrity, availability
 - Regular testing and evaluation
@@ -99,25 +106,32 @@ Organizations must identify one lawful basis for each processing activity:
 - Privacy by Design and Default (Article 25)
 
 ### Records of Processing Activities (Article 30)
+
 Required for organizations with:
+
 - 250+ employees, OR
 - High-risk processing, OR
 - Regular processing of special categories/criminal data
 
 ### Data Protection Impact Assessment (DPIA)
+
 Required when processing likely to result in high risk:
+
 - Systematic and extensive profiling
 - Large-scale processing of special categories
 - Systematic monitoring of public areas
 - New technologies with high risk
 
 ### Data Protection Officer (DPO)
+
 Required for:
+
 - Public authorities (except courts)
 - Large-scale systematic monitoring
 - Large-scale processing of special categories/criminal data
 
 **DPO Requirements**:
+
 - Professional qualities and expertise
 - Adequate resources
 - Independence (no conflict of interest)
@@ -127,6 +141,7 @@ Required for:
 ## Cross-Border Data Transfers
 
 **Transfer Mechanisms**:
+
 1. **Adequacy Decision**: EU Commission approved countries (UK, Switzerland, Japan, etc.)
 2. **Standard Contractual Clauses (SCCs)**: EU-approved contracts
 3. **Binding Corporate Rules (BCRs)**: Group-wide policies
@@ -134,6 +149,7 @@ Required for:
 5. **Derogations**: Specific situations (consent, contract necessity, etc.)
 
 **Special Considerations**:
+
 - Schrems II decision impact (US transfers)
 - Transfer Impact Assessments (TIAs)
 - Supplementary measures beyond SCCs
@@ -141,6 +157,7 @@ Required for:
 ## Breach Notification Requirements
 
 **72-Hour Rule (Article 33)**:
+
 - Notify supervisory authority within 72 hours of becoming aware
 - Unless breach unlikely to result in risk to rights/freedoms
 - Describe nature, categories, approximate numbers
@@ -149,6 +166,7 @@ Required for:
 - Measures taken/proposed
 
 **Data Subject Notification (Article 34)**:
+
 - Required if high risk to rights and freedoms
 - Clear and plain language
 - Same information as supervisory authority
@@ -156,10 +174,12 @@ Required for:
 ## Supervisory Authorities
 
 **Lead Supervisory Authority**:
+
 - Based on main establishment in EU
 - Coordinates cross-border processing investigations
 
 **Examples**:
+
 - CNIL (France)
 - ICO (UK)
 - EDPB (European Data Protection Board)
@@ -168,6 +188,7 @@ Required for:
 ## Penalties
 
 **Administrative Fines (Article 83)**:
+
 - **Tier 1**: Up to €10M or 2% global annual turnover
   - Processor obligations, certification, monitoring body
 - **Tier 2**: Up to €20M or 4% global annual turnover
@@ -176,6 +197,7 @@ Required for:
   - Supervisory authority orders
 
 **Factors Considered**:
+
 - Nature, gravity, duration
 - Intentional or negligent
 - Mitigation actions
@@ -209,6 +231,7 @@ Required for:
 ## Assessment Timeline
 
 **Typical GDPR Compliance Journey**:
+
 1. **Gap Assessment**: 2-4 weeks
 2. **Data Mapping**: 4-8 weeks
 3. **Policy Development**: 4-6 weeks

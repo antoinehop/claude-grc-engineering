@@ -7,12 +7,14 @@ description: Review and manage Plan of Action & Milestones (POA&M)
 Analyzes and provides guidance on FedRAMP Plan of Action & Milestones.
 
 ## Arguments
+
 - `$1` - POA&M file or action (required)
 - `$2` - Analysis type (optional: gaps, priorities, aging)
 
 ## POA&M Requirements
 
 Each POA&M item must include:
+
 - Weakness description
 - Point of contact
 - Resources required

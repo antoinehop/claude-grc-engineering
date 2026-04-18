@@ -213,6 +213,7 @@ Signature: _________________________
 ```
 
 Customization Notes:
+
 - Fill in [PLACEHOLDERS] with your organization details
 - Adjust services, systems, and data types to match your environment
 - Ensure exclusions are justified
@@ -226,6 +227,7 @@ Purpose: Top-level security policy demonstrating management commitment
 Required By: Clause 5.2 - Policy
 
 Content:
+
 ```markdown
 # Information Security Policy
 
@@ -472,10 +474,11 @@ All documents include:
   ✓ Revision history table
 
 Document Control System:
-  - Version control: Git repository
-  - Approval workflow: Pull request + management sign-off
-  - Distribution: Confluence/SharePoint (all employees)
-  - Review frequency: Annually (or upon significant changes)
+
+- Version control: Git repository
+- Approval workflow: Pull request + management sign-off
+- Distribution: Confluence/SharePoint (all employees)
+- Review frequency: Annually (or upon significant changes)
 
 File Naming Convention:
   [ID]-[Document-Name]-v[Version].md
@@ -496,30 +499,34 @@ Step 1: Global Find and Replace
   Replace: John Smith
 
 Step 2: Update Organization-Specific Details
-  - ISMS scope (systems, locations, services)
-  - Organizational structure (roles, reporting)
-  - Risk appetite and tolerance levels
-  - Specific technologies and tools used
-  - Compliance requirements (industry-specific)
+
+- ISMS scope (systems, locations, services)
+- Organizational structure (roles, reporting)
+- Risk appetite and tolerance levels
+- Specific technologies and tools used
+- Compliance requirements (industry-specific)
 
 Step 3: Technical Implementation Details
-  - Cloud providers (AWS, Azure, GCP)
-  - Identity provider (Okta, Azure AD)
-  - Monitoring tools (CloudWatch, Datadog, Splunk)
-  - Endpoint protection (CrowdStrike, Carbon Black)
-  - Backup solutions and retention periods
+
+- Cloud providers (AWS, Azure, GCP)
+- Identity provider (Okta, Azure AD)
+- Monitoring tools (CloudWatch, Datadog, Splunk)
+- Endpoint protection (CrowdStrike, Carbon Black)
+- Backup solutions and retention periods
 
 Step 4: Review and Approval
-  - Legal review (data protection, contracts)
-  - Technical review (architecture, controls)
-  - Management review (objectives, resources)
-  - Approval signatures
+
+- Legal review (data protection, contracts)
+- Technical review (architecture, controls)
+- Management review (objectives, resources)
+- Approval signatures
 
 Step 5: Distribution and Training
-  - Publish to document management system
-  - Notify all employees
-  - Conduct training on key policies
-  - Track acknowledgment
+
+- Publish to document management system
+- Notify all employees
+- Conduct training on key policies
+- Track acknowledgment
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 COMPLETION CHECKLIST
@@ -573,6 +580,7 @@ NEXT STEPS
 6. Begin ISMS operation (collect evidence)
 7. Schedule internal audit (after 3+ months operation)
 8. Schedule Stage 1 audit with certification body
+
 ```
 
 ## Additional Documentation Templates

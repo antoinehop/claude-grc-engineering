@@ -7,6 +7,7 @@ description: Sync latest FedRAMP 20X policies from official repository
 Synchronizes the latest FedRAMP 20X machine-readable policies from the official FedRAMP/docs GitHub repository.
 
 ## Arguments
+
 - `$1` - Sync mode (optional: check, full, force)
 
 ## Sync Modes

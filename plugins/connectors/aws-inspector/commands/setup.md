@@ -33,6 +33,7 @@ The setup script runs `aws sts get-caller-identity` to verify credentials resolv
 2. Resolve credentials (`aws sts get-caller-identity`).
 3. Resolve default region (from `--region`, `AWS_REGION`, config, or fall back with a warning).
 4. Write config:
+
    ```yaml
    version: 1
    source: aws-inspector
@@ -45,6 +46,7 @@ The setup script runs `aws sts get-caller-identity` to verify credentials resolv
      regions: ["us-east-1"]    # add more with /aws-inspector:collect --regions=...
      services: ["iam", "s3", "cloudtrail", "ebs"]
    ```
+
 5. Warn if the caller ARN has administrative privileges (dogfooding: production scans should use a dedicated read-only IAM role like `SecurityAudit`).
 
 ## Typical output

@@ -18,6 +18,7 @@ Maintains and analyzes organizational risk registers.
 ## Risk Assessment Framework
 
 ### Likelihood Scale (1-5)
+
 1. Rare - May occur only in exceptional circumstances
 2. Unlikely - Could occur at some time
 3. Possible - Might occur at some time
@@ -25,6 +26,7 @@ Maintains and analyzes organizational risk registers.
 5. Almost Certain - Expected to occur in most circumstances
 
 ### Impact Scale (1-5)
+
 1. Insignificant - No real impact
 2. Minor - Some impact, easily remediated
 3. Moderate - Significant impact requiring response

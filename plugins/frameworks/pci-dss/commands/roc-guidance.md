@@ -7,6 +7,7 @@ description: ROC (Report on Compliance) template guidance
 Provides guidance for completing the PCI DSS Report on Compliance.
 
 ## Arguments
+
 - `$1` - ROC section or requirement number (optional)
 - `$2` - Topic (optional: testing, evidence, findings)
 
@@ -22,7 +23,8 @@ Provides guidance for completing the PCI DSS Report on Compliance.
 
 ## Key ROC Elements
 
-### For Each Requirement:
+### For Each Requirement
+
 - Requirement description
 - Testing procedures performed
 - In-place / Not in-place / N/A status
@@ -30,7 +32,8 @@ Provides guidance for completing the PCI DSS Report on Compliance.
 - Findings and observations
 - Compensating controls (if applicable)
 
-### Testing Methods:
+### Testing Methods
+
 - **Interview** - Personnel discussions
 - **Examine** - Document/configuration review
 - **Observe** - Process observation

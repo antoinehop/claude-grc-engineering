@@ -127,11 +127,13 @@ az resource list --output json > evidence/dora-art6-azure-assets-$(date +%Y%m%d)
 gcloud asset search-all-resources --format=json \
   > evidence/dora-art6-gcp-assets-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly (minimum), real-time preferred
 Retention: 5 years (DORA requirement)
 Purpose: Complete ICT asset inventory per Article 8(2)
 
 ✓ **Configuration Management Evidence**
+
 ```bash
 # AWS Config - Configuration compliance
 aws configservice describe-compliance-by-config-rule \
@@ -152,11 +154,13 @@ gcloud asset search-all-resources \
   --asset-types='compute.googleapis.com/Instance' \
   --format=json > evidence/dora-art6-gcp-policy-compliance-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Daily
 Retention: 5 years
 Purpose: ICT system configuration monitoring
 
 ✓ **Vulnerability Management Evidence**
+
 ```bash
 # AWS Inspector - Vulnerability findings
 aws inspector2 list-findings \
@@ -176,11 +180,13 @@ az security assessment list --output json \
 # Export via API or manual download
 # evidence/dora-art6-vulnerability-scan-$(date +%Y%m%d).csv
 ```
+
 Collection Frequency: Weekly (scans), Monthly (reports)
 Retention: 5 years
 Purpose: ICT vulnerability management per Article 9(4)
 
 ✓ **Patch Management Evidence**
+
 ```bash
 # AWS Systems Manager - Patch compliance
 aws ssm describe-instance-patch-states \
@@ -195,11 +201,13 @@ aws ssm describe-instance-patch-states \
   --output json | jq '.InstancePatchStates[] | select(.CriticalNonCompliantCount > 0 or .SecurityNonCompliantCount > 0)' \
   > evidence/dora-art6-missing-patches-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Weekly
 Retention: 5 years
 Purpose: Patch management process evidence
 
 ✓ **Backup and Recovery Evidence**
+
 ```bash
 # AWS Backup - Backup job status
 aws backup list-backup-jobs \
@@ -220,11 +228,13 @@ done
 # Azure - Recovery Services vaults
 az backup vault list --output json > evidence/dora-art6-azure-vaults-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly
 Retention: 5 years
 Purpose: Backup and recovery capabilities per Article 11
 
 ✓ **Monitoring and Logging Evidence**
+
 ```bash
 # AWS CloudTrail - Audit trail
 aws cloudtrail describe-trails --output json \
@@ -245,6 +255,7 @@ az monitor activity-log list \
   --start-time $(date -u -d '30 days ago' +%Y-%m-%dT%H:%M:%S) \
   --output json > evidence/dora-art6-azure-activity-$(date +%Y%m).json
 ```
+
 Collection Frequency: Daily (critical alerts), Monthly (summaries)
 Retention: 5 years
 Purpose: Continuous monitoring per Article 17
@@ -252,79 +263,89 @@ Purpose: Continuous monitoring per Article 17
 ### Manual Evidence Collection
 
 □ **Management Body Approval Evidence**
-  - Board meeting minutes approving ICT Risk Framework
-  - Board resolution on ICT strategy
-  - Evidence: Board minutes (sanitized), resolution document
-  - Frequency: Annual (or when framework updated)
-  - **CRITICAL**: DORA requires explicit management body oversight
+
+- Board meeting minutes approving ICT Risk Framework
+- Board resolution on ICT strategy
+- Evidence: Board minutes (sanitized), resolution document
+- Frequency: Annual (or when framework updated)
+- **CRITICAL**: DORA requires explicit management body oversight
 
 □ **Quarterly ICT Risk Committee Meetings**
-  - ICT Risk Committee charter
-  - Meeting minutes (quarterly minimum)
-  - Risk review and approval decisions
-  - Escalation of critical risks to Board
-  - Evidence: 4 quarterly meeting minutes per year
-  - Frequency: Quarterly
+
+- ICT Risk Committee charter
+- Meeting minutes (quarterly minimum)
+- Risk review and approval decisions
+- Escalation of critical risks to Board
+- Evidence: 4 quarterly meeting minutes per year
+- Frequency: Quarterly
 
 □ **ICT Risk Assessment Reports (Quarterly)**
-  - Comprehensive ICT risk assessment
-  - Changes in risk profile since last review
-  - New risks identified
-  - Risk mitigation progress
-  - Evidence: Quarterly risk assessment report signed by CISO
-  - Frequency: Quarterly (minimum)
+
+- Comprehensive ICT risk assessment
+- Changes in risk profile since last review
+- New risks identified
+- Risk mitigation progress
+- Evidence: Quarterly risk assessment report signed by CISO
+- Frequency: Quarterly (minimum)
 
 □ **Annual ICT Risk Management Report to Board**
-  - Summary of ICT risks and mitigations
-  - Key performance indicators (KPIs) for ICT resilience
-  - Incidents and near-misses
-  - Testing results (penetration tests, DR tests)
-  - Third-party ICT provider risks
-  - Investment recommendations
-  - Evidence: Annual report to Board with Board acknowledgment
-  - Frequency: Annual (minimum)
+
+- Summary of ICT risks and mitigations
+- Key performance indicators (KPIs) for ICT resilience
+- Incidents and near-misses
+- Testing results (penetration tests, DR tests)
+- Third-party ICT provider risks
+- Investment recommendations
+- Evidence: Annual report to Board with Board acknowledgment
+- Frequency: Annual (minimum)
 
 □ **Business Impact Analysis (BIA) Review**
-  - Critical business functions identified
-  - RTOs/RPOs documented for each critical function
-  - Dependencies mapped (internal, third-party)
-  - Annual review and update
-  - Evidence: BIA report v1.x with sign-off
-  - Frequency: Annual review
+
+- Critical business functions identified
+- RTOs/RPOs documented for each critical function
+- Dependencies mapped (internal, third-party)
+- Annual review and update
+- Evidence: BIA report v1.x with sign-off
+- Frequency: Annual review
 
 □ **Third-Party ICT Risk Assessments** (Article 28)
-  - Risk assessment for each critical ICT third-party provider
-  - Contractual arrangements review (Articles 29-30)
-  - Concentration risk analysis
-  - Evidence: Third-party risk register + assessments
-  - Frequency: Annual (minimum), before onboarding new providers
+
+- Risk assessment for each critical ICT third-party provider
+- Contractual arrangements review (Articles 29-30)
+- Concentration risk analysis
+- Evidence: Third-party risk register + assessments
+- Frequency: Annual (minimum), before onboarding new providers
 
 □ **ICT Incident Log** (Article 17)
-  - All ICT incidents logged (major and non-major)
-  - Root cause analysis for major incidents
-  - Lessons learned documentation
-  - Evidence: Incident register + RCA reports
-  - Frequency: Ongoing (log all incidents)
+
+- All ICT incidents logged (major and non-major)
+- Root cause analysis for major incidents
+- Lessons learned documentation
+- Evidence: Incident register + RCA reports
+- Frequency: Ongoing (log all incidents)
 
 □ **Business Continuity and Disaster Recovery Plan**
-  - Documented BC/DR procedures
-  - Recovery strategies for critical ICT services
-  - Crisis management procedures
-  - Evidence: BC/DR plan v1.x approved by senior management
-  - Frequency: Annual update, tested semi-annually
+
+- Documented BC/DR procedures
+- Recovery strategies for critical ICT services
+- Crisis management procedures
+- Evidence: BC/DR plan v1.x approved by senior management
+- Frequency: Annual update, tested semi-annually
 
 □ **DR Test Results** (Article 11(6))
-  - At least annual full DR test
-  - Test scenarios, results, and lessons learned
-  - Remediation of gaps identified
-  - Evidence: DR test report with sign-off
-  - Frequency: Annual (full test), quarterly (component tests recommended)
+
+- At least annual full DR test
+- Test scenarios, results, and lessons learned
+- Remediation of gaps identified
+- Evidence: DR test report with sign-off
+- Frequency: Annual (full test), quarterly (component tests recommended)
 
 ## DORA Supervisory Expectations
 
 National competent authorities (NCAs) will expect:
 
 ### Documentation Requirements
+
 ✓ ICT Risk Framework formally approved by management body
 ✓ Framework reviewed and updated annually (at minimum)
 ✓ Quarterly risk reporting to senior management
@@ -332,6 +353,7 @@ National competent authorities (NCAs) will expect:
 ✓ Policies aligned with EBA/ESMA/EIOPA guidelines
 
 ### Implementation Requirements
+
 ✓ All ICT assets inventoried and classified by criticality
 ✓ Risk assessments cover all ICT systems (including third-party)
 ✓ Risk treatment plans for all material ICT risks
@@ -340,6 +362,7 @@ National competent authorities (NCAs) will expect:
 ✓ BC/DR plans tested annually
 
 ### Testing and Validation
+
 ✓ Annual DR test (full scenario)
 ✓ Threat-led penetration testing (TLPT) for significant entities
 ✓ Vulnerability scanning (at least quarterly)
@@ -347,6 +370,7 @@ National competent authorities (NCAs) will expect:
 ✓ Third-party ICT provider audits/assessments
 
 ### Reporting to Supervisors
+
 ✓ Major ICT incidents reported within 4 hours (initial), 24 hours (intermediate), <1 month (final)
 ✓ Annual DORA compliance attestation (expected from NCAs)
 ✓ On-demand reporting for supervisory reviews
@@ -354,6 +378,7 @@ National competent authorities (NCAs) will expect:
 ## Common DORA Assessment Findings
 
 ### Critical (Non-Compliance)
+
 ❌ No documented ICT Risk Framework
 ❌ Framework not approved by management body
 ❌ No ICT asset inventory or incomplete inventory
@@ -362,6 +387,7 @@ National competent authorities (NCAs) will expect:
 ❌ Major incidents not reported to NCA within timeframes
 
 ### Moderate (Gaps requiring remediation)
+
 ⚠️ ICT Risk Framework not reviewed annually
 ⚠️ Quarterly risk reporting to Board incomplete
 ⚠️ Some ICT assets not classified by criticality
@@ -370,6 +396,7 @@ National competent authorities (NCAs) will expect:
 ⚠️ Patch SLAs not defined or enforced
 
 ### Minor (Best practice recommendations)
+
 ⚠️ Risk register not updated quarterly
 ⚠️ Monitoring dashboards incomplete
 ⚠️ DR test scenarios limited (need more comprehensive tests)
@@ -378,6 +405,7 @@ National competent authorities (NCAs) will expect:
 ## Remediation Guidance
 
 ### If No ICT Risk Framework Exists
+
 1. **Immediate (Weeks 1-4)**: Draft ICT Risk Framework
    - Use EBA Guidelines on ICT Risk (EBA/GL/2019/04) as template
    - Adapt to organization size and complexity
@@ -398,6 +426,7 @@ National competent authorities (NCAs) will expect:
 **Timeline**: 3-4 months minimum before DORA deadline
 
 ### If Asset Inventory Incomplete
+
 1. **Use automated discovery** (AWS Config, Azure Resource Graph, etc.)
 2. **Classify assets by criticality** (align with BIA)
 3. **Document asset owners** (business + technical owners)
@@ -406,6 +435,7 @@ National competent authorities (NCAs) will expect:
 **Timeline**: 4-8 weeks depending on estate size
 
 ### If DR Testing Not Performed
+
 1. **Schedule annual DR test** (before DORA deadline)
 2. **Define test scenarios** (loss of primary data center, ransomware, etc.)
 3. **Involve all critical stakeholders**
@@ -417,6 +447,7 @@ National competent authorities (NCAs) will expect:
 ## Cross-References
 
 ### Related DORA Articles
+
 - Article 5 - Governance and organization
 - Article 8 - Identification (asset inventory, dependencies)
 - Article 9 - Protection and prevention (ICT security, change management)
@@ -425,6 +456,7 @@ National competent authorities (NCAs) will expect:
 - Article 28-30 - Third-party ICT risk management
 
 ### Maps to Other Frameworks
+
 - **ISO 27001:2022**: Annex A (all controls), clause 6 (risk management)
 - **NIST Cybersecurity Framework**: All 5 functions (Identify, Protect, Detect, Respond, Recover)
 - **NIST 800-53**: All families (especially RA, CA, CP, IR, SI)
@@ -434,6 +466,7 @@ National competent authorities (NCAs) will expect:
 ## Cost Estimates
 
 ### ICT Risk Framework Implementation (For Medium Bank)
+
 - Framework development and approval: 200 hours ($20,000)
 - Asset inventory and classification: 160 hours ($16,000)
 - Risk assessment process: 120 hours ($12,000)
@@ -442,6 +475,7 @@ National competent authorities (NCAs) will expect:
 - **Total Year 1**: ~$134k
 
 ### Ongoing Compliance (Annual)
+
 - Quarterly risk assessments: 160 hours/year ($16,000)
 - Annual Board reporting: 40 hours ($4,000)
 - DR testing: 80 hours ($8,000)
@@ -450,6 +484,7 @@ National competent authorities (NCAs) will expect:
 - **Total Ongoing**: ~$64k/year
 
 ### Tools/Services
+
 - GRC platform: $50k-$150k/year (medium org)
 - Vulnerability scanning: $10k-$30k/year
 - SIEM/monitoring: $50k-$200k/year

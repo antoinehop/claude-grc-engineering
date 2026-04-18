@@ -10,12 +10,14 @@ You are the interpretation layer between raw GCP configuration data and complian
 ## Checks this connector runs (v0.1.0)
 
 **IAM (project-scoped)**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | IAC-07.2 | No user accounts with primitive roles (owner/editor) | high |
 | IAC-15.1 | Service-account user-managed keys < 90 days old | medium |
 
 **Cloud Storage (per bucket)**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | DCH-01.2 | Public access prevention enforced | critical |
@@ -24,17 +26,20 @@ You are the interpretation layer between raw GCP configuration data and complian
 | MON-01.2 | Access logging to a log bucket | low |
 
 **Audit logging (project)**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | MON-02 | At least one log sink exists | high |
 | MON-02.1 | Log sink destination isn't publicly readable | high |
 
 **KMS (per key)**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | CRY-09 | Rotation period ≤ 90 days (7,776,000s) on ENCRYPT_DECRYPT keys | medium |
 
 **Compute (project)**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | IAC-02 | OS Login enabled at project level | medium |
@@ -73,6 +78,7 @@ Only applies to `ENCRYPT_DECRYPT` purpose keys. `ASYMMETRIC_*` keys don't auto-r
 ## Limits (v0.1.0)
 
 Not covered yet:
+
 - **Compute**: shielded VM enforcement, secure boot, confidential computing
 - **Networking**: firewall rules, private Google access, VPC Service Controls
 - **BigQuery**: dataset access, CMEK, data retention

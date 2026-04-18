@@ -27,11 +27,13 @@ Evaluates readiness for Canadian Protected B, Medium Integrity, Medium Availabil
 **Requirement**: All Protected B data must reside exclusively in Canadian geographic regions.
 
 **Approved Regions**:
+
 - **AWS**: ca-central-1 (Montreal), ca-west-1 (Calgary)
 - **Azure**: canadacentral (Toronto), canadaeast (Quebec City)
 - **GCP**: northamerica-northeast1 (Montreal), northamerica-northeast2 (Toronto)
 
 **Assessment Questions**:
+
 - Are all resources deployed in Canadian regions only?
 - Is cross-border data transfer disabled?
 - Are backups stored in Canadian regions?
@@ -43,6 +45,7 @@ Evaluates readiness for Canadian Protected B, Medium Integrity, Medium Availabil
 **NIST Mapping**: AC-1, AC-2
 
 **Assessment Questions**:
+
 - Is a formal access control policy documented?
 - Are all users authorized and documented?
 - Is password policy enforced (complexity, rotation)?
@@ -54,6 +57,7 @@ Evaluates readiness for Canadian Protected B, Medium Integrity, Medium Availabil
 **NIST Mapping**: IA-2(1), IA-2(2)
 
 **Assessment Questions**:
+
 - Is MFA required for all users?
 - Are hardware tokens or authenticator apps used?
 - Is MFA enforced at cloud provider level?
@@ -65,6 +69,7 @@ Evaluates readiness for Canadian Protected B, Medium Integrity, Medium Availabil
 **NIST Mapping**: AU-2, AU-3, AU-6, AU-9
 
 **Assessment Questions**:
+
 - Is logging enabled for all services?
 - Are logs stored for 2+ years?
 - Is log integrity protection enabled?
@@ -77,6 +82,7 @@ Evaluates readiness for Canadian Protected B, Medium Integrity, Medium Availabil
 **NIST Mapping**: SC-28
 
 **Assessment Questions**:
+
 - Are all storage resources encrypted?
 - Is FIPS 140-2 Level 2+ encryption used?
 - Are customer-managed encryption keys configured?
@@ -88,6 +94,7 @@ Evaluates readiness for Canadian Protected B, Medium Integrity, Medium Availabil
 **NIST Mapping**: SC-8
 
 **Assessment Questions**:
+
 - Is TLS 1.2+ enforced for all connections?
 - Are FIPS cipher suites configured?
 - Is HTTP disabled (HTTPS only)?
@@ -99,6 +106,7 @@ Evaluates readiness for Canadian Protected B, Medium Integrity, Medium Availabil
 **NIST Mapping**: SC-7
 
 **Assessment Questions**:
+
 - Are VPCs/VNets isolated for Protected B workloads?
 - Are security groups configured with least privilege?
 - Is network traffic logged and monitored?
@@ -110,11 +118,13 @@ Evaluates readiness for Canadian Protected B, Medium Integrity, Medium Availabil
 **NIST Mapping**: RA-5
 
 **Remediation Timeframes**:
+
 - **Critical vulnerabilities**: 48 hours
 - **High vulnerabilities**: 7 days
 - **Medium vulnerabilities**: 30 days
 
 **Assessment Questions**:
+
 - Is vulnerability scanning automated?
 - Are remediation timeframes met?
 - Is patch management process documented?
@@ -126,6 +136,7 @@ Evaluates readiness for Canadian Protected B, Medium Integrity, Medium Availabil
 **NIST Mapping**: IR-1, IR-4, IR-6
 
 **Assessment Questions**:
+
 - Is incident response plan documented?
 - Are incident response roles assigned?
 - Is CCCS notification process established?
@@ -138,6 +149,7 @@ Evaluates readiness for Canadian Protected B, Medium Integrity, Medium Availabil
 **NIST Mapping**: CP-9
 
 **Assessment Questions**:
+
 - Are automated backups configured?
 - Are backups tested regularly?
 - Are backups stored in Canadian regions only?
@@ -148,6 +160,7 @@ Evaluates readiness for Canadian Protected B, Medium Integrity, Medium Availabil
 ### Self-Assessment (Readiness)
 
 Organizations prepare for CCCS assessment by:
+
 1. Implementing all 10 PBMM controls
 2. Documenting policies and procedures
 3. Conducting internal audits
@@ -156,6 +169,7 @@ Organizations prepare for CCCS assessment by:
 ### CCCS Certification Assessment
 
 **Process**:
+
 1. Submit application to CCCS
 2. CCCS reviews documentation
 3. On-site assessment (if applicable)
@@ -176,6 +190,7 @@ Organizations prepare for CCCS assessment by:
 ## Compliance Output
 
 **Assessment Report Includes**:
+
 - Overall readiness score (0-100%)
 - Control-by-control compliance status
 - Gap analysis with remediation priorities

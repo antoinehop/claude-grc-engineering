@@ -37,25 +37,33 @@ Automatically tests whether security controls are properly implemented and effec
 ## Test Categories
 
 ### 1. Configuration Tests
+
 Validates that controls are properly configured:
+
 - Resources exist and are enabled
 - Configuration matches requirements
 - Required parameters are set correctly
 
 ### 2. Functionality Tests
+
 Verifies controls are actually working:
+
 - Services are active and responding
 - Data is being collected/protected
 - Automation is functioning
 
 ### 3. Compliance Tests
+
 Checks alignment with framework requirements:
+
 - Meets all framework criteria
 - No conflicts or gaps
 - Evidence can be collected
 
 ### 4. Integration Tests
+
 Ensures controls work together:
+
 - Data flows correctly
 - Dependencies are satisfied
 - No configuration conflicts
@@ -107,6 +115,7 @@ CONFIGURATION TESTS (5)
   ```
 
   Or use automated script:
+
   ```bash
   python scripts/access_review.py --immediate
   ```
@@ -141,14 +150,16 @@ FUNCTIONALITY TESTS (5)
   Result: 3 users inactive >90 days detected
 
   Inactive users:
-  - john.doe@company.com (127 days inactive)
-  - jane.smith@company.com (94 days inactive)
-  - test.user@company.com (215 days inactive)
+
+- john.doe@company.com (127 days inactive)
+- jane.smith@company.com (94 days inactive)
+- test.user@company.com (215 days inactive)
 
   Action required: Disable or justify retention
   Frameworks: PCI-DSS 8.1.4
 
   Remediation:
+
   ```bash
   # Disable inactive users
   python scripts/disable_inactive_users.py --threshold=90 --execute
@@ -168,9 +179,10 @@ FUNCTIONALITY TESTS (5)
   Status: PASS
   Requirement: Multi-factor authentication required
   Result:
-  - Root account: MFA enabled
-  - IAM users: 45/47 have MFA (96%)
-  - 2 service accounts exempted (no console access)
+
+- Root account: MFA enabled
+- IAM users: 45/47 have MFA (96%)
+- 2 service accounts exempted (no console access)
   Frameworks: NIST IA-2(1), PCI 8.3, SOC2 CC6.1
 
 ✓ TEST 10: Audit Trail Integrity
@@ -188,9 +200,10 @@ COMPLIANCE TESTS (4)
   Status: PASS
   Requirement: 1 year retention (PCI 10.7, SOC2)
   Result: S3 lifecycle configured for 365 days
-  - Online storage: 180 days
-  - Glacier archive: 185 days
-  - Total: 365 days ✓
+
+- Online storage: 180 days
+- Glacier archive: 185 days
+- Total: 365 days ✓
   Frameworks: PCI-DSS 10.7, SOC2 CC7.3, NIST AU-11
 
 ✓ TEST 12: Separation of Duties
@@ -216,10 +229,11 @@ COMPLIANCE TESTS (4)
 
   Remediation:
   Update access review policy document with:
-  - Current review frequency (quarterly)
-  - Responsible parties
-  - Escalation procedures
-  - Recent review results
+
+- Current review frequency (quarterly)
+- Responsible parties
+- Escalation procedures
+- Recent review results
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 INTEGRATION TESTS (1)
@@ -230,11 +244,12 @@ INTEGRATION TESTS (1)
   Requirement: Complete lifecycle automation
   Test scenario: Create user → Assign permissions → Review → Deactivate
   Result: All steps completed successfully
-  - User created with proper tags
-  - Permissions boundary applied
-  - CloudTrail events captured
-  - Access review flagged inactive user
-  - User successfully deactivated
+
+- User created with proper tags
+- Permissions boundary applied
+- CloudTrail events captured
+- Access review flagged inactive user
+- User successfully deactivated
   Frameworks: All
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -249,10 +264,12 @@ Total Tests: 15
 CONTROL STATUS: PARTIALLY EFFECTIVE
 
 Critical Issues (2):
+
 1. Quarterly access review overdue (92 days since last review)
 2. Access review policy document outdated
 
 Warnings (2):
+
 1. 3 inactive users detected (>90 days)
 2. 2 users without MFA (service accounts)
 
@@ -281,6 +298,7 @@ REMEDIATION PLAN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 IMMEDIATE (Fix today):
+
 1. Run quarterly access review
    Command: python scripts/access_review.py --immediate
    Impact: Resolves PCI-DSS violation
@@ -318,6 +336,7 @@ Contents:
 ✓ compliance_matrix.xlsx     # Framework crosswalk
 
 Ready for auditor review: Yes
+
 ```
 
 ## JSON Output
@@ -460,6 +479,7 @@ jobs:
 ```
 
 Automatically attempts to remediate failures:
+
 - ✓ Run overdue access reviews
 - ✓ Disable inactive users
 - ✓ Enable missing configurations

@@ -46,16 +46,19 @@ plugins/connectors/<tool>/
 ### Step by step
 
 **1. Pick a tool.** It should:
+
 - Have a stable CLI or SDK (not just a UI).
 - Emit some kind of structured output (JSON ideal; text or CSV workable with a parser).
 - Have a credential story that users can replicate without help from the connector (cloud profiles, OAuth token, etc.).
 
 **2. Create the plugin scaffold.**
+
 ```bash
 mkdir -p plugins/connectors/<tool>/{commands,skills/<tool>-expert,scripts,tests/fixtures}
 ```
 
 **3. Write `plugin.json`.**
+
 ```json
 {
   "name": "<tool>-inspector",
@@ -70,10 +73,12 @@ mkdir -p plugins/connectors/<tool>/{commands,skills/<tool>-expert,scripts,tests/
 
 **4. Implement `/<tool>:setup`.**
 Idempotent install. Should:
+
 - Detect if the external tool is already installed and usable; if so, just verify config.
 - Otherwise, clone it into `~/.local/share/claude-grc/tools/<tool>/` and build or `pip install`.
 - Verify credentials (run a read-only no-op call).
 - Write `~/.config/claude-grc/connectors/<tool>.yaml` with the connector's config:
+
   ```yaml
   version: 1
   source: <tool>-inspector
@@ -84,10 +89,12 @@ Idempotent install. Should:
   defaults:
     scope: ...
   ```
+
 - Emit a clear success message and a dry-run summary.
 
 **5. Implement `/<tool>:collect`.**
 This is the core. It should:
+
 - Load the config file.
 - Invoke the tool, capturing stdout.
 - Translate the tool's native output into an array of Findings conforming to the schema.
@@ -102,6 +109,7 @@ Shows: configured? credentials valid? last successful run? cache freshness? To-d
 
 **7. Write the SKILL.md.**
 Teach Claude:
+
 - What this connector does
 - The tool's native output shape
 - Common failure modes (auth errors, rate limits, permission gaps) and how to recognize + recover
@@ -110,11 +118,13 @@ Teach Claude:
 
 **8. Add contract fixtures.**
 Put at least 3 sample Findings in `tests/fixtures/`:
+
 - One with `status=pass`, `severity=info`
 - One with `status=fail`, `severity=high`, `remediation` populated
 - One with `status=inconclusive` and a clear `message`
 
 **9. Run the contract test.**
+
 ```bash
 npm run test:contract -- --source=<tool>-inspector
 ```
@@ -137,6 +147,7 @@ When your connector evaluates a resource, the `evaluations` array should prefer 
 SCF is the canonical vocabulary. From SCF, `/gap-assessment` can reach any of 249 frameworks via crosswalk. If you emit SOC 2 or NIST directly, that also works: the reverse crosswalk is consulted: but SCF is the shortest path to everywhere.
 
 To look up SCF controls relevant to your tool's domain:
+
 ```bash
 curl https://hackidle.github.io/scf-api/api/families.json | jq '.[] | {code, name, control_count}'
 curl https://hackidle.github.io/scf-api/api/families/IAC.json | jq
@@ -155,11 +166,13 @@ Framework plugins are for implementation guidance, assessment workflows, and evi
 ## Quality bar
 
 PRs should include:
+
 - A short description of the user problem the change solves
 - Contract tests (for connectors) or golden-file tests (for commands that produce reports)
 - A note in `CHANGELOG.md` if behavior changes
 
 Reviewers will look for:
+
 - Does it actually work end-to-end against real data?
 - Does it fail gracefully when credentials/network/tools are broken?
 - Is the output schema-conformant and the user-facing text clear?

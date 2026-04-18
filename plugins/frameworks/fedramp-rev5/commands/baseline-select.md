@@ -7,6 +7,7 @@ description: Select and tailor FedRAMP Rev 5 baseline
 Helps select and tailor the appropriate FedRAMP Rev 5 control baseline.
 
 ## Arguments
+
 - `$1` - Impact level (required: low, moderate, high)
 - `$2` - System type (optional: saas, paas, iaas)
 
@@ -21,15 +22,18 @@ Helps select and tailor the appropriate FedRAMP Rev 5 control baseline.
 ## Tailoring Guidance
 
 ### Scoping
+
 - Identify non-applicable controls
 - Document justification for exclusions
 
 ### Compensating Controls
+
 - When standard control cannot be implemented
 - Must provide equivalent protection
 - Requires documented justification
 
 ### Organization-Defined Parameters
+
 - Fill in [Assignment] and [Selection] values
 - Must meet minimum FedRAMP requirements
 

@@ -19,11 +19,13 @@ Deep dive assessment for Export Administration Regulations (EAR) compliance. Foc
 **Requirement**: Determine proper ECCN or EAR99 classification for all controlled items.
 
 **Assessment Questions**:
+
 - Are all items classified with proper ECCN or EAR99?
 - Is classification documented and tagged on resources?
 - Is source code classified (ECCN 5D002 for encryption)?
 
 **Common ECCNs**:
+
 - **5D002**: Encryption software
 - **5A002**: Encryption hardware/equipment
 - **5E002**: Encryption technology (technical data)
@@ -36,17 +38,20 @@ Deep dive assessment for Export Administration Regulations (EAR) compliance. Foc
 **Requirement**: Screen all customers and partners against BIS denied parties lists.
 
 **Screening Lists**:
+
 - **Entity List**: Parties restricted for national security/foreign policy reasons
 - **Denied Persons List (DPL)**: Individuals/entities with denied export privileges
 - **Unverified List (UVL)**: End-use could not be verified
 - **Treasury SDN**: Specially Designated Nationals
 
 **Screening Frequency**:
+
 - Before granting account access
 - Quarterly for existing customers
 - After any BIS list update
 
 **Assessment Questions**:
+
 - Is screening performed for all new customers?
 - Is screening documentation maintained?
 - Are denied party matches reported and access blocked?
@@ -56,11 +61,13 @@ Deep dive assessment for Export Administration Regulations (EAR) compliance. Foc
 **Requirement**: Encryption items (Category 5 Part 2) must use FIPS 140-2/140-3 validated modules.
 
 **Assessment Questions**:
+
 - Are FIPS 140-2 Level 2+ HSMs used for encryption?
 - Is encryption self-classified or BIS-reviewed?
 - Is License Exception ENC applicable?
 
 **Self-Classification**:
+
 - Submit encryption registration to BIS
 - Annual self-classification reports for updates
 - Maintain documentation of FIPS validation
@@ -70,6 +77,7 @@ Deep dive assessment for Export Administration Regulations (EAR) compliance. Foc
 **Requirement**: Block access from comprehensively embargoed countries.
 
 **Embargoed Countries** (no exports without license):
+
 - Cuba (CU)
 - Iran (IR)
 - North Korea (KP)
@@ -77,11 +85,13 @@ Deep dive assessment for Export Administration Regulations (EAR) compliance. Foc
 - Crimea region of Ukraine
 
 **Partially Sanctioned** (check specific restrictions):
+
 - Russia (RU)
 - Belarus (BY)
 - Venezuela (VE)
 
 **Assessment Questions**:
+
 - Is WAF/Cloud Armor configured to block embargoed countries?
 - Are geo-restrictions enabled on content delivery?
 - Are access attempts from embargoed countries logged and blocked?
@@ -91,6 +101,7 @@ Deep dive assessment for Export Administration Regulations (EAR) compliance. Foc
 **Requirement**: Control export of technical data and source code.
 
 **Technical Data** (EAR 734.2):
+
 - Information required for design, development, production, or use
 - Blueprints, plans, diagrams, models, formulae
 - Engineering designs and specifications
@@ -98,6 +109,7 @@ Deep dive assessment for Export Administration Regulations (EAR) compliance. Foc
 - Source code (depending on ECCN)
 
 **Assessment Questions**:
+
 - Are code repositories access-controlled by geography?
 - Is technical data marked with ECCN classification?
 - Are deemed exports controlled (foreign nationals accessing data in US)?
@@ -107,12 +119,14 @@ Deep dive assessment for Export Administration Regulations (EAR) compliance. Foc
 **Requirement**: Verify CSP provides EAR-compliant features.
 
 **CSP Requirements**:
+
 - FIPS 140-2 validated encryption
 - Customer-managed encryption keys (CMEK) available
 - Data residency controls
 - No CSP access to customer data without permission
 
 **Assessment Questions**:
+
 - Is CMEK configured for all controlled data?
 - Does CSP provide FIPS 140 attestations?
 - Are data residency options available?
@@ -124,23 +138,28 @@ Deep dive assessment for Export Administration Regulations (EAR) compliance. Foc
 **Common License Exceptions**:
 
 **ENC (Encryption)**:
+
 - Certain encryption items ECCN 5A002, 5D002
 - Self-classification reporting required
 - Not available for embargoed countries
 
 **TSU (Technology and Software - Unrestricted)**:
+
 - Publicly available technology/software
 - Educational information
 - Published materials
 
 **BAG (Baggage)**:
+
 - Personal baggage exports
 - Tools of trade (laptops with encryption)
 
 **TMP (Temporary)**:
+
 - Temporary exports for testing, demonstrations
 
 **Assessment Questions**:
+
 - Do any License Exceptions apply to your items?
 - Is self-classification completed for ENC?
 - Is TSU applicability documented for public software?
@@ -148,10 +167,12 @@ Deep dive assessment for Export Administration Regulations (EAR) compliance. Foc
 ## BIS Reporting Requirements
 
 **Encryption Registration** (one-time):
+
 - Submit product information to BIS
 - Required for ECCN 5A002, 5D002, 5E002 items
 
 **Annual Self-Classification** (if using ENC):
+
 - Report semi-annually to BIS
 - Document updates to encryption products
 

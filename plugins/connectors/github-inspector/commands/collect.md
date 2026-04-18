@@ -47,6 +47,7 @@ More checks land as the connector matures; see the SKILL for the authoritative l
 - Writes `~/.cache/claude-grc/findings/github-inspector/<run_id>.json` — one JSON file per run containing an array of Findings (one per repository).
 - Appends a run manifest to `~/.cache/claude-grc/runs.log`.
 - Prints a one-line summary to stdout unless `--quiet`:
+
   ```
   github-inspector: 127 resources, 512 evaluations, 38 findings (6 high, 15 medium, 17 low).
   ```

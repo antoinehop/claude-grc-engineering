@@ -7,17 +7,20 @@ description: Map HITRUST CSF controls to source frameworks
 Maps HITRUST CSF control requirements to underlying source frameworks (HIPAA, NIST, ISO, PCI-DSS, etc.).
 
 ## Arguments
+
 - `$1` - HITRUST control ID (required, e.g., 01.a, 09.ab)
 - `$2` - Target framework (optional: HIPAA, NIST, ISO27001, PCIDSS, all)
 
 ## HITRUST Control ID Format
 
 **Structure**: `[Domain].[Control][Subcontrol]`
+
 - **Domain**: 01-19 (two digits)
 - **Control**: Single letter (a-z)
 - **Subcontrol**: Optional second letter or number
 
 **Examples**:
+
 - `01.a` - Information Security Management Program, control (a)
 - `09.ab` - Physical and Environmental Security, subcontrol (ab)
 - `02.d` - Access Control, control (d)
@@ -51,6 +54,7 @@ Maps HITRUST CSF control requirements to underlying source frameworks (HIPAA, NI
 HITRUST CSF harmonizes 40+ frameworks including:
 
 ### Primary Frameworks
+
 - **HIPAA** Security Rule, Privacy Rule
 - **NIST** 800-53, Cybersecurity Framework
 - **ISO/IEC** 27001:2013, 27002
@@ -58,6 +62,7 @@ HITRUST CSF harmonizes 40+ frameworks including:
 - **FedRAMP** Moderate Baseline
 
 ### Additional Frameworks
+
 - COBIT 5
 - AICPA Trust Services Criteria (SOC 2)
 - GDPR
@@ -69,28 +74,36 @@ HITRUST CSF harmonizes 40+ frameworks including:
 ## Common Control Examples
 
 ### Access Control (Domain 02)
+
 **02.d**: Automated Central Audit Log
+
 - **HIPAA**: 164.308(a)(1)(ii)(D), 164.312(b)
 - **NIST 800-53**: AU-2, AU-3, AU-6
 - **ISO 27001**: A.12.4.1
 - **PCI DSS**: 10.1, 10.2, 10.3
 
 ### Encryption (Domain 10)
+
 **10.k**: Encryption of ePHI at Rest
+
 - **HIPAA**: 164.312(a)(2)(iv)
 - **NIST 800-53**: SC-28
 - **ISO 27001**: A.10.1.1
 - **PCI DSS**: 3.4
 
 ### Incident Response (Domain 12)
+
 **12.a**: Incident Response Plan
+
 - **HIPAA**: 164.308(a)(6)
 - **NIST 800-53**: IR-1, IR-8
 - **ISO 27001**: A.16.1.1
 - **PCI DSS**: 12.10
 
 ### Business Associate Management (Domain 17)
+
 **17.a**: Business Associate Agreements
+
 - **HIPAA**: 164.308(b)(1), 164.314(a)
 - **NIST 800-53**: SA-9
 - **ISO 27001**: A.15.1.2
@@ -100,16 +113,19 @@ HITRUST CSF harmonizes 40+ frameworks including:
 Controls have different implementation requirements based on:
 
 ### Baseline Level
+
 - Minimum required implementation
 - Small/low-risk organizations
 - Basic security posture
 
 ### Enhanced Level (Middle)
+
 - Moderate implementation
 - Medium organizations
 - Standard security posture
 
 ### Advanced Level
+
 - Comprehensive implementation
 - Large/high-risk organizations
 - Mature security programs

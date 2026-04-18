@@ -7,6 +7,7 @@ description: HITRUST CSF readiness assessment by assessment type
 Evaluates organizational readiness for HITRUST Common Security Framework (CSF) certification.
 
 ## Arguments
+
 - `$1` - Assessment type (required: i1, r2, e1)
 - `$2` - Scope (optional: full, self-assessment, validated)
 
@@ -19,6 +20,7 @@ Evaluates organizational readiness for HITRUST Common Security Framework (CSF) c
 | **e1** | e1 Assessment | Bridges i1 to r2 | Can be self | N/A - transition |
 
 ### i1 Assessment (Implemented, 1-year)
+
 - **Purpose**: Demonstrate control implementation
 - **Rigor**: Self-attestation or validated
 - **Validity**: 1 year
@@ -26,6 +28,7 @@ Evaluates organizational readiness for HITRUST Common Security Framework (CSF) c
 - **Effort**: 3-6 months typically
 
 ### r2 Assessment (Reportable, 2-year)
+
 - **Purpose**: Full independent validation
 - **Rigor**: External assessor required
 - **Validity**: 2 years
@@ -33,6 +36,7 @@ Evaluates organizational readiness for HITRUST Common Security Framework (CSF) c
 - **Effort**: 6-12 months typically
 
 ### e1 Assessment
+
 - **Purpose**: Bridge from i1 to r2 in year 2
 - **Rigor**: Validates implementation since i1
 - **Validity**: Extends to 2-year r2 cycle
@@ -65,12 +69,14 @@ Evaluates organizational readiness for HITRUST Common Security Framework (CSF) c
 ## MyCSF (Customization)
 
 HITRUST MyCSF tailors requirements based on:
+
 - **Organization type**: Healthcare provider, payer, vendor, etc.
 - **Organization size**: Small, medium, large
 - **System type**: SaaS, on-premise, hybrid
 - **Regulatory factors**: HIPAA, state laws, international
 
 **Customization Result**:
+
 - Some requirements "Not Applicable"
 - Implementation levels adjusted (baseline, enhanced, advanced)
 - Scope tailored to risk profile
@@ -89,6 +95,7 @@ HITRUST MyCSF tailors requirements based on:
 ## Source Framework Mapping
 
 HITRUST CSF harmonizes multiple frameworks:
+
 - **HIPAA**: Health Insurance Portability and Accountability Act
 - **NIST**: 800-53, Cybersecurity Framework
 - **ISO**: 27001/27002

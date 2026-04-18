@@ -11,16 +11,19 @@ Reviews GitHub/GitLab pull requests specifically for compliance regressions. Shi
 ## Quick Commands
 
 **Review a PR for SOC 2 compliance:**
+
 ```bash
 node scripts/review-pr.js myorg/infrastructure 42 SOC2
 ```
 
 **Review a PR for ISO 27001:**
+
 ```bash
 node scripts/review-pr.js myorg/infrastructure 42 ISO27001
 ```
 
 **Review a PR with custom framework:**
+
 ```bash
 node scripts/review-pr.js myorg/infrastructure 42 NIST80053
 ```
@@ -38,6 +41,7 @@ node scripts/review-pr.js myorg/infrastructure 42 NIST80053
 ## Output Format
 
 Posts GitHub comments with:
+
 - ⚠️ Warning level and control reference
 - 📝 Description of the issue
 - ✅ Suggested fix with code example
@@ -70,6 +74,7 @@ resource "aws_iam_role" "app_role" {
 ```
 
 **Control Reference:** SOC 2 CC6.1, NIST 800-53 AC-6
+
 ```
 
 ## Prerequisites

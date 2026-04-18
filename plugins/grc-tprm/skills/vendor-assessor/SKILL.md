@@ -18,22 +18,26 @@ Performs end-to-end vendor security assessments.
 ## Assessment Framework
 
 ### Tier 1 - Critical Vendors
+
 - Full security assessment
 - On-site or virtual audit
 - Penetration test review
 - Annual reassessment
 
 ### Tier 2 - High Risk Vendors
+
 - Comprehensive questionnaire
 - SOC 2/ISO 27001 review
 - Annual reassessment
 
 ### Tier 3 - Medium Risk Vendors
+
 - Standard questionnaire
 - Certification verification
 - Biennial reassessment
 
 ### Tier 4 - Low Risk Vendors
+
 - Self-attestation
 - Triennial reassessment
 

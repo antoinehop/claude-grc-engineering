@@ -7,13 +7,16 @@ description: Identify gaps between current state and HITRUST CSF requirements
 Analyzes current security posture against HITRUST CSF requirements and identifies control gaps.
 
 ## Arguments
+
 - `$1` - Assessment type target (required: i1, r2)
 - `$2` - Analysis depth (optional: high-level, detailed, by-domain)
 
 ## Gap Analysis Process
 
 ### 1. Current State Assessment
+
 Reviews existing security controls and documentation:
+
 - Policies and procedures
 - Technical configurations
 - Audit logs and monitoring
@@ -22,20 +25,26 @@ Reviews existing security controls and documentation:
 - Business continuity plans
 
 ### 2. HITRUST Requirement Mapping
+
 Maps current controls to HITRUST CSF requirements:
+
 - 156 control objectives
 - MyCSF customization (org type, size, system)
 - Implementation levels (baseline, enhanced, advanced)
 - Authoritative source references
 
 ### 3. Gap Identification
+
 Identifies three types of gaps:
+
 - **Missing Controls**: No implementation exists
 - **Partial Controls**: Implemented but incomplete
 - **Documentation Gaps**: Control exists but not documented
 
 ### 4. Risk Prioritization
+
 Ranks gaps by:
+
 - **Critical**: High-risk, assessor will flag
 - **High**: Important for certification
 - **Medium**: Should address before assessment
@@ -44,6 +53,7 @@ Ranks gaps by:
 ## Common Gap Categories
 
 ### Policy & Documentation Gaps
+
 - Missing or outdated information security policies
 - Incomplete risk assessments
 - No business impact analysis (BIA)
@@ -53,6 +63,7 @@ Ranks gaps by:
 **Impact**: Easy to fix, high assessor focus
 
 ### Technical Control Gaps
+
 - Multi-factor authentication not implemented
 - Encryption at rest/in transit incomplete
 - Insufficient logging and monitoring
@@ -62,6 +73,7 @@ Ranks gaps by:
 **Impact**: Moderate to fix, critical for compliance
 
 ### Process & Procedure Gaps
+
 - Incident response plan not tested
 - No formal change management
 - Access reviews not performed
@@ -71,6 +83,7 @@ Ranks gaps by:
 **Impact**: Moderate to fix, ongoing effort required
 
 ### Organizational Gaps
+
 - No designated security officer (CISO/CSO)
 - Unclear roles and responsibilities
 - Lack of security governance structure
@@ -84,17 +97,20 @@ Ranks gaps by:
 Gaps vary based on MyCSF customization:
 
 ### Organization Size
+
 - **Small**: Fewer requirements, focused gaps
 - **Medium**: Standard requirements, typical gaps
 - **Large**: Enhanced requirements, complex gaps
 
 ### Organization Type
+
 - **Provider**: HIPAA-heavy gaps common
 - **Payer**: Privacy/claims gaps typical
 - **Vendor**: Third-party assurance gaps
 - **Business Associate**: BAA-related gaps
 
 ### System Type
+
 - **SaaS**: Inherited controls reduce gaps
 - **On-Premise**: More infrastructure gaps
 - **Hybrid**: Complex scoping, varied gaps
@@ -120,6 +136,7 @@ Gaps vary based on MyCSF customization:
 ## Gap Analysis Report Sections
 
 ### 1. Current Maturity Assessment
+
 - **Initial**: Ad-hoc, inconsistent controls
 - **Developing**: Some processes defined
 - **Defined**: Documented and followed
@@ -127,6 +144,7 @@ Gaps vary based on MyCSF customization:
 - **Optimized**: Continuously improving
 
 ### 2. Control Status Summary
+
 - **Implemented**: Meets HITRUST requirements
 - **Partially Implemented**: Needs enhancement
 - **Planned**: On roadmap but not started
@@ -134,14 +152,18 @@ Gaps vary based on MyCSF customization:
 - **Not Applicable**: MyCSF excluded
 
 ### 3. Quick Wins
+
 Controls that can be addressed rapidly:
+
 - Policy updates
 - Documentation creation
 - Simple technical configs
 - Training completion
 
 ### 4. Critical Path Items
+
 Gaps that block certification:
+
 - Missing MFA
 - No encryption at rest
 - Incomplete audit logging

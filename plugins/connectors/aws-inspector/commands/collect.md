@@ -25,6 +25,7 @@ node plugins/connectors/aws-inspector/scripts/collect.js [options]
 ## What it evaluates
 
 **Account-level (IAM)**:
+
 | SCF | Check | Typical severity |
 |---|---|---|
 | IAC-01.1 | Root account has MFA | critical if missing |
@@ -34,6 +35,7 @@ node plugins/connectors/aws-inspector/scripts/collect.js [options]
 | IAC-07.2 | No inline IAM policies on users (least privilege signal) | low |
 
 **Storage (S3)**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | CRY-05 | Bucket default encryption | high if missing |
@@ -42,6 +44,7 @@ node plugins/connectors/aws-inspector/scripts/collect.js [options]
 | MON-01.2 | Server access logging enabled | medium |
 
 **Audit (CloudTrail)**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | MON-02 | At least one multi-region, multi-account trail | high if missing |
@@ -49,6 +52,7 @@ node plugins/connectors/aws-inspector/scripts/collect.js [options]
 | MON-02.2 | Trail events delivered to a monitored S3 bucket | medium |
 
 **Compute (EBS)**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | CRY-05 | Default EBS encryption enabled per region | high if missing |
@@ -60,6 +64,7 @@ Future: RDS (encryption, backup), VPC flow logs, Security Hub findings, Config c
 - Writes `~/.cache/claude-grc/findings/aws-inspector/<run_id>.json` — array of Findings
 - Appends a run manifest to `~/.cache/claude-grc/runs.log`
 - One-line summary unless `--quiet`:
+
   ```
   aws-inspector: 24 resources, 87 evaluations, 9 failing (2 critical, 4 high, 3 medium).
   ```

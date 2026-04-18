@@ -24,6 +24,7 @@ node plugins/connectors/okta-inspector/scripts/collect.js [options]
 ## What it evaluates
 
 **Authentication policies**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | IAC-01.2 | MFA required for all users | high |
@@ -32,18 +33,21 @@ node plugins/connectors/okta-inspector/scripts/collect.js [options]
 | IAC-15 | Session idle timeout ≤ 15 minutes | medium |
 
 **MFA enrollment (per user, sampled)**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | IAC-01.2 | All admin users have MFA enrolled | critical |
 | IAC-01.2 | At least 2 factors enrolled per admin (no single-factor fallback) | high |
 
 **Users**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | IAC-15.1 | No users inactive > N days (default 90) still active | medium |
 | IAC-07.1 | Super-admin count is reasonable (<5 super admins) | medium |
 
 **Audit logs**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | MON-02 | System log retention reachable (logs fetched successfully) | info |
@@ -52,6 +56,7 @@ node plugins/connectors/okta-inspector/scripts/collect.js [options]
 
 - `~/.cache/claude-grc/findings/okta-inspector/<run_id>.json`
 - Summary to stdout unless `--quiet`:
+
   ```
   okta-inspector: 12 resources, 38 evaluations, 4 failing (0 critical, 2 high, 2 medium).
   ```
@@ -67,6 +72,7 @@ node plugins/connectors/okta-inspector/scripts/collect.js [options]
 ## Token permissions
 
 A **Read-only** API token created in Okta admin is sufficient. The connector never calls write endpoints. Required scopes (all covered by Read-only):
+
 - Users: read, admins read
 - Policies: read
 - Groups: read (optional, enhances admin scope analysis)

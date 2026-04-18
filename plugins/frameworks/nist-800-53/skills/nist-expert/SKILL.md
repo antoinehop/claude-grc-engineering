@@ -11,6 +11,7 @@ Deep expertise in NIST Special Publication 800-53 controls.
 ## Expertise Areas
 
 ### Control Families (20 Families in Rev 5)
+
 - AC: Access Control
 - AT: Awareness and Training
 - AU: Audit and Accountability
@@ -33,6 +34,7 @@ Deep expertise in NIST Special Publication 800-53 controls.
 - SR: Supply Chain Risk Management
 
 ### Baselines
+
 - Low Impact: ~125 controls
 - Moderate Impact: ~325 controls
 - High Impact: ~425 controls

@@ -473,20 +473,24 @@ RECOMMENDATIONS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Immediate Actions:
+
 1. Implement AC-2(1), AC-2(2), AC-2(3), AC-2(4) (core enhancements)
 2. Generate IaC for implementation: /soc2:gap-to-code gaps.json aws
 3. Document tailoring decisions in SSP
 4. Update Access Control Policy with tailored parameters
 
 Within 3 Months:
+
 1. Consider AC-2(9) if shared accounts still exist
 2. Evaluate AC-2(12) for enhanced monitoring
 3. Review if AC-2(7) needed (separate privileged accounts)
 
 Continuous:
+
 1. Test control effectiveness: /grc-engineer:test-control AC-2
 2. Review tailoring decisions annually
 3. Update as cloud environment evolves
+
 ```
 
 ## YAML Export

@@ -7,6 +7,7 @@ description: Data Protection Impact Assessment (DPIA) guidance and execution
 Guides the execution of a Data Protection Impact Assessment as required by GDPR Article 35.
 
 ## Arguments
+
 - `$1` - Processing activity name (required)
 - `$2` - DPIA stage (optional: screening, assessment, review)
 
@@ -32,6 +33,7 @@ Article 35(3) mandates DPIA for processing likely to result in **high risk**, pa
 ### Additional High-Risk Indicators (WP29 Criteria)
 
 DPIA recommended when processing meets **2+ criteria**:
+
 - Evaluation/scoring (including profiling)
 - Automated decision-making with legal effect
 - Systematic monitoring
@@ -46,6 +48,7 @@ DPIA recommended when processing meets **2+ criteria**:
 ### Exemptions
 
 DPIA **not required** when:
+
 - Legal basis is legal obligation or public task, AND
 - Processing has legal basis in EU/Member State law, AND
 - DPIA already conducted as part of general impact assessment
@@ -55,6 +58,7 @@ DPIA **not required** when:
 ### 1. Screening (Threshold Assessment)
 
 **Determine if DPIA required**:
+
 - Review mandatory scenarios
 - Apply WP29 9 criteria test
 - Check supervisory authority "DPIA lists"
@@ -65,6 +69,7 @@ DPIA **not required** when:
 ### 2. Description of Processing
 
 **Systematic description including**:
+
 - Nature of processing (what, why, how)
 - Purposes of processing
 - Lawful basis for processing
@@ -80,6 +85,7 @@ DPIA **not required** when:
 - Functional description of system/technology
 
 **Key Questions**:
+
 - What personal data is processed?
 - Why is it processed?
 - How is it processed (automated, manual)?
@@ -90,6 +96,7 @@ DPIA **not required** when:
 ### 3. Necessity and Proportionality Assessment
 
 **Evaluate**:
+
 - Compliance with GDPR principles (Article 5)
 - Necessity: Could purposes be achieved with less data?
 - Proportionality: Is processing appropriate for purposes?
@@ -99,6 +106,7 @@ DPIA **not required** when:
 - Purpose limitation: Clear, specific purposes?
 
 **Data Protection by Design and Default** (Article 25):
+
 - Pseudonymization where possible
 - Encryption of personal data
 - Minimized data collection
@@ -111,12 +119,14 @@ DPIA **not required** when:
 **Identify Risks to Data Subjects**:
 
 **Risk Categories**:
+
 1. **Illegal access** (data breach, hacking)
 2. **Unwanted modification** (data alteration, corruption)
 3. **Disappearance** (data loss, deletion)
 4. **Disclosure** (unauthorized sharing, surveillance)
 
 **Risk to Rights and Freedoms**:
+
 - Discrimination
 - Identity theft/fraud
 - Financial loss
@@ -138,6 +148,7 @@ DPIA **not required** when:
 | Low | Unlikely | Low | Accept or basic mitigation |
 
 **For Each Risk**:
+
 - Source (threat)
 - Potential impact on data subjects
 - Severity (negligible, limited, significant, maximum)
@@ -149,6 +160,7 @@ DPIA **not required** when:
 **Identify and Implement Safeguards**:
 
 **Technical Measures**:
+
 - Encryption (at rest, in transit, end-to-end)
 - Pseudonymization and anonymization
 - Access controls (role-based, least privilege)
@@ -160,6 +172,7 @@ DPIA **not required** when:
 - Regular security testing
 
 **Organizational Measures**:
+
 - Policies and procedures
 - Privacy notices and transparency
 - Consent management
@@ -172,6 +185,7 @@ DPIA **not required** when:
 - Regular audits and reviews
 
 **Governance Measures**:
+
 - DPO involvement and oversight
 - Privacy by Design integration
 - Third-party assessments
@@ -179,6 +193,7 @@ DPIA **not required** when:
 - Documentation and accountability
 
 **Residual Risk**:
+
 - Re-assess risks after mitigation
 - Document residual risk acceptance
 - If high residual risk → consult supervisory authority
@@ -186,17 +201,20 @@ DPIA **not required** when:
 ## Consultation Requirements
 
 ### Consult Data Protection Officer (DPO)
+
 - Article 35(2): DPO must provide advice
 - Involve DPO throughout DPIA process
 - Document DPO input and recommendations
 
 ### Consult Data Subjects (Where Appropriate)
+
 - Article 35(9): Seek views of data subjects/representatives
 - Not always required but recommended
 - Methods: Surveys, focus groups, privacy advocates
 - Document consultation outcomes
 
 ### Consult Supervisory Authority (If High Residual Risk)
+
 - Article 36: Prior consultation required if:
   - DPIA shows high risk, AND
   - Controller cannot sufficiently mitigate risk
@@ -230,6 +248,7 @@ DPIA **not required** when:
 ## Review and Update DPIA
 
 **Triggers for Review**:
+
 - Planned review schedule (e.g., annually)
 - Changes to processing operations
 - New risks identified
@@ -240,6 +259,7 @@ DPIA **not required** when:
 - Organizational changes (merger, acquisition)
 
 **Review Process**:
+
 1. Assess if changes trigger new DPIA
 2. Update existing DPIA if appropriate
 3. Re-evaluate risks and mitigation
@@ -253,6 +273,7 @@ DPIA **not required** when:
 **Negative Lists**: Processing not requiring DPIA
 
 **Check your jurisdiction's DPA** for:
+
 - Country-specific DPIA requirements
 - Industry-specific guidance (healthcare, finance, etc.)
 - Technology-specific guidance (AI, biometrics, etc.)
@@ -279,6 +300,7 @@ DPIA **not required** when:
 ## DPIA Templates and Resources
 
 **Official Guidance**:
+
 - WP29 Guidelines on DPIA (WP248 rev.01)
 - ICO DPIA guidance and template
 - CNIL PIA methodology and tools

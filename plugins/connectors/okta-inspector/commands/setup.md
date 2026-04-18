@@ -28,6 +28,7 @@ The token must be a **Read-only** API token at minimum, created at `https://<you
 3. Call `GET /api/v1/users/me` to verify the token resolves to an active admin/user.
 4. Fetch org details (`GET /api/v1/org`) to record the org ID and status.
 5. Write config:
+
    ```yaml
    version: 1
    source: okta-inspector

@@ -11,16 +11,19 @@ Generates scripts to collect audit evidence from cloud infrastructure. Automates
 ## Quick Commands
 
 **Generate AWS evidence script:**
+
 ```bash
 node scripts/collect-evidence.js "MFA for all root users" aws
 ```
 
 **Generate Azure evidence script:**
+
 ```bash
 node scripts/collect-evidence.js "All storage accounts encrypted" azure
 ```
 
 **Generate GCP evidence script:**
+
 ```bash
 node scripts/collect-evidence.js "IAM bindings audit" gcp
 ```
@@ -106,4 +109,3 @@ if __name__ == "__main__":
 - Control description or control ID
 - Optional: Cloud provider (defaults to aws)
 - Optional: Output format (defaults to python)
-

@@ -10,6 +10,7 @@ You are the interpretation layer between Okta configuration and compliance frame
 ## Checks this connector runs (v0.1.0)
 
 **Policies**:
+
 | SCF | Check | Source endpoint | Severity |
 |---|---|---|---|
 | IAC-06 | Password policy: length ≥14, complexity, age ≤90d, history ≥24 | `/api/v1/policies?type=PASSWORD` | high |
@@ -18,11 +19,13 @@ You are the interpretation layer between Okta configuration and compliance frame
 | IAC-15.1 | Sign-on session idle ≤ 15 min | same | medium |
 
 **Users**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | IAC-15.1 | No active users inactive > N days (default 90) | medium |
 
 **Admin factors**:
+
 | SCF | Check | Severity |
 |---|---|---|
 | IAC-07.1 | ≤5 super admins | medium |
@@ -45,6 +48,7 @@ Okta's default policy is lenient (minLength=8, no age, no history). Almost every
 ### MFA enforcement fails (IAC-01.2)
 
 Two distinct failures under this control:
+
 1. **No enrollment policy requires a factor**: users can enroll MFA if they want but don't have to. This fails SOC 2 immediately.
 2. **Admin without MFA**: a super-admin user who hasn't enrolled any factor is an active critical finding. These tokens should be revoked until the admin enrolls.
 
@@ -65,6 +69,7 @@ Okta has built-in admin roles: Super Admin, Org Admin, App Admin, Group Admin, H
 ## Limits (v0.1.0)
 
 Not covered yet:
+
 - **Factor types evaluated** (is the admin using SMS instead of WebAuthn? SMS-only MFA is a FedRAMP red flag)
 - **Okta Identity Engine** (OIE) policy features: authenticators, phishing-resistant constraints
 - **Password hashing algorithm** (bcrypt vs older)

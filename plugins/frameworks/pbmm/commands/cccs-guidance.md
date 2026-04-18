@@ -17,6 +17,7 @@ Guidance on the Canadian Centre for Cyber Security (CCCS) cloud security assessm
 The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security Categorization framework.
 
 **Assessment Tiers**:
+
 - **Tier 1**: Self-assessment by CSP
 - **Tier 2**: Independent third-party assessment
 - **Tier 3**: CCCS assessment (for Protected B and above)
@@ -26,6 +27,7 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 #### 1. Pre-Assessment (1-2 months)
 
 **Organization Activities**:
+
 - Review ITSG-33 security controls
 - Implement PBMM controls (10 required controls)
 - Document security policies and procedures
@@ -33,6 +35,7 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 - Conduct internal audit
 
 **Required Documentation**:
+
 - System Security Plan (SSP)
 - Privacy Impact Assessment (PIA)
 - Security Assessment Report (SAR)
@@ -43,6 +46,7 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 #### 2. Application Submission (1 month)
 
 **Submission to CCCS**:
+
 - Complete assessment application
 - Submit documentation package
 - Provide cloud service description
@@ -50,6 +54,7 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 - Demonstrate data residency controls
 
 **CCCS Review**:
+
 - Documentation completeness check
 - Initial risk assessment
 - Assessment schedule determination
@@ -57,6 +62,7 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 #### 3. Assessment Execution (2-4 months)
 
 **Assessment Activities**:
+
 - Document review and analysis
 - Configuration review of cloud environment
 - Security control testing (10 PBMM controls)
@@ -65,6 +71,7 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 - Interviews with personnel
 
 **Evidence Requirements**:
+
 - Configuration screenshots
 - Log samples (2-year retention proof)
 - Encryption validation (FIPS 140-2)
@@ -75,12 +82,14 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 #### 4. Remediation (1-3 months)
 
 **For Identified Gaps**:
+
 - CCCS provides findings report
 - Organization develops remediation plan
 - Implement corrective actions
 - Re-assessment of remediated controls
 
 **POA&M**:
+
 - Document residual risks
 - Establish remediation timelines
 - Assign responsible parties
@@ -89,6 +98,7 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 #### 5. Certification (1 month)
 
 **CCCS Deliverables**:
+
 - Security Assessment Report (SAR)
 - Authorization to Operate (ATO)
 - Continuous monitoring requirements
@@ -114,15 +124,18 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 **Certification Status**: ✅ ITSM.50.100 Assessed
 
 **Canadian Regions**:
+
 - ca-central-1 (Montreal, Quebec)
 - ca-west-1 (Calgary, Alberta)
 
 **Services Assessed**:
+
 - EC2, S3, RDS, Lambda
 - CloudTrail, CloudWatch
 - KMS, IAM, VPC
 
 **PBMM Features**:
+
 - FIPS 140-2 Level 2 encryption (AWS KMS)
 - Canadian data residency enforcement
 - MFA support (IAM, Cognito)
@@ -136,15 +149,18 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 **Certification Status**: ✅ PBMM Assessed
 
 **Canadian Regions**:
+
 - canadacentral (Toronto, Ontario)
 - canadaeast (Quebec City, Quebec)
 
 **Services Assessed**:
+
 - Virtual Machines, Storage, SQL Database
 - Azure Monitor, Log Analytics
 - Key Vault, Active Directory
 
 **PBMM Features**:
+
 - FIPS 140-2 Level 2 encryption (Key Vault HSM)
 - Canadian data residency controls
 - Azure AD MFA
@@ -158,15 +174,18 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 **Certification Status**: ⚠️ Assessment In Progress (verify current status)
 
 **Canadian Regions**:
+
 - northamerica-northeast1 (Montreal, Quebec)
 - northamerica-northeast2 (Toronto, Ontario)
 
 **Services**:
+
 - Compute Engine, Cloud Storage, Cloud SQL
 - Cloud Logging, Cloud Monitoring
 - Cloud KMS, Identity and Access Management
 
 **PBMM Features**:
+
 - FIPS 140-2 Level 3 encryption (Cloud KMS)
 - Data residency controls
 - IAM with MFA
@@ -199,23 +218,27 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 ### Post-Authorization
 
 **Monthly Reporting**:
+
 - Security control status
 - Vulnerability scan results
 - Incident summary
 - Configuration changes
 
 **Quarterly Reviews**:
+
 - Access control verification
 - Log analysis and anomaly detection
 - Policy and procedure updates
 
 **Annual Activities**:
+
 - Full control re-testing
 - Updated System Security Plan
 - Privacy Impact Assessment review
 - Third-party penetration testing
 
 **Incident Reporting**:
+
 - Report security incidents to CCCS within 24 hours
 - Provide incident details and impact assessment
 - Submit remediation plan
@@ -225,21 +248,25 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 ### Key Publications
 
 **ITSG-33**: IT Security Risk Management - A Lifecycle Approach
+
 - Based on NIST SP 800-53
 - Canadian government standard
 - Control catalogue and implementation guidance
 
 **ITSP.50.103**: Cloud Security Categorization
+
 - Risk-based approach to cloud classification
 - Categorization tool available online
 - Maps to PBMM requirements
 
 **ITSM.50.100**: Cloud Security Assessment
+
 - CSP assessment methodology
 - Assessment tiers and criteria
 - Certification process
 
 **Medium Cloud Security Profile**:
+
 - Control baseline for Protected B
 - 10 mandatory controls (PBMM)
 - Implementation guidance
@@ -247,14 +274,17 @@ The CCCS assesses cloud service providers against the ITSP.50.103 Cloud Security
 ### Contact Information
 
 **Canadian Centre for Cyber Security (CCCS)**:
+
 - Website: https://cyber.gc.ca
 - Email: contact@cyber.gc.ca
 - Phone: 1-833-CYBER-88 (1-833-292-3788)
 
 **Cloud Assessment Inquiries**:
+
 - Email: cccs.cloudsecurity-securiteinfonuagique.satcc@cyber.gc.ca
 
 **Incident Reporting**:
+
 - Email: contact@cyber.gc.ca
 - Phone: 1-833-CYBER-88
 - Report within 24 hours for Protected B incidents

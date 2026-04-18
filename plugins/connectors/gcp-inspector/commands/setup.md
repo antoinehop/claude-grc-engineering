@@ -33,6 +33,7 @@ The setup script runs `gcloud auth list` and `gcloud projects describe` to verif
 3. Resolve project (from `--project`, `CLOUDSDK_CORE_PROJECT`, or `gcloud config`).
 4. Verify the caller can at least `gcloud projects describe` the project (read IAM policy check).
 5. Write config:
+
    ```yaml
    version: 1
    source: gcp-inspector

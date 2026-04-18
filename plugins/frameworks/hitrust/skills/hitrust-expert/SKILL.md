@@ -35,6 +35,7 @@ Deep expertise in HITRUST Common Security Framework (CSF) for healthcare and bus
 | **e1** | e1 Assessment | 3-6 months | Can be self | Bridge | Upgrade i1 to r2 |
 
 **i1 Assessment**:
+
 - Demonstrates control implementation
 - Self-assessment or externally validated
 - Less rigorous than r2
@@ -42,6 +43,7 @@ Deep expertise in HITRUST Common Security Framework (CSF) for healthcare and bus
 - Good for: Vendors, BAs, initial certification
 
 **r2 Assessment**:
+
 - Full external validation required
 - Independent HITRUST assessor
 - Comprehensive testing
@@ -49,6 +51,7 @@ Deep expertise in HITRUST Common Security Framework (CSF) for healthcare and bus
 - Required for: Healthcare providers, payers, high-risk BAs
 
 **e1 Assessment**:
+
 - Bridges i1 to r2 in year 2
 - Validates changes since i1
 - Extends certification to 2-year cycle
@@ -59,6 +62,7 @@ Deep expertise in HITRUST Common Security Framework (CSF) for healthcare and bus
 HITRUST CSF requirements tailored based on:
 
 **Organization Factors**:
+
 1. **Type**: Provider, payer, clearinghouse, BA, vendor, other
 2. **Size**:
    - Small: <$20M revenue or <20 employees
@@ -68,6 +72,7 @@ HITRUST CSF requirements tailored based on:
 4. **Regulatory Factors**: HIPAA, state laws, international regs
 
 **Customization Result**:
+
 - **Not Applicable**: Requirements excluded
 - **Implementation Levels**:
   - Baseline: Minimum requirements
@@ -178,6 +183,7 @@ HITRUST CSF requirements tailored based on:
 HITRUST CSF maps to 40+ frameworks including:
 
 **Primary Frameworks**:
+
 - **HIPAA** Security and Privacy Rules
 - **NIST** 800-53, Cybersecurity Framework
 - **ISO/IEC** 27001:2013, 27002
@@ -185,6 +191,7 @@ HITRUST CSF maps to 40+ frameworks including:
 - **FedRAMP** Moderate Baseline
 
 **Additional Frameworks**:
+
 - AICPA Trust Services Criteria (SOC 2)
 - COBIT 5
 - GDPR
@@ -196,6 +203,7 @@ HITRUST CSF maps to 40+ frameworks including:
 - UK Data Protection Act
 
 **Benefits of Harmonization**:
+
 - Single assessment covers multiple requirements
 - Reduced audit fatigue
 - Streamlined compliance
@@ -204,6 +212,7 @@ HITRUST CSF maps to 40+ frameworks including:
 ### Certification Process
 
 **Phase 1: Preparation (2-4 months)**
+
 1. Gap assessment
 2. Remediation planning
 3. Control implementation
@@ -211,6 +220,7 @@ HITRUST CSF maps to 40+ frameworks including:
 5. Self-assessment
 
 **Phase 2: Assessment (1-3 months)**
+
 1. Assessor selection (for validated/r2)
 2. Scoping and kickoff
 3. Evidence collection
@@ -218,12 +228,14 @@ HITRUST CSF maps to 40+ frameworks including:
 5. Assessor review
 
 **Phase 3: Certification (1-2 months)**
+
 1. Corrective action (if needed)
 2. Final review
 3. Certification decision
 4. Certificate issuance
 
 **Ongoing: Surveillance**
+
 - Continuous monitoring
 - Interim assessments
 - Change notifications
@@ -271,6 +283,7 @@ HITRUST CSF maps to 40+ frameworks including:
 ### Evidence Requirements
 
 **Common Artifacts Needed**:
+
 - Information security policies
 - Risk assessment reports
 - Business impact analysis
@@ -292,6 +305,7 @@ HITRUST CSF maps to 40+ frameworks including:
 ### Cost Considerations
 
 **i1 Validated Assessment**:
+
 - Assessor fees: $30K-$80K
 - Remediation: $50K-$150K
 - Tools/tech: $20K-$50K
@@ -299,6 +313,7 @@ HITRUST CSF maps to 40+ frameworks including:
 - **Total**: $100K-$280K
 
 **r2 Assessment**:
+
 - Assessor fees: $100K-$300K
 - Remediation: $150K-$500K
 - Tools/tech: $50K-$150K
@@ -310,11 +325,13 @@ HITRUST CSF maps to 40+ frameworks including:
 ### Certification Benefits
 
 **Regulatory**:
+
 - Demonstrates HIPAA compliance
 - Satisfies breach safe harbor (some states)
 - Shows due diligence
 
 **Business**:
+
 - Competitive differentiator
 - Customer confidence
 - BAA credibility
@@ -322,6 +339,7 @@ HITRUST CSF maps to 40+ frameworks including:
 - Streamlined vendor assessments
 
 **Operational**:
+
 - Improved security posture
 - Standardized processes
 - Better risk visibility

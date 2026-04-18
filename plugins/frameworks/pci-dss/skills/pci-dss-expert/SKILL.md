@@ -30,22 +30,26 @@ Deep expertise in Payment Card Industry Data Security Standard v4.0.1.
 ### Validation Types
 
 **ROC (Report on Compliance)**:
+
 - Required for Level 1 merchants and service providers
 - Completed by Qualified Security Assessor (QSA)
 - Comprehensive assessment of all requirements
 
 **SAQ (Self-Assessment Questionnaire)**:
+
 - For Level 2-4 merchants
 - Multiple types (A, A-EP, B, B-IP, C, C-VT, D, P2PE)
 - Self-assessment with attestation
 
 **AOC (Attestation of Compliance)**:
+
 - Summary document confirming compliance status
 - Accompanies ROC or SAQ
 
 ### Cardholder Data Environment (CDE)
 
 Key concepts:
+
 - **CDE**: Systems that store, process, or transmit CHD
 - **CHD**: Cardholder Data (PAN, name, expiration, service code)
 - **SAD**: Sensitive Authentication Data (CVV, PIN, track data)
@@ -54,6 +58,7 @@ Key concepts:
 ### March 2025 Mandatory Requirements
 
 Critical new requirements:
+
 - 6.4.3: Payment page script management
 - 8.4.2: MFA for all CDE access
 - 10.4.1.1: Automated log review

@@ -16,6 +16,7 @@ Verifies that all Protected B data resides exclusively in Canadian geographic re
 **Policy**: All Protected B data must be stored, processed, and backed up exclusively within Canadian geographic boundaries.
 
 **Authority**:
+
 - ITSG-33 security controls
 - Treasury Board Secretariat cloud adoption strategy
 - PBMM-DATA-1 control requirement
@@ -27,10 +28,12 @@ Verifies that all Protected B data resides exclusively in Canadian geographic re
 ### AWS Canada
 
 **Primary Regions**:
+
 - **ca-central-1**: Canada (Montreal), Quebec
 - **ca-west-1**: Canada West (Calgary), Alberta
 
 **Services Verified**:
+
 - Compute: EC2, Lambda, ECS, EKS
 - Storage: S3, EBS, EFS
 - Databases: RDS, DynamoDB, Aurora
@@ -39,16 +42,19 @@ Verifies that all Protected B data resides exclusively in Canadian geographic re
 **Prohibited Regions**: All non-Canadian regions
 
 **Edge Services**:
+
 - **CloudFront**: Must use only Canadian edge locations (configure distribution restrictions)
 - **Route 53**: Canadian regions for hosted zones
 
 ### Azure Canada
 
 **Primary Regions**:
+
 - **canadacentral**: Canada Central (Toronto), Ontario
 - **canadaeast**: Canada East (Quebec City), Quebec
 
 **Services Verified**:
+
 - Compute: Virtual Machines, App Service, AKS
 - Storage: Blob Storage, File Storage, Managed Disks
 - Databases: SQL Database, Cosmos DB, PostgreSQL
@@ -57,16 +63,19 @@ Verifies that all Protected B data resides exclusively in Canadian geographic re
 **Prohibited Regions**: All non-Canadian regions
 
 **Global Services**:
+
 - **Azure AD**: Tenant data must be in Canadian data centers
 - **Traffic Manager**: Configure Canadian endpoints only
 
 ### Google Cloud Platform Canada
 
 **Primary Regions**:
+
 - **northamerica-northeast1**: Montreal, Quebec
 - **northamerica-northeast2**: Toronto, Ontario
 
 **Services Verified**:
+
 - Compute: Compute Engine, Cloud Run, GKE
 - Storage: Cloud Storage, Persistent Disks
 - Databases: Cloud SQL, Firestore, Spanner
@@ -75,6 +84,7 @@ Verifies that all Protected B data resides exclusively in Canadian geographic re
 **Prohibited Regions**: All non-Canadian regions
 
 **Global Services**:
+
 - **Cloud CDN**: Configure Canadian-only cache locations
 
 ## Verification Commands
@@ -82,6 +92,7 @@ Verifies that all Protected B data resides exclusively in Canadian geographic re
 ### AWS Verification
 
 **S3 Bucket Locations**:
+
 ```bash
 # List all buckets with locations
 for bucket in $(aws s3api list-buckets --query 'Buckets[*].Name' --output text); do
@@ -95,6 +106,7 @@ done
 ```
 
 **EC2 Instance Locations**:
+
 ```bash
 # Check all EC2 instances
 aws ec2 describe-instances \
@@ -105,6 +117,7 @@ aws ec2 describe-instances \
 ```
 
 **RDS Database Locations**:
+
 ```bash
 # Check all RDS instances
 aws rds describe-db-instances \
@@ -115,6 +128,7 @@ aws rds describe-db-instances \
 ```
 
 **EBS Snapshots**:
+
 ```bash
 # Check snapshot locations (must be in Canadian regions)
 aws ec2 describe-snapshots --owner-ids self \
@@ -125,6 +139,7 @@ aws ec2 describe-snapshots --owner-ids self \
 ### Azure Verification
 
 **All Resources**:
+
 ```bash
 # List all resources with locations
 az resource list \
@@ -138,6 +153,7 @@ az resource list \
 ```
 
 **Storage Accounts**:
+
 ```bash
 # Check storage account locations
 az storage account list \
@@ -148,6 +164,7 @@ az storage account list \
 ```
 
 **Virtual Machines**:
+
 ```bash
 # Check VM locations
 az vm list \
@@ -158,6 +175,7 @@ az vm list \
 ### GCP Verification
 
 **Cloud Storage Buckets**:
+
 ```bash
 # List all buckets with locations
 gcloud storage buckets list --format='table(name,location,locationType)'
@@ -166,6 +184,7 @@ gcloud storage buckets list --format='table(name,location,locationType)'
 ```
 
 **Compute Instances**:
+
 ```bash
 # List all instances with zones
 gcloud compute instances list \
@@ -175,6 +194,7 @@ gcloud compute instances list \
 ```
 
 **Cloud SQL Instances**:
+
 ```bash
 # Check database locations
 gcloud sql instances list \
@@ -188,11 +208,13 @@ gcloud sql instances list \
 ### Violation 1: Non-Canadian S3 Buckets
 
 **Finding**: S3 bucket in us-east-1
+
 ```
 FAIL: my-bucket -> us-east-1 (NOT Canadian)
 ```
 
 **Remediation**:
+
 1. Create new bucket in ca-central-1
 2. Use S3 replication or copy objects
 3. Update application to use new bucket
@@ -213,11 +235,13 @@ aws s3 sync s3://my-bucket s3://my-bucket-ca --region ca-central-1
 ### Violation 2: EC2 Instance in US Region
 
 **Finding**: EC2 instance in us-west-2
+
 ```
 Instance i-1234567890 in us-west-2a
 ```
 
 **Remediation**:
+
 1. Create AMI snapshot
 2. Copy AMI to ca-central-1
 3. Launch new instance in Canadian region
@@ -246,11 +270,13 @@ aws ec2 run-instances \
 ### Violation 3: Azure Resource in US Region
 
 **Finding**: Storage account in eastus
+
 ```
 my-storage | eastus | StorageV2
 ```
 
 **Remediation**:
+
 1. Create new storage account in canadacentral
 2. Use AzCopy to migrate data
 3. Update application connection strings
@@ -272,6 +298,7 @@ azcopy sync \
 ## Cross-Border Data Transfer Restrictions
 
 **Prohibited Activities**:
+
 - Replication to non-Canadian regions
 - Backup storage outside Canada
 - Content delivery network (CDN) caching outside Canada
@@ -279,6 +306,7 @@ azcopy sync \
 - Disaster recovery sites outside Canada
 
 **Permitted with Controls**:
+
 - Encrypted transient network traffic through non-Canadian networks (TLS 1.2+)
 - Management traffic to cloud provider control planes (encrypted)
 - Monitoring and logging data (if encrypted and contractually protected)
@@ -373,6 +401,7 @@ spec:
 ## Audit Evidence
 
 For CCCS assessment, maintain:
+
 - Monthly residency verification reports
 - Configuration screenshots showing Canadian regions
 - Service Control Policies or equivalent

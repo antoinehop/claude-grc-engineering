@@ -11,6 +11,7 @@ Deep expertise in ISO/IEC 27001 Information Security Management Systems.
 ## Expertise Areas
 
 ### ISMS Requirements (Clauses 4-10)
+
 - Clause 4: Context of the Organization
 - Clause 5: Leadership
 - Clause 6: Planning
@@ -20,6 +21,7 @@ Deep expertise in ISO/IEC 27001 Information Security Management Systems.
 - Clause 10: Improvement
 
 ### Annex A Controls (ISO 27001:2022)
+
 - A.5: Organizational Controls (37)
 - A.6: People Controls (8)
 - A.7: Physical Controls (14)
@@ -28,6 +30,7 @@ Deep expertise in ISO/IEC 27001 Information Security Management Systems.
 **Total: 93 controls** (reduced from 114 in 2013 version)
 
 ### New Controls in 2022
+
 - Threat intelligence
 - Cloud services security
 - ICT readiness for business continuity

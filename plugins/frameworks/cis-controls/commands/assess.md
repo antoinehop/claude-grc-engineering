@@ -9,6 +9,7 @@ description: CIS Controls v8 compliance assessment by Implementation Group level
 Evaluates organizational readiness for CIS Controls v8 baseline security framework.
 
 ## Arguments
+
 - `$1` - Target Implementation Group (required: IG1, IG2, or IG3)
 - `$2` - Assessment scope (optional: full, gap-analysis, specific-control)
 
@@ -21,6 +22,7 @@ Evaluates organizational readiness for CIS Controls v8 baseline security framewo
 | **IG3** | Large enterprises, high-value assets, skilled adversaries | 153 | Advanced security practices, threat hunting |
 
 ### IG1 - Essential Cyber Hygiene
+
 - **Target**: Small to medium businesses
 - **Resources**: Limited IT security expertise
 - **Focus**: Foundational safeguards every organization should implement
@@ -28,6 +30,7 @@ Evaluates organizational readiness for CIS Controls v8 baseline security framewo
 - **Examples**: Inventory assets, control admin privileges, basic backups
 
 ### IG2 - Enterprise Security
+
 - **Target**: Medium to large organizations
 - **Resources**: Dedicated IT security staff
 - **Focus**: Scalable security operations and enterprise tools
@@ -35,6 +38,7 @@ Evaluates organizational readiness for CIS Controls v8 baseline security framewo
 - **Examples**: Centralized logging, automated vulnerability management, SIEM
 
 ### IG3 - Advanced Security
+
 - **Target**: Large organizations, critical infrastructure, high-value targets
 - **Resources**: Specialized security teams (SOC, threat intel, IR)
 - **Focus**: Advanced threat detection, response, and recovery
@@ -136,6 +140,7 @@ Evaluates organizational readiness for CIS Controls v8 baseline security framewo
 ## Assessment Methodology
 
 **Data Collection**:
+
 - Configuration reviews
 - Policy and procedure documentation
 - Technical control testing
@@ -143,11 +148,13 @@ Evaluates organizational readiness for CIS Controls v8 baseline security framewo
 - Network and system scans
 
 **Scoring**:
+
 - Per-safeguard implementation status (Not Implemented, Partially Implemented, Implemented)
 - Control-level maturity (Ad hoc, Documented, Managed, Optimized)
 - Overall IG compliance percentage
 
 **Gap Analysis**:
+
 - Missing safeguards by priority
 - Incomplete implementations
 - Documentation gaps

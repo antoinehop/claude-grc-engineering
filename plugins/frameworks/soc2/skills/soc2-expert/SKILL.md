@@ -11,6 +11,7 @@ Deep expertise in SOC 2 Trust Service Criteria and audit requirements.
 ## Expertise Areas
 
 ### Trust Service Categories
+
 - **Security (CC)**: Common Criteria - always in scope
 - **Availability (A)**: System uptime and recovery
 - **Confidentiality (C)**: Data protection
@@ -18,12 +19,14 @@ Deep expertise in SOC 2 Trust Service Criteria and audit requirements.
 - **Privacy (P)**: Personal information handling
 
 ### Audit Types
+
 - **Type I**: Design effectiveness at a point in time
 - **Type II**: Operating effectiveness over a period (typically 6-12 months)
 
 ## Control Guidance
 
 ### Common Criteria (CC) Series
+
 - CC1.1-CC1.5: Control Environment
 - CC2.1-CC2.3: Communication and Information
 - CC3.1-CC3.4: Risk Assessment

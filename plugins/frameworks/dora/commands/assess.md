@@ -7,6 +7,7 @@ description: DORA compliance readiness assessment for EU financial entities
 Evaluates organizational readiness for Digital Operational Resilience Act (DORA) compliance.
 
 ## Arguments
+
 - `$1` - Assessment scope (required: full, pillar-specific, entity-type)
 - `$2` - Entity classification (optional: credit-institution, payment-institution, investment-firm, crypto-asset-provider, ict-provider)
 
@@ -31,9 +32,11 @@ Evaluates organizational readiness for Digital Operational Resilience Act (DORA)
 ## DORA's 5 Pillars
 
 ### Pillar 1: ICT Risk Management (Articles 5-16)
+
 Comprehensive framework for managing ICT risks across the organization.
 
 **Key Requirements**:
+
 - Governance and control framework
 - ICT risk management framework
 - Business continuity policy and disaster recovery plans
@@ -41,9 +44,11 @@ Comprehensive framework for managing ICT risks across the organization.
 - Communication during crises
 
 ### Pillar 2: ICT-Related Incident Management & Reporting (Articles 17-23)
+
 Detection, management, and reporting of major ICT-related incidents.
 
 **Key Requirements**:
+
 - Incident detection and management processes
 - Classification of incidents (major vs. non-major)
 - Reporting to competent authorities (major incidents)
@@ -51,6 +56,7 @@ Detection, management, and reporting of major ICT-related incidents.
 - Centralized incident reporting to ESAs
 
 **Major Incident Criteria**:
+
 - Significant impact on financial services
 - Client/counterparty impact
 - Reputational impact
@@ -58,9 +64,11 @@ Detection, management, and reporting of major ICT-related incidents.
 - Critical service disruption
 
 ### Pillar 3: Digital Operational Resilience Testing (Articles 24-27)
+
 Regular testing to ensure systems can withstand cyber threats and operational disruptions.
 
 **Key Requirements**:
+
 - Risk-based testing programs
 - Advanced testing (threat-led penetration testing - TLPT)
 - Testing frequency based on risk profile
@@ -68,6 +76,7 @@ Regular testing to ensure systems can withstand cyber threats and operational di
 - TLPT for systemically important entities
 
 **Testing Types**:
+
 - Vulnerability assessments
 - Network security assessments
 - Gap analyses
@@ -81,9 +90,11 @@ Regular testing to ensure systems can withstand cyber threats and operational di
 - Threat-led penetration testing (TLPT)
 
 ### Pillar 4: ICT Third-Party Risk Management (Articles 28-30)
+
 Oversight of risks from ICT service providers, especially critical providers.
 
 **Key Requirements**:
+
 - Third-party risk assessment and monitoring
 - Contractual arrangements with service providers
 - Key contractual provisions mandated by DORA
@@ -92,15 +103,18 @@ Oversight of risks from ICT service providers, especially critical providers.
 - Oversight framework for critical providers
 
 **Critical ICT Third-Party Providers**:
+
 - Designated by ESAs
 - Subject to direct oversight
 - Must meet stringent requirements
 - Lead overseer assigned
 
 ### Pillar 5: Information Sharing (Articles 45)
+
 Voluntary sharing of cyber threat information and intelligence.
 
 **Key Requirements**:
+
 - Participation in information-sharing arrangements
 - Protection from liability when sharing in good faith
 - Trusted information-sharing communities
@@ -153,30 +167,35 @@ Voluntary sharing of cyber threat information and intelligence.
 ## Common Readiness Gaps
 
 ### Governance & Risk Management
+
 - No ICT risk management framework
 - Board not sufficiently involved in ICT risk
 - Inadequate business continuity planning
 - Lack of ICT asset inventory
 
 ### Incident Management
+
 - No major incident classification criteria
 - Incident reporting process not aligned with DORA timelines
 - Missing incident response playbooks
 - Lack of crisis communication plans
 
 ### Testing
+
 - No formal resilience testing program
 - Testing not risk-based
 - Advanced testing (TLPT) not planned
 - Remediation tracking inadequate
 
 ### Third-Party Risk
+
 - Incomplete third-party inventory
 - Contracts lack DORA provisions
 - No critical provider oversight
 - Exit strategies not documented
 
 ### Information Sharing
+
 - Not participating in threat intelligence communities
 - No framework for sharing incidents
 - Legal concerns about information sharing
@@ -189,6 +208,7 @@ Voluntary sharing of cyber threat information and intelligence.
 **National Competent Authorities**: Country-specific supervision
 
 **Inspection Focus Areas**:
+
 - ICT risk governance
 - Major incident handling
 - TLPT execution and findings

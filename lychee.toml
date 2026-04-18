@@ -1,7 +1,8 @@
 # lychee config: link checker for the toolkit's Markdown corpus.
 
-# Run headers that reduce false-positive rate-limit blocks.
-accept = [200, 203, 206, 403, 429]
+# Accept 2xx and redirect codes. Redirects get followed; we check the final status.
+# 403/429 tolerated because regulator sites and rate-limited APIs otherwise noise this up.
+accept = ["200..=299", "301", "302", "307", "308", "403", "429"]
 max_concurrency = 8
 timeout = 20
 retry_wait_time = 4
@@ -17,6 +18,8 @@ exclude = [
   "^https://hooks\\.slack\\.com/\\.\\.\\.",
   # LinkedIn gates most profile URLs behind auth
   "^https://(www\\.)?linkedin\\.com",
+  # GitHub org pages that require auth (teams, private org views) bounce to login
+  "^https://github\\.com/orgs/.*/teams/",
   # Some regulator sites return 5xx to scrapers but render fine in browsers
   "^https://www\\.ecfr\\.gov",
 ]

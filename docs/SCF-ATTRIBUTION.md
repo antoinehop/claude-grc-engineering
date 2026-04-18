@@ -12,14 +12,17 @@ This toolkit uses the [Secure Controls Framework](https://securecontrolsframewor
 SCF data is licensed under [Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)](https://creativecommons.org/licenses/by-nd/4.0/).
 
 This license allows:
+
 - Copying and redistributing the material in any medium or format, for any purpose, including commercial
 - Appropriate attribution to the Secure Controls Framework Council
 
 This license forbids:
+
 - Distributing modified versions of the SCF data
 - Cropping or editing control text, descriptions, or crosswalk mappings
 
 **How the toolkit stays compliant**:
+
 - Cached SCF data is preserved byte-for-byte from the upstream API. Never modified.
 - Every report that includes SCF control IDs, descriptions, or crosswalks carries an attribution footer: *"Control mappings provided by the Secure Controls Framework (https://securecontrolsframework.com), licensed under CC BY-ND 4.0."*
 - The `control-crosswalk.yaml` overrides file is for **local supplements only**: adding controls SCF doesn't cover. It does not modify SCF data in place.
@@ -27,6 +30,7 @@ This license forbids:
 ## If you're building on this
 
 Any downstream use of SCF data through this toolkit inherits CC BY-ND 4.0. In practice:
+
 - ✅ Include SCF-sourced control IDs in your audit reports
 - ✅ Distribute the unmodified cached JSON
 - ✅ Build commercial tools that consume SCF data via this toolkit

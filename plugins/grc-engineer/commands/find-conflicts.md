@@ -104,61 +104,69 @@ HIGH SEVERITY CONFLICTS
    Affected Controls: NIST AU-11, ISO A.12.4.1, SOC2 CC7.3, PCI 10.7
 
    Requirements:
-   - SOC2:    Retention based on risk assessment
+
+- SOC2:    Retention based on risk assessment
               (typically 1 year minimum)
-   - PCI-DSS: One year minimum, with at least 3 months
+- PCI-DSS: One year minimum, with at least 3 months
               immediately available for analysis
               Requirement 10.7 MANDATORY
-   - NIST:    Organization-defined period
+- NIST:    Organization-defined period
               (typically 90 days online, 1 year archived)
-   - ISO:     As required by applicable regulations
+- ISO:     As required by applicable regulations
               and contractual requirements
 
    ⚠ IMPACT: PCI-DSS specific requirements for availability
    ✓ RESOLUTION: 1 year total, 3+ months online/searchable
 
    Implementation:
-   - Online logs: 6 months (exceeds PCI 3-month minimum)
-   - Archived logs: 6 months (total = 1 year)
-   - Use cheaper storage for archived logs
-   - Satisfies all framework requirements
+
+- Online logs: 6 months (exceeds PCI 3-month minimum)
+- Archived logs: 6 months (total = 1 year)
+- Use cheaper storage for archived logs
+- Satisfies all framework requirements
 
    Cloud Implementation:
    AWS:
-   - CloudWatch Logs: 6 months retention
-   - S3 Glacier: 6 months archived (total 1 year)
+
+- CloudWatch Logs: 6 months retention
+- S3 Glacier: 6 months archived (total 1 year)
 
    Azure:
-   - Log Analytics: 6 months
-   - Archive Storage: 6 months
+
+- Log Analytics: 6 months
+- Archive Storage: 6 months
 
    GCP:
-   - Cloud Logging: 6 months
-   - Cloud Storage Archive: 6 months
+
+- Cloud Logging: 6 months
+- Cloud Storage Archive: 6 months
 
 🔴 CONFLICT #3: Inactive Account Handling
    Control Area: Account Management
    Affected Controls: NIST AC-2(3), SOC2 CC6.1, PCI 8.1.4
 
    Requirements:
-   - SOC2:    Remove or disable inactive accounts based on
+
+- SOC2:    Remove or disable inactive accounts based on
               risk assessment (no specific timeline)
-   - PCI-DSS: Remove/disable inactive user accounts at least
+- PCI-DSS: Remove/disable inactive user accounts at least
               every 90 days - Requirement 8.1.4 MANDATORY
-   - NIST:    AC-2(3) - Organization-defined time period
+- NIST:    AC-2(3) - Organization-defined time period
               (commonly 90 days for government)
-   - ISO:     Review access rights at regular intervals
+- ISO:     Review access rights at regular intervals
 
    ⚠ IMPACT: PCI-DSS mandatory 90-day requirement
    ✓ RESOLUTION: Automatically disable accounts after 90 days
 
    Implementation:
-   - Automated detection of accounts inactive 90+ days
-   - Automatic disablement (not deletion)
-   - Exception process for service accounts
-   - Monthly review of disabled accounts
+
+- Automated detection of accounts inactive 90+ days
+- Automatic disablement (not deletion)
+- Exception process for service accounts
+- Monthly review of disabled accounts
 
    Automation:
+
    ```python
    # Disable users inactive for 90+ days
    inactive_threshold_days = 90
@@ -180,48 +188,54 @@ MEDIUM SEVERITY CONFLICTS
    Control Area: Vulnerability Management
 
    Requirements:
-   - PCI-DSS: Quarterly external scans by ASV
+
+- PCI-DSS: Quarterly external scans by ASV
               Quarterly internal scans
               Scans after significant changes
-   - NIST:    Organization-defined frequency (monthly common)
-   - SOC2:    Risk-based frequency
-   - CIS:     Monthly vulnerability scans (Control 7.5)
+- NIST:    Organization-defined frequency (monthly common)
+- SOC2:    Risk-based frequency
+- CIS:     Monthly vulnerability scans (Control 7.5)
 
    ✓ RESOLUTION: Monthly internal, quarterly external by ASV
-   - Satisfies PCI quarterly minimum
-   - Satisfies CIS monthly recommendation
-   - Exceeds NIST and SOC2 expectations
+
+- Satisfies PCI quarterly minimum
+- Satisfies CIS monthly recommendation
+- Exceeds NIST and SOC2 expectations
 
 🟡 CONFLICT #5: Firewall Rule Review
    Control Area: Network Security
 
    Requirements:
-   - PCI-DSS: Review firewall rules every 6 months (11.1.2)
-   - NIST:    Annual minimum (CM-3)
-   - SOC2:    Regular reviews based on risk
-   - ISO:     Periodic review (typically annual)
+
+- PCI-DSS: Review firewall rules every 6 months (11.1.2)
+- NIST:    Annual minimum (CM-3)
+- SOC2:    Regular reviews based on risk
+- ISO:     Periodic review (typically annual)
 
    ✓ RESOLUTION: Semi-annual (6 months) to satisfy PCI-DSS
-   - Documented review process
-   - Change tracking and approval
-   - Exceeds other framework requirements
+
+- Documented review process
+- Change tracking and approval
+- Exceeds other framework requirements
 
 🟡 CONFLICT #6: Password Complexity
    Control Area: Authentication
 
    Requirements:
-   - PCI-DSS: Minimum 12 characters (as of March 2025)
+
+- PCI-DSS: Minimum 12 characters (as of March 2025)
               Complexity requirements
-   - NIST:    Minimum 8 characters (updated 800-63B guidance)
+- NIST:    Minimum 8 characters (updated 800-63B guidance)
               No complexity requirements (deprecated)
-   - SOC2:    Strong password policy (not specified)
-   - ISO:     Adequate password policy
+- SOC2:    Strong password policy (not specified)
+- ISO:     Adequate password policy
 
    ✓ RESOLUTION: 12+ characters with complexity
-   - Satisfies PCI-DSS March 2025 requirement
-   - Exceeds NIST minimum
-   - Implement passphrase support
-   - Consider MFA to reduce password burden
+
+- Satisfies PCI-DSS March 2025 requirement
+- Exceeds NIST minimum
+- Implement passphrase support
+- Consider MFA to reduce password burden
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 LOW SEVERITY CONFLICTS
@@ -248,6 +262,7 @@ RESOLUTION STRATEGY
 General Principle: "Most Restrictive Wins"
 
 When conflicts exist:
+
 1. Identify the most restrictive requirement
 2. Implement to satisfy the highest standard
 3. Document that implementation exceeds other frameworks
@@ -309,6 +324,7 @@ NEXT STEPS
 3. Use /grc-engineer:generate-implementation to create configurations
 4. Use /grc-engineer:scan-iac to validate current state
 5. Update documentation to reference conflict resolutions
+
 ```
 
 ## Summary Mode Output

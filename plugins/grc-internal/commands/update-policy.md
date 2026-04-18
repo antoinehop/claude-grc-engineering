@@ -7,6 +7,7 @@ description: Manage policy lifecycle and updates
 Manages policy documents through their lifecycle.
 
 ## Arguments
+
 - `$1` - Policy file path or name (required)
 - `$2` - Action (optional: review, update, version, approve)
 

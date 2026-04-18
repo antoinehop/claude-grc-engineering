@@ -13,6 +13,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 ### Framework Overview
 
 **PBMM (Protected B, Medium Integrity, Medium Availability)**:
+
 - **Authority**: Canadian Centre for Cyber Security (CCCS), Treasury Board Secretariat
 - **Base Standard**: ITSG-33 (based on NIST SP 800-53)
 - **Assessment**: ITSM.50.100 Cloud Security Assessment
@@ -51,6 +52,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 | **GCP** | northamerica-northeast2 | Toronto, ON |
 
 **Prohibited**:
+
 - Any non-Canadian region worldwide
 - Cross-border replication or backup
 - Edge caching outside Canada
@@ -59,6 +61,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 **NIST Mapping**: SA-9(5), SC-8
 
 **Implementation**:
+
 - Service Control Policies to enforce Canadian regions
 - Monthly residency verification audits
 - Tagging all resources with data classification
@@ -68,6 +71,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 **Requirement**: Establish and maintain formal access control policies aligned with ITSG-33
 
 **Key Elements**:
+
 - Documented access control policy
 - User provisioning and de-provisioning procedures
 - Least privilege principle
@@ -77,6 +81,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 **NIST Mapping**: AC-1, AC-2
 
 **Cloud Implementation**:
+
 - IAM policies with least privilege
 - Role-based access control (RBAC)
 - Strong password policy (14+ characters, complexity, 90-day rotation)
@@ -87,12 +92,14 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 **Requirement**: Enforce MFA for all users accessing Protected B systems
 
 **Acceptable MFA Methods**:
+
 - Hardware tokens (FIDO2, YubiKey)
 - Authenticator apps (TOTP)
 - SMS (minimum acceptable, not recommended)
 - Biometric + PIN (for mobile access)
 
 **Implementation**:
+
 - **AWS**: IAM MFA, AWS SSO with MFA
 - **Azure**: Azure AD Conditional Access with MFA
 - **GCP**: 2-Step Verification, Context-Aware Access
@@ -106,6 +113,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 **Requirement**: Maintain comprehensive audit logs for at least 2 years
 
 **Logging Scope**:
+
 - All authentication events (success/failure)
 - All authorization decisions
 - Resource creation, modification, deletion
@@ -116,12 +124,14 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 **Log Retention**: Minimum 2 years
 
 **Log Protection**:
+
 - Centralized logging
 - Log integrity protection (digital signatures, write-once storage)
 - Restricted access to logs (security team only)
 - Regular log review and analysis
 
 **Implementation**:
+
 - **AWS**: CloudTrail with S3 Glacier long-term storage
 - **Azure**: Azure Monitor with Log Analytics 2-year retention
 - **GCP**: Cloud Logging with log sinks to Cloud Storage
@@ -135,6 +145,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 **Encryption Standard**: FIPS 140-2 Level 2 or higher
 
 **Coverage**:
+
 - Primary storage (S3, Blob, Cloud Storage)
 - Block storage (EBS, Managed Disks, Persistent Disks)
 - Databases (RDS, SQL Database, Cloud SQL)
@@ -142,11 +153,13 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 - Temporary files and caches
 
 **Cloud KMS Solutions**:
+
 - **AWS KMS**: FIPS 140-2 Level 2 validated (Certificates #3139, #3195, #3520)
 - **Azure Key Vault HSM**: FIPS 140-2 Level 2 (Certificates #3347, #3653)
 - **GCP Cloud KMS**: FIPS 140-2 Level 3 (Certificates #3666, #4124)
 
 **Key Management**:
+
 - Customer-managed encryption keys (CMEK) recommended
 - Automatic key rotation (annual)
 - Key access audit logging
@@ -160,6 +173,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 **Minimum TLS**: TLS 1.2 (TLS 1.3 preferred)
 
 **FIPS Cipher Suites**:
+
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
@@ -167,6 +181,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 **Prohibited**: SSL, TLS 1.0, TLS 1.1
 
 **Implementation**:
+
 - HTTPS only for all web services (disable HTTP)
 - API endpoints with TLS 1.2+ only
 - Database connections encrypted (RDS force_ssl, Azure SQL Encrypted Connection)
@@ -179,6 +194,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 **Requirement**: Implement network segmentation with security groups, firewalls, and network access controls
 
 **Segmentation Strategy**:
+
 - Dedicated VPC/VNet for Protected B workloads
 - Subnet isolation (web tier, app tier, data tier)
 - Security groups with least privilege
@@ -186,11 +202,13 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 - No direct internet access to database tier
 
 **Implementation**:
+
 - **AWS**: VPC with private subnets, Security Groups, NACLs, PrivateLink
 - **Azure**: Virtual Network with NSGs, Application Security Groups, Private Endpoints
 - **GCP**: VPC with Firewall Rules, VPC Service Controls
 
 **Best Practices**:
+
 - Default deny, explicit allow
 - Micro-segmentation for critical workloads
 - Separate management and production networks
@@ -211,11 +229,13 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 | **Low** | 90 days | Next maintenance window |
 
 **Scanning Frequency**:
+
 - Continuous automated scanning
 - Weekly vulnerability reports
 - Monthly compliance reporting
 
 **Tools**:
+
 - **AWS**: Amazon Inspector, AWS Security Hub
 - **Azure**: Microsoft Defender for Cloud, Qualys
 - **GCP**: Security Command Center, Cloud Asset Inventory
@@ -227,6 +247,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 **Requirement**: Establish incident response procedures and notify CCCS of security incidents
 
 **Incident Response Plan** must include:
+
 - Incident classification (severity levels)
 - Response procedures by incident type
 - Contact information (internal and CCCS)
@@ -235,11 +256,13 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 - Post-incident review process
 
 **CCCS Notification**:
+
 - **Timeline**: Within 24 hours of confirmed incident
 - **Contact**: contact@cyber.gc.ca or 1-833-CYBER-88
 - **Information**: Incident type, affected systems, data types, impact assessment
 
 **Incident Severity**:
+
 - **Critical**: Data breach, system compromise, service disruption
 - **High**: Attempted breach, malware detection, policy violation
 - **Medium**: Suspicious activity, anomaly detection
@@ -252,6 +275,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 **Requirement**: Implement automated backups with Canadian region storage and tested recovery procedures
 
 **Backup Requirements**:
+
 - Automated daily backups minimum
 - Backup storage in Canadian regions only (ca-central-1, canadacentral)
 - Encrypted backups (FIPS 140-2)
@@ -259,12 +283,14 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 - Off-site backups (different Canadian region)
 
 **Recovery Testing**:
+
 - Quarterly recovery drills
 - Documented recovery procedures
 - Recovery Time Objective (RTO): < 24 hours
 - Recovery Point Objective (RPO): < 24 hours
 
 **Implementation**:
+
 - **AWS**: AWS Backup with cross-region copy (ca-central-1 ↔ ca-west-1)
 - **Azure**: Azure Backup with geo-redundant storage (canadacentral ↔ canadaeast)
 - **GCP**: Backup and DR Service with Canadian region snapshots
@@ -276,6 +302,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 **Assessment Type**: ITSM.50.100 Cloud Security Assessment
 
 **Timeline**:
+
 - Pre-assessment: 1-2 months (documentation, internal audit)
 - Application: 1 month (CCCS review)
 - Assessment: 2-4 months (testing, validation)
@@ -284,6 +311,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 - **Total**: 6-12 months
 
 **Required Documentation**:
+
 - System Security Plan (SSP)
 - Privacy Impact Assessment (PIA)
 - Security Assessment Report (SAR)
@@ -326,6 +354,7 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 ### Cost Considerations
 
 **PBMM Compliance Costs** (Annual):
+
 - **CCCS Assessment**: $100K - $250K (initial), $75K - $150K (re-assessment)
 - **Canadian Region Premium**: +10-20% over US regions
 - **Long-term Log Storage**: $5K - $50K (depends on volume)
@@ -337,18 +366,21 @@ Deep expertise in Canadian Protected B, Medium Integrity, Medium Availability (P
 ### Resources
 
 **CCCS**:
+
 - Website: https://cyber.gc.ca
 - Email: contact@cyber.gc.ca
 - Phone: 1-833-CYBER-88 (1-833-292-3788)
 - Incident Reporting: contact@cyber.gc.ca (24-hour notification)
 
 **Key Publications**:
+
 - **ITSG-33**: IT Security Risk Management guidance (based on NIST 800-53)
 - **ITSP.50.103**: Cloud Security Categorization
 - **ITSM.50.100**: Cloud Security Assessment methodology
 - **Medium Cloud Security Profile**: PBMM baseline controls
 
 **Treasury Board Secretariat**:
+
 - Cloud Adoption Strategy
 - Directive on Security Management
 - Policy on Government Security

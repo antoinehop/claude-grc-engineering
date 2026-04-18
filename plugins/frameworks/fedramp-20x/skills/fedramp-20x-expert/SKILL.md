@@ -26,6 +26,7 @@ Deep expertise in FedRAMP 20X modernization initiative.
 ### 20X Philosophy
 
 **Traditional (Rev 5)** → **Modern (20X)**
+
 - Manual assessment → Automated validation
 - Point-in-time audits → Continuous monitoring
 - PDF documentation → Machine-readable policies
@@ -35,6 +36,7 @@ Deep expertise in FedRAMP 20X modernization initiative.
 ### Machine-Readable Policies
 
 Syncs from official FedRAMP/docs repository:
+
 - JSON-formatted policy requirements
 - Automated schema validation
 - Version-controlled updates

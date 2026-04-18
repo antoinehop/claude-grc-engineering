@@ -7,12 +7,14 @@ description: Annual NYDFS 23 NYCRR 500 certification guidance
 Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 500 Certification of Compliance required by April 15th.
 
 ## Arguments
+
 - `$1` - Certification year (optional: 2024, 2025, etc.)
 - `$2` - Preparation stage (optional: pre-assessment, board-preparation, submission-ready)
 
 ## Regulatory Requirement
 
 **Section 500.17**: Annual Certification of Compliance
+
 - **Due Date**: April 15 each year
 - **Covers**: Prior calendar year (Jan 1 - Dec 31)
 - **Certifier**: Board of Directors or Senior Officer
@@ -22,17 +24,20 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 ## Who Must Certify
 
 **Certifying Officer**:
+
 - Member of Board of Directors, OR
 - Senior Officer (CEO, COO, CFO, CISO)
 - Must have authority and knowledge
 - Personal attestation required
 
 **Covered Entities**:
+
 - All entities subject to 23 NYCRR 500
 - Banks, insurance companies, financial services firms
 - Operating under NY Department of Financial Services authority
 
 **Exemptions**:
+
 - Entities qualifying for limited exemptions still must certify
 - Must note exemptions in certification
 - Cannot exempt from certification requirement itself
@@ -42,12 +47,14 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 ### 1. Compliance Attestation
 
 **Affirm**:
+
 - Reviewed cybersecurity program
 - Program complies with 23 NYCRR 500
 - Reasonable assurance of security
 - Controls appropriate to risk
 
 **Alternative** (if not fully compliant):
+
 - State areas of non-compliance
 - Provide remediation plan
 - Timeline for achieving compliance
@@ -56,6 +63,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 ### 2. Cybersecurity Program Review
 
 **Evidence of Review**:
+
 - Annual risk assessment conducted
 - Policies and procedures reviewed
 - Technical controls evaluated
@@ -65,6 +73,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 - Vulnerability assessments current
 
 **Board Oversight**:
+
 - CISO report to Board
 - Cybersecurity program effectiveness
 - Material cybersecurity events
@@ -73,6 +82,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 ### 3. Material Changes
 
 **Report Changes**:
+
 - CISO designation changes (15-day notice required separately)
 - Significant policy updates
 - Major incidents or breaches
@@ -83,12 +93,14 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 ### 4. Exemptions Claimed
 
 **If Qualifying for Exemptions**:
+
 - List each exemption claimed (per 500.19)
 - Justification for exemption
 - Alternative controls implemented
 - Small entity status confirmation
 
 **Common Exemptions** (for qualified small entities):
+
 - MFA requirement (500.12)
 - Annual penetration testing (500.05)
 - CISO designation (500.04)
@@ -99,6 +111,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 ### Phase 1: Pre-Assessment (90 days before April 15)
 
 **January - Gap Analysis**:
+
 1. Review all 23 sections of 500
 2. Document current compliance status
 3. Identify gaps and deficiencies
@@ -106,6 +119,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 5. Prioritize remediation efforts
 
 **Key Questions**:
+
 - Is CISO designated and qualified?
 - Was annual penetration test completed?
 - Are vulnerability assessments current?
@@ -118,6 +132,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 ### Phase 2: Remediation (60 days before)
 
 **February - Address Gaps**:
+
 1. Implement missing controls
 2. Update policies and procedures
 3. Complete required assessments
@@ -126,6 +141,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 6. Prepare evidence packages
 
 **Focus Areas**:
+
 - Critical vulnerabilities from pen test
 - MFA deployment completion
 - IR plan testing
@@ -136,6 +152,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 ### Phase 3: Board Preparation (30 days before)
 
 **March - Executive Review**:
+
 1. Prepare Board presentation
 2. CISO report on program status
 3. Review certification statement
@@ -144,6 +161,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 6. Approve certification
 
 **Board Materials Should Include**:
+
 - Cybersecurity program overview
 - Risk assessment summary
 - Compliance status by section
@@ -156,6 +174,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 ### Phase 4: Submission (by April 15)
 
 **April 1-15 - File Certification**:
+
 1. Obtain Board/officer signature
 2. Complete online portal form
 3. Upload required documentation
@@ -166,6 +185,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 ## Certification Portal Submission
 
 **NYDFS Online Portal**:
+
 - Register entity if first-time filing
 - Use secure login credentials
 - Complete web-based form
@@ -174,6 +194,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 - Confirmation email
 
 **Information Required**:
+
 - Entity legal name and NYDFS license number
 - Certifying officer name and title
 - Certification statement text
@@ -184,31 +205,37 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 ## Common Certification Pitfalls
 
 ### 1. Late Filing
+
 **Problem**: Missing April 15 deadline
 **Consequence**: Regulatory enforcement, fines
 **Solution**: Calendar reminders, preparation timeline, early submission
 
 ### 2. Incomplete Certification
+
 **Problem**: Missing required elements
 **Consequence**: Rejection, resubmission required
 **Solution**: Use checklist, review prior submissions, consult guidance
 
 ### 3. Unqualified Certifier
+
 **Problem**: Certifier lacks authority or knowledge
 **Consequence**: Invalid certification
 **Solution**: Confirm Board member or senior officer, CISO involvement
 
 ### 4. Undocumented Exemptions
+
 **Problem**: Claiming exemptions without proper justification
 **Consequence**: Exemptions denied, enforcement
 **Solution**: File exemption notices, document eligibility, implement alternatives
 
 ### 5. Material Omissions
+
 **Problem**: Failing to disclose non-compliance or incidents
 **Consequence**: False certification, penalties
 **Solution**: Comprehensive review, legal counsel, transparency
 
 ### 6. Insufficient Board Oversight
+
 **Problem**: Board not engaged in cybersecurity
 **Consequence**: Ineffective program, regulatory concern
 **Solution**: Regular Board reporting, CISO access, cybersecurity committee
@@ -216,6 +243,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 ## Best Practices
 
 ### Continuous Compliance
+
 - Don't wait until March to assess compliance
 - Ongoing monitoring throughout year
 - Quarterly internal reviews
@@ -223,6 +251,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 - Regular Board updates
 
 ### Documentation
+
 - Maintain evidence files
 - Track policy approvals
 - Log security activities
@@ -230,6 +259,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 - Archive certifications
 
 ### Internal Controls
+
 - Assign certification coordinator
 - Cross-functional review team
 - Legal and compliance involvement
@@ -237,6 +267,7 @@ Comprehensive guidance for preparing and submitting the annual NYDFS 23 NYCRR 50
 - Version control on policies
 
 ### Board Engagement
+
 - Quarterly cybersecurity updates
 - Annual in-depth review
 - Budget approval
@@ -280,6 +311,7 @@ Date: _______________"
 ## Post-Certification Activities
 
 **After Submission**:
+
 - Retain confirmation receipt (7 years)
 - File in corporate records
 - Share with internal audit
@@ -288,6 +320,7 @@ Date: _______________"
 - Address any findings from preparation
 
 **If NYDFS Follows Up**:
+
 - Respond promptly to inquiries
 - Provide requested documentation
 - Coordinate with legal counsel
@@ -297,6 +330,7 @@ Date: _______________"
 ## Enforcement and Penalties
 
 **Potential Consequences of Non-Compliance**:
+
 - Civil monetary penalties
 - Consent orders
 - Enhanced monitoring
@@ -305,6 +339,7 @@ Date: _______________"
 - Personal liability for certifiers
 
 **Recent Enforcement Actions**:
+
 - NYDFS has issued fines for late certifications
 - Penalties for material misstatements
 - Consent orders for program deficiencies
@@ -326,6 +361,7 @@ Date: _______________"
 ## Key Dates Calendar
 
 **Annual Certification Cycle**:
+
 - **January 1-31**: Gap assessment, remediation planning
 - **February 1-28**: Remediation execution, testing
 - **March 1-31**: Board preparation, review, approval
@@ -333,6 +369,7 @@ Date: _______________"
 - **April-December**: Continuous monitoring, next year preparation
 
 **Other Important Dates**:
+
 - **72 hours**: Incident notification deadline (500.17)
 - **15 days**: CISO change notification (500.18)
 - **Ongoing**: Third-party risk assessments, training, monitoring

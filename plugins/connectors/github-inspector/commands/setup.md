@@ -18,6 +18,7 @@ The script exits 0 on success, 2 on missing auth, 5 on missing `gh` binary.
 ## Arguments
 
 None. Reads from the environment:
+
 - `GH_TOKEN` — optional; if set, `gh` uses it directly. Otherwise the script honors whatever `gh auth login` already configured.
 - `CLAUDE_GRC_CONFIG_DIR` — override `~/.config/claude-grc`.
 
@@ -27,6 +28,7 @@ None. Reads from the environment:
 2. Run `gh auth status` to verify an active token.
 3. Run `gh api user --jq .login` to confirm the token actually works.
 4. Write `~/.config/claude-grc/connectors/github-inspector.yaml` with defaults:
+
    ```yaml
    version: 1
    source: github-inspector
@@ -37,6 +39,7 @@ None. Reads from the environment:
      include_archived: false
      include_forks: false
    ```
+
 5. Print a one-line success message and a reminder of next steps.
 
 ## Typical output

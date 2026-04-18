@@ -131,11 +131,13 @@ gsutil ls | while read bucket; do
   echo "$bucket: $encryption" >> evidence/gdpr-art32-gcp-encryption-$(date +%Y%m%d).txt
 done
 ```
+
 Collection Frequency: Monthly
 Retention: 3 years (minimum for GDPR compliance evidence)
 Purpose: Demonstrates encryption at rest (Article 32(1)(a))
 
 ✓ **Encryption in Transit Evidence**
+
 ```bash
 # AWS - Application Load Balancer HTTPS enforcement
 aws elbv2 describe-load-balancers --output json | \
@@ -155,11 +157,13 @@ aws cloudfront list-distributions --output json | \
   jq '.DistributionList.Items[] | select(.ViewerCertificate.MinimumProtocolVersion < "TLSv1.2")' \
   > evidence/gdpr-art32-insecure-tls-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly
 Retention: 3 years
 Purpose: Demonstrates encryption in transit (Article 32(1)(a))
 
 ✓ **Access Control Evidence**
+
 ```bash
 # AWS IAM user inventory (should minimize IAM users, prefer SSO)
 aws iam list-users --output json > evidence/gdpr-art32-iam-users-$(date +%Y%m%d).json
@@ -186,11 +190,13 @@ done
 aws rds describe-db-instances --query 'DBInstances[].[DBInstanceIdentifier,PubliclyAccessible]' \
   --output json > evidence/gdpr-art32-rds-public-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Weekly
 Retention: 3 years
 Purpose: Access control measures (Article 32(1)(b))
 
 ✓ **Backup and Recovery Evidence**
+
 ```bash
 # AWS Backup jobs (last 30 days)
 aws backup list-backup-jobs \
@@ -213,11 +219,13 @@ aws s3api list-buckets --output json | jq -r '.Buckets[].Name' | while read buck
   echo "$bucket: $versioning" >> evidence/gdpr-art32-s3-versioning-$(date +%Y%m%d).txt
 done
 ```
+
 Collection Frequency: Monthly
 Retention: 3 years
 Purpose: Data availability and resilience (Article 32(1)(c))
 
 ✓ **Security Monitoring Evidence**
+
 ```bash
 # AWS GuardDuty findings (threat detection)
 aws guardduty list-findings \
@@ -242,11 +250,13 @@ aws ec2 describe-vpcs --output json | jq -r '.Vpcs[].VpcId' | while read vpc; do
   echo "$vpc: $flowlogs" >> evidence/gdpr-art32-flow-logs-$(date +%Y%m%d).txt
 done
 ```
+
 Collection Frequency: Monthly
 Retention: 3 years
 Purpose: Ongoing monitoring and testing (Article 32(1)(d))
 
 ✓ **Data Deletion Evidence (Right to Erasure - Article 17)**
+
 ```bash
 # S3 lifecycle policies (automated deletion after retention period)
 aws s3api list-buckets --output json | jq -r '.Buckets[].Name' | while read bucket; do
@@ -264,6 +274,7 @@ aws rds describe-db-instances \
   --query 'DBInstances[].[DBInstanceIdentifier,BackupRetentionPeriod]' \
   --output json > evidence/gdpr-art32-retention-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Quarterly
 Retention: 3 years
 Purpose: Data minimization and storage limitation principles
@@ -271,104 +282,113 @@ Purpose: Data minimization and storage limitation principles
 ### Manual Evidence Collection
 
 □ **Article 30 Record of Processing Activities (ROPA)**
-  - Complete inventory of all processing activities
-  - For each processing activity, document:
-    - Name and contact details of controller/processor
-    - Purposes of processing
-    - Categories of data subjects (employees, customers, etc.)
-    - Categories of personal data (names, emails, financial, etc.)
-    - Categories of recipients (third parties, sub-processors)
-    - Transfers to third countries (if applicable)
-    - Retention periods
-    - Technical and organizational security measures (TOMs)
-  - Evidence: ROPA spreadsheet or GRC tool export
-  - Frequency: Annual review, update when processing changes
-  - **CRITICAL**: Required for all controllers (Article 30(1)) and processors (Article 30(2))
+
+- Complete inventory of all processing activities
+- For each processing activity, document:
+  - Name and contact details of controller/processor
+  - Purposes of processing
+  - Categories of data subjects (employees, customers, etc.)
+  - Categories of personal data (names, emails, financial, etc.)
+  - Categories of recipients (third parties, sub-processors)
+  - Transfers to third countries (if applicable)
+  - Retention periods
+  - Technical and organizational security measures (TOMs)
+- Evidence: ROPA spreadsheet or GRC tool export
+- Frequency: Annual review, update when processing changes
+- **CRITICAL**: Required for all controllers (Article 30(1)) and processors (Article 30(2))
 
 □ **Data Protection Impact Assessment (DPIA) for High-Risk Processing**
-  - Required when: automated decision-making, large-scale profiling, large-scale sensitive data, systematic monitoring of public areas, innovative technology
-  - Template: ICO DPIA template or similar
-  - Required sections:
-    - Description of processing and business need
-    - Consultation with DPO
-    - Necessity and proportionality assessment
-    - Risk to rights and freedoms (likelihood + severity)
-    - Measures to mitigate risks
-    - Sign-off by senior management
-  - Evidence: Completed DPIA documents (one per high-risk processing)
-  - Frequency: Before starting high-risk processing, review every 2 years
+
+- Required when: automated decision-making, large-scale profiling, large-scale sensitive data, systematic monitoring of public areas, innovative technology
+- Template: ICO DPIA template or similar
+- Required sections:
+  - Description of processing and business need
+  - Consultation with DPO
+  - Necessity and proportionality assessment
+  - Risk to rights and freedoms (likelihood + severity)
+  - Measures to mitigate risks
+  - Sign-off by senior management
+- Evidence: Completed DPIA documents (one per high-risk processing)
+- Frequency: Before starting high-risk processing, review every 2 years
 
 □ **Data Processing Agreements (DPAs) with Processors**
-  - Must have DPA with every processor (cloud providers, SaaS vendors, etc.)
-  - Use Standard Contractual Clauses (SCCs) for non-EU processors
-  - Required elements (Article 28(3)):
-    - Process only on documented instructions
-    - Confidentiality obligations
-    - Security measures (Article 32)
-    - Sub-processor restrictions and notification
-    - Data subject rights assistance
-    - Deletion/return of data after termination
-    - Audit rights for controller
-  - Evidence: Signed DPAs with all processors (AWS, Azure, GCP, SaaS vendors)
-  - Frequency: Before engaging processor, review every 2 years
+
+- Must have DPA with every processor (cloud providers, SaaS vendors, etc.)
+- Use Standard Contractual Clauses (SCCs) for non-EU processors
+- Required elements (Article 28(3)):
+  - Process only on documented instructions
+  - Confidentiality obligations
+  - Security measures (Article 32)
+  - Sub-processor restrictions and notification
+  - Data subject rights assistance
+  - Deletion/return of data after termination
+  - Audit rights for controller
+- Evidence: Signed DPAs with all processors (AWS, Azure, GCP, SaaS vendors)
+- Frequency: Before engaging processor, review every 2 years
 
 □ **Data Breach Register**
-  - Log of all data breaches (even if not notified to DPA)
-  - Required elements for each breach:
-    - Date/time discovered
-    - Nature of breach (confidentiality, integrity, availability)
-    - Categories and approximate number of data subjects affected
-    - Categories and approximate number of records affected
-    - Likely consequences
-    - Measures taken to mitigate
-    - DPA notification (Y/N, date)
-    - Data subject notification (Y/N, date)
-  - Evidence: Breach register (Excel or GRC tool)
-  - Frequency: Ongoing (log all breaches within 72 hours)
-  - **CRITICAL**: Must notify DPA within 72 hours if risk to rights (Article 33)
+
+- Log of all data breaches (even if not notified to DPA)
+- Required elements for each breach:
+  - Date/time discovered
+  - Nature of breach (confidentiality, integrity, availability)
+  - Categories and approximate number of data subjects affected
+  - Categories and approximate number of records affected
+  - Likely consequences
+  - Measures taken to mitigate
+  - DPA notification (Y/N, date)
+  - Data subject notification (Y/N, date)
+- Evidence: Breach register (Excel or GRC tool)
+- Frequency: Ongoing (log all breaches within 72 hours)
+- **CRITICAL**: Must notify DPA within 72 hours if risk to rights (Article 33)
 
 □ **Data Subject Rights Request Log**
-  - Log of all data subject requests (access, rectification, erasure, portability, objection, restriction)
-  - Required elements:
-    - Request date
-    - Request type (SAR, erasure, etc.)
-    - Data subject identity verification
-    - Response date (must be <30 days)
-    - Outcome (granted, denied, partial)
-    - Denial justification (if denied)
-  - Evidence: DSR log (Excel or GRC tool)
-  - Frequency: Ongoing
+
+- Log of all data subject requests (access, rectification, erasure, portability, objection, restriction)
+- Required elements:
+  - Request date
+  - Request type (SAR, erasure, etc.)
+  - Data subject identity verification
+  - Response date (must be <30 days)
+  - Outcome (granted, denied, partial)
+  - Denial justification (if denied)
+- Evidence: DSR log (Excel or GRC tool)
+- Frequency: Ongoing
 
 □ **Penetration Test / Vulnerability Assessment**
-  - Annual penetration test or vulnerability assessment
-  - Scope: Systems processing personal data
-  - Required elements:
-    - Test scope and methodology
-    - Findings (vulnerabilities identified)
-    - Risk ratings (critical, high, medium, low)
-    - Remediation plan with timelines
-    - Re-test results (for critical/high findings)
-  - Evidence: Penetration test report + remediation tracking
-  - Frequency: Annually (Article 32(1)(d) - regular testing)
+
+- Annual penetration test or vulnerability assessment
+- Scope: Systems processing personal data
+- Required elements:
+  - Test scope and methodology
+  - Findings (vulnerabilities identified)
+  - Risk ratings (critical, high, medium, low)
+  - Remediation plan with timelines
+  - Re-test results (for critical/high findings)
+- Evidence: Penetration test report + remediation tracking
+- Frequency: Annually (Article 32(1)(d) - regular testing)
 
 □ **Staff Security Awareness Training**
-  - All staff handling personal data must be trained
-  - Topics: GDPR principles, data subject rights, breach reporting, secure data handling
-  - Evidence: Training completion records, training materials, attendance registers
-  - Frequency: Annually, on hire for new staff
+
+- All staff handling personal data must be trained
+- Topics: GDPR principles, data subject rights, breach reporting, secure data handling
+- Evidence: Training completion records, training materials, attendance registers
+- Frequency: Annually, on hire for new staff
 
 □ **Data Retention and Deletion Procedures**
-  - Documented retention periods for each processing activity (align with ROPA)
-  - Automated deletion procedures (where possible)
-  - Manual review process for legacy data
-  - Evidence: Retention schedule + deletion logs
-  - Frequency: Annual review of retention schedule
+
+- Documented retention periods for each processing activity (align with ROPA)
+- Automated deletion procedures (where possible)
+- Manual review process for legacy data
+- Evidence: Retention schedule + deletion logs
+- Frequency: Annual review of retention schedule
 
 ## GDPR Compliance Assessment
 
 Data Protection Authorities will assess:
 
 ### Documentation Review
+
 ✓ Article 30 ROPA completed and up-to-date
 ✓ DPIAs for high-risk processing
 ✓ Data Processing Agreements with all processors
@@ -378,6 +398,7 @@ Data Protection Authorities will assess:
 ✓ TOMs documented (encryption, access control, etc.)
 
 ### Implementation Review
+
 ✓ Encryption at rest for personal data
 ✓ Encryption in transit (TLS 1.2+)
 ✓ Access controls (MFA, least privilege)
@@ -387,12 +408,14 @@ Data Protection Authorities will assess:
 ✓ Data deletion capabilities (right to erasure)
 
 ### Testing and Validation
+
 ✓ Penetration testing annually
 ✓ Data breach response plan tested
 ✓ DSR process tested (can respond within 30 days)
 ✓ Staff trained on GDPR and security
 
 ### Breach Notification
+
 ✓ Can detect breaches promptly
 ✓ Can notify DPA within 72 hours
 ✓ Can notify data subjects without undue delay
@@ -401,6 +424,7 @@ Data Protection Authorities will assess:
 ## Common DPA Findings
 
 ### Critical (Likely to Result in Fine)
+
 ❌ No Article 30 ROPA
 ❌ Breach not notified to DPA within 72 hours
 ❌ No encryption of sensitive personal data
@@ -409,6 +433,7 @@ Data Protection Authorities will assess:
 ❌ Personal data retained beyond stated retention period
 
 ### Moderate (Requires Remediation)
+
 ⚠️ ROPA incomplete or outdated
 ⚠️ DPIA not performed for high-risk processing
 ⚠️ DPAs with processors missing required clauses
@@ -417,6 +442,7 @@ Data Protection Authorities will assess:
 ⚠️ DSR response time >30 days
 
 ### Minor (Best Practice Recommendations)
+
 ⚠️ Privacy notices could be more detailed
 ⚠️ No automated data deletion procedures
 ⚠️ Backup retention longer than necessary
@@ -425,6 +451,7 @@ Data Protection Authorities will assess:
 ## Remediation Guidance
 
 ### If No Article 30 ROPA
+
 1. **Immediate (Weeks 1-2)**: Create ROPA template (use ICO or EDPB template)
 2. **Weeks 3-6**: Interview stakeholders to identify all processing
 3. **Weeks 7-8**: Document each processing activity in ROPA
@@ -435,6 +462,7 @@ Data Protection Authorities will assess:
 **Priority**: 🔴 CRITICAL (foundational requirement)
 
 ### If No DPAs with Processors
+
 1. **Week 1**: Inventory all processors (cloud providers, SaaS, third-party services)
 2. **Week 2**: Download standard DPA templates (AWS, Azure, GCP have pre-signed DPAs)
 3. **Weeks 3-6**: For custom processors, negotiate DPAs (use EDPB template)
@@ -445,6 +473,7 @@ Data Protection Authorities will assess:
 **Priority**: 🔴 CRITICAL (Article 28 requirement)
 
 ### If No Encryption
+
 1. **Week 1**: Identify all datastores containing personal data
 2. **Week 2**: Prioritize by sensitivity (start with special categories - health, biometric, etc.)
 3. **Weeks 3-4**: Enable encryption at rest (S3: SSE-S3 or SSE-KMS, RDS: enable storage encryption)
@@ -457,6 +486,7 @@ Data Protection Authorities will assess:
 ## Cross-References
 
 ### Related GDPR Articles
+
 - Article 5 - Principles (lawfulness, fairness, transparency, purpose limitation, data minimization, accuracy, storage limitation, integrity and confidentiality, accountability)
 - Article 6 - Lawfulness of processing
 - Article 13-14 - Information to data subjects (privacy notices)
@@ -468,6 +498,7 @@ Data Protection Authorities will assess:
 - Article 35 - Data Protection Impact Assessment (DPIA)
 
 ### Maps to Other Frameworks
+
 - **ISO 27001:2022**: Annex A (all controls), especially A.5.34 (privacy), A.8 (technological controls)
 - **NIST 800-53**: All families, especially SC (System and Communications Protection), AC (Access Control)
 - **SOC 2**: CC6 (Logical and physical access), CC7 (System monitoring), P1-P8 (Privacy criteria)
@@ -476,6 +507,7 @@ Data Protection Authorities will assess:
 ## Cost Estimates
 
 ### GDPR Compliance Program (SMB with 50-200 employees)
+
 - Article 30 ROPA development: 40 hours ($4,000)
 - DPIA for high-risk processing: 40 hours per DPIA ($4,000 each)
 - DPA negotiation and signing: 80 hours ($8,000)
@@ -488,10 +520,12 @@ Data Protection Authorities will assess:
 - **Ongoing**: ~$20k-$30k/year
 
 ### DPO (Data Protection Officer)
+
 - External DPO (retainer): $3k-$10k/month ($36k-$120k/year)
 - Internal DPO (salary): $80k-$150k/year + benefits
 
 ### Tools
+
 - Privacy management platform (OneTrust, TrustArc): $25k-$100k/year
 - Consent management platform: $5k-$20k/year
 - DSAR automation: $10k-$30k/year

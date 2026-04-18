@@ -7,18 +7,21 @@ description: Calculate vendor risk score and rating
 Calculates comprehensive vendor risk scores based on multiple factors.
 
 ## Arguments
+
 - `$1` - Vendor name or assessment data (required)
 - `$2` - Scoring model (optional: standard, financial, healthcare)
 
 ## Risk Scoring Factors
 
 ### Inherent Risk (Business Context)
+
 - Data sensitivity (what data do they access?)
 - Integration depth (how connected are they?)
 - Business criticality (can we operate without them?)
 - Regulatory exposure (what regulations apply?)
 
 ### Control Risk (Security Posture)
+
 - Security certifications
 - Questionnaire responses
 - Audit findings

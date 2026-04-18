@@ -91,11 +91,13 @@ aws iam get-credential-report --output text | base64 -d \
 aws iam list-users | jq -r '.Users[] | [.UserName, .CreateDate] | @csv' \
   > evidence/ccm-iam-02-user-creation-dates-$(date +%Y%m%d).csv
 ```
+
 Collection Frequency: Monthly
 Retention: 12 months minimum
 Purpose: Demonstrates user inventory and credential age
 
 ✓ **IAM Identity Center (SSO) Users**
+
 ```bash
 # If using AWS SSO/Identity Center
 aws identitystore list-users --identity-store-id <IDENTITY-STORE-ID> \
@@ -114,11 +116,13 @@ for account in $(aws organizations list-accounts --query 'Accounts[].Id' --outpu
     --output json >> evidence/ccm-iam-02-sso-assignments-$(date +%Y%m%d).json
 done
 ```
+
 Collection Frequency: Monthly
 Retention: 12 months
 Purpose: Cloud-native federated identity evidence
 
 ✓ **Service Account / IAM Role Inventory**
+
 ```bash
 # IAM roles (service accounts)
 aws iam list-roles --output json > evidence/ccm-iam-02-roles-$(date +%Y%m%d).json
@@ -138,11 +142,13 @@ for role in $(aws iam list-roles --query 'Roles[].RoleName' --output text); do
     >> evidence/ccm-iam-02-role-trusts-$(date +%Y%m%d).txt
 done
 ```
+
 Collection Frequency: Monthly
 Retention: 12 months
 Purpose: Non-human identity inventory
 
 ✓ **Credential Rotation Evidence**
+
 ```bash
 # Access keys older than 90 days (non-compliant)
 aws iam get-credential-report --output text | base64 -d | \
@@ -159,11 +165,13 @@ aws iam get-credential-report --output text | base64 -d | \
   awk -F',' '$4 == "true" && $8 == "false" {print $1}' \
   > evidence/ccm-iam-02-no-mfa-$(date +%Y%m%d).txt
 ```
+
 Collection Frequency: Weekly
 Retention: 12 months
 Purpose: Credential hygiene monitoring
 
 ✓ **Provisioning/Deprovisioning Audit Trail**
+
 ```bash
 # User creation events (last 30 days)
 aws cloudtrail lookup-events \
@@ -188,6 +196,7 @@ for event in AttachUserPolicy DetachUserPolicy PutUserPolicy DeleteUserPolicy; d
     --output json >> evidence/ccm-iam-02-permission-changes-$(date +%Y%m).json
 done
 ```
+
 Collection Frequency: Monthly
 Retention: 12 months
 Purpose: Lifecycle audit trail
@@ -195,6 +204,7 @@ Purpose: Lifecycle audit trail
 ### Automated Evidence Collection (Azure)
 
 ✓ **Azure AD User Inventory**
+
 ```bash
 # All Azure AD users
 az ad user list --output json > evidence/ccm-iam-02-azure-users-$(date +%Y%m%d).json
@@ -209,10 +219,12 @@ az ad sp list --all --output json > evidence/ccm-iam-02-azure-sp-$(date +%Y%m%d)
 # Managed identities (for Azure resources)
 az identity list --output json > evidence/ccm-iam-02-managed-identities-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly
 Retention: 12 months
 
 ✓ **Azure AD Sign-in Logs**
+
 ```bash
 # Sign-in activity (last 30 days)
 az monitor activity-log list \
@@ -227,12 +239,14 @@ az monitor activity-log list \
   --start-time $(date -u -d '30 days ago' +%Y-%m-%dT%H:%M:%S) \
   --output json > evidence/ccm-iam-02-azure-failed-signins-$(date +%Y%m).json
 ```
+
 Collection Frequency: Monthly
 Retention: 12 months
 
 ### Automated Evidence Collection (GCP)
 
 ✓ **GCP IAM User Inventory**
+
 ```bash
 # Workforce identity users (if using Workforce Identity Federation)
 gcloud identity groups memberships list \
@@ -250,64 +264,72 @@ for sa in $(gcloud iam service-accounts list --format='value(email)'); do
     >> evidence/ccm-iam-02-gcp-sa-keys-$(date +%Y%m%d).txt
 done
 ```
+
 Collection Frequency: Monthly
 Retention: 12 months
 
 ### Manual Evidence Collection
 
 □ **Identity Provider (IdP) Integration Configuration**
-  - Screenshots of SAML/SCIM configuration in IdP (Okta, Azure AD, etc.)
-  - Screenshots of AWS SSO/Azure AD/GCP federation setup
-  - Attribute mapping configuration (email → username, groups → roles)
-  - Evidence: Screenshots + configuration export (sanitized)
-  - Frequency: When configuration changes, annual review
+
+- Screenshots of SAML/SCIM configuration in IdP (Okta, Azure AD, etc.)
+- Screenshots of AWS SSO/Azure AD/GCP federation setup
+- Attribute mapping configuration (email → username, groups → roles)
+- Evidence: Screenshots + configuration export (sanitized)
+- Frequency: When configuration changes, annual review
 
 □ **Automated Provisioning Evidence (Sample)**
-  - Sample size: 10 users provisioned in last quarter
-  - Required elements:
-    - User created in IdP (Okta/Azure AD)
-    - SCIM sync log showing user pushed to AWS/Azure/GCP
-    - User appears in cloud platform within 15 minutes
-    - Correct permission set/role assigned based on group membership
-  - Evidence: SCIM logs + before/after screenshots
-  - Frequency: Quarterly review
+
+- Sample size: 10 users provisioned in last quarter
+- Required elements:
+  - User created in IdP (Okta/Azure AD)
+  - SCIM sync log showing user pushed to AWS/Azure/GCP
+  - User appears in cloud platform within 15 minutes
+  - Correct permission set/role assigned based on group membership
+- Evidence: SCIM logs + before/after screenshots
+- Frequency: Quarterly review
 
 □ **Deprovisioning Evidence (Sample)**
-  - Sample size: All user departures in last quarter (or 10 if >10)
-  - Required elements:
-    - User disabled in IdP
-    - User access to cloud revoked within 24 hours
-    - No subsequent login attempts after deprovisioning
-  - Evidence: IdP audit logs + CloudTrail/Azure AD logs
-  - Frequency: Quarterly review
+
+- Sample size: All user departures in last quarter (or 10 if >10)
+- Required elements:
+  - User disabled in IdP
+  - User access to cloud revoked within 24 hours
+  - No subsequent login attempts after deprovisioning
+- Evidence: IdP audit logs + CloudTrail/Azure AD logs
+- Frequency: Quarterly review
 
 □ **Credential Rotation Policy Enforcement**
-  - Document rotation schedules:
-    - User passwords: 90 days maximum
-    - Access keys: 90 days maximum
-    - Service account keys: 90 days maximum (GCP), use IAM roles instead (AWS/Azure)
-  - Show enforcement mechanism (IAM password policy, automated alerts)
-  - Evidence: IAM password policy screenshot + rotation reports
-  - Frequency: Annual review
+
+- Document rotation schedules:
+  - User passwords: 90 days maximum
+  - Access keys: 90 days maximum
+  - Service account keys: 90 days maximum (GCP), use IAM roles instead (AWS/Azure)
+- Show enforcement mechanism (IAM password policy, automated alerts)
+- Evidence: IAM password policy screenshot + rotation reports
+- Frequency: Annual review
 
 □ **Privileged Account Governance**
-  - Inventory of break-glass / emergency accounts
-  - Usage logs for break-glass accounts (should be rare)
-  - Justification for service accounts with privileged access
-  - Evidence: Privileged account register + usage logs
-  - Frequency: Quarterly review
+
+- Inventory of break-glass / emergency accounts
+- Usage logs for break-glass accounts (should be rare)
+- Justification for service accounts with privileged access
+- Evidence: Privileged account register + usage logs
+- Frequency: Quarterly review
 
 ## CSA STAR Attestation Requirements
 
 For CSA STAR Level 2 (Third-Party Audit), auditor will verify:
 
 ### Documentation Requirements
+
 ✓ IAM policy approved by senior management
 ✓ Cloud architecture diagram showing identity flows
 ✓ Provisioning/deprovisioning procedures documented
 ✓ Integration with corporate IdP (single source of truth)
 
 ### Implementation Requirements
+
 ✓ Automated provisioning (SCIM or equivalent)
 ✓ Automated deprovisioning (<24 hours from termination)
 ✓ Credential rotation enforced (technical controls, not just policy)
@@ -315,6 +337,7 @@ For CSA STAR Level 2 (Third-Party Audit), auditor will verify:
 ✓ MFA enforced for all human access
 
 ### Testing Requirements
+
 ✓ Sample 25 user creation events (show approval + provisioning)
 ✓ Sample 25 user termination events (show <24hr revocation)
 ✓ Demonstrate credential rotation (no credentials >90 days)
@@ -323,6 +346,7 @@ For CSA STAR Level 2 (Third-Party Audit), auditor will verify:
 ## Common STAR Assessment Findings
 
 ### Critical Findings (Likely to fail STAR Level 2)
+
 ❌ No automated provisioning (manual account creation)
 ❌ No automated deprovisioning (terminated users retain access >24hrs)
 ❌ No credential rotation enforcement (passwords/keys >1 year old)
@@ -330,12 +354,14 @@ For CSA STAR Level 2 (Third-Party Audit), auditor will verify:
 ❌ Shared credentials (multiple people using same account)
 
 ### Moderate Findings
+
 ⚠️ Deprovisioning >24 hours but <72 hours
 ⚠️ Some credentials not rotated (>90 days but <180 days)
 ⚠️ IdP integration incomplete (some platforms manual)
 ⚠️ Service account proliferation without governance
 
 ### Minor Findings
+
 ⚠️ Documentation incomplete (missing architecture diagrams)
 ⚠️ Orphaned accounts exist but detected and remediated
 ⚠️ Evidence retention <12 months
@@ -343,6 +369,7 @@ For CSA STAR Level 2 (Third-Party Audit), auditor will verify:
 ## Remediation Guidance
 
 ### If No Automated Provisioning
+
 1. **Select Identity Provider** (if none exists)
    - Small orgs: Okta Workforce Identity ($2-8/user/month)
    - Microsoft shops: Azure AD Premium P1 ($6/user/month)
@@ -361,7 +388,9 @@ For CSA STAR Level 2 (Third-Party Audit), auditor will verify:
 **Timeline**: 4-8 weeks implementation
 
 ### If Credential Rotation Not Enforced
+
 1. **Enable IAM Password Policy** (AWS)
+
 ```bash
 aws iam update-account-password-policy \
   --max-password-age 90 \
@@ -374,6 +403,7 @@ aws iam update-account-password-policy \
 ```
 
 2. **Implement Access Key Rotation Automation**
+
 ```python
 # Lambda function to alert on old access keys
 import boto3
@@ -411,6 +441,7 @@ def lambda_handler(event, context):
 ## Cross-References
 
 ### Related CSA CCM Controls
+
 - IAM-01 - Audit Tools Access
 - IAM-03 - Diagnostic / Configuration Ports Access
 - IAM-07 - User Access Policy
@@ -418,6 +449,7 @@ def lambda_handler(event, context):
 - CCC-01 - Cloud Change Control and Configuration Management
 
 ### Maps to Other Frameworks
+
 - **NIST 800-53**: AC-2 (Account Management), IA-4 (Identifier Management), IA-5 (Authenticator Management)
 - **ISO 27001:2022**: A.5.15 (Access control), A.5.17 (Authentication), A.5.18 (Access rights)
 - **SOC 2**: CC6.1, CC6.2 (Access controls, authentication)
@@ -427,16 +459,19 @@ def lambda_handler(event, context):
 ## Cost Estimates
 
 ### Identity Platform (Annual)
+
 - Okta Workforce: $6-10/user/month ($1,200-2,000/yr for 20 users)
 - Azure AD Premium P1: $6/user/month ($1,440/yr for 20 users)
 - Google Cloud Identity Premium: $6/user/month ($1,440/yr for 20 users)
 
 ### Implementation (One-Time)
+
 - IdP setup and SCIM integration: 80 hours ($8,000)
 - Automated credential rotation: 40 hours ($4,000)
 - Evidence collection automation: 24 hours ($2,400)
 
 ### CSA STAR Assessment (If pursuing certification)
+
 - Level 1 (Self-Assessment): Free
 - Level 2 (Third-Party Audit): $25k-$75k (varies by organization size)
 - Annual surveillance: $15k-$30k/year

@@ -18,15 +18,18 @@ Analyzes vendor security questionnaire responses.
 ## Supported Questionnaires
 
 ### SIG (Standardized Information Gathering)
+
 - SIG Core
 - SIG Lite
 - Custom SIG variations
 
 ### CAIQ (Consensus Assessments Initiative Questionnaire)
+
 - CSA CAIQ v4
 - Cloud-specific controls
 
 ### Industry-Specific
+
 - HECVAT (Higher Education)
 - HITRUST CSF
 - Custom organizational questionnaires

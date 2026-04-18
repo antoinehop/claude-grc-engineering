@@ -75,6 +75,7 @@ Every connector emits **Findings**: documents matching [`schemas/finding.schema.
 ### Why a contract at all
 
 Without a contract, `/gap-assessment` would need bespoke parsers for every tool's output. With a contract:
+
 - Any connector that conforms plugs in.
 - `/gap-assessment` becomes a pure join over Findings × Crosswalk → Report.
 - Third parties can ship connectors without touching this repo.
@@ -160,6 +161,7 @@ This is what separates a working tool from a demo. Every connector must meet all
 ### Add a framework plugin
 
 Most frameworks already exist. To add a new one:
+
 1. Create `plugins/frameworks/<name>/` with `.claude-plugin/plugin.json`.
 2. Add commands as markdown with frontmatter (see `plugins/frameworks/soc2/commands/assess.md` for reference).
 3. Create `skills/<name>-expert/SKILL.md` with paraphrased domain knowledge (never verbatim copy from a licensed standard).

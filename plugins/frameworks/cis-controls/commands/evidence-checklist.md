@@ -73,10 +73,12 @@ sudo cat /etc/passwd | awk -F: '{print $1,$3,$5}' > evidence/cis-5.1-local-accou
 Get-ADUser -Filter * -Properties DisplayName,SamAccountName,Created,LastLogonDate,Enabled |
   Export-Csv evidence/cis-5.1-ad-users-$(date +%Y%m%d).csv -NoTypeInformation
 ```
+
 Collection Frequency: Monthly snapshot
 Retention: 12 months minimum
 
 ✓ **Privileged Account Inventory**
+
 ```bash
 # AWS Admin Accounts
 aws iam list-users | jq '.Users[] | select(.PermissionsBoundary != null or .Tags[]? | select(.Key == "PrivilegedAccess"))' \
@@ -89,10 +91,12 @@ az ad user list --filter "userType eq 'Admin'" --output json \
 # List of users with sudo access (Linux)
 sudo grep -r "^[^#]" /etc/sudoers /etc/sudoers.d/ > evidence/cis-5.1-sudo-users-$(date +%Y%m%d).txt
 ```
+
 Collection Frequency: Weekly snapshot
 Retention: 12 months minimum
 
 ✓ **Service Account Inventory**
+
 ```bash
 # AWS Service Accounts (IAM roles)
 aws iam list-roles --output json > evidence/cis-5.1-service-roles-$(date +%Y%m%d).json
@@ -104,10 +108,12 @@ az ad sp list --all --output json > evidence/cis-5.1-service-principals-$(date +
 gcloud iam service-accounts list --format=json \
   > evidence/cis-5.1-gcp-service-accounts-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly snapshot
 Retention: 12 months minimum
 
 ✓ **Account Creation/Modification Logs**
+
 ```bash
 # AWS CloudTrail for IAM events
 aws cloudtrail lookup-events \
@@ -126,57 +132,65 @@ az monitor activity-log list \
   --start-time $(date -u -d '30 days ago' +%Y-%m-%dT%H:%M:%S) \
   --output json > evidence/cis-5.1-azure-audit-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly
 Retention: 12 months minimum
 
 ### Manual Evidence Collection
 
 □ **Account Inventory Validation**
-  - Review automated inventory exports
-  - Verify completeness (100% of accounts included)
-  - Check for orphaned/unknown accounts
-  - Document any discrepancies found
-  - Evidence: Validation report with sign-off
-  - Frequency: Quarterly
+
+- Review automated inventory exports
+- Verify completeness (100% of accounts included)
+- Check for orphaned/unknown accounts
+- Document any discrepancies found
+- Evidence: Validation report with sign-off
+- Frequency: Quarterly
 
 □ **Account Creation Approvals (Sample)**
-  - Sample size: 25 accounts created in last quarter
-  - Required elements:
-    - Original request ticket/email
-    - Manager approval
-    - IT approval (if separate)
-    - Account creation date matching approval date (+/- 5 days)
-  - Evidence: Folder of approval tickets/emails
-  - Frequency: Quarterly review
+
+- Sample size: 25 accounts created in last quarter
+- Required elements:
+  - Original request ticket/email
+  - Manager approval
+  - IT approval (if separate)
+  - Account creation date matching approval date (+/- 5 days)
+- Evidence: Folder of approval tickets/emails
+- Frequency: Quarterly review
 
 □ **Account Termination Evidence (Sample)**
-  - Sample size: All terminations in last quarter or 25 (whichever is less)
-  - Required elements:
-    - HR termination notice
-    - Account disabled/deleted within 24 hours of termination
-    - Access revocation confirmation
-  - Evidence: Folder of termination tickets + IAM deletion logs
-  - Frequency: Quarterly review
+
+- Sample size: All terminations in last quarter or 25 (whichever is less)
+- Required elements:
+  - HR termination notice
+  - Account disabled/deleted within 24 hours of termination
+  - Access revocation confirmation
+- Evidence: Folder of termination tickets + IAM deletion logs
+- Frequency: Quarterly review
 
 □ **Orphaned Account Review**
-  - Review accounts with no recent activity (>90 days)
-  - Document justification or schedule for deletion
-  - Evidence: Orphaned account report with disposition
-  - Frequency: Quarterly
+
+- Review accounts with no recent activity (>90 days)
+- Document justification or schedule for deletion
+- Evidence: Orphaned account report with disposition
+- Frequency: Quarterly
 
 ## Adequacy Criteria (Assessment Guidance)
 
 ### IG1 Requirements (Scored)
+
 ✓ Account inventory exists and is documented
 ✓ Inventory includes at minimum:
-  - Full name
-  - Username/email
-  - Account creation date
-  - Account type (user/admin/service)
+
+- Full name
+- Username/email
+- Account creation date
+- Account type (user/admin/service)
 ✓ Inventory updated at least quarterly
 ✓ Evidence retention: 12 months minimum
 
 ### IG2 Additional Requirements
+
 ✓ Automated inventory collection (not manual spreadsheets)
 ✓ Privileged accounts identified separately
 ✓ Service accounts tracked separately
@@ -184,6 +198,7 @@ Retention: 12 months minimum
 ✓ Quarterly validation of inventory completeness
 
 ### IG3 Additional Requirements
+
 ✓ Real-time or weekly inventory updates
 ✓ Automated orphaned account detection
 ✓ Integration with HR system for terminations
@@ -193,18 +208,21 @@ Retention: 12 months minimum
 ## Common Assessment Findings
 
 ### Critical Findings
+
 ❌ No account inventory exists
 ❌ Inventory missing >25% of actual accounts
 ❌ No evidence of account deletion process
 ❌ Shared accounts not tracked or monitored
 
 ### Moderate Findings
+
 ⚠️ Inventory incomplete (missing 10-25% of accounts)
 ⚠️ Manual inventory (spreadsheets) instead of automated
 ⚠️ Service accounts not inventoried separately
 ⚠️ Inventory not updated in >6 months
 
 ### Minor Findings
+
 ⚠️ Inventory missing optional fields (last login, department)
 ⚠️ Orphaned account review not documented
 ⚠️ Evidence retention <12 months
@@ -212,6 +230,7 @@ Retention: 12 months minimum
 ## Remediation Guidance
 
 ### If No Inventory Exists
+
 1. **Immediate Actions (Week 1)**
    - Run automated collection scripts above
    - Export all accounts from all systems
@@ -228,6 +247,7 @@ Retention: 12 months minimum
    - Build compliance dashboard
 
 ### If Inventory Incomplete
+
 1. Identify missing systems/platforms
 2. Run discovery scans (Nmap, network inventory)
 3. Cross-reference with asset inventory (CIS 1.1)
@@ -236,6 +256,7 @@ Retention: 12 months minimum
 ## Cross-References
 
 ### Related CIS Safeguards
+
 - 1.1 - Establish and Maintain Detailed Enterprise Asset Inventory
 - 4.1 - Establish and Maintain a Secure Configuration Process
 - 6.1 - Establish an Access Granting Process
@@ -243,6 +264,7 @@ Retention: 12 months minimum
 - 6.8 - Define and Maintain Role-Based Access Control
 
 ### Maps to Other Frameworks
+
 - **NIST 800-53**: AC-2 (Account Management), IA-4 (Identifier Management)
 - **ISO 27001:2022**: A.5.15 (Access control), A.5.18 (Access rights)
 - **SOC 2**: CC6.1 (Logical and physical access controls)
@@ -252,16 +274,19 @@ Retention: 12 months minimum
 ## Cost Estimates
 
 ### IG1 Implementation
+
 - Initial setup: 40 hours ($4,000 @ $100/hr)
 - Quarterly maintenance: 8 hours/quarter ($800/quarter)
 - Tools: AWS Config / Azure Policy (included) or open-source
 
 ### IG2 Implementation
+
 - Initial setup: 80 hours ($8,000 @ $100/hr)
 - Monthly maintenance: 4 hours/month ($400/month)
 - Tools: Identity governance platform ($5k-$15k/year for SMB)
 
 ### IG3 Implementation
+
 - Initial setup: 120 hours ($12,000 @ $100/hr)
 - Continuous monitoring: 2 hours/week ($800/month)
 - Tools: Enterprise IGA solution ($25k-$100k/year)

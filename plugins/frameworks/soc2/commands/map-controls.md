@@ -7,12 +7,14 @@ description: Map controls to SOC 2 Trust Service Criteria
 Maps existing controls or implementations to SOC 2 Trust Service Criteria.
 
 ## Arguments
+
 - `$1` - Control document or IaC file (required)
 - `$2` - Trust Service Category (optional, defaults to all)
 
 ## Control Categories
 
 ### Common Criteria (CC)
+
 - CC1: Control Environment
 - CC2: Communication and Information
 - CC3: Risk Assessment

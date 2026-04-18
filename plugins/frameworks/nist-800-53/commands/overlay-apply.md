@@ -563,6 +563,7 @@ RECOMMENDATIONS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Before Starting FedRAMP:
+
 1. Ensure NIST 800-53 Moderate compliance (baseline)
 2. Complete gap remediation for 28 additional controls
 3. Select and engage 3PAO (get quotes from 3+)
@@ -570,17 +571,20 @@ Before Starting FedRAMP:
 5. Allocate internal resources (400-800 hours)
 
 Quick Wins (Implement First):
+
 1. SC-28(1) - Data at rest encryption ($0 cost, 8 hours)
 2. IA-5(1) - Update password policy ($0 cost, 2 hours)
 3. SI-2(2) - Patch Manager ($100/month, 16 hours)
 4. AU-4(1) - Cross-region log replication ($200/month, 16 hours)
 
 High Impact:
+
 1. IA-2(12) - PIV/CAC support ($5k, 40 hours) - REQUIRED for gov users
 2. CA-7(3) - Trend analysis ($300/month, 32 hours)
 3. RA-5(5) - Credentialed scanning ($500/month, 16 hours)
 
 Generate Implementation Code:
+
 ```bash
 # Identify gaps
 /nist:overlay-apply fedramp moderate --show-only-changes > gaps.txt
@@ -593,6 +597,7 @@ Generate Implementation Code:
 # Or use SOC2 gap-to-code
 /soc2:gap-to-code gaps.json aws --output-dir=./fedramp-remediation
 ```
+
 ```
 
 ## Other Overlays

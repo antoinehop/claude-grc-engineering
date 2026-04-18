@@ -5,6 +5,7 @@ description: Generate implementation code for a security control
 # Generate Implementation
 
 Generates production-ready implementation code for a security control, including:
+
 - Infrastructure as Code (Terraform)
 - Automation scripts (Python, Bash)
 - Monitoring dashboards
@@ -561,22 +562,26 @@ This implementation satisfies requirements from:
    ```
 
 2. **Review Plan**
+
    ```bash
    terraform plan -out=tfplan
    ```
 
 3. **Apply Configuration**
+
    ```bash
    terraform apply tfplan
    ```
 
 4. **Deploy Lambda Functions**
+
    ```bash
    cd ../scripts/
    ./deploy.sh
    ```
 
 5. **Verify Deployment**
+
    ```bash
    python compliance_test.py
    ```
@@ -597,12 +602,14 @@ cloudtrail_retention_days    = 365               # 1 year for SOC2/PCI
 ### Conflict Resolutions
 
 **Access Review Frequency:**
+
 - SOC2: Risk-based (flexible)
 - PCI-DSS: Quarterly (mandatory)
 - NIST: Annually minimum
 - **Implementation:** Quarterly (90 days) to satisfy PCI
 
 **Inactive Account Threshold:**
+
 - PCI-DSS: 90 days (mandatory)
 - NIST: Organization-defined
 - **Implementation:** 90 days to satisfy PCI
@@ -616,6 +623,7 @@ python scripts/evidence_collect.py ./evidence/2025-Q1
 ```
 
 **Artifacts Generated:**
+
 - IAM user inventory
 - Credential report
 - Access Analyzer findings
@@ -629,6 +637,7 @@ python scripts/compliance_test.py
 ```
 
 **Tests:**
+
 - ✓ Unique user IDs present
 - ✓ Quarterly access reviews scheduled
 - ✓ Inactive account detection enabled
@@ -663,14 +672,17 @@ python scripts/compliance_test.py
 ## Support
 
 For issues or questions:
+
 - Review logs: `aws logs tail /aws/lambda/quarterly-access-review`
 - Check CloudTrail: CloudWatch Insights
 - Contact: security-team@example.com
+
 ```
 
 ## Generated Output Summary
 
 ```
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMPLEMENTATION GENERATED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -704,11 +716,13 @@ FRAMEWORKS SATISFIED:
   ✓ PCI-DSS: 8.1, 8.1.1, 8.1.3, 8.1.4
 
 NEXT STEPS:
+
   1. Review generated code: cd ./generated
   2. Customize variables: edit terraform/terraform.tfvars
   3. Deploy: terraform init && terraform apply
   4. Collect evidence: python scripts/evidence_collect.py
   5. Run tests: python scripts/compliance_test.py
+
 ```
 
 ## Related Commands

@@ -24,16 +24,19 @@ ITAR-controlled technical data is stored in US-located systems by default. [22 C
 #### AWS GovCloud (Highly Recommended)
 
 **US Government Regions**:
+
 - `us-gov-west-1` (Oregon) - US West (GovCloud)
 - `us-gov-east-1` (Virginia) - US East (GovCloud)
 
 **Benefits**:
+
 - FedRAMP High authorized
 - US persons-only personnel
 - Physical isolation from AWS commercial
 - ITAR compliance support
 
 **Verification**:
+
 ```bash
 aws ec2 describe-regions --region us-gov-west-1
 aws s3api list-buckets --region us-gov-west-1
@@ -42,18 +45,21 @@ aws s3api list-buckets --region us-gov-west-1
 #### AWS Commercial (US Regions Only)
 
 **Approved US Regions** (with additional controls):
+
 - `us-east-1` (Virginia)
 - `us-east-2` (Ohio)
 - `us-west-1` (California)
 - `us-west-2` (Oregon)
 
 **Prohibited Regions**:
+
 - Any non-US region (eu-west-1, ap-southeast-1, etc.)
 - Global services must be configured for US-only
 
 #### Azure Government (Highly Recommended)
 
 **US Government Regions**:
+
 - `usgovvirginia` - US Gov Virginia
 - `usgoviowa` - US Gov Iowa (DoD only)
 - `usgovtexas` - US Gov Texas
@@ -62,11 +68,13 @@ aws s3api list-buckets --region us-gov-west-1
 - `usdodcentral` - US DoD Central
 
 **Benefits**:
+
 - FedRAMP High authorized
 - Screened US personnel
 - Dedicated infrastructure
 
 **Verification**:
+
 ```bash
 az cloud list --query '[?name==`AzureUSGovernment`]'
 az account list-locations --query '[?name==`usgovvirginia`]'
@@ -75,6 +83,7 @@ az account list-locations --query '[?name==`usgovvirginia`]'
 #### GCP with Assured Workloads
 
 **US Regions**:
+
 - `us-central1` (Iowa)
 - `us-east1` (South Carolina)
 - `us-east4` (Virginia)
@@ -84,11 +93,13 @@ az account list-locations --query '[?name==`usgovvirginia`]'
 - `us-west4` (Las Vegas)
 
 **Assured Workloads Configuration**:
+
 - ITAR compliance controls
 - Data residency enforcement
 - Personnel access controls
 
 **Verification**:
+
 ```bash
 gcloud compute regions list --filter='name:us-*'
 gcloud assured list --location=us-central1
@@ -109,15 +120,18 @@ EAR doesn't impose a uniform "store data in US-only regions" rule, but it also i
 The list below is a snapshot, not a substitute for the current BIS country guidance. Sanctions move quickly. Before deploying access controls, check the [BIS country guidance page](https://www.bis.doc.gov/index.php/policy-guidance/country-guidance) and the most recent Federal Register entries.
 
 **Comprehensive embargoes** (broad export restrictions, [15 CFR 746](https://www.ecfr.gov/current/title-15/part-746)):
+
 - **Cuba** (CU)
 - **Iran** (IR)
 - **North Korea** (KP)
 - **Syria** (SY)
 
 **Region-specific comprehensive sanctions** (15 CFR 746.6):
+
 - **Crimea, so-called Donetsk People's Republic, and Luhansk People's Republic regions of Ukraine**
 
 **Country-specific item-level controls** (verify scope against current BIS text):
+
 - **Russia** (RU) and **Belarus** (BY): broad item-level restrictions under [15 CFR 746.8](https://www.ecfr.gov/current/title-15/section-746.8); not a partial regime
 - **Venezuela** (VE): specific restrictions under [15 CFR 746.10](https://www.ecfr.gov/current/title-15/section-746.10)
 - **Other countries**: BIS publishes ongoing entity-list and country-specific actions; the BIS country guidance page is authoritative
@@ -191,12 +205,14 @@ gcloud compute security-policies rules create 1000 \
 ### ITAR Multi-Region
 
 **Allowed**: Multiple US regions for redundancy
+
 ```
 Primary: us-gov-west-1
 Backup: us-gov-east-1
 ```
 
 **Prohibited**: Cross-border replication
+
 ```
 us-east-1 → eu-west-1  ❌ PROHIBITED
 us-gov-west-1 → us-gov-east-1  ✅ ALLOWED
@@ -213,6 +229,7 @@ DR: ap-southeast-1  ✅ Often OK for the same; check that no entity-list parties
 ```
 
 **Always blocked** (comprehensive embargoes plus region-specific sanctions):
+
 ```
 Any region → Iran, Syria, Cuba, North Korea  ❌
 Any region → Crimea / DNR / LNR regions of Ukraine  ❌
@@ -235,6 +252,7 @@ Item-controlled access → Russia, Belarus  ❌ for items under 15 CFR 746.8
 ### Check Current Data Locations
 
 **AWS**:
+
 ```bash
 # S3 bucket locations
 aws s3api list-buckets | jq -r '.Buckets[].Name' | while read bucket; do
@@ -250,6 +268,7 @@ aws ec2 describe-instances --query 'Reservations[*].Instances[*].{Id:InstanceId,
 ```
 
 **Azure**:
+
 ```bash
 # Resource locations
 az resource list --query '[].{Name:name,Location:location}' --output table
@@ -259,6 +278,7 @@ az storage account list --query '[].{Name:name,Location:location}' --output tabl
 ```
 
 **GCP**:
+
 ```bash
 # Bucket locations
 gcloud storage buckets list --format='table(name,location)'
@@ -326,16 +346,19 @@ gcloud sql instances list --format='table(name,region)'
 ### Common ITAR Risk Patterns (Validate Each With Counsel)
 
 ⚠ **ITAR technical data in a non-US region without the 22 CFR 120.54 encryption carve-out documented**
+
 ```
 s3://my-bucket (eu-west-1) holding plaintext or single-key-managed-by-CSP technical data  ← high risk
 ```
 
 ⚠ **Cross-border replication of plaintext technical data**
+
 ```
 us-east-1 → ap-southeast-1 with no end-to-end encryption layer  ← high risk
 ```
 
 ⚠ **CDN with non-US edge caching ITAR technical data**
+
 ```
 CloudFront with European edge locations caching ITAR-bearing payloads  ← high risk
 ```
@@ -343,16 +366,19 @@ CloudFront with European edge locations caching ITAR-bearing payloads  ← high 
 ### EAR Violations
 
 ❌ **Allowing access from embargoed countries**
+
 ```
 User login from Iran (IR)  ← VIOLATION
 ```
 
 ❌ **No geo-blocking configured**
+
 ```
 WAF rules allow all countries  ← VIOLATION
 ```
 
 ❌ **Denied party not screened**
+
 ```
 Entity List company granted access  ← VIOLATION
 ```

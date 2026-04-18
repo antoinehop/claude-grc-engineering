@@ -7,6 +7,7 @@ description: Deep dive on specific PCI DSS requirement
 Provides detailed guidance on specific PCI DSS v4.0.1 requirements.
 
 ## Arguments
+
 - `$1` - Requirement number (required: 1-12 or specific like 3.4.2)
 - `$2` - Focus area (optional: controls, testing, evidence)
 
@@ -30,6 +31,7 @@ Provides detailed guidance on specific PCI DSS v4.0.1 requirements.
 ## Sub-requirement Format
 
 Requirements follow pattern: `X.Y.Z`
+
 - X = Major requirement (1-12)
 - Y = Section
 - Z = Specific control

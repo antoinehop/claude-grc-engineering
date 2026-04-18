@@ -7,6 +7,7 @@ description: Determine appropriate HITRUST assessment scope (i1 vs r2)
 Helps determine whether to pursue i1, r2, or e1 HITRUST CSF assessment based on organizational needs and constraints.
 
 ## Arguments
+
 - `$1` - Organization type (optional: provider, payer, vendor, business-associate)
 - `$2` - Primary driver (optional: hipaa, baa-requirement, vendor-requirement, competitive)
 
@@ -15,6 +16,7 @@ Helps determine whether to pursue i1, r2, or e1 HITRUST CSF assessment based on 
 ### i1 Assessment (Implemented, 1-year)
 
 **Choose i1 when**:
+
 - First-time HITRUST certification
 - Vendor/supplier requirement (not provider)
 - Annual recertification acceptable
@@ -23,6 +25,7 @@ Helps determine whether to pursue i1, r2, or e1 HITRUST CSF assessment based on 
 - Self-attestation preferred (validated optional)
 
 **i1 Validated vs Self-Assessment**:
+
 - **Validated**: External assessor reviews and validates
   - More credible to customers
   - ~$30K-$80K assessment cost
@@ -35,6 +38,7 @@ Helps determine whether to pursue i1, r2, or e1 HITRUST CSF assessment based on 
 ### r2 Assessment (Reportable, 2-year)
 
 **Choose r2 when**:
+
 - Healthcare provider or payer
 - BAA partners require r2
 - Regulatory compliance driver (OCR, state regs)
@@ -44,6 +48,7 @@ Helps determine whether to pursue i1, r2, or e1 HITRUST CSF assessment based on 
 - External assessor mandatory
 
 **r2 Requirements**:
+
 - External HITRUST assessor required
 - More rigorous testing and validation
 - Higher cost ($100K-$300K+ assessment)
@@ -53,6 +58,7 @@ Helps determine whether to pursue i1, r2, or e1 HITRUST CSF assessment based on 
 ### e1 Assessment (Bridge)
 
 **Choose e1 when**:
+
 - Currently have i1, want to upgrade to r2
 - Year 2 of certification cycle
 - Incremental approach to r2
@@ -62,35 +68,45 @@ Helps determine whether to pursue i1, r2, or e1 HITRUST CSF assessment based on 
 ## Organization Type Guidance
 
 ### Healthcare Providers (Hospitals, Clinics)
+
 **Recommendation**: r2
+
 - Regulatory scrutiny highest
 - Patient trust critical
 - OCR expectations
 - BAA requirements from partners
 
 ### Health Plans/Payers
+
 **Recommendation**: r2
+
 - Large member populations
 - Regulatory requirements
 - Vendor management
 - Public reporting often required
 
 ### Business Associates
+
 **Recommendation**: i1 validated or r2
+
 - BAA requirements dictate
 - Customer expectations
 - Competitive landscape
 - Risk profile of data
 
 ### Technology Vendors (SaaS, Cloud)
+
 **Recommendation**: i1 validated minimum, r2 preferred
+
 - Customer requirements vary
 - Inherited controls from infrastructure
 - Velocity of product changes
 - Certification as sales enabler
 
 ### Smaller Organizations (<50 employees)
+
 **Recommendation**: i1 self-assessment or validated
+
 - Resource constraints
 - Cost sensitivity
 - Risk-appropriate

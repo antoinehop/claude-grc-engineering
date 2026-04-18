@@ -7,6 +7,7 @@ description: Analyze vendor security questionnaire responses
 Reviews and analyzes completed vendor security questionnaires.
 
 ## Arguments
+
 - `$1` - Questionnaire file path (required)
 - `$2` - Questionnaire type (optional: SIG, CAIQ, custom)
 

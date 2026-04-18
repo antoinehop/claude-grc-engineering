@@ -595,6 +595,7 @@ evidence/
 The tool automatically collects:
 
 **AWS IAM (CC6.1-CC6.6)**:
+
 ```bash
 # Quarterly snapshots
 aws iam list-users > iam-users-2024-Q*.json
@@ -604,6 +605,7 @@ aws iam get-account-summary  # MFA status
 ```
 
 **AWS Encryption (CC6.7-CC6.8)**:
+
 ```bash
 # S3 encryption config
 aws s3api list-buckets --query 'Buckets[*].Name' | xargs -I {} \
@@ -618,6 +620,7 @@ aws elbv2 describe-listeners
 ```
 
 **AWS Logging (CC7.2-CC7.3)**:
+
 ```bash
 # CloudTrail configuration
 aws cloudtrail describe-trails
@@ -631,6 +634,7 @@ aws ec2 describe-flow-logs
 ```
 
 **AWS Monitoring (CC7.1)**:
+
 ```bash
 # CloudWatch alarms
 aws cloudwatch describe-alarms
@@ -644,6 +648,7 @@ aws securityhub get-findings
 ```
 
 **AWS Change Management (CC8.1)**:
+
 ```bash
 # AWS Config changes
 aws configservice describe-configuration-recorders
@@ -656,6 +661,7 @@ terraform state pull > terraform-state-2024.json
 ### Manual Evidence Guidance
 
 For each manual evidence item, the tool provides:
+
 - Specific file location to copy to
 - Required format (PDF, CSV, etc.)
 - Minimum requirements (e.g., "signed by executive")
@@ -736,24 +742,28 @@ cat /secure-drive/audit/evidence/PBC_LIST.xlsx
 The tool performs automatic validation:
 
 ✓ **Completeness Checks**:
+
 - All required policies present
 - All quarterly reviews present (Type II)
 - Sample sizes meet minimum requirements
 - Evidence files are readable (not corrupted)
 
 ✓ **Date Validation**:
+
 - Policies dated before audit period start
 - Evidence spans entire audit period
 - Quarterly reviews evenly distributed
 - No gaps in continuous evidence (CloudTrail)
 
 ✓ **Format Validation**:
+
 - PDFs are valid and not password-protected
 - JSON files are well-formed
 - CSVs have correct headers
 - File sizes are reasonable (not empty)
 
 ✓ **Control Mapping**:
+
 - All TSC controls have evidence
 - No orphaned evidence (unmapped files)
 - Evidence adequacy per AICPA standards

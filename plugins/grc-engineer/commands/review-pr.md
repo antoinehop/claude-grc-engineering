@@ -7,21 +7,25 @@ description: Review pull requests for compliance regressions
 Reviews GitHub pull requests for compliance regressions and security issues.
 
 ## Arguments
+
 - `$1` - Repository (required, format: owner/repo)
 - `$2` - PR number (required)
 - `$3` - Framework (optional, defaults to SOC2)
 
 ## Prerequisites
+
 - `GITHUB_TOKEN` environment variable (requires `repo` scope)
 
 ## Instructions
 
 1. Set up GitHub token:
+
    ```bash
    export GITHUB_TOKEN=your_token_here
    ```
 
 2. Run the review-pr script:
+
    ```bash
    node scripts/review-pr.js $ARGUMENTS
    ```
@@ -35,4 +39,3 @@ Reviews GitHub pull requests for compliance regressions and security issues.
 ```bash
 /grc:review-pr myorg/infrastructure 42 SOC2
 ```
-

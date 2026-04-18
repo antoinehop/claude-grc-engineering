@@ -19,12 +19,14 @@ Deep dive assessment for International Traffic in Arms Regulations (ITAR) compli
 **Requirement**: Only "US persons" as defined in [22 CFR 120.62](https://www.ecfr.gov/current/title-22/chapter-I/subchapter-M/part-120/subpart-C/section-120.62) may access ITAR-controlled technical data. That definition is broader than citizens and green-card holders. It also includes "protected individuals" under 8 USC 1324b(a)(3) (certain refugees, asylees, and specific visa holders) and US-incorporated entities / US governmental agencies for entity-level access. Access policies that narrow to "citizens or LPRs only" over-restrict and can trigger employment-law exposure. Use the full 120.62 definition.
 
 **Assessment Questions**:
+
 - Are users with ITAR technical-data access US persons under the full 120.62 definition?
 - Is US-person status documented per the 120.62 category (citizen, LPR, protected individual, US entity)?
 - Is the verification process reviewed with HR and counsel so it doesn't over-narrow?
 - Are non-US-persons explicitly separated from ITAR systems (not granted access by default)?
 
 **Cloud Verification**:
+
 - IAM users tagged with citizenship status
 - Access logs show US-person-only access
 - Foreign national access attempts are logged and blocked
@@ -34,12 +36,14 @@ Deep dive assessment for International Traffic in Arms Regulations (ITAR) compli
 **Posture summary**: ITAR technical data is stored in US-located systems by default. 22 CFR 120.54 carves out end-to-end-encrypted technical data from the release definition, so properly-encrypted-in-transit-and-at-rest deployment patterns have room that a strict "US regions only" rule doesn't capture. Default to US-located regions; raise the encryption-carve-out question with counsel before relying on it.
 
 **Assessment Questions**:
+
 - Are production resources deployed in US-located regions by default?
 - If not, is the encryption posture documented and blessed by counsel?
 - Is cross-border data replication intentional and documented?
 - Are backups stored with the same posture as primary data?
 
 **Recommended Regions**:
+
 - **AWS**: us-gov-west-1, us-gov-east-1 (GovCloud)
 - **Azure**: USGov Virginia, USGov Texas, USGov Arizona
 - **GCP**: us-central1, us-east4, us-west1 (with Assured Workloads)
@@ -49,11 +53,13 @@ Deep dive assessment for International Traffic in Arms Regulations (ITAR) compli
 **Requirement**: All ITAR data must be encrypted with FIPS 140-2 validated cryptographic modules.
 
 **Assessment Questions**:
+
 - Is all data encrypted at rest and in transit?
 - Are FIPS 140-2 Level 2+ validated HSMs used?
 - Are customer-managed encryption keys (CMEK) configured?
 
 **Verification**:
+
 - EBS volumes encrypted with AWS KMS
 - S3 buckets use SSE-KMS encryption
 - TLS 1.2+ for data in transit
@@ -63,6 +69,7 @@ Deep dive assessment for International Traffic in Arms Regulations (ITAR) compli
 **Requirement summary**: 22 CFR 122.5 requires ITAR-registered exporters to retain *specific record categories* (manufacturing, export transactions, broker records) for 5 years. It is not a blanket "retain every cloud log for 5 years" rule. Map which of your cloud logs actually carry those record categories, and set 5-year retention on *those*. General security/audit logs that fall outside 122.5 can have shorter retention set by your own policy or other applicable frameworks.
 
 **Assessment Questions**:
+
 - Is CloudTrail or equivalent enabled for all regions?
 - Are data events logged for S3 and other services that may carry 122.5-scope records?
 - Which logs carry 122.5 record categories, and are those retained for 5 years?
@@ -73,6 +80,7 @@ Deep dive assessment for International Traffic in Arms Regulations (ITAR) compli
 **Requirement**: ITAR systems should be isolated from non-ITAR systems.
 
 **Assessment Questions**:
+
 - Are dedicated VPCs/VNets used for ITAR workloads?
 - Is VPC peering to non-ITAR environments prohibited?
 - Are network boundaries clearly defined and enforced?
@@ -82,6 +90,7 @@ Deep dive assessment for International Traffic in Arms Regulations (ITAR) compli
 **Requirement**: ITAR data must be marked with appropriate export control notices.
 
 **Assessment Questions**:
+
 - Are all ITAR resources tagged with export control classification?
 - Are data files marked with ITAR warnings?
 - Is classification visible in metadata and labels?
@@ -91,6 +100,7 @@ Deep dive assessment for International Traffic in Arms Regulations (ITAR) compli
 **Requirement**: Control access by cloud service providers and third parties.
 
 **Assessment Questions**:
+
 - Are Service Control Policies (SCPs) configured to restrict third-party access?
 - Is Customer Lockbox/approval required for CSP support access?
 - Are external access roles audited and restricted?

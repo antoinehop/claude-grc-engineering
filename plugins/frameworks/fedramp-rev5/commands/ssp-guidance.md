@@ -7,6 +7,7 @@ description: System Security Plan (SSP) documentation guidance
 Provides guidance for developing FedRAMP System Security Plan documentation.
 
 ## Arguments
+
 - `$1` - SSP section or topic (optional)
 - `$2` - Impact level (optional: low, moderate, high)
 

@@ -424,6 +424,7 @@ Automated Testing:
 Manual Testing Scenarios:
 
 Test 1: Account Provisioning (AC-2)
+
   1. Create test user in BambooHR
   2. Verify Okta account created within 15 minutes
   3. Verify AWS SSO access granted
@@ -431,6 +432,7 @@ Test 1: Account Provisioning (AC-2)
   Expected Result: Automated provisioning successful
 
 Test 2: Account Termination (AC-2)
+
   1. Mark test user as terminated in BambooHR
   2. Verify Okta account disabled within 4 hours
   3. Verify AWS SSO access revoked
@@ -438,24 +440,28 @@ Test 2: Account Termination (AC-2)
   Expected Result: Automated deprovisioning successful
 
 Test 3: Access Enforcement (AC-3)
+
   1. Attempt to access resource without permission
   2. Verify access denied
   3. Verify denial logged in CloudTrail
   Expected Result: Access denied, audit trail created
 
 Test 4: Least Privilege (AC-6)
+
   1. Review IAM policies for overly broad permissions
   2. Run Access Analyzer to detect unused permissions
   3. Verify no users have AdministratorAccess (except break-glass)
   Expected Result: All users follow least privilege
 
 Test 5: Session Lock (AC-11)
+
   1. Log in to AWS console
   2. Wait 15 minutes without activity
   3. Attempt to perform action
   Expected Result: Session expired, re-authentication required
 
 Test 6: Remote Access (AC-17)
+
   1. Attempt direct SSH to EC2 instance
   2. Verify SSH blocked (no public IPs, no key-based auth)
   3. Use Session Manager to connect
@@ -508,36 +514,41 @@ METRICS AND DASHBOARDS
 Key Metrics to Track:
 
 Access Management:
-  - Total active accounts
-  - Orphaned accounts detected (last 30 days)
-  - Average deprovisioning time (target: <4 hours)
-  - Access requests processed (monthly)
-  - Access review completion rate (target: 100%)
+
+- Total active accounts
+- Orphaned accounts detected (last 30 days)
+- Average deprovisioning time (target: <4 hours)
+- Access requests processed (monthly)
+- Access review completion rate (target: 100%)
 
 Least Privilege:
-  - Users with admin access (minimize)
-  - Unused IAM permissions detected (Access Analyzer)
-  - Overly permissive security groups (0.0.0.0/0)
-  - Policies with wildcard actions (avoid)
+
+- Users with admin access (minimize)
+- Unused IAM permissions detected (Access Analyzer)
+- Overly permissive security groups (0.0.0.0/0)
+- Policies with wildcard actions (avoid)
 
 Authentication:
-  - MFA enrollment rate (target: 100%)
-  - Failed login attempts (monthly trend)
-  - Account lockouts (investigate spikes)
-  - Password changes (compliance with policy)
+
+- MFA enrollment rate (target: 100%)
+- Failed login attempts (monthly trend)
+- Account lockouts (investigate spikes)
+- Password changes (compliance with policy)
 
 Activity Monitoring:
-  - Privileged access usage (admin console logins)
-  - After-hours access (flag for review)
-  - Unusual geographic access (GuardDuty findings)
-  - API call volume anomalies
+
+- Privileged access usage (admin console logins)
+- After-hours access (flag for review)
+- Unusual geographic access (GuardDuty findings)
+- API call volume anomalies
 
 Dashboard Example (CloudWatch):
-  - Widget 1: Active accounts (line chart, 30 days)
-  - Widget 2: MFA enrollment % (gauge, target 100%)
-  - Widget 3: Orphaned accounts (number, alert if >0)
-  - Widget 4: Access review status (pie chart)
-  - Widget 5: GuardDuty findings (bar chart by severity)
+
+- Widget 1: Active accounts (line chart, 30 days)
+- Widget 2: MFA enrollment % (gauge, target 100%)
+- Widget 3: Orphaned accounts (number, alert if >0)
+- Widget 4: Access review status (pie chart)
+- Widget 5: GuardDuty findings (bar chart by severity)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 COST ESTIMATE
@@ -568,6 +579,7 @@ Ongoing Costs (Annual):
   Total Ongoing:                     $26,400/year
 
 Grand Total: $54,000 (one-time) + $39,900/year (technology + ongoing)
+
 ```
 
 ## Related Commands

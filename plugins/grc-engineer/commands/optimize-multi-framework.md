@@ -49,12 +49,15 @@ Analyzes multiple compliance frameworks to identify "implement once, satisfy man
 ## Output Formats
 
 ### Roadmap (default)
+
 Provides a phased implementation plan prioritized by ROI
 
 ### Matrix
+
 Shows control-by-control mapping across all frameworks
 
 ### Summary
+
 High-level statistics and optimization potential
 
 ## Example Output (Roadmap Format)

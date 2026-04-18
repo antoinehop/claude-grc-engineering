@@ -18,6 +18,7 @@ Helps determine whether ITAR, EAR, or both apply to your products, technology, a
 ### Primary Jurisdiction Question
 
 **Is the item on the US Munitions List (USML)?**
+
 - **YES** → ITAR applies (State Department, DDTC)
 - **NO** → Continue to EAR analysis
 
@@ -96,6 +97,7 @@ If NOT on USML, check if on CCL:
 
 **Product**: Jet engine components for both military and commercial aircraft
 **Analysis**: Dual-use → **Both ITAR and EAR may apply**
+
 - Military use → ITAR (USML Category XIX)
 - Commercial use → EAR (CCL Category 9)
 **Requirements**: Separate systems for military vs commercial, jurisdiction by use
@@ -112,16 +114,19 @@ If NOT on USML, check if on CCL:
 ## Gray Areas and Dual Jurisdiction
 
 **Dual-Use Technology**:
+
 - May be on both USML and CCL
 - **Rule**: If on USML, ITAR takes precedence
 - Commodity Jurisdiction (CJ) request can clarify
 
 **Technical Data**:
+
 - Drawings, blueprints, source code
 - ITAR if for defense articles
 - EAR if for commercial/dual-use
 
 **Deemed Exports**:
+
 - Applies to both ITAR and EAR
 - Foreign nationals accessing controlled data in the US
 - ITAR: No foreign national access without authorization
@@ -132,6 +137,7 @@ If NOT on USML, check if on CCL:
 If uncertain, submit CJ request to State Department:
 
 **Process**:
+
 1. Submit detailed product description to DDTC
 2. DDTC reviews against USML
 3. Decision: USML (ITAR) or CCL (EAR jurisdiction)
@@ -170,16 +176,19 @@ If uncertain, submit CJ request to State Department:
 ## Compliance Recommendation
 
 **If ITAR applies**:
+
 - Use `/us-export:itar-assess` for detailed requirements
 - Consider GovCloud/Government cloud
 - Implement US person verification
 
 **If EAR applies**:
+
 - Use `/us-export:ear-assess` for detailed requirements
 - Commercial cloud with FIPS 140-2 and geo-blocking
 - Implement denied party screening
 
 **If both apply**:
+
 - Segregate systems by use case
 - Use `/us-export:assess both` for comprehensive evaluation
 - Consider separate environments (GovCloud + commercial)

@@ -7,11 +7,13 @@ description: New mandatory requirements effective March 31, 2025
 Requirements that became mandatory on March 31, 2025 (previously "future-dated").
 
 ## Arguments
+
 - `$1` - Requirement number or category (optional)
 
 ## Critical March 2025 Requirements
 
 ### Requirement 3: Protect Stored Account Data
+
 | Req | Description |
 |-----|-------------|
 | 3.3.3 | SAD stored prior to authorization is encrypted |
@@ -20,18 +22,21 @@ Requirements that became mandatory on March 31, 2025 (previously "future-dated")
 | 3.5.1.2 | Disk-level encryption only for removable media |
 
 ### Requirement 5: Malware Protection
+
 | Req | Description |
 |-----|-------------|
 | 5.3.3 | Anti-malware for removable media |
 | 5.4.1 | Mechanisms detect phishing attacks |
 
 ### Requirement 6: Secure Development
+
 | Req | Description |
 |-----|-------------|
 | 6.4.2 | WAF for public-facing web apps |
 | 6.4.3 | Payment page scripts inventoried and managed |
 
 ### Requirement 7 & 8: Access Control
+
 | Req | Description |
 |-----|-------------|
 | 7.2.5 | Application/system account access reviewed |
@@ -43,6 +48,7 @@ Requirements that became mandatory on March 31, 2025 (previously "future-dated")
 | 8.6.3 | Passwords for app/system accounts meet complexity |
 
 ### Requirement 10: Logging
+
 | Req | Description |
 |-----|-------------|
 | 10.4.1.1 | Automated audit log review mechanisms |
@@ -51,6 +57,7 @@ Requirements that became mandatory on March 31, 2025 (previously "future-dated")
 | 10.7.3 | Failures responded to promptly |
 
 ### Requirement 11: Security Testing
+
 | Req | Description |
 |-----|-------------|
 | 11.3.1.1 | Internal vulnerability scans via authenticated scanning |
@@ -60,6 +67,7 @@ Requirements that became mandatory on March 31, 2025 (previously "future-dated")
 | 11.6.1 | Change/tamper detection on payment pages |
 
 ### Requirement 12: Policies
+
 | Req | Description |
 |-----|-------------|
 | 12.3.1 | Targeted risk analysis for each flexible requirement |

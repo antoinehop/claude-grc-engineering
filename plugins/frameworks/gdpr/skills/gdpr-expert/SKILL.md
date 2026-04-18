@@ -19,12 +19,14 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 **Recitals**: 173 (interpretive guidance)
 
 **Territorial Scope** (Article 3):
+
 - **Establishment**: Controller/processor established in EU (regardless of where processing occurs)
 - **Targeting**: Offering goods/services to EU data subjects (even if free)
 - **Monitoring**: Monitoring behavior of EU data subjects
 - **Applies**: Even if organization not in EU
 
 **Material Scope**:
+
 - Automated processing of personal data
 - Non-automated processing in filing systems
 - **Exemptions**: National security, law enforcement (LED applies), purely personal/household
@@ -32,12 +34,14 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 ### Key Definitions (Article 4)
 
 **Personal Data**:
+
 - Any information relating to identified/identifiable natural person
 - Direct identifiers: Name, ID number, email
 - Indirect identifiers: Location data, IP address, cookie ID, device ID
 - Combination of factors: Age + ZIP code + occupation
 
 **Special Categories of Personal Data** (Article 9 - "Sensitive Data"):
+
 - Racial or ethnic origin
 - Political opinions
 - Religious or philosophical beliefs
@@ -48,36 +52,43 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 - Sex life or sexual orientation
 
 **Processing**:
+
 - Any operation on personal data
 - Collection, recording, storage, retrieval, use, disclosure, erasure, destruction
 - Automated or manual
 
 **Controller**:
+
 - Determines purposes and means of processing
 - Makes decisions about why and how to process
 - Primary responsibility for compliance
 
 **Processor**:
+
 - Processes on behalf of controller
 - Acts on controller instructions
 - Limited independent decision-making
 
 **Joint Controllers**:
+
 - Two or more controllers jointly determine purposes and means
 - Must arrange responsibilities via agreement
 - Each liable for entire processing
 
 **Data Subject**:
+
 - Identified or identifiable natural person
 - Individual whose data is processed
 - Rights holder under GDPR
 
 **Supervisory Authority**:
+
 - Independent public authority (Data Protection Authority/DPA)
 - Each EU Member State has one or more
 - Enforces GDPR in jurisdiction
 
 **Lead Supervisory Authority** (Article 56):
+
 - For cross-border processing
 - Main establishment's DPA
 - One-stop-shop mechanism
@@ -91,6 +102,7 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 **Transparency**: Clear, plain language communication to data subjects
 
 **Implementation**:
+
 - Privacy notices at collection
 - Layered notices (short + full)
 - Just-in-time notices
@@ -100,16 +112,19 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 #### 2. Purpose Limitation
 
 **Requirements**:
+
 - Specified purposes (documented, clear)
 - Explicit purposes (communicated to data subjects)
 - Legitimate purposes (lawful, ethical)
 - No processing for incompatible purposes
 
 **Compatible Processing**:
+
 - Same or closely related purpose
 - Consider: Link between purposes, context, nature of data, consequences, safeguards
 
 **Exceptions**:
+
 - Archiving in public interest
 - Scientific/historical research
 - Statistical purposes
@@ -119,6 +134,7 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 **"Adequate, relevant, and limited to what is necessary"**
 
 **Implementation**:
+
 - Collect only what you need
 - Justify each data element
 - Regular review and purge
@@ -126,6 +142,7 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 - Pseudonymization/anonymization where possible
 
 **Common Violations**:
+
 - "Nice to have" data collection
 - Speculative future use
 - Excessive profiling data
@@ -133,11 +150,13 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 #### 4. Accuracy
 
 **Requirements**:
+
 - Personal data must be accurate
 - Kept up to date where necessary
 - Inaccurate data erased or rectified
 
 **Implementation**:
+
 - Verification at collection
 - Regular reviews and updates
 - Easy rectification process
@@ -149,6 +168,7 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 **"Kept no longer than necessary for the purposes"**
 
 **Implementation**:
+
 - Retention schedules (per purpose)
 - Regular deletion reviews
 - Automated deletion where possible
@@ -156,6 +176,7 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 - Legal hold procedures
 
 **Exceptions** (can retain longer):
+
 - Archiving in public interest
 - Scientific/historical research
 - Statistical purposes
@@ -172,6 +193,7 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 **"Controller shall be responsible for and able to demonstrate compliance"**
 
 **Demonstration Requirements**:
+
 - Documentation (policies, procedures, records)
 - Data Protection Impact Assessments (DPIAs)
 - Privacy by Design and Default
@@ -188,60 +210,71 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 #### 1. Consent (Article 6(1)(a))
 
 **Requirements**:
+
 - **Freely given**: No coercion, imbalance of power consideration
 - **Specific**: Separate consent for separate purposes
 - **Informed**: Identity, purposes, data types, rights, withdrawal
 - **Unambiguous**: Clear affirmative action (no pre-ticked boxes, silence, inactivity)
 
 **Additional for Consent**:
+
 - Easy to withdraw (as easy as to give)
 - Withdrawal does not affect lawfulness of prior processing
 - Burden of proof on controller
 - Record of consent (who, when, what, how)
 
 **When Problematic**:
+
 - Employment context (power imbalance)
 - Public authorities (no free choice)
 - Service bundling (cannot refuse)
 
 **Children's Consent** (Article 8):
+
 - Under 16: Parental consent required (Member States can lower to 13)
 - Controller must make reasonable efforts to verify
 
 #### 2. Contract (Article 6(1)(b))
 
 **Two scenarios**:
+
 - Processing necessary to **perform a contract** with data subject
 - Processing necessary to **enter into contract** (pre-contractual steps)
 
 **"Necessary"**:
+
 - Objectively essential to contract
 - Not just "helpful" or "customary"
 - Direct relationship to contract performance
 
 **Examples**:
+
 - Shipping address for product delivery
 - Credit card for payment processing
 - Account credentials for service access
 
 **Not Sufficient**:
+
 - Marketing to customers (use consent or legitimate interests)
 - Analytics not integral to service (use legitimate interests)
 
 #### 3. Legal Obligation (Article 6(1)(c))
 
 **Requirements**:
+
 - Processing required by **EU law** or **Member State law**
 - Obligation on the controller
 - Must identify specific legal provision
 
 **Examples**:
+
 - Tax records (legal retention requirements)
 - Employment records (labor law)
 - AML/KYC checks (financial regulations)
 - Health and safety reporting
 
 **Not Sufficient**:
+
 - Contractual obligations (use contract basis)
 - Best practices or industry standards
 - Non-EU legal obligations
@@ -251,11 +284,13 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 **"Necessary to protect the vital interests of the data subject or another"**
 
 **Scope**:
+
 - Life or death situations
 - Serious health threats
 - Last resort when other bases not available
 
 **Examples**:
+
 - Emergency medical treatment (unconscious patient)
 - Humanitarian crises
 - Pandemic response (in some cases)
@@ -267,11 +302,13 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 **"Necessary for task carried out in the public interest or in exercise of official authority"**
 
 **Scope**:
+
 - Public authorities
 - Private entities exercising official authority
 - Task must have basis in EU/Member State law
 
 **Examples**:
+
 - Government agencies
 - Regulators
 - Educational institutions (public tasks)
@@ -283,17 +320,20 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 **"Necessary for purposes of legitimate interests pursued by controller or third party, except where overridden by interests, rights and freedoms of data subject"**
 
 **Three-Part Test**:
+
 1. **Purpose Test**: Is interest legitimate?
 2. **Necessity Test**: Is processing necessary?
 3. **Balancing Test**: Do data subject's interests override?
 
 **Legitimate Interest Assessment (LIA)** Required:
+
 - Identify legitimate interest
 - Necessity assessment (no less intrusive means)
 - Balancing test (impact on data subjects)
 - Document LIA
 
 **Examples of Legitimate Interests**:
+
 - Fraud prevention
 - Network and information security
 - Direct marketing (subject to right to object)
@@ -302,10 +342,12 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 - Analytics for service improvement
 
 **Cannot Use**:
+
 - Public authorities (for official tasks)
 - When data subject's interests clearly override
 
 **Right to Object** (Article 21):
+
 - Data subjects can object to legitimate interests processing
 - Controller must demonstrate compelling legitimate grounds to continue
 
@@ -327,6 +369,7 @@ Deep expertise in the General Data Protection Regulation (GDPR) - the European U
 10. **Archiving, research, statistics** (safeguards) (9(2)(j))
 
 **Criminal Conviction Data** (Article 10):
+
 - Only under control of official authority, OR
 - Authorized by EU/Member State law (safeguards)
 
@@ -344,6 +387,7 @@ Covered in detail in `rights-check.md` command. Summary:
 8. **Rights re: Automated Decision-Making** (Article 22)
 
 **General Requirements** (Article 12):
+
 - Free of charge (generally)
 - Within 1 month (+2 months if complex)
 - Concise, transparent, intelligible, plain language
@@ -359,39 +403,46 @@ Covered in detail in `rights-check.md` command. Summary:
 ### Technical Measures
 
 **Pseudonymization**:
+
 - Separate identity from data
 - Cannot attribute to individual without additional information
 - Additional information kept separately with security
 
 **Encryption**:
+
 - At rest (storage encryption, database encryption, file encryption)
 - In transit (TLS 1.2+, VPN, encrypted email)
 - End-to-end (messaging, file sharing)
 
 **Access Controls**:
+
 - Authentication (passwords, MFA, biometrics)
 - Authorization (RBAC, least privilege)
 - Identity and Access Management (IAM)
 
 **Network Security**:
+
 - Firewalls and segmentation
 - Intrusion detection/prevention
 - DDoS protection
 - Secure configurations
 
 **Monitoring and Logging**:
+
 - Security information and event management (SIEM)
 - Audit logs (access, changes, deletions)
 - Anomaly detection
 - Log retention and protection
 
 **Resilience**:
+
 - Backup and recovery
 - Redundancy and failover
 - Disaster recovery
 - Business continuity
 
 **Testing**:
+
 - Vulnerability scanning
 - Penetration testing
 - Security assessments
@@ -400,6 +451,7 @@ Covered in detail in `rights-check.md` command. Summary:
 ### Organizational Measures
 
 **Policies and Procedures**:
+
 - Information security policy
 - Data protection policy
 - Acceptable use policy
@@ -407,6 +459,7 @@ Covered in detail in `rights-check.md` command. Summary:
 - Business continuity plan
 
 **Staff Management**:
+
 - Background checks (proportionate)
 - Confidentiality agreements
 - Security awareness training
@@ -414,18 +467,21 @@ Covered in detail in `rights-check.md` command. Summary:
 - Termination procedures
 
 **Vendor Management**:
+
 - Due diligence assessments
 - Data Processing Agreements (Article 28)
 - Ongoing monitoring
 - Audit rights
 
 **Governance**:
+
 - Security roles and responsibilities
 - Management oversight
 - Compliance monitoring
 - Regular reviews
 
 **Physical Security**:
+
 - Facility access controls
 - Visitor management
 - Equipment security
@@ -434,6 +490,7 @@ Covered in detail in `rights-check.md` command. Summary:
 ### Privacy by Design and Default (Article 25)
 
 **Privacy by Design** (Article 25(1)):
+
 - Implement appropriate technical and organizational measures
 - At the time of determining means of processing
 - At the time of processing itself
@@ -441,6 +498,7 @@ Covered in detail in `rights-check.md` command. Summary:
 - Integrate safeguards into processing
 
 **7 Foundational Principles** (Cavoukian):
+
 1. Proactive not reactive
 2. Privacy as default setting
 3. Privacy embedded into design
@@ -450,11 +508,13 @@ Covered in detail in `rights-check.md` command. Summary:
 7. Respect for user privacy
 
 **Privacy by Default** (Article 25(2)):
+
 - Only process data necessary for each purpose
 - By default (without user action)
 - Applies to: Amount collected, extent of processing, retention period, accessibility
 
 **Examples**:
+
 - Collect only necessary data
 - Default privacy settings (most protective)
 - Anonymization/pseudonymization
@@ -466,36 +526,43 @@ Covered in detail in `rights-check.md` command. Summary:
 #### When DPO Required (Article 37)
 
 **Mandatory DPO**:
+
 1. **Public authority** (except courts acting in judicial capacity)
 2. **Core activities require regular and systematic monitoring** of data subjects on large scale
 3. **Core activities consist of large-scale processing** of special categories (Article 9) or criminal data (Article 10)
 
 **"Core Activities"**:
+
 - Essential to organization's operations
 - Not ancillary functions
 
 **"Large Scale"**:
+
 - WP29 factors: Number of subjects, volume of data, duration, geographic extent
 - No specific threshold
 - Examples: Hospital, insurance company, search engine, telecom
 
 **"Regular and Systematic Monitoring"**:
+
 - Ongoing or recurring
 - Planned or organized
 - Examples: Online advertising, profiling, location tracking, CCTV
 
 **Voluntary DPO**:
+
 - Any organization can appoint
 - Once appointed, same requirements apply
 
 #### DPO Qualities and Position (Article 37)
 
 **Professional Qualities**:
+
 - Expert knowledge of data protection law and practices
 - Understanding of processing operations
 - Ability to fulfill tasks
 
 **Position Requirements**:
+
 - Designated on basis of professional qualities and expertise
 - Adequate resources (time, budget, staff)
 - Access to personal data and processing operations
@@ -504,6 +571,7 @@ Covered in detail in `rights-check.md` command. Summary:
 - No conflict of interest (cannot have position determining purposes/means)
 
 **Protection**:
+
 - Cannot be dismissed or penalized for DPO tasks
 - Minimum 2-year term recommended
 
@@ -516,6 +584,7 @@ Covered in detail in `rights-check.md` command. Summary:
 5. **Act as contact point** for authority and data subjects
 
 **Independence**:
+
 - No instructions on performing tasks
 - Controller must not interfere
 - DPO decides how to perform tasks
@@ -523,6 +592,7 @@ Covered in detail in `rights-check.md` command. Summary:
 ### Records of Processing Activities (Article 30)
 
 **Controller Records Must Include**:
+
 - Name and contact of controller, joint controllers, representative, DPO
 - Purposes of processing
 - Description of categories of data subjects and data
@@ -532,12 +602,14 @@ Covered in detail in `rights-check.md` command. Summary:
 - Description of technical and organizational security measures (general)
 
 **Processor Records Must Include**:
+
 - Name and contact of processor, controllers, representative, DPO
 - Categories of processing on behalf of each controller
 - Transfers to third countries (documentation)
 - Security measures description (general)
 
 **Exemptions** (Article 30(5)):
+
 - Organization with **<250 employees**, UNLESS:
   - Processing likely to result in risk to rights and freedoms
   - Not occasional processing
@@ -552,16 +624,19 @@ Covered in detail in `rights-check.md` command. Summary:
 Covered in detail in `dpia.md` command.
 
 **When Required**:
+
 - Processing likely to result in high risk
 - Particularly: Systematic profiling, large-scale special categories, systematic public monitoring
 
 **Content**:
+
 - Systematic description of processing and purposes
 - Assessment of necessity and proportionality
 - Assessment of risks to data subjects
 - Measures to address risks
 
 **Consultation**:
+
 - Seek advice of DPO
 - Seek views of data subjects (where appropriate)
 - Consult supervisory authority if high residual risk (Article 36)
@@ -571,12 +646,14 @@ Covered in detail in `dpia.md` command.
 **When Required**: Controller uses processor
 
 **Mandatory Content**:
+
 1. **Subject matter and duration** of processing
 2. **Nature and purpose** of processing
 3. **Type of personal data** and categories of data subjects
 4. **Obligations and rights** of controller
 
 **Processor Obligations**:
+
 - Process only on documented instructions
 - Ensure confidentiality of persons authorized to process
 - Implement Article 32 security measures
@@ -588,6 +665,7 @@ Covered in detail in `dpia.md` command.
 - Allow and contribute to audits/inspections
 
 **Sub-Processors**:
+
 - Specific or general written authorization
 - If general, inform of changes, opportunity to object
 - Same obligations on sub-processor (via contract)
@@ -604,12 +682,14 @@ Covered in detail in `dpia.md` command.
 #### Transfer Mechanisms
 
 **1. Adequacy Decision** (Article 45):
+
 - European Commission determines third country has adequate protection
 - No additional safeguards needed
 - **Adequate Countries**: Andorra, Argentina, Canada (commercial orgs), Faroe Islands, Guernsey, Israel, Isle of Man, Japan, Jersey, New Zealand, South Korea, Switzerland, UK, Uruguay
 - **US**: No general adequacy (Privacy Shield invalidated by Schrems II)
 
 **2. Standard Contractual Clauses (SCCs)** (Article 46(2)(c)):
+
 - EU Commission approved contract clauses
 - 2021 SCCs (modernized post-Schrems II)
 - Four modules: C2C, C2P, P2C, P2P
@@ -617,21 +697,25 @@ Covered in detail in `dpia.md` command.
 - Supplementary measures if laws in third country may impinge on SCCs
 
 **3. Binding Corporate Rules (BCRs)** (Article 46(2)(b)):
+
 - Multinational groups
 - Binding internal policies
 - Approved by competent supervisory authority
 - Complex, resource-intensive
 
 **4. Certification Mechanisms** (Article 46(2)(f)):
+
 - Approved certification + binding enforceable commitments
 - Limited use to date
 
 **5. Ad Hoc Contractual Clauses** (Article 46(3)(a)):
+
 - Custom contracts
 - Require supervisory authority approval
 - Rarely used
 
 **6. Derogations for Specific Situations** (Article 49):
+
 - **Explicit consent** (informed of risks)
 - **Performance of contract** with data subject
 - **Important reasons of public interest**
@@ -645,6 +729,7 @@ Covered in detail in `dpia.md` command.
 #### Schrems II Impact
 
 **CJEU Case C-311/18** (July 2020):
+
 - Invalidated EU-US Privacy Shield
 - SCCs remain valid BUT:
   - Must assess whether third country law ensures adequate protection
@@ -653,6 +738,7 @@ Covered in detail in `dpia.md` command.
 - Particular concern: US surveillance laws (FISA 702, EO 12333)
 
 **Practical Impact**:
+
 - **US transfers**: Challenging, require TIA and often supplementary measures
 - **China, Russia**: High-risk jurisdictions
 - Other countries: Case-by-case assessment
@@ -662,10 +748,12 @@ Covered in detail in `dpia.md` command.
 Covered in detail in `breach-process.md` command.
 
 **72-Hour Rule**:
+
 - Notify supervisory authority within 72 hours (Article 33)
 - Notify data subjects if high risk (Article 34)
 
 **Documentation** (Article 33(5)):
+
 - Record all breaches (even if not notified)
 - Facts, effects, remedial action
 - Demonstrate compliance
@@ -673,11 +761,13 @@ Covered in detail in `breach-process.md` command.
 ### Supervisory Authorities (Articles 51-59)
 
 **Independence** (Article 52):
+
 - Act with complete independence
 - Free from external influence
 - Adequate resources
 
 **Tasks** (Article 57):
+
 - Monitor and enforce GDPR
 - Promote awareness
 - Advise on legislative measures
@@ -687,16 +777,19 @@ Covered in detail in `breach-process.md` command.
 - Issue opinions, warnings, guidelines
 
 **Powers** (Article 58):
+
 1. **Investigative**: Audits, access to data/premises, obtain information
 2. **Corrective**: Warnings, reprimands, orders (compliance, rectification, erasure), processing bans, fines
 3. **Authorization**: Approve SCCs, BCRs, certifications
 
 **Lead Supervisory Authority** (Article 56):
+
 - One-stop-shop for cross-border processing
 - Based on main establishment
 - Coordinates with other concerned authorities
 
 **European Data Protection Board (EDPB)** (Article 68):
+
 - Replaces Article 29 Working Party
 - Ensures consistent application
 - Issues guidelines, recommendations, best practices
@@ -707,11 +800,13 @@ Covered in detail in `breach-process.md` command.
 #### Administrative Fines (Article 83)
 
 **Up to €10 Million or 2% of global annual turnover** (whichever higher):
+
 - Processors not meeting obligations (Article 28)
 - Certification body violations
 - Monitoring body violations
 
 **Up to €20 Million or 4% of global annual turnover** (whichever higher):
+
 - Principles violations (Article 5)
 - Lawful basis violations (Article 6)
 - Consent violations (Article 7)
@@ -721,6 +816,7 @@ Covered in detail in `breach-process.md` command.
 - Non-compliance with supervisory authority orders
 
 **Factors Considered** (Article 83(2)):
+
 - Nature, gravity, duration of infringement
 - Intentional or negligent
 - Actions to mitigate damage
@@ -736,6 +832,7 @@ Covered in detail in `breach-process.md` command.
 #### Compensation (Article 82)
 
 **Right to Compensation**:
+
 - Any person who suffered material or non-material damage
 - Due to GDPR infringement
 - Has right to receive compensation from controller or processor
@@ -744,6 +841,7 @@ Covered in detail in `breach-process.md` command.
 **Non-Material Damage**: Distress, anxiety, loss of control over data
 
 **Liability**:
+
 - Controller/processor liable for damage caused by processing
 - Processor liable only if failed to comply with processor obligations or acted outside controller's instructions
 - Not liable if proves not responsible for damage
@@ -753,6 +851,7 @@ Covered in detail in `breach-process.md` command.
 ### Notable GDPR Enforcement Cases
 
 **Large Fines**:
+
 - **Amazon** (2021): €746M (Luxembourg) - Inadequate lawful basis for advertising
 - **WhatsApp** (2021): €225M (Ireland) - Transparency violations
 - **Google** (2019): €50M (France) - Inadequate consent for advertising
@@ -760,6 +859,7 @@ Covered in detail in `breach-process.md` command.
 - **Marriott** (2020): £18.4M (UK) - Insufficient due diligence (acquisition), breach
 
 **Common Violation Themes**:
+
 - Lack of valid lawful basis (especially consent, legitimate interests)
 - Inadequate transparency and privacy notices
 - Failure to implement data subject rights
@@ -772,17 +872,20 @@ Covered in detail in `breach-process.md` command.
 ### International Variations and Related Laws
 
 **UK GDPR**:
+
 - Post-Brexit UK version
 - Materially same as EU GDPR
 - ICO (Information Commissioner's Office) enforces
 - Adequacy decision from EU
 
 **Swiss FADP** (Federal Act on Data Protection):
+
 - Swiss data protection law
 - Similar to GDPR (adequacy decision)
 - Some differences (e.g., legal entities protected)
 
 **National Implementations**:
+
 - GDPR is directly applicable (Regulation, not Directive)
 - Member States can specify certain provisions
 - National laws for public sector, employment, etc.
@@ -791,6 +894,7 @@ Covered in detail in `breach-process.md` command.
 ### Sector-Specific Considerations
 
 #### Healthcare
+
 - Health data is special category (Article 9)
 - Processing for healthcare (Article 9(2)(h))
 - Professional secrecy requirements
@@ -798,6 +902,7 @@ Covered in detail in `breach-process.md` command.
 - National health data laws
 
 #### Employment
+
 - Power imbalance (consent problematic)
 - Legal obligation and legitimate interests primary bases
 - Member State laws specify employment processing
@@ -805,18 +910,21 @@ Covered in detail in `breach-process.md` command.
 - Works council involvement (some jurisdictions)
 
 #### Financial Services
+
 - AML/KYC (legal obligation)
 - Credit scoring (automated decisions - Article 22)
 - Payment data (PSD2 interaction)
 - Supervisory authority coordination (financial regulators + DPAs)
 
 #### Marketing
+
 - Direct marketing (right to object - Article 21(2))
 - Consent for electronic marketing (ePrivacy Directive)
 - Profiling for marketing (legitimate interests with right to object)
 - Transparency about targeting
 
 #### Public Sector
+
 - Public task lawful basis (Article 6(1)(e))
 - Cannot use legitimate interests for official tasks
 - DPO mandatory (Article 37(1)(a))
@@ -825,6 +933,7 @@ Covered in detail in `breach-process.md` command.
 ### Relationship with Other Regulations
 
 **ePrivacy Directive** (2002/58/EC):
+
 - Governs electronic communications
 - Cookies and tracking (consent required)
 - Marketing emails/calls/SMS (opt-in/opt-out)
@@ -832,20 +941,24 @@ Covered in detail in `breach-process.md` command.
 - **ePrivacy Regulation**: Proposed replacement (pending)
 
 **PSD2** (Payment Services Directive 2):
+
 - Open banking data sharing
 - Explicit consent for third-party access
 - GDPR applies to payment data
 
 **NIS Directive** (Network and Information Security):
+
 - Critical infrastructure security
 - Incident reporting
 - Complements GDPR Article 32
 
 **DORA** (Digital Operational Resilience Act):
+
 - EU financial sector ICT resilience
 - Overlaps with GDPR security/breach requirements
 
 **AI Act** (Proposed):
+
 - Regulation of artificial intelligence
 - Interaction with GDPR (automated decisions, profiling)
 - Additional requirements for high-risk AI
@@ -853,6 +966,7 @@ Covered in detail in `breach-process.md` command.
 ### Best Practices and Recommendations
 
 #### Data Mapping
+
 - Comprehensive inventory (systems, databases, files, third parties)
 - Data flows (collection → storage → use → transfer → deletion)
 - Categories of data and data subjects
@@ -861,6 +975,7 @@ Covered in detail in `breach-process.md` command.
 - Recipients and processors
 
 #### Policy Framework
+
 - Data protection policy
 - Privacy notices (collection, updates)
 - Data subject rights procedures
@@ -870,6 +985,7 @@ Covered in detail in `breach-process.md` command.
 - Privacy by Design standard
 
 #### Governance
+
 - DPO appointment (where required or beneficial)
 - Privacy steering committee
 - Defined roles and responsibilities
@@ -877,6 +993,7 @@ Covered in detail in `breach-process.md` command.
 - Board oversight
 
 #### Training and Awareness
+
 - All staff: GDPR awareness, data protection principles
 - Developers: Privacy by Design
 - Customer-facing: Data subject rights
@@ -884,6 +1001,7 @@ Covered in detail in `breach-process.md` command.
 - Leadership: Accountability, risk
 
 #### Ongoing Compliance
+
 - Regular GDPR audits (internal, external)
 - Privacy impact assessments (new projects)
 - Vendor assessments and DPA reviews
@@ -893,6 +1011,7 @@ Covered in detail in `breach-process.md` command.
 - Continuous improvement
 
 #### Documentation (Demonstrating Accountability)
+
 - Records of processing activities (Article 30)
 - Lawful basis documentation
 - Legitimate interest assessments (LIAs)
@@ -921,12 +1040,14 @@ Covered in detail in `breach-process.md` command.
 ### Emerging Topics
 
 **Cookies and Tracking**:
+
 - Cookie consent banners (ePrivacy + GDPR)
 - "Cookie walls" (recent guidance: generally not valid consent)
 - Legitimate interests for analytics (limited acceptance)
 - Tracking technologies (fingerprinting, pixels, etc.)
 
 **Artificial Intelligence and Profiling**:
+
 - Automated decision-making (Article 22)
 - Transparency and explainability
 - Bias and fairness
@@ -934,23 +1055,27 @@ Covered in detail in `breach-process.md` command.
 - Proposed AI Act interaction
 
 **Children's Data**:
+
 - Age verification challenges
 - Parental consent requirements
 - Age-appropriate design (UK Age Appropriate Design Code)
 - Online services and social media
 
 **Biometric Data**:
+
 - Special category (Article 9)
 - Facial recognition (high-risk DPIA required)
 - Regulatory scrutiny and bans (some public uses)
 - Workplace biometrics (proportionality)
 
 **Dark Patterns**:
+
 - Manipulative UX design
 - EDPB Guidelines 03/2022 on deceptive design patterns
 - Cookie banners, consent flows, account deletion
 
 **International Data Transfers Post-Schrems II**:
+
 - US transfers (supplementary measures, new EU-US framework discussions)
 - Transfer Impact Assessments (TIAs)
 - Encryption and pseudonymization as safeguards

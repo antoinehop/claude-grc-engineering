@@ -513,6 +513,7 @@ Continuous Improvement:
 ## Export Formats
 
 ### CSV Export
+
 ```bash
 /soc2:generate-tsc-matrix all csv
 
@@ -523,6 +524,7 @@ Continuous Improvement:
 ```
 
 ### JSON Export
+
 ```bash
 /soc2:generate-tsc-matrix all json
 
@@ -562,6 +564,7 @@ Continuous Improvement:
 ## Integration with Other Commands
 
 ### 1. Gap Analysis → TSC Matrix
+
 ```bash
 # First, run assessment
 /soc2:assess security type2
@@ -571,6 +574,7 @@ Continuous Improvement:
 ```
 
 ### 2. TSC Matrix → Code Generation
+
 ```bash
 # Generate matrix to identify gaps
 /soc2:generate-tsc-matrix all json > gaps.json
@@ -580,6 +584,7 @@ Continuous Improvement:
 ```
 
 ### 3. TSC Matrix → Evidence Collection
+
 ```bash
 # Identify controls missing evidence
 /soc2:generate-tsc-matrix security table | grep "Missing evidence"
@@ -591,6 +596,7 @@ Continuous Improvement:
 ## Use Cases
 
 ### Use Case 1: Readiness Assessment
+
 ```bash
 # 3 months before audit period
 /soc2:generate-tsc-matrix all table
@@ -601,6 +607,7 @@ Continuous Improvement:
 ```
 
 ### Use Case 2: Board Reporting
+
 ```bash
 # Generate executive summary
 /soc2:generate-tsc-matrix all csv > soc2-status.csv
@@ -610,6 +617,7 @@ Continuous Improvement:
 ```
 
 ### Use Case 3: Continuous Monitoring
+
 ```bash
 # Monthly during audit period
 /soc2:generate-tsc-matrix security json > tsc-$(date +%Y%m).json
@@ -619,6 +627,7 @@ Continuous Improvement:
 ```
 
 ### Use Case 4: Auditor Preparation
+
 ```bash
 # 2 weeks before audit
 /soc2:generate-tsc-matrix all table > tsc-matrix.txt

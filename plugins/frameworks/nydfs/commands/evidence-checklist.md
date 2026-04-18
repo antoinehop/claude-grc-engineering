@@ -124,11 +124,13 @@ az ad user list --output json | jq '[.[] | {userPrincipalName, id}]' \
 # az rest --method get --url 'https://graph.microsoft.com/v1.0/users?$select=userPrincipalName,id' \
 #   > evidence/nydfs-500.12-azure-mfa-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Weekly
 Retention: 6 years (NYDFS record retention per §500.13)
 Purpose: MFA implementation evidence per §500.12
 
 ✓ **Remote Access with MFA Evidence**
+
 ```bash
 # AWS - VPN connections (should require MFA)
 aws ec2 describe-client-vpn-endpoints --output json \
@@ -154,11 +156,13 @@ aws identitystore list-users --identity-store-id <IDENTITY-STORE-ID> \
 aws sso-admin list-permission-sets --instance-arn <INSTANCE-ARN> \
   --output json > evidence/nydfs-500.12-sso-permission-sets-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Weekly
 Retention: 6 years
 Purpose: Remote access MFA per §500.12(a)
 
 ✓ **Privileged Account MFA Evidence**
+
 ```bash
 # AWS - Identify privileged accounts
 for user in $(aws iam list-users --query 'Users[].UserName' --output text); do
@@ -174,11 +178,13 @@ done
 az ad directory role member list --role "Global Administrator" --output json \
   > evidence/nydfs-500.12-azure-global-admins-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Weekly
 Retention: 6 years
 Purpose: Privileged account MFA per §500.12(b)
 
 ✓ **MFA Authentication Logs (Success/Failure)**
+
 ```bash
 # AWS CloudTrail - MFA authentication events (last 30 days)
 aws cloudtrail lookup-events \
@@ -200,11 +206,13 @@ az monitor activity-log list \
   --start-time $(date -u -d '30 days ago' +%Y-%m-%dT%H:%M:%S) \
   --output json > evidence/nydfs-500.12-azure-signins-$(date +%Y%m).json
 ```
+
 Collection Frequency: Monthly
 Retention: 6 years
 Purpose: MFA usage audit trail
 
 ✓ **MFA Bypass Events (Emergency Access)**
+
 ```bash
 # Check for emergency access / break-glass account usage
 aws cloudtrail lookup-events \
@@ -214,6 +222,7 @@ aws cloudtrail lookup-events \
 
 # If emergency account used, this should trigger immediate review
 ```
+
 Collection Frequency: Real-time (alerts on usage)
 Retention: 6 years
 Purpose: Emergency access monitoring
@@ -221,72 +230,79 @@ Purpose: Emergency access monitoring
 ### Manual Evidence Collection
 
 □ **MFA Deployment Evidence**
-  - Screenshots of MFA configuration in identity systems
-  - Required elements:
-    - Identity provider MFA settings (Okta, Azure AD, AWS SSO)
-    - MFA methods enabled (authenticator app, SMS, hardware token)
-    - MFA enforcement policies
-    - Conditional access policies requiring MFA
-  - Evidence: Screenshots + configuration exports
-  - Frequency: Annual or when MFA configuration changes
+
+- Screenshots of MFA configuration in identity systems
+- Required elements:
+  - Identity provider MFA settings (Okta, Azure AD, AWS SSO)
+  - MFA methods enabled (authenticator app, SMS, hardware token)
+  - MFA enforcement policies
+  - Conditional access policies requiring MFA
+- Evidence: Screenshots + configuration exports
+- Frequency: Annual or when MFA configuration changes
 
 □ **MFA Coverage Report (Quarterly)**
-  - Report showing MFA coverage across all systems
-  - Required elements:
-    - Total users
-    - Users with MFA enabled
-    - MFA compliance percentage (target: 100%)
-    - Users without MFA (with justifications if any)
-    - Privileged accounts MFA status (should be 100%)
-    - Remote access MFA status (should be 100%)
-  - Evidence: Quarterly MFA Coverage Report
-  - Frequency: Quarterly
+
+- Report showing MFA coverage across all systems
+- Required elements:
+  - Total users
+  - Users with MFA enabled
+  - MFA compliance percentage (target: 100%)
+  - Users without MFA (with justifications if any)
+  - Privileged accounts MFA status (should be 100%)
+  - Remote access MFA status (should be 100%)
+- Evidence: Quarterly MFA Coverage Report
+- Frequency: Quarterly
 
 □ **MFA Exemption Approvals (if any)**
-  - CISO-approved exemptions from MFA requirement
-  - Required elements:
-    - Account/system exempted
-    - Risk-based justification (why MFA not feasible)
-    - Alternative compensating controls
-    - CISO written approval
-    - Exemption expiration date
-  - Evidence: CISO exemption approval memos
-  - Frequency: Annually or when exemptions granted
-  - **WARNING**: NYDFS examiners closely scrutinize exemptions
+
+- CISO-approved exemptions from MFA requirement
+- Required elements:
+  - Account/system exempted
+  - Risk-based justification (why MFA not feasible)
+  - Alternative compensating controls
+  - CISO written approval
+  - Exemption expiration date
+- Evidence: CISO exemption approval memos
+- Frequency: Annually or when exemptions granted
+- **WARNING**: NYDFS examiners closely scrutinize exemptions
 
 □ **Annual MFA Effectiveness Review**
-  - Comprehensive review of MFA program effectiveness
-  - Required elements:
-    - MFA adoption rate (100% target)
-    - MFA bypass events count (should be minimal)
-    - Failed MFA attempts analysis (security incidents?)
-    - User feedback on MFA usability
-    - MFA vendor performance (uptime, support)
-    - Recommendations for improvement
-    - CISO sign-off
-  - Evidence: Annual MFA Effectiveness Review Report
-  - Frequency: Annually
+
+- Comprehensive review of MFA program effectiveness
+- Required elements:
+  - MFA adoption rate (100% target)
+  - MFA bypass events count (should be minimal)
+  - Failed MFA attempts analysis (security incidents?)
+  - User feedback on MFA usability
+  - MFA vendor performance (uptime, support)
+  - Recommendations for improvement
+  - CISO sign-off
+- Evidence: Annual MFA Effectiveness Review Report
+- Frequency: Annually
 
 □ **User Training on MFA**
-  - Training materials and completion records
-  - Topics: How to set up MFA, how to use MFA, what to do if MFA device lost
-  - Evidence: Training completion records, training materials
-  - Frequency: Annually, on hire for new employees
+
+- Training materials and completion records
+- Topics: How to set up MFA, how to use MFA, what to do if MFA device lost
+- Evidence: Training completion records, training materials
+- Frequency: Annually, on hire for new employees
 
 □ **MFA Vendor Due Diligence (if using third-party)**
-  - Due diligence on MFA vendor (Okta, Duo, etc.)
-  - Required elements:
-    - Vendor security assessment
-    - SOC 2 Type II report review
-    - Contract review (uptime SLAs, data protection)
-  - Evidence: Vendor due diligence report
-  - Frequency: Before selection, annual review
+
+- Due diligence on MFA vendor (Okta, Duo, etc.)
+- Required elements:
+  - Vendor security assessment
+  - SOC 2 Type II report review
+  - Contract review (uptime SLAs, data protection)
+- Evidence: Vendor due diligence report
+- Frequency: Before selection, annual review
 
 ## NYDFS Examination Expectations
 
 NYDFS examiners will verify:
 
 ### Documentation Review
+
 ✓ MFA policy exists and is comprehensive
 ✓ MFA risk assessment performed (part of annual §500.09 risk assessment)
 ✓ Exemptions documented with CISO approval (if any)
@@ -294,6 +310,7 @@ NYDFS examiners will verify:
 ✓ User training on MFA provided
 
 ### Implementation Review
+
 ✓ MFA implemented for ALL remote access (no exceptions)
 ✓ MFA implemented for ALL privileged accounts (no exceptions)
 ✓ MFA implemented for ALL access to NPPI systems (2023 amendment)
@@ -301,6 +318,7 @@ NYDFS examiners will verify:
 ✓ Alternative compensating controls for any exemptions
 
 ### Testing Requirements
+
 ✓ Test MFA login (verify it works)
 ✓ Test MFA bypass procedure (emergency access)
 ✓ Review MFA coverage reports (quarterly)
@@ -308,6 +326,7 @@ NYDFS examiners will verify:
 ✓ Review MFA effectiveness (annual review report)
 
 ### Audit Trail
+
 ✓ CloudTrail/Azure AD logs show MFA usage
 ✓ Logs retained for 6 years
 ✓ Failed MFA attempts investigated
@@ -316,6 +335,7 @@ NYDFS examiners will verify:
 ## Common NYDFS Examination Findings
 
 ### Critical (Likely to Result in Enforcement Action)
+
 ❌ No MFA policy
 ❌ No MFA implemented for remote access
 ❌ No MFA for privileged accounts
@@ -324,6 +344,7 @@ NYDFS examiners will verify:
 ❌ Logs not retained for 6 years
 
 ### Moderate (Corrective Action Required)
+
 ⚠️ MFA coverage <100% without CISO-approved exemptions
 ⚠️ Exemptions not risk-based or not documented
 ⚠️ No annual MFA effectiveness review
@@ -331,6 +352,7 @@ NYDFS examiners will verify:
 ⚠️ Failed MFA attempts not investigated
 
 ### Minor (Best Practice Recommendations)
+
 ⚠️ MFA policy not updated in >12 months
 ⚠️ MFA effectiveness review could be more comprehensive
 ⚠️ Some privileged accounts using SMS MFA (recommend app or hardware token)
@@ -338,6 +360,7 @@ NYDFS examiners will verify:
 ## Remediation Guidance
 
 ### If No MFA Implemented
+
 1. **Immediate (Week 1)**: Select MFA solution (Okta, Duo, Azure AD MFA, AWS MFA)
 2. **Week 2**: Configure MFA in identity provider
 3. **Weeks 3-4**: Pilot with IT team (test MFA registration, usage)
@@ -352,6 +375,7 @@ NYDFS examiners will verify:
 **Priority**: 🔴 CRITICAL (§500.12 compliance deadline passed)
 
 ### If MFA Coverage <100%
+
 1. **Week 1**: Identify all users without MFA
 2. **Week 2**: Contact users, provide setup assistance
 3. **Week 3**: For remaining non-compliant users, disable access until MFA enabled
@@ -362,6 +386,7 @@ NYDFS examiners will verify:
 **Priority**: 🔴 CRITICAL (NYDFS expectation is 100% coverage)
 
 ### If No Annual MFA Effectiveness Review
+
 1. **Week 1**: Gather data (MFA coverage, bypass events, failures, user feedback)
 2. **Week 2**: Analyze data, identify trends and issues
 3. **Week 3**: Draft recommendations for improvement
@@ -374,6 +399,7 @@ NYDFS examiners will verify:
 ## Cross-References
 
 ### Related NYDFS Sections
+
 - §500.02(b) - CISO (responsible for MFA program)
 - §500.03 - Cybersecurity Policy (must include MFA)
 - §500.04 - Risk Assessment (must assess MFA effectiveness)
@@ -381,6 +407,7 @@ NYDFS examiners will verify:
 - §500.17 - Notices to Superintendent (report MFA-related breaches)
 
 ### Maps to Other Frameworks
+
 - **NIST 800-53 Rev 5**: IA-2 (Identification and Authentication), IA-2(1) (MFA)
 - **FedRAMP**: IA-2(1), IA-2(2), IA-2(12) (MFA requirements)
 - **ISO 27001:2022**: A.5.17 (Authentication information)
@@ -391,6 +418,7 @@ NYDFS examiners will verify:
 ## Cost Estimates
 
 ### MFA Implementation (500-person organization)
+
 - MFA solution (Okta, Duo): $3-8/user/month ($18k-$48k/year for 500 users)
 - Implementation (setup, configuration): 80 hours ($8,000)
 - User training (2 hours per user): 1,000 hours ($100,000)
@@ -399,6 +427,7 @@ NYDFS examiners will verify:
 - **Total Year 1**: ~$142k-$172k (one-time) + $22k-$52k/year (ongoing)
 
 ### MFA Alternatives
+
 - SMS MFA: $0.02-0.05 per SMS ($1k-$2.5k/year for 500 users)
 - Authenticator app (Google Authenticator, Microsoft Authenticator): Free
 - Hardware tokens (YubiKey): $50-75 per token ($25k-$37.5k for 500 users, one-time)
@@ -662,5 +691,6 @@ if __name__ == "__main__":
 **Priority**: 🔴 CRITICAL (NY financial services regulatory requirement)
 
 **NYDFS Class A vs Class B**:
+
 - **Class A**: ≥$20M in gross annual revenue from NY OR ≥2,000 employees (more stringent requirements)
 - **Class B**: <$20M revenue AND <2,000 employees (some exemptions/extended deadlines)

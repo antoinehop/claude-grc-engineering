@@ -115,11 +115,13 @@ az ad user list --output json > evidence/stateramp-ac2-azure-users-$(date +%Y%m%
 gcloud identity groups memberships list --group-email=state-users@agency.gov \
   --format=json > evidence/stateramp-ac2-gcp-users-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly (for ConMon reporting)
 Retention: 7 years (state record retention requirements)
 Purpose: Account inventory per AC-2(1)
 
 ✓ **Account Creation/Modification/Deletion Logs**
+
 ```bash
 # AWS CloudTrail - Account lifecycle events (last 30 days)
 aws cloudtrail lookup-events \
@@ -148,11 +150,13 @@ az monitor activity-log list \
   --start-time $(date -u -d '30 days ago' +%Y-%m-%dT%H:%M:%S) \
   --output json > evidence/stateramp-ac2-azure-audit-$(date +%Y%m).json
 ```
+
 Collection Frequency: Monthly
 Retention: 7 years
 Purpose: Account lifecycle audit trail per AC-2(4)
 
 ✓ **Privileged Account Inventory**
+
 ```bash
 # AWS - Users with AdministratorAccess
 for user in $(aws iam list-users --query 'Users[].UserName' --output text); do
@@ -170,11 +174,13 @@ aws iam list-roles | jq -r '.Roles[].RoleName' | while read role; do
   fi
 done
 ```
+
 Collection Frequency: Weekly
 Retention: 7 years
 Purpose: Privileged account monitoring per AC-2(7)
 
 ✓ **Automated Account Disabling Evidence**
+
 ```bash
 # Check for inactive accounts (no access in 90 days)
 aws iam get-credential-report --output text | base64 -d | \
@@ -189,11 +195,13 @@ aws iam get-credential-report --output text | base64 -d | \
   awk -F',' '$10 == "true" && $12 == "N/A" {print $1",access_key_1,NEVER_USED"}' \
   >> evidence/stateramp-ac2-unused-keys-$(date +%Y%m%d).csv
 ```
+
 Collection Frequency: Weekly
 Retention: 7 years
 Purpose: Inactive account detection per AC-2(3)
 
 ✓ **Data Residency Evidence**
+
 ```bash
 # AWS - Verify all resources in US regions only
 aws ec2 describe-regions --all-regions --output json | \
@@ -215,6 +223,7 @@ aws rds describe-db-instances \
   --query 'DBInstances[].[DBInstanceIdentifier,AvailabilityZone]' \
   --output json > evidence/stateramp-ac2-rds-locations-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly
 Retention: 7 years
 Purpose: **StateRAMP-Specific** - Data residency requirement
@@ -222,67 +231,73 @@ Purpose: **StateRAMP-Specific** - Data residency requirement
 ### Manual Evidence Collection
 
 □ **Quarterly Access Reviews**
-  - Review all accounts with access to state government data
-  - Required elements:
-    - Complete account list at review start date
-    - Manager certification of continued need
-    - State agency POC sign-off (if applicable)
-    - Identified inappropriate access
-    - Remediation within 30 days
-    - Authorizing Official sign-off
-  - Evidence: Quarterly access review reports (Q1-Q4)
-  - Frequency: Quarterly (every 90 days)
-  - **StateRAMP**: Required for ConMon reporting
+
+- Review all accounts with access to state government data
+- Required elements:
+  - Complete account list at review start date
+  - Manager certification of continued need
+  - State agency POC sign-off (if applicable)
+  - Identified inappropriate access
+  - Remediation within 30 days
+  - Authorizing Official sign-off
+- Evidence: Quarterly access review reports (Q1-Q4)
+- Frequency: Quarterly (every 90 days)
+- **StateRAMP**: Required for ConMon reporting
 
 □ **Background Check Records**
-  - Background check records for all personnel with state data access
-  - Required elements:
-    - Name, date of background check
-    - Type of check (federal, state, financial)
-    - Result (pass/fail)
-    - Next renewal date (every 5 years)
-  - Evidence: Background check register (sanitized - no detailed results)
-  - Frequency: Initial hire, every 5 years
-  - **StateRAMP-Specific**: Required for state government contracts
+
+- Background check records for all personnel with state data access
+- Required elements:
+  - Name, date of background check
+  - Type of check (federal, state, financial)
+  - Result (pass/fail)
+  - Next renewal date (every 5 years)
+- Evidence: Background check register (sanitized - no detailed results)
+- Frequency: Initial hire, every 5 years
+- **StateRAMP-Specific**: Required for state government contracts
 
 □ **State Agency Account Approvals**
-  - Approval from state agency POC before granting access to state data
-  - Required elements:
-    - Account request (name, role, need)
-    - State agency POC approval (email/ticket)
-    - Cloud service provider approval
-    - Access granted date
-  - Evidence: Sample of 25 account approvals from last quarter
-  - Frequency: Quarterly review
+
+- Approval from state agency POC before granting access to state data
+- Required elements:
+  - Account request (name, role, need)
+  - State agency POC approval (email/ticket)
+  - Cloud service provider approval
+  - Access granted date
+- Evidence: Sample of 25 account approvals from last quarter
+- Frequency: Quarterly review
 
 □ **Emergency Account Usage Logs**
-  - Log of all emergency/break-glass account usage
-  - Required elements:
-    - Date/time of emergency access
-    - Justification for emergency access
-    - Actions taken during emergency access
-    - Post-incident review
-    - State agency notification (within 24 hours)
-  - Evidence: Emergency access log + state notifications
-  - Frequency: Ongoing (log all usage)
-  - **StateRAMP**: State must be notified of emergency access within 24 hours
+
+- Log of all emergency/break-glass account usage
+- Required elements:
+  - Date/time of emergency access
+  - Justification for emergency access
+  - Actions taken during emergency access
+  - Post-incident review
+  - State agency notification (within 24 hours)
+- Evidence: Emergency access log + state notifications
+- Frequency: Ongoing (log all usage)
+- **StateRAMP**: State must be notified of emergency access within 24 hours
 
 □ **Data Return/Destruction Evidence**
-  - Procedures and evidence for returning/destroying state data upon contract termination
-  - Required elements:
-    - Data return procedure
-    - Secure deletion procedure (NIST 800-88)
-    - Certificate of destruction
-    - State agency acknowledgment
-  - Evidence: Data return/destruction procedure + certificates (if applicable)
-  - Frequency: Upon contract termination
-  - **StateRAMP-Specific**: State-specific data handling requirements
+
+- Procedures and evidence for returning/destroying state data upon contract termination
+- Required elements:
+  - Data return procedure
+  - Secure deletion procedure (NIST 800-88)
+  - Certificate of destruction
+  - State agency acknowledgment
+- Evidence: Data return/destruction procedure + certificates (if applicable)
+- Frequency: Upon contract termination
+- **StateRAMP-Specific**: State-specific data handling requirements
 
 ## StateRAMP Assessment Expectations
 
 StateRAMP 3PAOs will verify:
 
 ### Documentation Review
+
 ✓ SSP Section 13.2 (AC-2) complete and accurate
 ✓ Account management policy comprehensive
 ✓ Background check procedures documented
@@ -290,6 +305,7 @@ StateRAMP 3PAOs will verify:
 ✓ State-specific requirements addressed
 
 ### Implementation Review
+
 ✓ Account lifecycle automated (provisioning, deprovisioning)
 ✓ Quarterly access reviews performed (4 consecutive quarters minimum)
 ✓ Privileged access limited and monitored
@@ -298,6 +314,7 @@ StateRAMP 3PAOs will verify:
 ✓ Background checks current for all personnel with state data access
 
 ### Testing Requirements
+
 ✓ Sample 25 account creations (test approval process)
 ✓ Sample 25 account deletions (test <24hr removal)
 ✓ Review 4 quarterly access review reports
@@ -305,6 +322,7 @@ StateRAMP 3PAOs will verify:
 ✓ Test emergency account procedures
 
 ### Continuous Monitoring (ConMon)
+
 ✓ Monthly POA&M updates
 ✓ Monthly vulnerability scan reports
 ✓ Quarterly access review reports
@@ -314,6 +332,7 @@ StateRAMP 3PAOs will verify:
 ## Common StateRAMP Assessment Findings
 
 ### Critical (Likely to delay ATO)
+
 ❌ No SSP or incomplete SSP
 ❌ State data found outside US regions
 ❌ No background checks for personnel with state data access
@@ -322,6 +341,7 @@ StateRAMP 3PAOs will verify:
 ❌ No state incident notification procedures
 
 ### Moderate (Corrective Action Plan required)
+
 ⚠️ Access reviews performed but missing state agency sign-off
 ⚠️ Background checks >5 years old
 ⚠️ Account approvals missing state agency POC approval
@@ -329,6 +349,7 @@ StateRAMP 3PAOs will verify:
 ⚠️ ConMon reporting incomplete or late
 
 ### Minor (Observations)
+
 ⚠️ SSP could be more detailed
 ⚠️ Emergency account procedures not tested
 ⚠️ Some documentation >12 months old
@@ -336,6 +357,7 @@ StateRAMP 3PAOs will verify:
 ## Remediation Guidance
 
 ### If State Data Outside US Regions
+
 1. **Immediate**: Identify all resources with state data outside US
 2. **Week 1**: Plan migration to US regions
 3. **Weeks 2-4**: Migrate data to US regions (backup first)
@@ -346,6 +368,7 @@ StateRAMP 3PAOs will verify:
 **Priority**: 🔴 CRITICAL (mandatory for StateRAMP)
 
 ### If No Background Checks
+
 1. **Week 1**: Identify all personnel with state data access
 2. **Week 2**: Engage background check vendor
 3. **Weeks 3-8**: Complete background checks for all personnel
@@ -356,6 +379,7 @@ StateRAMP 3PAOs will verify:
 **Priority**: 🔴 CRITICAL (StateRAMP requirement)
 
 ### If No Quarterly Access Reviews
+
 1. **Week 1**: Export all accounts with state data access
 2. **Week 2**: Send to managers and state agency POCs for review
 3. **Week 3**: Collect sign-offs, identify inappropriate access
@@ -368,6 +392,7 @@ StateRAMP 3PAOs will verify:
 ## Cross-References
 
 ### Related StateRAMP Controls
+
 - AC-1 - Access Control Policy and Procedures
 - AC-3 - Access Enforcement
 - AC-6 - Least Privilege
@@ -375,6 +400,7 @@ StateRAMP 3PAOs will verify:
 - AU-2 - Audit Events (account management events)
 
 ### StateRAMP vs FedRAMP Differences
+
 - **Data Residency**: StateRAMP requires US (sometimes in-state), FedRAMP allows any approved region
 - **Background Checks**: StateRAMP requires state-specific checks, FedRAMP requires federal
 - **Incident Notification**: StateRAMP 24 hours to state, FedRAMP varies
@@ -383,6 +409,7 @@ StateRAMP 3PAOs will verify:
 - **State Audit Rights**: StateRAMP includes state inspection rights, FedRAMP federal only
 
 ### Maps to Other Frameworks
+
 - **NIST 800-53 Rev 5**: AC-2 (same control)
 - **FedRAMP**: AC-2 (with state-specific additions)
 - **ISO 27001:2022**: A.5.15, A.5.16, A.5.18 (Access control)
@@ -391,6 +418,7 @@ StateRAMP 3PAOs will verify:
 ## Cost Estimates
 
 ### StateRAMP Authorization (Moderate Baseline)
+
 - Readiness assessment: 120 hours ($12,000)
 - SSP development: 200 hours ($20,000)
 - Control implementation: 400 hours ($40,000)
@@ -400,6 +428,7 @@ StateRAMP 3PAOs will verify:
 - **Total Year 1**: ~$140k-$192k (one-time) + ongoing ConMon
 
 ### StateRAMP Continuous Monitoring (ConMon)
+
 - Monthly POA&M updates: 8 hours/month ($800/month = $9,600/year)
 - Monthly vulnerability scans: $5k-$10k/year
 - Quarterly access reviews: 16 hours/quarter ($1,600/quarter = $6,400/year)
@@ -407,6 +436,7 @@ StateRAMP 3PAOs will verify:
 - **Ongoing**: ~$61k-$106k/year
 
 ### Tools
+
 - GRC platform with StateRAMP templates: $20k-$50k/year
 - Vulnerability scanning: $5k-$15k/year
 - Background check service: $100-500/person (initial + renewals)
@@ -683,6 +713,7 @@ if __name__ == "__main__":
 **Priority**: 🔴 CRITICAL (US state government cloud services)
 
 **Key StateRAMP Differences**:
+
 - Data residency requirements (US or in-state)
 - State-specific background checks
 - 24-hour incident notification to state

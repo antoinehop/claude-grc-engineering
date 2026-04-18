@@ -17,6 +17,7 @@ Deep expertise in Cybersecurity Maturity Model Certification (CMMC) v2.0 for Dep
 **Effective**: FY2025 implementation phase
 
 **Key Changes from CMMC 1.0 to 2.0**:
+
 - Streamlined from 5 to 3 levels
 - Reduced from 320 to 171 practices (at Level 3)
 - Aligned directly with NIST 800-171
@@ -108,6 +109,7 @@ Deep expertise in Cybersecurity Maturity Model Certification (CMMC) v2.0 for Dep
 CMMC v2.0 is directly based on NIST Special Publication 800-171 "Protecting CUI in Nonfederal Systems"
 
 **Mapping**:
+
 - **Level 1**: 17 basic safeguarding practices (subset of 800-171)
 - **Level 2**: All 110 practices from NIST 800-171 Rev 2
 - **Level 3**: Level 2 + additional practices for critical programs
@@ -115,18 +117,21 @@ CMMC v2.0 is directly based on NIST Special Publication 800-171 "Protecting CUI 
 ### Assessment Process
 
 **C3PAO (Certified Third-Party Assessor Organization)**:
+
 - DoD Accreditation Body oversight
 - Independent assessment
 - Standardized methodology
 - Official CMMC certification
 
 **Assessment Phases**:
+
 1. **Pre-assessment**: Scope determination, SSP review
 2. **On-site Assessment**: Evidence review, interviews, testing
 3. **Post-assessment**: Report generation, scorecard
 4. **Certification**: 3-year validity
 
 **Scoring Criteria**:
+
 - All practices must be implemented
 - Must meet maturity level requirements
 - Compensating controls evaluated case-by-case
@@ -135,12 +140,14 @@ CMMC v2.0 is directly based on NIST Special Publication 800-171 "Protecting CUI 
 ### Data Types
 
 **FCI (Federal Contract Information)**:
+
 - Not classified, not CUI
 - Provided by/generated for the government
 - Under contract performance
 - Example: Pricing, delivery schedules
 
 **CUI (Controlled Unclassified Information)**:
+
 - 125 CUI categories
 - Export control (ITAR, EAR)
 - Critical infrastructure
@@ -148,6 +155,7 @@ CMMC v2.0 is directly based on NIST Special Publication 800-171 "Protecting CUI 
 - Example: Technical data, engineering drawings
 
 **CUI Marking Requirements**:
+
 - Banner markings required
 - Category identification
 - Dissemination controls
@@ -182,6 +190,7 @@ CMMC v2.0 is directly based on NIST Special Publication 800-171 "Protecting CUI 
 ### System Security Plan (SSP)
 
 **Required Documentation**:
+
 - System description and boundaries
 - Data flow diagrams
 - Network architecture
@@ -190,6 +199,7 @@ CMMC v2.0 is directly based on NIST Special Publication 800-171 "Protecting CUI 
 - POA&M for deficiencies
 
 **NIST 800-171A Assessment Objectives**:
+
 - Each practice has assessment objectives
 - Determine, Examine, Interview, Test (DEIT)
 - Evidence artifacts required
@@ -206,16 +216,19 @@ CMMC v2.0 is directly based on NIST Special Publication 800-171 "Protecting CUI 
 ### POA&M (Plan of Action & Milestones)
 
 **Acceptable for**:
+
 - Minor gaps with clear remediation plan
 - Resource constraints with executive approval
 - Technology limitations with compensating controls
 
 **Not Acceptable for**:
+
 - Fundamental practice failures
 - Multiple related gaps
 - Level 2+ critical practices
 
 **POA&M Requirements**:
+
 - Specific remediation steps
 - Resource allocation
 - Milestone dates (typically <6 months)
@@ -224,21 +237,25 @@ CMMC v2.0 is directly based on NIST Special Publication 800-171 "Protecting CUI 
 ### Cost Considerations
 
 **Level 1 (Self-Assessment)**:
+
 - $0 - $50K (consulting/tools)
 - Annual submission to DoD
 
 **Level 2 (C3PAO Assessment)**:
+
 - Assessment: $50K - $200K+ (based on scope)
 - Remediation: $100K - $500K+ (tooling, consulting)
 - Triennial recertification
 
 **Level 3 (Government Assessment)**:
+
 - Similar to Level 2 but government-led
 - Additional scrutiny and requirements
 
 ### Timeline
 
 **Typical CMMC Journey**:
+
 1. **Gap Assessment**: 2-4 weeks
 2. **Remediation**: 6-18 months (varies widely)
 3. **Pre-assessment Prep**: 1-2 months
@@ -248,6 +265,7 @@ CMMC v2.0 is directly based on NIST Special Publication 800-171 "Protecting CUI 
 ### Resources
 
 **Official Sources**:
+
 - CMMC Accreditation Body (Cyber AB)
 - DoD CMMC website
 - NIST 800-171 Rev 2
@@ -255,6 +273,7 @@ CMMC v2.0 is directly based on NIST Special Publication 800-171 "Protecting CUI 
 - DFARS clauses 252.204-7012, 7019, 7020, 7021
 
 **Key Publications**:
+
 - CMMC Model v2.0
 - CMMC Assessment Guide v2.0
 - CMMC Scoping Guide

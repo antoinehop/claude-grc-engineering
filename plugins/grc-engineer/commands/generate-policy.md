@@ -7,10 +7,12 @@ description: Generate policy-as-code from natural language requirements
 Converts natural language compliance requirements into executable policy code.
 
 ## Arguments
+
 - `$1` - Requirement description (required, in quotes)
 - `$2` - Output format (optional, defaults to rego)
 
 ## Supported Formats
+
 - rego - Open Policy Agent (OPA) Rego
 - sentinel - HashiCorp Sentinel
 - aws-config - AWS Config Rule (Python)
@@ -20,6 +22,7 @@ Converts natural language compliance requirements into executable policy code.
 ## Instructions
 
 1. Run the generate-policy script:
+
    ```bash
    node scripts/generate-policy.js "$ARGUMENTS"
    ```
@@ -43,4 +46,3 @@ Converts natural language compliance requirements into executable policy code.
 # Generate HIPAA encryption policy
 /grc:generate-policy "All PHI storage must use AES-256 encryption" terraform
 ```
-

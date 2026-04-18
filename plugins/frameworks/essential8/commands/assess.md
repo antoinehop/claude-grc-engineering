@@ -7,6 +7,7 @@ description: Essential 8 maturity assessment by target level
 Evaluates organizational readiness for Australian Cyber Security Centre (ACSC) Essential 8 mitigation strategies.
 
 ## Arguments
+
 - `$1` - Target maturity level (required: 1, 2, or 3)
 - `$2` - Assessment scope (optional: full, gap-analysis, specific-strategy)
 
@@ -21,48 +22,56 @@ Evaluates organizational readiness for Australian Cyber Security Centre (ACSC) E
 ## The 8 Mitigation Strategies
 
 ### 1. Application Control
+
 **Purpose**: Prevent execution of unapproved/malicious programs
 **ML1**: Application control on workstations
 **ML2**: Application control on servers, block drivers/scripts
 **ML3**: Hardened configuration, validated software
 
 ### 2. Patch Applications
+
 **Purpose**: Remediate vulnerabilities in applications
 **ML1**: Patch within one month (extreme risk 48 hours)
 **ML2**: Patch within two weeks (extreme risk 48 hours)
 **ML3**: Patch within 48 hours (extreme risk 48 hours)
 
 ### 3. Configure Microsoft Office Macro Settings
+
 **Purpose**: Prevent malicious macros from executing
 **ML1**: Disable macros from internet, block OLE packages
 **ML2**: Only macros from trusted locations, AMSI enabled
 **ML3**: Validate macro execution, publisher certificates
 
 ### 4. User Application Hardening
+
 **Purpose**: Reduce attack surface of applications
 **ML1**: Web browser hardening, block Flash/ads
 **ML2**: Block web-based Java, disable unneeded features
 **ML3**: All hardening applied, validated configuration
 
 ### 5. Restrict Administrative Privileges
+
 **Purpose**: Prevent lateral movement and privilege escalation
 **ML1**: Remove local admin for standard users
 **ML2**: Admin for admin duties only, privileged OS hardening
 **ML3**: Admin disabled by default, JIT admin, validated
 
 ### 6. Patch Operating Systems
+
 **Purpose**: Remediate OS vulnerabilities
 **ML1**: Patch within one month (extreme risk 48 hours)
 **ML2**: Patch within two weeks (extreme risk 48 hours)
 **ML3**: Patch within 48 hours (extreme risk 48 hours)
 
 ### 7. Multi-Factor Authentication (MFA)
+
 **Purpose**: Prevent unauthorized access
 **ML1**: MFA for remote access, privileged users, important data
 **ML2**: MFA for all users, phishing-resistant preferred
 **ML3**: Phishing-resistant MFA required (FIDO2, smart cards)
 
 ### 8. Regular Backups
+
 **Purpose**: Recover from cyber security incidents
 **ML1**: Daily backups, retention (3 months), test restoration
 **ML2**: Backups offline/offsite, process improvements

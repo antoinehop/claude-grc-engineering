@@ -11,16 +11,19 @@ Maps infrastructure-as-code (IaC) files to specific compliance framework control
 ## Quick Commands
 
 **Map a Terraform file to SOC 2:**
+
 ```bash
 node scripts/map-control.js main.tf SOC2
 ```
 
 **Map Kubernetes manifests to ISO 27001:**
+
 ```bash
 node scripts/map-control.js k8s/deployment.yaml ISO27001
 ```
 
 **Map CloudFormation template to NIST 800-53:**
+
 ```bash
 node scripts/map-control.js template.yaml NIST80053
 ```
@@ -45,6 +48,7 @@ node scripts/map-control.js template.yaml NIST80053
 ## Output Format
 
 Generates markdown reports with:
+
 - Control ID and description
 - Evidence location (file:line)
 - Compliance status (Satisfied/Partial/Not Satisfied)
@@ -70,4 +74,3 @@ Generates markdown reports with:
 
 - IaC file to analyze
 - Optional: Framework name (defaults to SOC2)
-

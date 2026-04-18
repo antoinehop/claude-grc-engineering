@@ -7,10 +7,12 @@ description: Map infrastructure code to compliance framework controls
 Maps infrastructure-as-code (IaC) files to specific compliance framework controls.
 
 ## Arguments
+
 - `$1` - IaC file path (required)
 - `$2` - Framework name (optional, defaults to SOC2)
 
 ## Supported Frameworks
+
 - SOC2
 - ISO27001
 - NIST80053
@@ -30,6 +32,7 @@ Maps infrastructure-as-code (IaC) files to specific compliance framework control
 ## Instructions
 
 1. Run the map-control script:
+
    ```bash
    node scripts/map-control.js $ARGUMENTS
    ```
@@ -55,4 +58,3 @@ Maps infrastructure-as-code (IaC) files to specific compliance framework control
 # Map to NIST 800-53 controls
 /grc:map-control infrastructure/ NIST80053
 ```
-

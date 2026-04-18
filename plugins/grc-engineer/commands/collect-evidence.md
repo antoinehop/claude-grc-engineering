@@ -7,23 +7,27 @@ description: Generate scripts to collect audit evidence
 Generates scripts to collect point-in-time evidence for audit controls.
 
 ## Arguments
+
 - `$1` - Control description (required, in quotes)
 - `$2` - Cloud provider (optional, defaults to aws)
 - `$3` - Output format (optional, defaults to python)
 
 ## Supported Providers
+
 - aws
 - azure
 - gcp
 - kubernetes
 
 ## Supported Formats
+
 - python - Python script with SDK
 - bash - Shell script with CLI commands
 
 ## Instructions
 
 1. Run the collect-evidence script:
+
    ```bash
    node scripts/collect-evidence.js "$ARGUMENTS"
    ```
@@ -51,4 +55,3 @@ Generates scripts to collect point-in-time evidence for audit controls.
 # Collect Kubernetes RBAC evidence
 /grc:collect-evidence "Pod security policies" kubernetes bash
 ```
-

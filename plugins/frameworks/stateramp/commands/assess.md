@@ -7,6 +7,7 @@ description: StateRAMP authorization readiness assessment
 Evaluates organizational readiness for StateRAMP (State Risk and Authorization Management Program) authorization to provide cloud services to state and local governments.
 
 ## Arguments
+
 - `$1` - Impact level (required: low, moderate)
 - `$2` - Target state (optional: specific state or "multi-state")
 
@@ -20,6 +21,7 @@ Evaluates organizational readiness for StateRAMP (State Risk and Authorization M
 ## Impact Levels
 
 ### StateRAMP Low (~125 controls)
+
 - **Data Type**: Low-impact public information
 - **Systems**: Non-sensitive applications, public-facing services
 - **Examples**: Event calendars, public forms, general information systems
@@ -28,6 +30,7 @@ Evaluates organizational readiness for StateRAMP (State Risk and Authorization M
 - **Cost**: $50K-$150K assessment + remediation
 
 ### StateRAMP Moderate (~325 controls)
+
 - **Data Type**: Controlled Unclassified Information (CUI), PII, sensitive data
 - **Systems**: Finance, HR, law enforcement, healthcare, licensing
 - **Examples**: Tax systems, benefits administration, case management
@@ -38,12 +41,14 @@ Evaluates organizational readiness for StateRAMP (State Risk and Authorization M
 ## StateRAMP vs FedRAMP Differences
 
 **Similarities**:
+
 - Based on NIST 800-53 controls
 - Continuous monitoring required
 - Third-party assessment organization (3PAO)
 - Similar documentation (SSP, SAP, SAR, POA&M)
 
 **Key Differences**:
+
 1. **Scope**: State/local government (not federal)
 2. **Reciprocity**: State-level acceptance (not federal agencies)
 3. **Control Set**: Tailored for state needs (fewer federal-specific requirements)
@@ -54,6 +59,7 @@ Evaluates organizational readiness for StateRAMP (State Risk and Authorization M
 ## Authorization Process
 
 ### Phase 1: Preparation (3-6 months)
+
 1. Determine impact level (Low vs Moderate)
 2. Define system boundaries and data flows
 3. Gap assessment against StateRAMP controls
@@ -61,6 +67,7 @@ Evaluates organizational readiness for StateRAMP (State Risk and Authorization M
 5. Policy and procedure documentation
 
 ### Phase 2: Documentation (2-4 months)
+
 1. **System Security Plan (SSP)**: Comprehensive security documentation
 2. **Security Assessment Plan (SAP)**: Testing methodology
 3. **Privacy Impact Assessment (PIA)**: For PII/sensitive data
@@ -68,6 +75,7 @@ Evaluates organizational readiness for StateRAMP (State Risk and Authorization M
 5. **Incident Response Plan**: Security event handling
 
 ### Phase 3: Assessment (2-3 months)
+
 1. Select StateRAMP-recognized 3PAO
 2. Readiness assessment review
 3. On-site security assessment
@@ -75,6 +83,7 @@ Evaluates organizational readiness for StateRAMP (State Risk and Authorization M
 5. Control validation and evidence review
 
 ### Phase 4: Authorization (1-2 months)
+
 1. Security Assessment Report (SAR) delivery
 2. Plan of Action & Milestones (POA&M) for deficiencies
 3. State authorization official review
@@ -144,16 +153,19 @@ Evaluates organizational readiness for StateRAMP (State Risk and Authorization M
 ## Multi-State Considerations
 
 **StateRAMP Impact Council**:
+
 - Coordinates across participating states
 - Reviews and approves authorizations
 - Maintains reciprocity agreements
 
 **State Acceptance**:
+
 - Individual states may accept StateRAMP ATO
 - Some states require supplemental reviews
 - State-specific addendums possible
 
 **Continuous Monitoring**:
+
 - Monthly deliverables to states
 - Annual assessment required
 - Significant change notifications within 30 days
@@ -174,6 +186,7 @@ Evaluates organizational readiness for StateRAMP (State Risk and Authorization M
 ## Next Steps
 
 After assessment:
+
 1. Use `/stateramp:impact-select` to validate impact level choice
 2. Use `/stateramp:documentation` for ATO package guidance
 3. Use `/stateramp:state-specific` to understand state variations

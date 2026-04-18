@@ -7,17 +7,20 @@ description: Verify specific CMMC practice implementation
 Validates implementation of specific CMMC v2.0 practices and provides evidence guidance.
 
 ## Arguments
+
 - `$1` - Practice ID (required, e.g., AC.L2-3.1.1, IA.L2-3.5.7)
 - `$2` - Check type (optional: implementation, evidence, gaps)
 
 ## Practice ID Format
 
 **Structure**: `[DOMAIN].[LEVEL]-[NIST-ID]`
+
 - **Domain**: Two-letter abbreviation (AC, IA, SI, etc.)
 - **Level**: L1, L2, or L3
 - **NIST ID**: Corresponding NIST 800-171 control number
 
 **Examples**:
+
 - `AC.L1-3.1.1` - Access Control, Level 1, NIST 3.1.1
 - `IA.L2-3.5.7` - Identification & Authentication, Level 2, NIST 3.5.7 (MFA)
 - `AU.L2-3.3.1` - Audit & Accountability, Level 2, NIST 3.3.1 (Audit records)
@@ -25,21 +28,27 @@ Validates implementation of specific CMMC v2.0 practices and provides evidence g
 ## Check Types
 
 ### Implementation Check
+
 Validates that the practice is properly implemented:
+
 - Technical controls in place
 - Processes documented
 - Responsibilities assigned
 - Operating effectiveness
 
 ### Evidence Check
+
 Reviews evidence artifacts for C3PAO assessment:
+
 - Documentation completeness
 - Evidence currency (recent)
 - Artifact authenticity
 - Coverage of practice requirements
 
 ### Gap Analysis
+
 Identifies deficiencies in current state:
+
 - Missing controls
 - Partial implementations
 - Documentation gaps
@@ -48,11 +57,13 @@ Identifies deficiencies in current state:
 ## Common Practices
 
 ### Access Control
+
 - **AC.L1-3.1.1**: Limit system access to authorized users, processes, devices
 - **AC.L1-3.1.2**: Limit system access to types of transactions/functions
 - **AC.L2-3.1.20**: Verify and control external network connections
 
 ### Identification & Authentication
+
 - **IA.L1-3.5.1**: Identify information system users
 - **IA.L1-3.5.2**: Authenticate (or verify) identities
 - **IA.L2-3.5.7**: MFA for network access to privileged accounts
@@ -60,10 +71,12 @@ Identifies deficiencies in current state:
 - **IA.L2-3.5.10**: Store and transmit only cryptographically-protected passwords
 
 ### Incident Response
+
 - **IR.L2-3.6.1**: Establish incident handling capability
 - **IR.L2-3.6.2**: Track, document, and report incidents
 
 ### System Integrity
+
 - **SI.L1-3.14.1**: Identify, report, and correct information system flaws
 - **SI.L1-3.14.2**: Provide protection from malicious code
 - **SI.L2-3.14.4**: Update malicious code protection mechanisms

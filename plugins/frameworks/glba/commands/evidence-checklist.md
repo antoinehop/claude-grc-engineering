@@ -161,11 +161,13 @@ aws ec2 describe-volumes \
   --query 'Volumes[].[VolumeId,Encrypted,KmsKeyId]' \
   --output json > evidence/glba-ebs-encryption-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly
 Retention: 5 years (typical financial services record retention)
 Purpose: Demonstrates encryption at rest per §314.4(c)(3)
 
 ✓ **Encryption in Transit Evidence (§314.4(c)(4))**
+
 ```bash
 # Application Load Balancer - HTTPS enforcement
 aws elbv2 describe-load-balancers --output json | \
@@ -182,11 +184,13 @@ aws cloudfront list-distributions \
   --query 'DistributionList.Items[].[Id,ViewerCertificate.MinimumProtocolVersion]' \
   --output json > evidence/glba-cloudfront-tls-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly
 Retention: 5 years
 Purpose: Demonstrates encryption in transit per §314.4(c)(4)
 
 ✓ **Multi-Factor Authentication Evidence (§314.4(c)(6))**
+
 ```bash
 # IAM Credential Report - MFA status
 aws iam generate-credential-report
@@ -203,11 +207,13 @@ total_users=$(aws iam get-credential-report --output text | base64 -d | tail -n 
 mfa_users=$(aws iam get-credential-report --output text | base64 -d | awk -F',' '$8 == "true"' | wc -l)
 echo "MFA Compliance: $mfa_users / $total_users users" > evidence/glba-mfa-summary-$(date +%Y%m%d).txt
 ```
+
 Collection Frequency: Weekly
 Retention: 5 years
 Purpose: MFA requirement per §314.4(c)(6)
 
 ✓ **Access Controls Evidence (§314.4(c)(1-2))**
+
 ```bash
 # IAM policies - least privilege review
 aws iam list-policies --scope Local --output json \
@@ -227,11 +233,13 @@ aws ec2 describe-security-groups \
   --query 'SecurityGroups[].[GroupId,GroupName,IpPermissions[?IpRanges[?CidrIp==`0.0.0.0/0`]]]' \
   --output json > evidence/glba-open-security-groups-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly
 Retention: 5 years
 Purpose: Access controls per §314.4(c)(1-2)
 
 ✓ **Vulnerability Assessment Evidence (§314.4(d)(2))**
+
 ```bash
 # AWS Inspector findings
 aws inspector2 list-findings \
@@ -250,11 +258,13 @@ critical_count=$(aws inspector2 list-findings --filter-criteria '{"severity":[{"
 high_count=$(aws inspector2 list-findings --filter-criteria '{"severity":[{"comparison":"EQUALS","value":"HIGH"}]}' --query 'findings | length(@)')
 echo "Critical: $critical_count, High: $high_count" > evidence/glba-vulnerability-summary-$(date +%Y%m%d).txt
 ```
+
 Collection Frequency: Weekly
 Retention: 5 years
 Purpose: Vulnerability assessments per §314.4(d)(2)
 
 ✓ **Monitoring Evidence (§314.4(d)(1))**
+
 ```bash
 # CloudWatch alarms configured (continuous monitoring)
 aws cloudwatch describe-alarms --output json \
@@ -270,11 +280,13 @@ aws guardduty list-findings \
 aws cloudtrail describe-trails --output json \
   > evidence/glba-cloudtrail-status-$(date +%Y%m%d).json
 ```
+
 Collection Frequency: Monthly summary
 Retention: 5 years
 Purpose: Continuous monitoring per §314.4(d)(1)
 
 ✓ **Secure Disposal Evidence (§314.4(c)(7))**
+
 ```bash
 # S3 lifecycle policies (automated deletion)
 aws s3api list-buckets --output json | jq -r '.Buckets[].Name' | while read bucket; do
@@ -286,6 +298,7 @@ aws s3api list-buckets --output json | jq -r '.Buckets[].Name' | while read buck
   fi
 done
 ```
+
 Collection Frequency: Quarterly
 Retention: 5 years
 Purpose: Disposal procedures per §314.4(c)(7)
@@ -293,83 +306,91 @@ Purpose: Disposal procedures per §314.4(c)(7)
 ### Manual Evidence Collection
 
 □ **Annual Risk Assessment**
-  - Comprehensive risk assessment performed annually (minimum)
-  - Required elements per §314.4(b):
-    - Identify reasonably foreseeable internal and external threats
-    - Assess likelihood and potential damage of threats
-    - Assess sufficiency of current safeguards
-    - Identify gaps and prioritize remediation
-  - Evidence: Annual Risk Assessment Report (signed by Qualified Individual, reviewed by Board)
-  - Frequency: Annually minimum
+
+- Comprehensive risk assessment performed annually (minimum)
+- Required elements per §314.4(b):
+  - Identify reasonably foreseeable internal and external threats
+  - Assess likelihood and potential damage of threats
+  - Assess sufficiency of current safeguards
+  - Identify gaps and prioritize remediation
+- Evidence: Annual Risk Assessment Report (signed by Qualified Individual, reviewed by Board)
+- Frequency: Annually minimum
 
 □ **Annual Penetration Test (§314.4(d)(3))**
-  - Full penetration test of systems storing/processing customer information
-  - Scope: External and internal tests
-  - Required elements:
-    - Test methodology and scope
-    - Findings (vulnerabilities, exploits successful)
-    - Risk ratings (critical, high, medium, low)
-    - Remediation recommendations
-    - Retest results (for critical/high findings)
-  - Evidence: Penetration test report + remediation tracker
-  - Frequency: Annually minimum
+
+- Full penetration test of systems storing/processing customer information
+- Scope: External and internal tests
+- Required elements:
+  - Test methodology and scope
+  - Findings (vulnerabilities, exploits successful)
+  - Risk ratings (critical, high, medium, low)
+  - Remediation recommendations
+  - Retest results (for critical/high findings)
+- Evidence: Penetration test report + remediation tracker
+- Frequency: Annually minimum
 
 □ **Security Awareness Training Records**
-  - All personnel complete annual security training
-  - Topics: Safeguards Rule requirements, customer information handling, phishing awareness, incident reporting
-  - Evidence: Training completion records (100% of employees), training materials, quiz scores
-  - Frequency: Annually, on hire for new employees
+
+- All personnel complete annual security training
+- Topics: Safeguards Rule requirements, customer information handling, phishing awareness, incident reporting
+- Evidence: Training completion records (100% of employees), training materials, quiz scores
+- Frequency: Annually, on hire for new employees
 
 □ **Service Provider Due Diligence (§314.4(f))**
-  - Due diligence before selecting service provider
-  - Required elements:
-    - Service provider security posture assessment
-    - SOC 2 Type II report review (if available)
-    - Questionnaire responses
-    - Contract review (security requirements)
-    - Ongoing monitoring plan
-  - Evidence: Due diligence reports (one per service provider), contracts with security clauses
-  - Frequency: Before engagement, annual review
+
+- Due diligence before selecting service provider
+- Required elements:
+  - Service provider security posture assessment
+  - SOC 2 Type II report review (if available)
+  - Questionnaire responses
+  - Contract review (security requirements)
+  - Ongoing monitoring plan
+- Evidence: Due diligence reports (one per service provider), contracts with security clauses
+- Frequency: Before engagement, annual review
 
 □ **Service Provider Contracts**
-  - Written contracts with all service providers (§314.4(f)(2))
-  - Required clauses:
-    - Implement and maintain appropriate safeguards
-    - Protect confidentiality and security of customer information
-    - Restrict use of customer information to purposes specified
-    - Disposal requirements
-    - Incident notification (prompt notification to institution)
-  - Evidence: Signed contracts with security clauses
-  - Frequency: Before engagement, review every 2-3 years
+
+- Written contracts with all service providers (§314.4(f)(2))
+- Required clauses:
+  - Implement and maintain appropriate safeguards
+  - Protect confidentiality and security of customer information
+  - Restrict use of customer information to purposes specified
+  - Disposal requirements
+  - Incident notification (prompt notification to institution)
+- Evidence: Signed contracts with security clauses
+- Frequency: Before engagement, review every 2-3 years
 
 □ **Annual Board Report (§314.4(i))**
-  - Written report to Board of Directors (or equivalent governing body)
-  - Required content:
-    - Overall status of information security program
-    - Compliance with Safeguards Rule requirements
-    - Material matters (risk assessment results, incidents, service provider issues, testing results)
-    - Recommended changes or improvements
-  - Evidence: Annual Board Report + Board meeting minutes acknowledging report
-  - Frequency: Annually
+
+- Written report to Board of Directors (or equivalent governing body)
+- Required content:
+  - Overall status of information security program
+  - Compliance with Safeguards Rule requirements
+  - Material matters (risk assessment results, incidents, service provider issues, testing results)
+  - Recommended changes or improvements
+- Evidence: Annual Board Report + Board meeting minutes acknowledging report
+- Frequency: Annually
 
 □ **Incident Log**
-  - Log of all security incidents (breaches, near-misses)
-  - Required elements:
-    - Date/time of incident
-    - Type of incident
-    - Systems/data affected
-    - Root cause analysis
-    - Containment and remediation actions
-    - Lessons learned
-    - Notification to customers (if applicable per state law)
-  - Evidence: Incident register + investigation reports
-  - Frequency: Ongoing
+
+- Log of all security incidents (breaches, near-misses)
+- Required elements:
+  - Date/time of incident
+  - Type of incident
+  - Systems/data affected
+  - Root cause analysis
+  - Containment and remediation actions
+  - Lessons learned
+  - Notification to customers (if applicable per state law)
+- Evidence: Incident register + investigation reports
+- Frequency: Ongoing
 
 ## Safeguards Rule Compliance Assessment
 
 Regulators (FTC, FDIC, OCC, NCUA) will verify:
 
 ### Documentation Review
+
 ✓ Written Information Security Program (WISP) exists and is comprehensive
 ✓ Qualified Individual designated in writing
 ✓ Annual risk assessments performed (documented)
@@ -381,6 +402,7 @@ Regulators (FTC, FDIC, OCC, NCUA) will verify:
 ✓ Annual Board reports submitted and reviewed
 
 ### Implementation Review
+
 ✓ Encryption at rest for customer information
 ✓ Encryption in transit (TLS 1.2+ for all customer data transmission)
 ✓ MFA implemented for accessing customer information
@@ -390,6 +412,7 @@ Regulators (FTC, FDIC, OCC, NCUA) will verify:
 ✓ Service provider contracts include required security clauses
 
 ### Testing and Validation
+
 ✓ Annual penetration testing performed
 ✓ Vulnerability assessments performed (at least annually)
 ✓ Continuous monitoring or periodic testing in place
@@ -399,6 +422,7 @@ Regulators (FTC, FDIC, OCC, NCUA) will verify:
 ## Common Regulatory Findings
 
 ### Critical (Likely to Result in Enforcement Action)
+
 ❌ No Written Information Security Program (WISP)
 ❌ No Qualified Individual designated
 ❌ No annual risk assessment performed
@@ -408,6 +432,7 @@ Regulators (FTC, FDIC, OCC, NCUA) will verify:
 ❌ No annual Board report
 
 ### Moderate (Requires Remediation)
+
 ⚠️ WISP incomplete (missing required elements)
 ⚠️ Risk assessment not performed annually
 ⚠️ Some customer information not encrypted
@@ -417,6 +442,7 @@ Regulators (FTC, FDIC, OCC, NCUA) will verify:
 ⚠️ Incident response plan not tested
 
 ### Minor (Best Practice Recommendations)
+
 ⚠️ WISP not reviewed in last 12 months
 ⚠️ Training completion not 100%
 ⚠️ Service provider assessments not performed annually
@@ -425,6 +451,7 @@ Regulators (FTC, FDIC, OCC, NCUA) will verify:
 ## Remediation Guidance
 
 ### If No WISP Exists
+
 1. **Week 1**: Download FTC WISP template and customize
 2. **Weeks 2-4**: Document all required elements (risk assessment process, safeguards, monitoring, training, service providers, incident response)
 3. **Week 5**: Review with Qualified Individual and legal counsel
@@ -435,6 +462,7 @@ Regulators (FTC, FDIC, OCC, NCUA) will verify:
 **Priority**: 🔴 CRITICAL (foundational requirement)
 
 ### If No MFA Implemented
+
 1. **Week 1**: Inventory all systems accessing customer information
 2. **Week 2**: Select MFA solution (AWS IAM MFA, Okta, Duo, etc.)
 3. **Weeks 3-4**: Pilot MFA with IT team
@@ -445,6 +473,7 @@ Regulators (FTC, FDIC, OCC, NCUA) will verify:
 **Priority**: 🔴 CRITICAL (§314.4(c)(6) requirement)
 
 ### If No Annual Penetration Test
+
 1. **Week 1**: Select penetration testing vendor
 2. **Week 2**: Define scope (external + internal tests, systems with customer information)
 3. **Weeks 3-6**: Execute penetration test
@@ -458,10 +487,12 @@ Regulators (FTC, FDIC, OCC, NCUA) will verify:
 ## Cross-References
 
 ### Related GLBA Rules
+
 - Privacy Rule (16 CFR Part 313) - Privacy notices to customers
 - Pretexting Rule (16 CFR Part 517) - Protection against pretexting
 
 ### Maps to Other Frameworks
+
 - **NIST 800-53**: All families (GLBA aligns closely with NIST)
 - **NIST Cybersecurity Framework**: All 5 functions
 - **ISO 27001:2022**: Annex A controls
@@ -471,6 +502,7 @@ Regulators (FTC, FDIC, OCC, NCUA) will verify:
 ## Cost Estimates
 
 ### GLBA Safeguards Rule Compliance (Small Financial Institution)
+
 - WISP development: 80 hours ($8,000)
 - Annual risk assessment: 60 hours ($6,000/year)
 - Penetration testing: $15k-$30k/year
@@ -483,11 +515,13 @@ Regulators (FTC, FDIC, OCC, NCUA) will verify:
 - **Ongoing**: ~$28k-$38k/year
 
 ### Qualified Individual
+
 - Dedicated CISO (if hired): $120k-$200k/year + benefits
 - Virtual CISO (outsourced): $5k-$15k/month ($60k-$180k/year)
 - Existing IT Director (additional responsibilities): +$10k-$30k/year
 
 ### Tools
+
 - GRC platform: $15k-$50k/year
 - SIEM: $20k-$100k/year
 - Vulnerability management: $5k-$15k/year

@@ -38,6 +38,7 @@ Creates professional audit findings and management letter comments.
 ## Example Usage
 
 When documenting an access control finding:
+
 - Condition: 3 of 25 terminated users retained access for >30 days
 - Criteria: Policy requires access removal within 24 hours
 - Cause: Manual termination process lacks HR integration

@@ -23,6 +23,7 @@ bash plugins/oscal/scripts/setup.sh [--from-source] [--prefix=$HOME/.local]
 3. Otherwise, downloads the latest release binary for your platform from `gh release list` under `ethanolivertroy/oscal-cli`.
 4. Runs `oscal --version` to verify.
 5. Writes config:
+
    ```yaml
    version: 1
    source: oscal

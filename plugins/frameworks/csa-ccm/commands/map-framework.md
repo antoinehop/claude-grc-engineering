@@ -7,16 +7,19 @@ description: Map CSA CCM controls to other compliance frameworks
 Maps Cloud Security Alliance Cloud Controls Matrix controls to other major compliance frameworks including ISO 27001, SOC 2, PCI-DSS, NIST, HIPAA, and GDPR.
 
 ## Arguments
+
 - `$1` - CCM control ID (required, e.g., CEK-01, IAM-06, LOG-08)
 - `$2` - Target framework (optional: ISO27001, SOC2, PCIDSS, NIST, HIPAA, GDPR, all)
 
 ## CCM Control ID Format
 
 **Structure**: `[Domain]-[Number]`
+
 - **Domain**: Three-letter abbreviation (A&A, AIS, BCR, CCC, CEK, DCS, DSP, GRC, HRS, IAM, IPY, IVS, LOG, SEF, STA, TVM, UEM)
 - **Number**: Two-digit control number (01-99)
 
 **Examples**:
+
 - `CEK-01`: Cryptography domain, control 01 (Encryption at Rest)
 - `IAM-06`: Identity & Access Management, control 06 (Multi-Factor Authentication)
 - `LOG-08`: Logging domain, control 08 (SIEM)
@@ -26,6 +29,7 @@ Maps Cloud Security Alliance Cloud Controls Matrix controls to other major compl
 CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 
 ### Supported Framework Mappings
+
 1. **ISO/IEC 27001:2022** - Information Security Management
 2. **SOC 2 Type II** - AICPA Trust Services Criteria
 3. **PCI DSS v4.0** - Payment Card Industry Data Security Standard
@@ -42,6 +46,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 ### Encryption Controls
 
 **CEK-01: Encryption at Rest**
+
 - **ISO 27001**: A.8.24 (Use of cryptography)
 - **SOC 2**: CC6.1 (Logical and physical access controls)
 - **PCI DSS**: 3.5.1 (Disk encryption to protect PAN)
@@ -50,6 +55,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 - **GDPR**: Article 32(1)(a) (Pseudonymisation and encryption)
 
 **CEK-02: Encryption in Transit**
+
 - **ISO 27001**: A.8.24 (Use of cryptography)
 - **SOC 2**: CC6.7 (Transmission of data protected)
 - **PCI DSS**: 4.2.1 (Strong cryptography for transmission)
@@ -58,6 +64,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 - **GDPR**: Article 32(1)(a) (Encryption of personal data)
 
 **CEK-05: Key Management**
+
 - **ISO 27001**: A.8.24 (Use of cryptography)
 - **SOC 2**: CC6.1 (Logical and physical access controls)
 - **PCI DSS**: 3.6.1 (Generation of strong cryptographic keys)
@@ -67,6 +74,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 ### Identity & Access Management
 
 **IAM-01: User Access Policy**
+
 - **ISO 27001**: A.5.15 (Access control), A.5.16 (Identity management)
 - **SOC 2**: CC6.1 (Logical and physical access controls)
 - **PCI DSS**: 7.1.1 (Access limited to least privilege)
@@ -75,6 +83,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 - **GDPR**: Article 32(1)(b) (Confidentiality of processing systems)
 
 **IAM-06: Multi-Factor Authentication**
+
 - **ISO 27001**: A.5.17 (Authentication information)
 - **SOC 2**: CC6.1 (Logical and physical access controls)
 - **PCI DSS**: 8.4.2 (MFA for remote access)
@@ -83,6 +92,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 - **GDPR**: Article 32(1)(b) (Ability to ensure confidentiality)
 
 **IAM-03: User Access Reviews**
+
 - **ISO 27001**: A.5.18 (Access rights review)
 - **SOC 2**: CC6.2 (Logical and physical access review)
 - **PCI DSS**: 7.2.4 (Review user access at least every 6 months)
@@ -92,6 +102,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 ### Logging & Monitoring
 
 **LOG-01: Audit Logging**
+
 - **ISO 27001**: A.8.15 (Logging)
 - **SOC 2**: CC7.2 (System monitoring)
 - **PCI DSS**: 10.2.1 (Audit logs for user actions)
@@ -100,6 +111,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 - **GDPR**: Article 32(1)(d) (Monitoring effectiveness)
 
 **LOG-08: SIEM**
+
 - **ISO 27001**: A.8.16 (Monitoring activities)
 - **SOC 2**: CC7.2 (System monitoring tools)
 - **PCI DSS**: 10.6.1 (Review logs daily)
@@ -107,6 +119,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 - **HIPAA**: 164.308(a)(1)(ii)(D) (Information system activity review)
 
 **LOG-04: Log Retention**
+
 - **ISO 27001**: A.8.15 (Logging)
 - **SOC 2**: CC7.2 (System monitoring)
 - **PCI DSS**: 10.5.1 (Retain audit logs at least 1 year)
@@ -116,6 +129,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 ### Incident Management
 
 **SEF-01: Incident Response Plan**
+
 - **ISO 27001**: A.5.24 (Information security incident management planning)
 - **SOC 2**: CC7.3 (Security incidents evaluated and responded to)
 - **PCI DSS**: 12.10.1 (Incident response plan)
@@ -124,6 +138,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 - **GDPR**: Article 33 (Notification of a personal data breach)
 
 **SEF-04: Incident Reporting**
+
 - **ISO 27001**: A.5.25 (Assessment and decision on information security events)
 - **SOC 2**: CC7.4 (Communication of security events)
 - **PCI DSS**: 12.10.6 (Incident response procedures)
@@ -134,16 +149,19 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 ### Data Privacy
 
 **DSP-01: Privacy Impact Assessment**
+
 - **ISO 27001**: A.5.36 (Compliance with policies and standards for information security)
 - **GDPR**: Article 35 (Data Protection Impact Assessment)
 - **NIST 800-53**: RA-8 (Privacy Impact Assessments)
 
 **DSP-03: Data Subject Rights**
+
 - **ISO 27001**: A.5.34 (Privacy and protection of PII)
 - **GDPR**: Articles 15-22 (Rights of the data subject)
 - **HIPAA**: 164.524 (Access of individuals to PHI)
 
 **DSP-08: Data Breach Notification**
+
 - **ISO 27001**: A.5.26 (Response to information security incidents)
 - **GDPR**: Article 33 (72-hour notification to authority)
 - **HIPAA**: 164.410 (Breach notification - 60 days)
@@ -152,6 +170,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 ### Vulnerability Management
 
 **TVM-01: Vulnerability Scanning**
+
 - **ISO 27001**: A.8.8 (Management of technical vulnerabilities)
 - **SOC 2**: CC7.1 (Security threats detected and mitigated)
 - **PCI DSS**: 11.3.1 (Internal vulnerability scans quarterly)
@@ -159,6 +178,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 - **HIPAA**: 164.308(a)(8) (Evaluation of security measures)
 
 **TVM-03: Penetration Testing**
+
 - **ISO 27001**: A.8.8 (Management of technical vulnerabilities)
 - **SOC 2**: CC7.1 (Security threats detected)
 - **PCI DSS**: 11.4.1 (Penetration testing annually)
@@ -166,6 +186,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 - **HIPAA**: 164.308(a)(8) (Evaluation)
 
 **TVM-07: Patch Management**
+
 - **ISO 27001**: A.8.19 (Installation of software on operational systems)
 - **SOC 2**: CC7.1 (Security threats detected and mitigated)
 - **PCI DSS**: 6.3.3 (Security patches installed within 30 days)
@@ -175,12 +196,14 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 ### Business Continuity
 
 **BCR-04: Disaster Recovery**
+
 - **ISO 27001**: A.5.29 (Information security during disruption)
 - **SOC 2**: A1.2 (Business continuity and disaster recovery)
 - **NIST 800-53**: CP-10 (System Recovery and Reconstitution)
 - **HIPAA**: 164.308(a)(7)(ii)(B) (Disaster recovery plan)
 
 **BCR-07: Backup**
+
 - **ISO 27001**: A.8.13 (Information backup)
 - **SOC 2**: A1.2 (Data backup and recovery)
 - **PCI DSS**: 12.9.1 (Document backup procedures)
@@ -190,6 +213,7 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 ### Third-Party Management
 
 **STA-01: Third-Party Assessment**
+
 - **ISO 27001**: A.5.19 (Information security in supplier relationships)
 - **SOC 2**: CC9.2 (Vendor management)
 - **PCI DSS**: 12.8.2 (Service provider compliance monitoring)
@@ -200,7 +224,9 @@ CCM v4.0 provides comprehensive mappings to enable multi-framework compliance:
 ## Framework-Specific Views
 
 ### ISO 27001:2022 Mapping
+
 CCM provides comprehensive coverage of ISO 27001 Annex A controls (93 controls across 4 themes):
+
 - **Organizational controls** (37 controls)
 - **People controls** (8 controls)
 - **Physical controls** (14 controls)
@@ -209,7 +235,9 @@ CCM provides comprehensive coverage of ISO 27001 Annex A controls (93 controls a
 **CCM Coverage**: 197 controls map to all 93 ISO 27001 Annex A controls with additional depth.
 
 ### SOC 2 Type II Mapping
+
 CCM aligns to AICPA Trust Services Criteria:
+
 - **CC** (Common Criteria): Control environment, communication, risk assessment, monitoring
 - **A** (Availability): System availability and business continuity
 - **C** (Confidentiality): Protection of confidential information
@@ -219,7 +247,9 @@ CCM aligns to AICPA Trust Services Criteria:
 **CCM Coverage**: All SOC 2 criteria mapped with cloud-specific enhancements.
 
 ### PCI DSS v4.0 Mapping
+
 CCM covers all 12 PCI DSS requirements:
+
 1. Install and maintain network security controls
 2. Apply secure configurations
 3. Protect stored account data
@@ -236,7 +266,9 @@ CCM covers all 12 PCI DSS requirements:
 **CCM Coverage**: Cloud-native controls exceed PCI DSS requirements.
 
 ### NIST CSF 2.0 Mapping
+
 CCM aligns to all 6 NIST CSF functions:
+
 - **Govern** (GV): Organizational context and cybersecurity strategy
 - **Identify** (ID): Asset management and risk assessment
 - **Protect** (PR): Access control, awareness, data security
@@ -264,13 +296,16 @@ CCM aligns to all 6 NIST CSF functions:
 ## Multi-Framework Compliance Benefits
 
 ### Single Assessment, Multiple Certifications
+
 - Implement CCM controls once
 - Leverage evidence for ISO 27001, SOC 2, PCI DSS simultaneously
 - Reduce audit fatigue and costs
 - Streamline compliance programs
 
 ### Cloud-First Advantage
+
 CCM provides cloud-specific depth beyond traditional frameworks:
+
 - Container security (Kubernetes, Docker)
 - Serverless security
 - Cloud-native IAM (SAML, OAuth, OIDC)
@@ -303,6 +338,7 @@ CCM provides cloud-specific depth beyond traditional frameworks:
 ## Reverse Mapping
 
 Can also map from other frameworks to CCM:
+
 - **ISO 27001 A.8.24** → CEK-01, CEK-02, CEK-03, CEK-05, CEK-07
 - **PCI DSS 8.4.2** → IAM-06 (Multi-Factor Authentication)
 - **NIST 800-53 AU-2** → LOG-01 (Audit Logging)

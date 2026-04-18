@@ -196,6 +196,7 @@ includedPermissions:
 ### Available Regions
 
 Claude is available in these Vertex AI regions:
+
 - `us-east5` (Virginia)
 - `europe-west1` (Belgium)
 
@@ -235,22 +236,26 @@ Authoritative terms are the cloud provider's and Anthropic's own contracts, not 
 ### AWS Bedrock
 
 **Error: Access Denied**
+
 - Verify model access is enabled in Bedrock console
 - Check IAM permissions include `bedrock:InvokeModel`
 - Confirm region supports Claude models
 
 **Error: Model not found**
+
 - Use fully qualified model ID with region prefix
 - Verify model is available in your region
 
 ### Vertex AI
 
 **Error: Permission Denied**
+
 - Verify Vertex AI API is enabled
 - Check service account has `aiplatform.user` role
 - Confirm project ID is correct
 
 **Error: Region not supported**
+
 - Use `us-east5` or `europe-west1` for Claude
 
 ---
@@ -283,8 +288,10 @@ export ANTHROPIC_MODEL='us.anthropic.claude-sonnet-4-20250514'
 1. Choose your deployment option (Bedrock or Vertex AI)
 2. Configure authentication
 3. Install the GRC Engineering plugins:
+
    ```bash
    /plugin marketplace add GRCEngClub/claude-grc-engineering
    /plugin install grc-engineer@grc-engineering-suite
    ```
+
 4. Start using GRC commands with enterprise-grade security!

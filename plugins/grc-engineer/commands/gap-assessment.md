@@ -14,11 +14,13 @@ Produce a multi-framework gap assessment by joining cached connector findings wi
 ```
 
 **Arguments**:
+
 - `<frameworks>` (required): comma-separated list. Use common names or SCF framework IDs.
   - Aliases: `SOC2`, `ISO-27001-2022`, `NIST-800-53-r5`, `PCI-DSS-4`, `FedRAMP-Moderate`, `FedRAMP-High`, `CMMC-2`, `HITRUST-CSF`, `CIS-v8`, `HIPAA`, `GDPR`, `NYDFS`, `DORA`, `Essential-8`, `IRAP`, `ISMAP`, `PBMM`, `GLBA`
   - Or: any SCF framework_id (see `curl https://hackidle.github.io/scf-api/api/crosswalks.json | jq '.frameworks[].framework_id'`)
 
 **Options**:
+
 - `--sources=<csv>` — restrict to specific connectors (e.g. `aws-inspector,github-inspector`). Default: all connectors with cached findings.
 - `--output=<fmt>` — `markdown` (default), `json`, `sarif`, `oscal-ar`
 - `--cache-dir=<path>` — override `~/.cache/claude-grc/findings`
@@ -50,27 +52,32 @@ node plugins/grc-engineer/scripts/gap-assessment.js <frameworks> [options]
 ```
 
 The script reads args from `argv`. Pass through the user's flags unchanged. The script prints the report to stdout and progress/errors to stderr. It also writes a report bundle directory containing:
+
 - `gap-report.md` (or `.json` / `.sarif` / `.oscal-ar`)
 - `findings.normalized.json` — intermediate canonical form, useful for re-rendering or downstream tooling
 
 ## Examples
 
 **First run — SOC 2 against a GitHub-only environment**:
+
 ```
 /grc-engineer:gap-assessment SOC2 --sources=github-inspector
 ```
 
 **Multi-framework optimization scan**:
+
 ```
 /grc-engineer:gap-assessment SOC2,FedRAMP-Moderate,ISO-27001-2022,NIST-800-53-r5
 ```
 
 **CI/CD integration** (non-interactive):
+
 ```
 node plugins/grc-engineer/scripts/gap-assessment.js SOC2,PCI-DSS-4 --output=sarif --quiet > gap.sarif
 ```
 
 **OSCAL export** for a FedRAMP package:
+
 ```
 /grc-engineer:gap-assessment FedRAMP-Moderate --output=oscal-ar --sources=aws-inspector
 ```

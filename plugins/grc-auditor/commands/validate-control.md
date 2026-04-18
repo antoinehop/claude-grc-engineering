@@ -7,6 +7,7 @@ description: Validate control implementation against framework requirements
 Tests and validates that a control is properly implemented and effective.
 
 ## Arguments
+
 - `$1` - Control ID (required, e.g., CC6.1, A.9.1.1, AC-2)
 - `$2` - Framework (optional, defaults to auto-detect)
 

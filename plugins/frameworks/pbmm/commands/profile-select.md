@@ -24,6 +24,7 @@ Helps determine the appropriate Canadian Government security classification leve
 The PBMM (Protected B, Medium Integrity, Medium Availability) profile applies when:
 
 **Data Characteristics**:
+
 - Contains personal information (PI) under privacy laws
 - Health records subject to provincial privacy acts
 - Financial information
@@ -31,11 +32,13 @@ The PBMM (Protected B, Medium Integrity, Medium Availability) profile applies wh
 - Government operational information
 
 **Integrity Requirements**: Medium
+
 - Data accuracy is important
 - Unauthorized modification would cause serious consequences
 - Error detection and correction required
 
 **Availability Requirements**: Medium
+
 - Service disruptions cause serious inconvenience or financial loss
 - Recovery time objective (RTO): Hours to 1 day
 - Recovery point objective (RPO): Hours
@@ -79,6 +82,7 @@ Question 3: Are there specific regulatory requirements?
 ### Healthcare Data
 
 **Provincial Health Information**:
+
 - Classification: **Protected B**
 - Regulations: PHIPA (ON), HIPA (SK), PHI Act (BC)
 - Controls: Full PBMM profile
@@ -87,6 +91,7 @@ Question 3: Are there specific regulatory requirements?
 ### Personal Information
 
 **Under Privacy Acts** (PIPEDA, provincial acts):
+
 - Classification: **Protected B**
 - Controls: Full PBMM profile
 - Consent and access controls required
@@ -95,6 +100,7 @@ Question 3: Are there specific regulatory requirements?
 ### Government Contracts
 
 **Contract Data for Government of Canada**:
+
 - Classification: As specified in contract (often Protected B)
 - Controls: PBMM or as contractually required
 - Security requirements schedules apply
@@ -102,6 +108,7 @@ Question 3: Are there specific regulatory requirements?
 ### Financial Services
 
 **Customer Financial Data**:
+
 - Classification: **Protected B**
 - Regulations: OSFI, provincial regulators
 - Controls: PBMM + sector-specific requirements
@@ -109,6 +116,7 @@ Question 3: Are there specific regulatory requirements?
 ### Critical Infrastructure
 
 **Operational Technology Data**:
+
 - Classification: **Protected B or C** (depending on criticality)
 - Regulations: Cyber security requirements per sector
 - Additional controls may be required
@@ -118,6 +126,7 @@ Question 3: Are there specific regulatory requirements?
 ### Protected B Requirements
 
 **Mandatory Features**:
+
 - Canadian regions (data residency)
 - FIPS 140-2 Level 2+ encryption
 - CCCS-assessed cloud service (preferred)
@@ -125,6 +134,7 @@ Question 3: Are there specific regulatory requirements?
 - Comprehensive logging
 
 **Certified Providers**:
+
 - AWS (ca-central-1, ca-west-1) - ITSM.50.100 assessed
 - Azure (canadacentral, canadaeast) - PBMM assessed
 - GCP (northamerica-northeast1/2) - Check certification status
@@ -132,6 +142,7 @@ Question 3: Are there specific regulatory requirements?
 ### Protected C Requirements
 
 **Enhanced Features**:
+
 - Dedicated infrastructure (no multi-tenancy)
 - Hardware-based MFA
 - Enhanced monitoring and alerting
@@ -162,17 +173,20 @@ Question 3: Are there specific regulatory requirements?
 ## Compliance Recommendation
 
 **If Protected A**:
+
 - Consider Protected B controls as best practice
 - Canadian regions recommended but not mandatory
 - Basic ITSG-33 controls
 
 **If Protected B** (PBMM):
+
 - Use `/pbmm:assess` for detailed readiness assessment
 - Canadian regions mandatory (ca-central-1, canadacentral)
 - Full PBMM profile (10 controls)
 - CCCS assessment required
 
 **If Protected C**:
+
 - Enhanced controls beyond standard PBMM
 - Consult CCCS for specific requirements
 - Dedicated infrastructure may be required

@@ -205,9 +205,10 @@ SAMPLING REQUIREMENTS (Type II)
 Population: All access requests during audit period
 Sampling Method: Random or systematic
 Sample Size:
-  - If population < 25: 100% testing (all items)
-  - If population 25-100: Minimum 25 samples
-  - If population > 100: Minimum 25 samples + judgment sampling
+
+- If population < 25: 100% testing (all items)
+- If population 25-100: Minimum 25 samples
+- If population > 100: Minimum 25 samples + judgment sampling
 
 Quarterly Coverage: Each quarter must have samples
   Q1: Minimum 6 samples (25% of year)
@@ -217,9 +218,10 @@ Quarterly Coverage: Each quarter must have samples
   Total: 25 samples minimum
 
 Example for 200 total requests:
-  - 25 random samples (12.5%)
-  - Distributed across 12 months
-  - Additional 5 judgmental samples (high-risk access)
+
+- 25 random samples (12.5%)
+- Distributed across 12 months
+- Additional 5 judgmental samples (high-risk access)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ADEQUACY CRITERIA
@@ -283,6 +285,7 @@ TYPE I vs TYPE II DIFFERENCES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Type I (Point-in-Time):
+
 - Single snapshot on specific date
 - Policy must be in effect on exam date
 - Sample size: 1-5 samples for design effectiveness
@@ -290,6 +293,7 @@ Type I (Point-in-Time):
 - Duration: Typically 1-2 weeks
 
 Type II (Period Testing):
+
 - Minimum 6 months, typically 12 months
 - Policy must be in effect entire period
 - Sample size: 25+ samples across entire period
@@ -335,6 +339,7 @@ AUTOMATED EVIDENCE COLLECTION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Generate complete evidence package:
+
 ```bash
 /soc2:service-auditor-prep CC6.1 --period 2024 --output ./evidence
 ```
@@ -356,6 +361,7 @@ NEXT STEPS
 4. Organize evidence in recommended structure
 5. Run /soc2:service-auditor-prep to package for auditor
 6. Review with audit team before providing to auditor
+
 ```
 
 ## Related Commands

@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Overview
 
 This is the official open-source Claude Code plugin marketplace of the [GRC Engineering Club](https://grcengclub.com) for Governance, Risk, and Compliance (GRC) professionals. The repository provides 30 specialized plugins organized into:
+
 - **4 persona-based plugins** (grc-engineer, grc-auditor, grc-internal, grc-tprm)
 - **21 framework-specific plugins** (soc2, nist-800-53, iso27001, fedramp-rev5, fedramp-20x, pci-dss, cmmc, hitrust, cis-controls, gdpr, csa-ccm, nydfs, dora, stateramp, essential8, glba, us-export, pbmm, ismap, irap)
 - **4 Tier-1 connector plugins** (aws-inspector, gcp-inspector, github-inspector, okta-inspector) that emit findings matching `schemas/finding.schema.json`
@@ -17,6 +18,7 @@ Each plugin contains commands (user-facing) and skills (AI agents that implement
 ### Plugin Structure
 
 All plugins follow this structure:
+
 ```
 plugins/{plugin-name}/
 ├── .claude-plugin/
@@ -36,11 +38,13 @@ plugins/{plugin-name}/
 ### Two Plugin Patterns
 
 **1. Persona Plugins (grc-engineer, grc-auditor, grc-internal, grc-tprm)**
+
 - Include `scripts/` directory with Node.js implementations
 - Include `config/` directory with YAML configurations
 - Commands invoke scripts: `node scripts/map-control.js $ARGUMENTS`
 
 **2. Framework Plugins (soc2, nist-800-53, iso27001, etc.)**
+
 - Command files are self-contained with embedded instructions
 - No scripts or config directories
 - Skills contain framework expertise as prompts
@@ -76,6 +80,7 @@ Example: See `plugins/frameworks/soc2/` or `plugins/frameworks/pci-dss/`
 ### Configuration File Patterns
 
 **Framework configs** (`config/frameworks/*.yaml`):
+
 ```yaml
 controls:
   CC6.1:
@@ -84,6 +89,7 @@ controls:
 ```
 
 **Provider templates** (`config/providers/*.yaml`):
+
 ```yaml
 templates:
   mfa_root:
@@ -99,6 +105,7 @@ templates:
 ## Testing Plugins
 
 ### Local Testing
+
 ```bash
 # Clone and run with local plugins
 git clone https://github.com/GRCEngClub/claude-grc-engineering.git
@@ -106,6 +113,7 @@ claude --plugin-dir ./claude-grc-engineering
 ```
 
 ### Testing Specific Commands
+
 ```bash
 # Test grc-engineer command
 /grc-engineer:map-control main.tf SOC2
@@ -120,12 +128,14 @@ claude --plugin-dir ./claude-grc-engineering
 ## Enterprise Deployment
 
 This repository supports enterprise deployments via AWS Bedrock and Google Vertex AI. See `docs/ENTERPRISE-DEPLOYMENT.md` for:
+
 - AWS Bedrock configuration (FedRAMP High in GovCloud)
 - Google Vertex AI configuration (FedRAMP High as of October 2025)
 - IAM permissions and authentication
 - Compliance certifications (HIPAA, SOC 2)
 
 Configuration via environment variables:
+
 ```bash
 # AWS Bedrock
 export CLAUDE_CODE_USE_BEDROCK=1
@@ -140,6 +150,7 @@ export ANTHROPIC_VERTEX_PROJECT_ID=your-project-id
 ## Marketplace Installation
 
 Users install plugins via:
+
 ```bash
 # Add marketplace (one-time)
 /plugin marketplace add GRCEngClub/claude-grc-engineering
@@ -152,6 +163,7 @@ Users install plugins via:
 ## Plugin Namespaces
 
 Each plugin has a unique namespace for commands:
+
 - `/grc-engineer:` - Technical compliance automation
 - `/grc-auditor:` - Audit and assessment tools
 - `/grc-internal:` - Internal GRC team tools
@@ -175,12 +187,14 @@ The grc-engineer plugin now includes advanced cross-framework intelligence capab
 ### Key Features
 
 **Control Crosswalk Database** (`plugins/grc-engineer/config/control-crosswalk.yaml`):
+
 - Maps 300+ controls across 7+ frameworks (SOC2, PCI-DSS, NIST, ISO, CIS, CMMC, FedRAMP)
 - Identifies "implement once, satisfy many" opportunities
 - Documents conflicting requirements and resolutions
 - Provides multi-cloud implementation patterns
 
 **Cross-Framework Analysis Script** (`plugins/grc-engineer/scripts/cross-framework-analyzer.js`):
+
 - Node.js module for analyzing control overlaps
 - Parses YAML crosswalk database
 - Calculates optimization tiers (Tier 1: satisfies 4+ frameworks, Tier 2: 3 frameworks, etc.)
@@ -211,11 +225,13 @@ The grc-engineer plugin now includes advanced cross-framework intelligence capab
 ### Optimization Results
 
 Typical multi-framework optimization (SOC2 + PCI-DSS + NIST + ISO):
+
 - **Without optimization**: 815 controls × 8 hours = 6,520 hours
 - **With optimization**: 362 unique controls = 2,896 hours
 - **Savings**: 3,624 hours (56%) = ~$543,600 at $150/hour
 
 **Tier Breakdown**:
+
 - Tier 1 (4+ frameworks): 87 controls, 40% coverage, 4× ROI
 - Tier 2 (3 frameworks): 124 controls, +35% coverage, 3× ROI
 - Tier 3 (2 frameworks): 89 controls, +17% coverage, 2× ROI
@@ -255,6 +271,7 @@ To add new controls to the crosswalk database:
 
 1. Edit `plugins/grc-engineer/config/control-crosswalk.yaml`
 2. Add control with framework mappings:
+
 ```yaml
 controls:
   my_new_control:
@@ -284,6 +301,7 @@ controls:
 ```
 
 3. Test with:
+
 ```bash
 node plugins/grc-engineer/scripts/cross-framework-analyzer.js map my_new_control
 ```
@@ -297,12 +315,14 @@ The grc-engineer plugin now includes production-ready code generation and infras
 **Command**: `/grc-engineer:generate-implementation <control> <cloud-provider> [output-dir]`
 
 Generates complete implementation packages including:
+
 - **Terraform modules**: Production-ready IaC with best practices
 - **Python scripts**: Evidence collection, compliance testing, automation
 - **Monitoring dashboards**: CloudWatch, Azure Monitor, or Google Cloud Monitoring
 - **Documentation**: Implementation guides, evidence procedures, framework mappings
 
 **Example Output** (for `access_control_account_management` on AWS):
+
 ```
 generated/
 ├── terraform/
@@ -323,12 +343,14 @@ generated/
 ```
 
 **Cloud Provider Support**:
+
 - `aws` - AWS with CloudTrail, IAM, KMS, CloudWatch
 - `azure` - Azure with Azure AD, Key Vault, Monitor
 - `gcp` - GCP with Cloud IAM, KMS, Logging
 - `kubernetes` - K8s with RBAC, NetworkPolicy, PodSecurityPolicy
 
 **Usage Example**:
+
 ```bash
 # Generate for AWS
 /grc-engineer:generate-implementation encryption_at_rest aws ./compliance
@@ -350,12 +372,14 @@ generated/
 Scans existing infrastructure code for compliance violations:
 
 **Supported Formats**:
+
 - Terraform (`.tf` files)
 - CloudFormation (`.yaml`, `.json`)
 - Kubernetes (`.yaml` manifests)
 - Azure ARM templates (`.json`)
 
 **Compliance Checks**:
+
 - **Encryption at Rest**: S3, EBS, RDS encryption configuration
 - **Logging & Monitoring**: CloudTrail, VPC Flow Logs, retention periods
 - **Network Security**: Security groups, overly permissive rules
@@ -363,17 +387,20 @@ Scans existing infrastructure code for compliance violations:
 - **Data Protection**: S3 versioning, public access blocks
 
 **Output Formats**:
+
 - `detailed` - Full analysis with remediation code (default)
 - `summary` - Quick compliance score and top issues
 - `json` - Machine-readable for CI/CD
 - `sarif` - GitHub Security / GitLab integration
 
 **Auto-Fix Mode**:
+
 ```bash
 /grc-engineer:scan-iac ./terraform SOC2,PCI-DSS --fix
 ```
 
 Automatically remediates:
+
 - ✓ Missing S3 bucket encryption
 - ✓ Disabled S3 versioning
 - ✓ Missing S3 public access blocks
@@ -385,6 +412,7 @@ Automatically remediates:
 **CI/CD Integration**:
 
 GitHub Actions:
+
 ```yaml
 - name: Scan Infrastructure
   run: /grc-engineer:scan-iac ./terraform SOC2,PCI-DSS,NIST sarif > results.sarif
@@ -396,12 +424,14 @@ GitHub Actions:
 ```
 
 **Severity Levels**:
+
 - 🔴 CRITICAL: Immediate violation, blocks audit
 - 🟡 HIGH: Serious gap, fix before audit
 - 🟠 MEDIUM: Important improvement
 - 🔵 LOW: Best practice recommendation
 
 **Example Scan Output**:
+
 ```
 Scan Target: ./terraform
 Frameworks: SOC2, PCI-DSS, NIST 800-53
@@ -426,6 +456,7 @@ Auto-fix available for 8/15 violations
 ### Implementation Workflow
 
 **1. Design Phase**:
+
 ```bash
 # Understand requirements across frameworks
 /grc-engineer:map-controls-unified access_control_account_management
@@ -438,6 +469,7 @@ Auto-fix available for 8/15 violations
 ```
 
 **2. Implementation Phase**:
+
 ```bash
 # Generate production-ready code
 /grc-engineer:generate-implementation access_control_account_management aws ./output
@@ -449,6 +481,7 @@ terraform plan
 ```
 
 **3. Validation Phase**:
+
 ```bash
 # Scan for compliance violations
 /grc-engineer:scan-iac ./terraform SOC2,PCI-DSS,NIST detailed
@@ -461,6 +494,7 @@ terraform plan
 ```
 
 **4. Evidence Collection**:
+
 ```bash
 # Collect compliance evidence
 cd ./output/scripts
@@ -480,12 +514,14 @@ The grc-engineer plugin now includes automated control testing and continuous mo
 Validates that security controls are properly implemented and effective:
 
 **Test Categories**:
+
 1. **Configuration Tests**: Resources exist and configured correctly
 2. **Functionality Tests**: Controls are active and working
 3. **Compliance Tests**: Meet framework requirements
 4. **Integration Tests**: Work with other controls
 
 **Example Test Run** (`access_control_account_management` on AWS):
+
 ```
 Total Tests: 15
 ✓ Passed: 11 (73%)
@@ -509,6 +545,7 @@ Remediation: Run python scripts/access_review.py --immediate
 **Test Types by Control**:
 
 **Access Control** (15 tests):
+
 - ✓ Unique user IDs
 - ✓ Access approval process
 - ✗ Quarterly access reviews (schedule/execution)
@@ -526,24 +563,28 @@ Remediation: Run python scripts/access_review.py --immediate
 - ✓ End-to-end lifecycle
 
 **Encryption at Rest** (tests):
+
 - S3 bucket encryption
 - EBS volume encryption
 - RDS database encryption
 - KMS key rotation enabled
 
 **Logging & Monitoring** (tests):
+
 - CloudTrail configuration
 - VPC Flow Logs
 - Log retention compliance
 - CloudWatch alarms
 
 **Output Formats**:
+
 - `text` - Detailed human-readable (default)
 - `json` - Machine-readable for CI/CD
 - `--verbose` - Include all test details
 - `--fix-failures` - Auto-remediate where possible
 
 **CI/CD Integration**:
+
 ```yaml
 - name: Test Access Control
   run: /grc-engineer:test-control access_control_account_management --output=json > results.json
@@ -563,12 +604,14 @@ Remediation: Run python scripts/access_review.py --immediate
 Establishes continuous compliance monitoring with:
 
 **Features**:
+
 1. **Automated Testing**: Runs control tests on schedule (daily, weekly, hourly)
 2. **Trend Analysis**: 30-day compliance trends with degradation detection
 3. **Alerting**: Slack, email, or PagerDuty integration
 4. **Dashboard**: Real-time compliance status visualization
 
 **Example Monitoring Output**:
+
 ```
 COMPLIANCE TREND (Last 30 Days):
 Jan 1:  95% ████████████████████░
@@ -598,11 +641,13 @@ CONTROL HEALTH:
 ```
 
 **Alerting Rules**:
+
 - 🚨 **Critical**: Compliance <80%, control fails 2+ days, PCI <90%
 - ⚠ **Warning**: Compliance 80-90%, degrading controls (-5% in 7 days)
 - ℹ **Info**: Weekly summary, trending analysis
 
 **Setup**:
+
 ```yaml
 # compliance-monitor.yaml
 frameworks: [SOC2, PCI-DSS, NIST-800-53]
@@ -623,6 +668,7 @@ thresholds:
 ```
 
 **Metrics Tracked**:
+
 - Compliance score (% passing controls)
 - Framework scores (individual)
 - Control health (30-day pass rate)
@@ -632,6 +678,7 @@ thresholds:
 - Evidence coverage
 
 **Dashboard Features**:
+
 - Real-time compliance status
 - 30-day trend visualization
 - Control health indicators (green/yellow/red)
@@ -642,6 +689,7 @@ thresholds:
 ### Complete Workflow (All 3 Phases)
 
 **Phase 1 - Design**:
+
 ```bash
 /grc-engineer:map-controls-unified access_control_account_management
 /grc-engineer:find-conflicts SOC2,PCI-DSS,NIST
@@ -649,6 +697,7 @@ thresholds:
 ```
 
 **Phase 2 - Implement**:
+
 ```bash
 /grc-engineer:generate-implementation access_control_account_management aws
 cd generated/terraform && terraform apply
@@ -656,12 +705,14 @@ cd generated/terraform && terraform apply
 ```
 
 **Phase 3 - Validate & Monitor**:
+
 ```bash
 /grc-engineer:test-control access_control_account_management aws
 /grc-engineer:monitor-continuous SOC2,PCI-DSS,NIST daily
 ```
 
 This provides end-to-end compliance automation:
+
 1. **Understand** requirements across frameworks (crosswalk)
 2. **Optimize** implementation (56% effort reduction)
 3. **Generate** production code (Terraform, scripts)
@@ -672,6 +723,7 @@ This provides end-to-end compliance automation:
 ## Multi-Cloud Support
 
 The grc-engineer plugin supports evidence collection across:
+
 - **AWS**: boto3, aws CLI (IAM, S3, CloudTrail)
 - **Azure**: azure-* SDKs, az CLI (AD, Storage, Monitor)
 - **GCP**: google-cloud-* SDKs, gcloud CLI (IAM, Storage, Logging)

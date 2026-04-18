@@ -27,6 +27,7 @@ Analyzes and validates evidence artifacts submitted for audit review.
 ## Output Format
 
 Generates evidence review memos with:
+
 - Evidence identification
 - Control mapping
 - Validation results
@@ -36,6 +37,7 @@ Generates evidence review memos with:
 ## Example Usage
 
 When reviewing evidence for SOC 2 CC6.1 (Logical Access):
+
 - Validates access review screenshots show appropriate approvals
 - Confirms termination evidence matches HR records
 - Verifies configuration exports match stated policies

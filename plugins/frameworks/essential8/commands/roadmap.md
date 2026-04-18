@@ -7,6 +7,7 @@ description: Generate Essential 8 maturity improvement roadmap
 Creates a prioritized implementation and maturity improvement roadmap for Essential 8 mitigation strategies.
 
 ## Arguments
+
 - `$1` - Current maturity level (required: 0, 1, or 2)
 - `$2` - Target maturity level (required: 1, 2, or 3)
 - `$3` - Timeline (optional: aggressive, standard, conservative)
@@ -14,12 +15,14 @@ Creates a prioritized implementation and maturity improvement roadmap for Essent
 ## Roadmap Timeline Options
 
 ### Aggressive (Fast-Track)
+
 - **ML0 → ML1**: 3-4 months
 - **ML1 → ML2**: 4-6 months
 - **ML2 → ML3**: 6-9 months
 - **ML0 → ML3**: 15-18 months
 
 **Characteristics**:
+
 - Dedicated project team
 - Executive sponsorship
 - Significant budget
@@ -27,12 +30,14 @@ Creates a prioritized implementation and maturity improvement roadmap for Essent
 - Parallel workstreams
 
 ### Standard (Recommended)
+
 - **ML0 → ML1**: 6-9 months
 - **ML1 → ML2**: 9-12 months
 - **ML2 → ML3**: 12-18 months
 - **ML0 → ML3**: 24-36 months
 
 **Characteristics**:
+
 - Balanced resources
 - Phased approach
 - Internal team with targeted consulting
@@ -40,12 +45,14 @@ Creates a prioritized implementation and maturity improvement roadmap for Essent
 - Budget spread across FY
 
 ### Conservative (Gradual)
+
 - **ML0 → ML1**: 9-12 months
 - **ML1 → ML2**: 12-18 months
 - **ML2 → ML3**: 18-24 months
 - **ML0 → ML3**: 36-48 months
 
 **Characteristics**:
+
 - Limited resources
 - Minimal disruption
 - Internal team only
@@ -59,6 +66,7 @@ Creates a prioritized implementation and maturity improvement roadmap for Essent
 Each roadmap includes:
 
 ### 1. Assessment Phase (Weeks 1-4)
+
 - Current state assessment
 - Gap analysis
 - Resource requirements
@@ -66,6 +74,7 @@ Each roadmap includes:
 - Stakeholder alignment
 
 ### 2. Planning Phase (Weeks 5-8)
+
 - Project charter
 - Detailed implementation plan
 - Tool selection
@@ -73,6 +82,7 @@ Each roadmap includes:
 - Communication plan
 
 ### 3. Implementation Phases (By Strategy)
+
 - Prioritized strategy implementation
 - Testing and validation
 - User training
@@ -80,12 +90,14 @@ Each roadmap includes:
 - Rollout
 
 ### 4. Validation Phase
+
 - Independent assessment
 - Control testing
 - Remediation of findings
 - Certification (if required)
 
 ### 5. Continuous Improvement
+
 - Ongoing monitoring
 - Annual reassessment
 - Control refinement
@@ -96,6 +108,7 @@ Each roadmap includes:
 ## Implementation Priority Matrix
 
 ### Priority 1 (Immediate) - Foundational Controls
+
 **Weeks 1-12**:
 
 1. **Multi-Factor Authentication** (Strategy 7)
@@ -117,6 +130,7 @@ Each roadmap includes:
    - Significant security improvement
 
 ### Priority 2 (Quick Wins) - Risk Reduction
+
 **Weeks 13-24**:
 
 4. **User Application Hardening** (Strategy 4)
@@ -132,6 +146,7 @@ Each roadmap includes:
    - High threat reduction
 
 ### Priority 3 (Complex) - Technical Controls
+
 **Weeks 25-40**:
 
 6. **Application Control** (Strategy 1)
@@ -160,18 +175,21 @@ Each roadmap includes:
 ### Phase 1: Quick Wins (Months 1-2)
 
 **Strategy 7: MFA**
+
 - Deploy MFA for privileged users
 - Implement MFA for remote access
 - Deploy MFA for important data access
 - User enrollment and training
 
 **Strategy 8: Backups**
+
 - Identify important data
 - Implement daily backup solution
 - Configure offsite/offline storage
 - Test restoration procedures
 
 **Strategy 5: Admin Privileges**
+
 - Audit current admin accounts
 - Remove local admin from standard users
 - Create separate admin accounts
@@ -180,12 +198,14 @@ Each roadmap includes:
 ### Phase 2: Configuration Controls (Months 3-4)
 
 **Strategy 4: Application Hardening**
+
 - Standardize browser configuration
 - Block Flash, Java
 - Configure PDF security
 - Deploy via Group Policy
 
 **Strategy 3: Office Macros**
+
 - Block macros from internet
 - Define Trusted Locations
 - Enable AMSI
@@ -194,12 +214,14 @@ Each roadmap includes:
 ### Phase 3: Patching (Months 5-6)
 
 **Strategy 2: Patch Applications**
+
 - Application inventory
 - Vulnerability scanning
 - Patch testing process
 - Deploy critical patches
 
 **Strategy 6: Patch OS**
+
 - Enable Windows Update/WSUS
 - Baseline current patch levels
 - Remediate critical vulnerabilities
@@ -208,6 +230,7 @@ Each roadmap includes:
 ### Phase 4: Application Control (Months 7-9)
 
 **Strategy 1: Application Control**
+
 - Application inventory
 - Baseline approved applications
 - Deploy AppLocker/WDAC in audit mode
@@ -230,6 +253,7 @@ Each roadmap includes:
 ### Phase 1: Enhanced MFA (Months 1-2)
 
 **Strategy 7: MFA for All Users**
+
 - Roll out MFA to all standard users
 - Implement conditional access
 - Deploy phishing-resistant methods where possible
@@ -238,6 +262,7 @@ Each roadmap includes:
 ### Phase 2: Advanced Backups (Months 2-3)
 
 **Strategy 8: Hardened Backups**
+
 - Implement network segmentation
 - Air-gapped/immutable backups
 - Increase testing frequency
@@ -246,12 +271,14 @@ Each roadmap includes:
 ### Phase 3: Enhanced Controls (Months 3-6)
 
 **Strategy 1: Application Control on Servers**
+
 - Extend to all servers
 - Driver/kernel module control
 - PowerShell Constrained Language Mode
 - Script blocking
 
 **Strategy 5: Privileged Access Management**
+
 - Implement PAM solution
 - Just-in-time administration
 - Privileged workstation hardening
@@ -260,6 +287,7 @@ Each roadmap includes:
 ### Phase 4: Accelerated Patching (Months 6-9)
 
 **Strategy 2 & 6: Two-Week Patching**
+
 - Automated patch deployment
 - Faster testing procedures
 - Staged rollout automation
@@ -279,6 +307,7 @@ Each roadmap includes:
 ### Phase 1: Phishing-Resistant MFA (Months 1-4)
 
 **Strategy 7: FIDO2/Smart Cards**
+
 - Procure FIDO2 security keys
 - Deploy to all users
 - Disable non-phishing-resistant methods
@@ -287,6 +316,7 @@ Each roadmap includes:
 ### Phase 2: Advanced Application Control (Months 4-8)
 
 **Strategy 1: Hardened Configuration**
+
 - Independent validation
 - Penetration testing
 - Automated compliance checking
@@ -296,6 +326,7 @@ Each roadmap includes:
 ### Phase 3: 48-Hour Patching (Months 8-14)
 
 **Strategy 2 & 6: Rapid Patching**
+
 - Fully automated testing
 - Rapid deployment capabilities
 - Real-time vulnerability scanning
@@ -317,12 +348,14 @@ Each roadmap includes:
 ### Maturity Level 1 Implementation
 
 **Team**:
+
 - Project Manager (0.5 FTE)
 - Security Engineer (1 FTE)
 - Systems Administrator (0.5 FTE)
 - Training Coordinator (0.25 FTE)
 
 **Budget**:
+
 - Tools/Software: $10K-$50K
 - Consulting: $25K-$75K
 - Training: $5K-$15K
@@ -332,12 +365,14 @@ Each roadmap includes:
 ### Maturity Level 2 Implementation
 
 **Team**:
+
 - Project Manager (1 FTE)
 - Security Engineers (2 FTE)
 - Systems Administrator (1 FTE)
 - Training Coordinator (0.5 FTE)
 
 **Budget**:
+
 - Tools/Software: $50K-$150K
 - Consulting: $75K-$200K
 - Training: $15K-$40K
@@ -347,6 +382,7 @@ Each roadmap includes:
 ### Maturity Level 3 Implementation
 
 **Team**:
+
 - Project Manager (1 FTE)
 - Security Engineers (3 FTE)
 - Systems Administrators (2 FTE)
@@ -354,6 +390,7 @@ Each roadmap includes:
 - Training Coordinator (0.5 FTE)
 
 **Budget**:
+
 - Tools/Software: $150K-$500K
 - Consulting: $200K-$500K
 - Assessment/Testing: $50K-$150K
@@ -366,6 +403,7 @@ Each roadmap includes:
 ## Success Metrics
 
 ### Technical Metrics
+
 - % systems with application control enabled
 - Average patch deployment time
 - % users with MFA enabled
@@ -374,6 +412,7 @@ Each roadmap includes:
 - Configuration compliance score
 
 ### Security Metrics
+
 - Reduction in malware incidents
 - Failed attack attempts blocked
 - Mean time to patch (MTTP)
@@ -381,6 +420,7 @@ Each roadmap includes:
 - Successful backup restorations
 
 ### Business Metrics
+
 - Cyber insurance premium reduction
 - Compliance posture improvement
 - Customer confidence increase
@@ -392,7 +432,9 @@ Each roadmap includes:
 ## Common Challenges and Mitigations
 
 ### Challenge 1: User Resistance
+
 **Mitigation**:
+
 - Executive communication
 - User training and awareness
 - Gradual rollout
@@ -400,14 +442,18 @@ Each roadmap includes:
 - Feedback mechanisms
 
 ### Challenge 2: Legacy Applications
+
 **Mitigation**:
+
 - Application inventory and assessment
 - Remediation or retirement plan
 - Compensating controls
 - Exceptions with risk acceptance
 
 ### Challenge 3: Resource Constraints
+
 **Mitigation**:
+
 - Phased approach
 - Leverage automation
 - Managed service providers
@@ -415,7 +461,9 @@ Each roadmap includes:
 - Budget across fiscal years
 
 ### Challenge 4: Technical Complexity
+
 **Mitigation**:
+
 - Consultant expertise
 - Vendor professional services
 - Pilot testing
@@ -423,7 +471,9 @@ Each roadmap includes:
 - Knowledge transfer
 
 ### Challenge 5: Operational Impact
+
 **Mitigation**:
+
 - Change management process
 - Maintenance windows
 - Rollback procedures
@@ -435,6 +485,7 @@ Each roadmap includes:
 ## Governance and Reporting
 
 ### Monthly Reporting
+
 - Implementation progress by strategy
 - Budget vs actual
 - Issue log and risk register
@@ -442,6 +493,7 @@ Each roadmap includes:
 - Stakeholder updates
 
 ### Quarterly Reviews
+
 - Maturity assessment
 - Control effectiveness testing
 - Roadmap adjustments
@@ -449,6 +501,7 @@ Each roadmap includes:
 - Executive briefing
 
 ### Annual Assessment
+
 - Full Essential 8 assessment
 - Maturity level validation
 - Continuous improvement plan

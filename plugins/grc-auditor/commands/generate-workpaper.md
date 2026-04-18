@@ -7,6 +7,7 @@ description: Generate audit workpaper documentation
 Creates structured audit workpaper documentation for findings and testing.
 
 ## Arguments
+
 - `$1` - Workpaper type (required: finding, test, summary)
 - `$2` - Control or area (required)
 

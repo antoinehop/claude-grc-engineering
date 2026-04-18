@@ -18,6 +18,7 @@ Calculates and manages vendor risk scores.
 ## Scoring Methodology
 
 ### Inherent Risk Factors (40%)
+
 | Factor | Weight |
 |--------|--------|
 | Data Sensitivity | 15% |
@@ -26,6 +27,7 @@ Calculates and manages vendor risk scores.
 | Regulatory Impact | 5% |
 
 ### Control Risk Factors (60%)
+
 | Factor | Weight |
 |--------|--------|
 | Security Certifications | 15% |

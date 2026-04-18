@@ -7,6 +7,7 @@ description: GLBA risk assessment methodology and guidance
 Provides methodology and guidance for conducting risk assessments required under the GLBA Safeguards Rule.
 
 ## Arguments
+
 - `$1` - Assessment phase (required: planning, execution, reporting, all)
 - `$2` - Methodology (optional: nist, iso, qualitative, quantitative)
 
@@ -16,6 +17,7 @@ Provides methodology and guidance for conducting risk assessments required under
 **Requirement**: "Identify and assess reasonably foreseeable internal and external risks to the security, confidentiality, and integrity of customer information"
 
 **Purpose**:
+
 - Understand threats and vulnerabilities
 - Prioritize security investments
 - Demonstrate due diligence
@@ -23,6 +25,7 @@ Provides methodology and guidance for conducting risk assessments required under
 - Guide safeguard selection
 
 **Frequency**:
+
 - At least annually
 - When significant changes occur
 - After security incidents
@@ -33,6 +36,7 @@ Provides methodology and guidance for conducting risk assessments required under
 ### Phase 1: Planning
 
 **Objectives**:
+
 - Define scope and boundaries
 - Select methodology
 - Assemble team
@@ -40,6 +44,7 @@ Provides methodology and guidance for conducting risk assessments required under
 - Gather preliminary information
 
 **Scope Definition**:
+
 1. **Information Assets**:
    - Customer information (NPI)
    - Systems storing/processing NPI
@@ -66,6 +71,7 @@ Provides methodology and guidance for conducting risk assessments required under
    - Service providers
 
 **Team Composition**:
+
 - Risk assessment lead
 - IT/security personnel
 - Business unit representatives
@@ -78,6 +84,7 @@ Provides methodology and guidance for conducting risk assessments required under
 **Step 1: Asset Identification**
 
 **Information Assets**:
+
 - Customer databases
 - Transaction systems
 - CRM systems
@@ -86,6 +93,7 @@ Provides methodology and guidance for conducting risk assessments required under
 - Backup tapes/systems
 
 **Inventory Details**:
+
 - Asset name/description
 - Data classification (customer information, sensitive, public)
 - Storage location (on-premise, cloud, hybrid)
@@ -95,6 +103,7 @@ Provides methodology and guidance for conducting risk assessments required under
 **Step 2: Threat Identification**
 
 **External Threats**:
+
 1. **Cyberattacks**:
    - Ransomware
    - Phishing/social engineering
@@ -114,6 +123,7 @@ Provides methodology and guidance for conducting risk assessments required under
    - Supply chain attacks
 
 **Internal Threats**:
+
 1. **Insider Threats**:
    - Malicious employees
    - Negligent employees
@@ -135,6 +145,7 @@ Provides methodology and guidance for conducting risk assessments required under
 **Step 3: Vulnerability Analysis**
 
 **Technical Vulnerabilities**:
+
 - Missing patches
 - Weak authentication
 - Unencrypted data
@@ -144,6 +155,7 @@ Provides methodology and guidance for conducting risk assessments required under
 - Insufficient logging
 
 **Administrative Vulnerabilities**:
+
 - Inadequate policies
 - Lack of security awareness
 - Unclear roles/responsibilities
@@ -151,12 +163,14 @@ Provides methodology and guidance for conducting risk assessments required under
 - No incident response plan
 
 **Physical Vulnerabilities**:
+
 - Inadequate access controls
 - No visitor management
 - Unsecured disposal
 - Environmental controls lacking
 
 **Assessment Methods**:
+
 - Vulnerability scanning (automated tools)
 - Configuration reviews
 - Policy/procedure reviews
@@ -167,6 +181,7 @@ Provides methodology and guidance for conducting risk assessments required under
 **Step 4: Likelihood Assessment**
 
 **Factors to Consider**:
+
 - Threat actor capability
 - Threat actor motivation
 - Ease of exploitation
@@ -175,11 +190,13 @@ Provides methodology and guidance for conducting risk assessments required under
 - Industry trends
 
 **Likelihood Ratings**:
+
 - **Low**: Unlikely to occur (0-25% probability)
 - **Medium**: May occur (25-75% probability)
 - **High**: Likely to occur (75-100% probability)
 
 **Evidence Sources**:
+
 - Threat intelligence feeds
 - Industry reports (Verizon DBIR, etc.)
 - Incident history
@@ -217,6 +234,7 @@ Provides methodology and guidance for conducting risk assessments required under
    - Consent orders
 
 **Impact Ratings**:
+
 - **Low**: Minimal impact, easily recoverable (<$50K, <1 day disruption)
 - **Medium**: Moderate impact, recoverable ($50K-$500K, 1-7 days disruption)
 - **High**: Severe impact, difficult recovery (>$500K, >7 days disruption, regulatory action)
@@ -226,6 +244,7 @@ Provides methodology and guidance for conducting risk assessments required under
 **Existing Controls Inventory**:
 
 **Preventive Controls**:
+
 - Firewalls, IDS/IPS
 - Multi-factor authentication
 - Encryption
@@ -235,6 +254,7 @@ Provides methodology and guidance for conducting risk assessments required under
 - Antivirus/anti-malware
 
 **Detective Controls**:
+
 - Log monitoring
 - SIEM
 - Vulnerability scanning
@@ -242,12 +262,14 @@ Provides methodology and guidance for conducting risk assessments required under
 - Audit reviews
 
 **Corrective Controls**:
+
 - Incident response plan
 - Backup and recovery
 - Business continuity plan
 - Patch deployment
 
 **Control Effectiveness**:
+
 - **Effective**: Control adequately mitigates risk
 - **Partially Effective**: Control provides some mitigation
 - **Ineffective**: Control does not mitigate risk
@@ -265,6 +287,7 @@ Provides methodology and guidance for conducting risk assessments required under
 | **Low Likelihood** | Low | Low | Medium |
 
 **Risk Levels**:
+
 - **Critical**: Immediate action required
 - **High**: Address within 30 days
 - **Medium**: Address within 90 days
@@ -324,6 +347,7 @@ Provides methodology and guidance for conducting risk assessments required under
    - Vulnerability trends
 
 **Audience-Specific Reporting**:
+
 - **Board of Directors**: Executive summary, top risks, financial impact, strategic recommendations
 - **Management**: Detailed findings, operational recommendations, resource needs
 - **Technical Teams**: Vulnerability details, remediation steps, technical controls
@@ -335,12 +359,14 @@ Provides methodology and guidance for conducting risk assessments required under
 **Framework**: NIST SP 800-30 "Guide for Conducting Risk Assessments"
 
 **Process**:
+
 1. Prepare for assessment
 2. Conduct assessment (identify threats, vulnerabilities, likelihood, impact)
 3. Communicate results
 4. Maintain assessment (ongoing)
 
 **Advantages**:
+
 - Well-documented
 - Widely recognized
 - Comprehensive
@@ -353,6 +379,7 @@ Provides methodology and guidance for conducting risk assessments required under
 **Framework**: ISO/IEC 27005 "Information Security Risk Management"
 
 **Process**:
+
 1. Context establishment
 2. Risk identification
 3. Risk analysis
@@ -360,6 +387,7 @@ Provides methodology and guidance for conducting risk assessments required under
 5. Risk treatment
 
 **Advantages**:
+
 - International standard
 - Aligns with ISO 27001
 - Systematic approach
@@ -371,11 +399,13 @@ Provides methodology and guidance for conducting risk assessments required under
 **Approach**: Use subjective ratings (High/Medium/Low) for likelihood and impact
 
 **Advantages**:
+
 - Fast and simple
 - Low resource requirements
 - Understandable to non-technical stakeholders
 
 **Disadvantages**:
+
 - Subjective assessments
 - Harder to prioritize
 - May lack precision
@@ -387,16 +417,19 @@ Provides methodology and guidance for conducting risk assessments required under
 **Approach**: Calculate numerical risk values based on financial impact
 
 **Formulas**:
+
 - **ALE (Annual Loss Expectancy)** = ARO × SLE
 - **ARO (Annualized Rate of Occurrence)**: Expected frequency per year
 - **SLE (Single Loss Expectancy)**: Expected loss per incident
 
 **Advantages**:
+
 - Objective, data-driven
 - Enables cost-benefit analysis
 - Supports budget justification
 
 **Disadvantages**:
+
 - Requires extensive data
 - Time-consuming
 - Difficult to quantify reputational impact
@@ -410,6 +443,7 @@ Provides methodology and guidance for conducting risk assessments required under
 **Strategy**: Implement controls to reduce likelihood or impact
 
 **Examples**:
+
 - Deploy MFA to reduce account compromise risk
 - Implement encryption to reduce data exposure impact
 - Add SIEM to improve detection
@@ -421,6 +455,7 @@ Provides methodology and guidance for conducting risk assessments required under
 **Strategy**: Shift risk to third party
 
 **Examples**:
+
 - Cyber insurance
 - Outsource to managed service provider
 - Cloud service provider shared responsibility
@@ -432,11 +467,13 @@ Provides methodology and guidance for conducting risk assessments required under
 **Strategy**: Acknowledge risk and take no additional action
 
 **Examples**:
+
 - Low-likelihood, low-impact risks
 - Cost of mitigation exceeds potential loss
 - Business justification for accepting risk
 
 **Requirements**:
+
 - Documented risk acceptance by management
 - Periodic review
 - Monitoring for changes
@@ -446,6 +483,7 @@ Provides methodology and guidance for conducting risk assessments required under
 **Strategy**: Eliminate the risk by discontinuing activity
 
 **Examples**:
+
 - Decommission vulnerable legacy system
 - Discontinue high-risk service
 - Exit high-risk market
@@ -480,6 +518,7 @@ Provides methodology and guidance for conducting risk assessments required under
 ## Integration with Safeguards Rule
 
 **Risk Assessment Feeds**:
+
 1. **Safeguard Selection** (Element #3): Use risk assessment to prioritize controls
 2. **Monitoring and Testing** (Element #4): Focus testing on high-risk areas
 3. **Training** (Element #5): Tailor training to identified threats
@@ -512,6 +551,7 @@ Provides methodology and guidance for conducting risk assessments required under
 ## Risk Assessment Checklist
 
 **Planning**:
+
 - [ ] Define assessment scope (systems, locations, processes)
 - [ ] Select methodology (NIST, ISO, qualitative, quantitative)
 - [ ] Assemble assessment team
@@ -519,6 +559,7 @@ Provides methodology and guidance for conducting risk assessments required under
 - [ ] Gather asset inventory
 
 **Execution**:
+
 - [ ] Identify information assets
 - [ ] Identify threats (internal and external)
 - [ ] Identify vulnerabilities (technical, administrative, physical)
@@ -528,6 +569,7 @@ Provides methodology and guidance for conducting risk assessments required under
 - [ ] Calculate inherent and residual risk
 
 **Reporting**:
+
 - [ ] Develop risk register
 - [ ] Create risk treatment plan
 - [ ] Prepare executive summary for board
@@ -535,6 +577,7 @@ Provides methodology and guidance for conducting risk assessments required under
 - [ ] Communicate results to stakeholders
 
 **Follow-Up**:
+
 - [ ] Track risk treatment implementation
 - [ ] Monitor high and critical risks
 - [ ] Update risk assessment annually or when changes occur

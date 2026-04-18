@@ -7,6 +7,7 @@ description: GDPR breach notification procedures and 72-hour requirement
 Guides compliance with GDPR breach notification requirements under Articles 33 (supervisory authority) and 34 (data subjects).
 
 ## Arguments
+
 - `$1` - Breach severity (optional: low, moderate, high, critical)
 - `$2` - Process phase (optional: detection, assessment, notification, documentation)
 
@@ -38,11 +39,13 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Notification to Supervisory Authority
 
 **Obligation**:
+
 - Notify supervisory authority **without undue delay**
 - **Within 72 hours** of becoming aware (where feasible)
 - If >72 hours, must explain delay
 
 **"Becoming Aware"**:
+
 - When reasonable degree of certainty breach occurred
 - Not when initially suspected
 - Clock starts when controller has information to conclude breach likely
@@ -51,9 +54,11 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### When Notification NOT Required
 
 **Exception** (Article 33(1)):
+
 - Breach is **unlikely to result in a risk** to rights and freedoms of individuals
 
 **Risk Assessment Factors**:
+
 - Type and volume of data
 - Ease of identification
 - Severity and likelihood of consequences
@@ -87,11 +92,13 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Phased Notification
 
 **Article 33(4)**: If information not available within 72 hours:
+
 - Provide initial notification with available information
 - Provide additional information in phases "without undue further delay"
 - Explain reasons for delay
 
 **Typical Phased Approach**:
+
 1. **Initial (<72h)**: Breach type, approximate scope, contact point
 2. **Update 1 (1-2 weeks)**: Confirmed numbers, detailed consequences
 3. **Final (ongoing)**: Remediation complete, lessons learned
@@ -101,9 +108,11 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### When Required
 
 **Mandatory notification if**:
+
 - Breach likely to result in **high risk** to rights and freedoms
 
 **High Risk Factors**:
+
 - Special category data (health, biometric, racial, etc.)
 - Financial data (credit cards, bank details)
 - Credentials (passwords, especially if not hashed)
@@ -114,6 +123,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Notification Content
 
 **Communicate in clear and plain language**:
+
 1. **Nature of breach**: What happened
 2. **Contact point**: DPO or contact for more information
 3. **Likely consequences**: Potential impacts on individuals
@@ -147,6 +157,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Methods of Communication
 
 **Direct Individual Notification**:
+
 - Email (preferred if available)
 - Mail (postal)
 - Phone
@@ -154,6 +165,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 - In-app notification
 
 **Public Communication** (if disproportionate):
+
 - Press release
 - Website notice (prominent)
 - Social media
@@ -164,6 +176,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Phase 1: Detection and Containment (Hours 0-4)
 
 **Immediate Actions**:
+
 1. **Detect and verify** breach occurred
 2. **Contain** breach (stop ongoing unauthorized access)
 3. **Preserve evidence** (logs, forensic data)
@@ -171,6 +184,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 5. **Initial assessment** of scope and severity
 
 **Key Questions**:
+
 - What happened?
 - When did it occur?
 - Is it ongoing?
@@ -180,6 +194,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Phase 2: Assessment (Hours 4-24)
 
 **Detailed Investigation**:
+
 1. **Root cause analysis**: How did breach occur?
 2. **Scope determination**: What data accessed/lost/altered?
 3. **Impact assessment**: What are consequences for individuals?
@@ -188,6 +203,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 6. **Identify data categories**: Personal data, special categories, credentials
 
 **Risk Assessment**:
+
 - Low: Minimal impact, unlikely adverse effects
 - Moderate: Some potential for harm
 - High: Significant adverse effects likely
@@ -198,14 +214,17 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 **Determine Notification Obligations**:
 
 **Supervisory Authority (Article 33)**:
+
 - Is risk unlikely? → No notification required
 - Is risk possible/likely? → Notification required (<72h)
 
 **Data Subjects (Article 34)**:
+
 - Is risk high? → Notification required (without undue delay)
 - Are exceptions applicable? → May not be required
 
 **Consult DPO**:
+
 - DPO must be involved in breach response
 - Seek advice on notification decisions
 - Document DPO recommendations
@@ -213,6 +232,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Phase 4: Notification (Hours 48-72)
 
 **To Supervisory Authority** (if required):
+
 1. **Prepare notification** with Article 33(3) content
 2. **Submit** to lead supervisory authority
    - Online portal (if available)
@@ -222,6 +242,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 4. **Cooperate** with authority investigation
 
 **To Data Subjects** (if required):
+
 1. **Prepare communications** in clear language
 2. **Identify affected individuals** and contact methods
 3. **Coordinate messaging** (avoid panic, provide guidance)
@@ -232,17 +253,20 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Phase 5: Remediation (Ongoing)
 
 **Immediate Remediation**:
+
 1. **Close security gaps** that caused breach
 2. **Reset credentials** if compromised
 3. **Restore data** from backups if lost
 4. **Implement additional safeguards**
 
 **Short-Term Actions**:
+
 1. **Monitoring** for signs of data misuse
 2. **Support** for affected individuals (credit monitoring, ID theft services)
 3. **Updates** to authority and individuals as investigation progresses
 
 **Long-Term Actions**:
+
 1. **Root cause remediation** (fix underlying issues)
 2. **Policy/procedure updates** (prevent recurrence)
 3. **Staff training** (address human factors)
@@ -252,17 +276,20 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Phase 6: Documentation (Ongoing)
 
 **Record of Breach** (Article 33(5)):
+
 - Document **all** breaches (even those not notified)
 - Facts of breach
 - Effects of breach
 - Remedial action taken
 
 **Purpose**:
+
 - Demonstrate compliance
 - Supervisory authority can verify compliance
 - Learn from incidents
 
 **Breach Register Should Include**:
+
 - Date/time of breach
 - Date/time became aware
 - Description of breach (type, cause)
@@ -282,17 +309,20 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Processor Breaches (Article 33(2))
 
 **Processor obligations**:
+
 - Notify controller **without undue delay** after becoming aware
 - No specific timeframe (unlike controller's 72 hours)
 - Controller then has notification obligations
 
 **Processor should provide**:
+
 - Detailed breach information
 - Affected clients/controllers
 - Scope and impact assessment
 - Remediation steps
 
 **Data Processing Agreement** should specify:
+
 - Breach notification procedures
 - Timeframes (recommend <24 hours)
 - Information to be provided
@@ -301,11 +331,13 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Cross-Border Breaches
 
 **Lead Supervisory Authority** (Article 56):
+
 - Notify lead authority (main establishment)
 - Lead authority coordinates with other concerned authorities
 - One-stop-shop mechanism
 
 **Concerned Authorities**:
+
 - Lead authority may inform other authorities
 - Cooperation through mutual assistance
 - Consistent approach across Member States
@@ -313,6 +345,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Third-Country Transfers
 
 **Breach involving data transferred outside EU**:
+
 - Same notification requirements apply
 - Complexity in identifying individuals
 - May need to notify multiple authorities
@@ -321,6 +354,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Ransomware
 
 **Unique considerations**:
+
 - Availability breach (minimum)
 - Likely confidentiality breach (assume data exfiltrated)
 - Do NOT pay ransom before assessment
@@ -330,6 +364,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ## Supervisory Authority Responses
 
 **Possible Actions**:
+
 - Request additional information
 - Investigation/audit
 - Corrective measures (improve security, notify individuals)
@@ -338,6 +373,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 - Administrative fines
 
 **Cooperation**:
+
 - Respond promptly to authority requests
 - Provide requested evidence
 - Implement recommended measures
@@ -346,10 +382,12 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ## Penalties for Non-Compliance
 
 **Failure to notify** (Article 83):
+
 - Up to **€10M** or **2% of global annual turnover** (whichever higher)
 - Factors: Intentional or negligent, cooperation, previous infringements
 
 **Related violations** (higher fines):
+
 - Up to €20M or 4% if breach caused by failure to implement security (Article 32)
 
 ## Breach Notification Tools
@@ -427,6 +465,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Incident Response Plan
 
 **Include**:
+
 - Breach definition and examples
 - Reporting procedures (internal)
 - Response team roles (IT, security, legal, DPO, communications, management)
@@ -442,6 +481,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Regular Testing
 
 **Exercises**:
+
 - Tabletop exercises (quarterly)
 - Simulated breaches (annually)
 - Update procedures based on lessons learned
@@ -451,11 +491,13 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 ### Staff Training
 
 **All Staff**:
+
 - Recognize and report potential breaches
 - Don't delay reporting
 - Preserve evidence
 
 **Response Team**:
+
 - Detailed procedures
 - Roles and responsibilities
 - Tools and systems
@@ -463,6 +505,7 @@ Guides compliance with GDPR breach notification requirements under Articles 33 (
 - Legal obligations
 
 **Management**:
+
 - Oversight and approval
 - Resource allocation
 - Authority engagement

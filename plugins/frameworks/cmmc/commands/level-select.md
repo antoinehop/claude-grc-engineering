@@ -7,6 +7,7 @@ description: Determine required CMMC level based on contract and data types
 Helps determine the appropriate CMMC level required for your organization based on DoD contract types and data sensitivity.
 
 ## Arguments
+
 - `$1` - Contract type (optional: prime, subcontractor, service-provider)
 - `$2` - Data type (optional: FCI, CUI, classified)
 
@@ -15,32 +16,38 @@ Helps determine the appropriate CMMC level required for your organization based 
 ### Data Types
 
 **FCI (Federal Contract Information)**:
+
 - Contract details, pricing, technical data
 - Minimum: CMMC Level 1
 - Self-assessment acceptable
 
 **CUI (Controlled Unclassified Information)**:
+
 - Technical data, export-controlled info, ITAR
 - Required: CMMC Level 2 or 3
 - Third-party assessment (C3PAO) required
 
 **Classified Information**:
+
 - Beyond CMMC scope
 - Requires NISPOM/ICD 503 compliance
 
 ### Contract Types
 
 **Prime Contractor**:
+
 - Direct contract with DoD
 - Level determined by data sensitivity
 - Full CMMC compliance required
 
 **Subcontractor**:
+
 - Inherits prime's requirements
 - Must meet same CMMC level
 - Flow-down requirements apply
 
 **Service Provider**:
+
 - Cloud/IT services to DoD contractors
 - Level 2+ typically required
 - FedRAMP alignment beneficial
