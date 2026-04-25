@@ -249,6 +249,16 @@ See `GOVERNANCE.md` and `MAINTAINERS.md` for the decision process and how to bec
 
 Pre-1.0. The schema is versioned (v1.0.0) and Tier-1 connectors are the focus of the early releases. Breaking changes are documented in `CHANGELOG.md` and guarded by the schema version.
 
+## Star History
+
+<a href="https://www.star-history.com/?repos=GRCEngClub%2Fclaude-grc-engineering&type=date&legend=top-left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=GRCEngClub/claude-grc-engineering&type=date&theme=dark&legend=top-left" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=GRCEngClub/claude-grc-engineering&type=date&legend=top-left" />
+    <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=GRCEngClub/claude-grc-engineering&type=date&legend=top-left" />
+  </picture>
+</a>
+
 ## License
 
 MIT for original code, copyright © GRC Engineering Club contributors. Exceptions are documented in [LICENSE](LICENSE). One plugin (`plugins/frameworks/cis-controls/`) is CC BY-SA 4.0 per upstream terms. SCF data is CC BY-ND 4.0 and redistributed verbatim.
