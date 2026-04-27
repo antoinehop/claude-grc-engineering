@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>GRC Engineering — Landing Page</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --bg: #0b0f19;
+      --surface: #111827;
+      --surface2: #1a2236;
+      --border: #1f2d45;
+      --text: #f1f5f9;
+      --muted: #64748b;
+      --dim: #374151;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --green: #10b981;
+      --yellow: #f59e0b;
+      --red: #ef4444;
+      --blue: #3b82f6;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 14px;
+      overflow-y: auto;
+      height: 100%;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(11,15,25,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 52px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+    .nav-icon {
+      width: 28px; height: 28px;
+      background: var(--accent);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; font-weight: 800; color: white; letter-spacing: -0.02em;
+    }
+    .nav-name { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; }
+    .nav-links { display: flex; align-items: center; gap: 1.75rem; }
+    .nav-links a { font-size: 0.8rem; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: white;
+      font-size: 0.75rem; font-weight: 600;
+      padding: 0.35rem 0.9rem; border-radius: 6px;
+      text-decoration: none;
+    }
+    .nav-gh {
+      background: var(--surface2); color: var(--text);
+      font-size: 0.75rem; font-weight: 500;
+      padding: 0.35rem 0.9rem; border-radius: 6px;
+      text-decoration: none; border: 1px solid var(--border);
+    }
+
+    /* ── Sections ── */
+    section { max-width: 1080px; margin: 0 auto; padding: 5rem 2rem; }
+
+    /* ── Hero ── */
+    .hero { text-align: center; padding-top: 6rem; padding-bottom: 4rem; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 9999px; padding: 0.3rem 0.9rem;
+      font-size: 0.72rem; color: var(--accent2); margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 span { color: var(--accent2); }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--muted); max-width: 580px; margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: white;
+      padding: 0.65rem 1.5rem; border-radius: 8px;
+      font-size: 0.875rem; font-weight: 600; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .btn-secondary {
+      background: var(--surface); color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.65rem 1.5rem; border-radius: 8px;
+      font-size: 0.875rem; font-weight: 500; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+
+    /* ── Terminal hero ── */
+    .terminal-wrap {
+      max-width: 700px; margin: 3rem auto 0;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .terminal-bar {
+      background: #161b22; padding: 0.6rem 1rem;
+      display: flex; align-items: center; gap: 0.4rem;
+      border-bottom: 1px solid #30363d;
+    }
+    .t-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .terminal-body { padding: 1.25rem 1.5rem; font-family: 'SF Mono','Fira Code',monospace; font-size: 0.78rem; line-height: 1.8; }
+    .t-prompt { color: #58a6ff; }
+    .t-cmd { color: #c9d1d9; }
+    .t-comment { color: #484f58; }
+    .t-ok { color: #3fb950; }
+    .t-warn { color: #d29922; }
+    .t-err { color: #f85149; }
+    .t-accent { color: #79c0ff; }
+    .t-dim { color: #6e7681; }
+    .t-bold { color: #e6edf3; font-weight: 600; }
+
+    /* ── Stats bar ── */
+    .stats-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-bar-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      divide: var(--border);
+    }
+    .stat-item {
+      padding: 1.5rem 2rem;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-size: 1.75rem; font-weight: 800; color: var(--accent2); line-height: 1; }
+    .stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.3rem; }
+
+    /* ── Feature grid ── */
+    .section-eyebrow { font-size: 0.7rem; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 0.75rem; }
+    .section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .section-sub { font-size: 0.95rem; color: var(--muted); max-width: 500px; line-height: 1.7; }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 3rem; }
+    .feature-card { background: var(--surface); padding: 1.5rem; transition: background 0.15s; }
+    .feature-card:hover { background: var(--surface2); }
+    .feature-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.2); display: flex; align-items: center; justify-content: center; font-size: 1rem; margin-bottom: 0.9rem; }
+    .feature-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .feature-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+    .feature-cmd { display: inline-block; margin-top: 0.6rem; font-family: monospace; font-size: 0.7rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 0.15rem 0.45rem; color: var(--accent2); }
+
+    /* ── Plugin categories ── */
+    .plugin-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.5rem; }
+    .plugin-col { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .plugin-col-header { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); }
+    .plugin-col-tag { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent2); margin-bottom: 0.2rem; }
+    .plugin-col-name { font-size: 0.85rem; font-weight: 600; }
+    .plugin-col-desc { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
+    .plugin-list { padding: 0.5rem 0; }
+    .plugin-item { padding: 0.3rem 1rem; font-size: 0.72rem; color: var(--muted); display: flex; justify-content: space-between; }
+    .plugin-item .ns { font-family: monospace; font-size: 0.68rem; color: var(--dim); }
+
+    /* ── CTA ── */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(99,102,241,0.05));
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 16px;
+      padding: 3rem; text-align: center;
+    }
+    .cta-box h2 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .cta-box p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
+    .cta-code {
+      background: #0d1117; border: 1px solid #30363d; border-radius: 8px;
+      padding: 0.75rem 1.5rem; display: inline-block;
+      font-family: monospace; font-size: 0.82rem; color: #c9d1d9;
+      margin-bottom: 1.5rem;
+    }
+    .cta-code .t-prompt { color: #58a6ff; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-icon">GRC</div>
+      <div class="nav-name">GRC ENGINEERING</div>
+    </div>
+    <div class="nav-links">
+      <a href="#">Plugins</a>
+      <a href="#">Docs</a>
+      <a href="#">Frameworks</a>
+      <a href="#">Community</a>
+      <a href="#" class="nav-gh">★ GitHub</a>
+      <a href="#" class="nav-cta">Get Started →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-dot"></div>
+      Open-source · Claude Code Plugin Suite · MIT License
+    </div>
+    <h1>Checkbox compliance to<br><span>engineered systems</span></h1>
+    <p class="hero-sub">30 Claude Code plugins for GRC engineers, auditors, and platform teams. Pull evidence, crosswalk 1,468 SCF controls to 249 frameworks, generate Terraform, scan IaC — all from your terminal.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">▶ Get started in 60 seconds</a>
+      <a href="#" class="btn-secondary">View on GitHub →</a>
+    </div>
+
+    <div class="terminal-wrap">
+      <div class="terminal-bar">
+        <div class="t-dot" style="background:#ff5f57"></div>
+        <div class="t-dot" style="background:#febc2e"></div>
+        <div class="t-dot" style="background:#28c840"></div>
+        <span style="margin-left:0.5rem;font-size:0.7rem;color:#484f58;font-family:monospace">claude — GRC Engineering</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="t-comment"># Install the toolkit</span></div>
+        <div><span class="t-prompt">claude&gt;</span> <span class="t-cmd">/plugin marketplace add GRCEngClub/claude-grc-engineering</span></div>
+        <div><span class="t-ok">✓</span> <span class="t-dim">Marketplace registered (30 plugins available)</span></div>
+        <div style="margin-top:0.4rem"><span class="t-prompt">claude&gt;</span> <span class="t-cmd">/plugin install grc-engineer github-inspector soc2</span></div>
+        <div><span class="t-ok">✓</span> <span class="t-dim">3 plugins installed</span></div>
+        <div style="margin-top:0.4rem"><span class="t-comment"># Run your first gap assessment</span></div>
+        <div><span class="t-prompt">claude&gt;</span> <span class="t-cmd">/grc-engineer:gap-assessment SOC2,FedRAMP-High --sources=aws,github</span></div>
+        <div><span class="t-ok">✓</span> <span class="t-dim">aws-inspector: 247 findings · github-inspector: 89 findings</span></div>
+        <div><span class="t-ok">✓</span> <span class="t-dim">Crosswalking via SCF (1,468 controls × 249 frameworks)...</span></div>
+        <div style="margin-top:0.4rem">
+          <span class="t-bold">SOC 2: </span><span class="t-ok">96%</span>
+          <span class="t-bold" style="margin-left:1rem">FedRAMP: </span><span class="t-warn">71%</span>
+          <span class="t-bold" style="margin-left:1rem">NIST: </span><span class="t-ok">88%</span>
+        </div>
+        <div><span class="t-accent">→</span> <span class="t-dim">190 gaps found · 89 auto-fixable · saved ~$267k in effort</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item">
+        <div class="stat-num">1,468</div>
+        <div class="stat-label">SCF controls, crosswalked</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">249</div>
+        <div class="stat-label">frameworks supported</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">56%</div>
+        <div class="stat-label">avg effort reduction</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">30</div>
+        <div class="stat-label">open-source plugins</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <section>
+    <div class="section-eyebrow">What it does</div>
+    <div class="section-title">The full GRC engineering pipeline,<br>shipped as Claude Code commands</div>
+    <div class="section-sub">Every step from evidence collection to remediation — in your terminal, backed by an open data contract any connector can plug into.</div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">◈</div>
+        <div class="feature-title">Gap Assessment</div>
+        <div class="feature-desc">Pull findings from cloud and SaaS connectors, crosswalk to any framework via SCF, and get a prioritized, effort-estimated gap report.</div>
+        <div class="feature-cmd">/grc-engineer:gap-assessment</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⌥</div>
+        <div class="feature-title">IaC Scanning</div>
+        <div class="feature-desc">Scan Terraform, CloudFormation, and Kubernetes for compliance violations. Auto-fix 47% of findings in one command.</div>
+        <div class="feature-cmd">/grc-engineer:scan-iac</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✦</div>
+        <div class="feature-title">Code Generation</div>
+        <div class="feature-desc">Generate production-ready Terraform modules, Python evidence collectors, and Rego/Cedar policies from any control ID.</div>
+        <div class="feature-cmd">/grc-engineer:generate-implementation</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⊟</div>
+        <div class="feature-title">Cross-Framework Intelligence</div>
+        <div class="feature-desc">Map one control to every framework it touches. Find conflicts, resolve them, and implement once to satisfy many.</div>
+        <div class="feature-cmd">/grc-engineer:map-controls-unified</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">◷</div>
+        <div class="feature-title">Continuous Monitoring</div>
+        <div class="feature-desc">Schedule daily control tests, track 30-day compliance trends, and get Slack or PagerDuty alerts before auditors do.</div>
+        <div class="feature-cmd">/grc-engineer:monitor-continuous</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⊞</div>
+        <div class="feature-title">OSCAL Output</div>
+        <div class="feature-desc">Generate OSCAL SSP, SAP, SAR, and POA&M from findings and framework configs. FedRAMP-ready artifacts in one command.</div>
+        <div class="feature-cmd">/oscal:ssp-export</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plugin categories -->
+  <section style="padding-top:0">
+    <div class="section-eyebrow">Plugin categories</div>
+    <div class="section-title">One toolkit, every GRC role</div>
+    <div class="section-sub">Persona plugins for engineers, auditors, and TPRM teams. 20+ framework reference plugins. Thin cloud and SaaS connectors that share one data contract.</div>
+
+    <div class="plugin-cols">
+      <div class="plugin-col">
+        <div class="plugin-col-header">
+          <div class="plugin-col-tag">Hub</div>
+          <div class="plugin-col-name">Engineering</div>
+          <div class="plugin-col-desc">The pipeline lives here</div>
+        </div>
+        <div class="plugin-list">
+          <div class="plugin-item">gap-assessment <span class="ns">/grc-engineer:</span></div>
+          <div class="plugin-item">scan-iac <span class="ns">/grc-engineer:</span></div>
+          <div class="plugin-item">generate-impl <span class="ns">/grc-engineer:</span></div>
+          <div class="plugin-item">test-control <span class="ns">/grc-engineer:</span></div>
+          <div class="plugin-item">monitor-continuous <span class="ns">/grc-engineer:</span></div>
+        </div>
+      </div>
+      <div class="plugin-col">
+        <div class="plugin-col-header">
+          <div class="plugin-col-tag">Personas</div>
+          <div class="plugin-col-name">Roles</div>
+          <div class="plugin-col-desc">Auditors, TPRM, reporting</div>
+        </div>
+        <div class="plugin-list">
+          <div class="plugin-item">Auditor <span class="ns">/grc-auditor:</span></div>
+          <div class="plugin-item">Internal GRC <span class="ns">/grc-internal:</span></div>
+          <div class="plugin-item">TPRM <span class="ns">/grc-tprm:</span></div>
+          <div class="plugin-item">Reporter <span class="ns">/report:</span></div>
+        </div>
+      </div>
+      <div class="plugin-col">
+        <div class="plugin-col-header">
+          <div class="plugin-col-tag">Frameworks</div>
+          <div class="plugin-col-name">20+ Standards</div>
+          <div class="plugin-col-desc">SOC 2 to IRAP and beyond</div>
+        </div>
+        <div class="plugin-list">
+          <div class="plugin-item">SOC 2 <span class="ns">/soc2:</span></div>
+          <div class="plugin-item">FedRAMP 20X <span class="ns">/fedramp-20x:</span></div>
+          <div class="plugin-item">NIST 800-53 <span class="ns">/nist:</span></div>
+          <div class="plugin-item">ISO 27001 <span class="ns">/iso:</span></div>
+          <div class="plugin-item">PCI DSS v4 <span class="ns">/pci-dss:</span></div>
+        </div>
+      </div>
+      <div class="plugin-col">
+        <div class="plugin-col-header">
+          <div class="plugin-col-tag">Connectors</div>
+          <div class="plugin-col-name">Tier-1 Ready</div>
+          <div class="plugin-col-desc">Emit a common Finding</div>
+        </div>
+        <div class="plugin-list">
+          <div class="plugin-item">AWS Inspector <span class="ns">/aws:</span></div>
+          <div class="plugin-item">GCP Inspector <span class="ns">/gcp:</span></div>
+          <div class="plugin-item">GitHub Inspector <span class="ns">/github:</span></div>
+          <div class="plugin-item">Okta Inspector <span class="ns">/okta:</span></div>
+          <div class="plugin-item" style="color:var(--dim)">+26 roadmap <span class="ns"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding-top:0;padding-bottom:5rem">
+    <div class="cta-box">
+      <h2>Zero to first gap report in 10 minutes</h2>
+      <p>No cloud credentials required to start. Use GitHub as your first data source.</p>
+      <div class="cta-code">
+        <span class="t-prompt">claude&gt;</span> /plugin marketplace add GRCEngClub/claude-grc-engineering
+      </div>
+      <br>
+      <div style="display:flex;justify-content:center;gap:0.75rem;flex-wrap:wrap">
+        <a href="#" class="btn-primary">Read the quickstart →</a>
+        <a href="#" class="btn-secondary">Browse plugins</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 GRC Engineering Club · MIT License · Not affiliated with Anthropic ·
+    <a href="#" style="color:var(--accent2);text-decoration:none">GitHub</a> ·
+    <a href="#" style="color:var(--accent2);text-decoration:none">grcengclub.com</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Brainstorming — Visual Direction</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    :root {
+      --bg-primary: #f5f5f7; --bg-secondary: #ffffff; --bg-tertiary: #e5e5e7;
+      --border: #d1d1d6; --text-primary: #1d1d1f; --text-secondary: #86868b;
+      --accent: #0071e3; --selected-bg: #e8f4fd; --selected-border: #0071e3;
+      --success: #34c759;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-primary: #1d1d1f; --bg-secondary: #2d2d2f; --bg-tertiary: #3d3d3f;
+        --border: #424245; --text-primary: #f5f5f7; --text-secondary: #86868b;
+        --accent: #0a84ff; --selected-bg: rgba(10,132,255,0.15); --selected-border: #0a84ff;
+      }
+    }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+           background: var(--bg-primary); color: var(--text-primary);
+           display: flex; flex-direction: column; line-height: 1.5; min-height: 100vh; }
+    .header { background: var(--bg-secondary); padding: 0.5rem 1.5rem;
+              display: flex; justify-content: space-between; align-items: center;
+              border-bottom: 1px solid var(--border); }
+    .header h1 { font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); }
+    .header .status { font-size: 0.7rem; color: var(--success); display: flex; align-items: center; gap: 0.4rem; }
+    .header .status::before { content: ''; width: 6px; height: 6px; background: var(--success); border-radius: 50%; }
+    .main { flex: 1; overflow-y: auto; padding: 2rem; }
+    h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .subtitle { color: var(--text-secondary); margin-bottom: 1.75rem; font-size: 0.95rem; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .card { border: 2px solid var(--border); border-radius: 14px; overflow: hidden;
+            cursor: pointer; transition: all 0.15s ease; background: var(--bg-secondary); }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+    .card.selected { border-color: var(--selected-border); border-width: 2px; }
+    .card-preview { height: 140px; display: flex; flex-direction: column; overflow: hidden; }
+    .card-body { padding: 1rem; border-top: 1px solid var(--border); }
+    .card-body h3 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .card-body p { color: var(--text-secondary); font-size: 0.8rem; }
+
+    /* Style A — Dark engineering */
+    .style-a .card-preview { background: #0d1117; color: #c9d1d9; font-family: monospace; font-size: 0.7rem; padding: 0.75rem; gap: 0.3rem; }
+    .style-a .line { display: flex; gap: 0.5rem; }
+    .style-a .prompt { color: #58a6ff; }
+    .style-a .cmd { color: #79c0ff; }
+    .style-a .ok { color: #3fb950; }
+    .style-a .warn { color: #d29922; }
+    .style-a .metric { display: inline-block; background: #21262d; border: 1px solid #30363d; border-radius: 4px; padding: 0.15rem 0.4rem; color: #3fb950; font-size: 0.65rem; margin-top: 0.3rem; }
+    .style-a .bar { height: 3px; background: #21262d; border-radius: 2px; margin-top: 0.2rem; }
+    .style-a .bar-fill { height: 100%; border-radius: 2px; background: #3fb950; }
+
+    /* Style B — Clean SaaS */
+    .style-b .card-preview { background: #ffffff; padding: 0.75rem; gap: 0.4rem; }
+    .style-b .nav { background: #1a56db; height: 28px; border-radius: 4px; display: flex; align-items: center; padding: 0 0.5rem; gap: 0.4rem; }
+    .style-b .nav-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.6); }
+    .style-b .nav-title { color: white; font-size: 0.65rem; font-weight: 600; }
+    .style-b .score-row { display: flex; gap: 0.4rem; }
+    .style-b .score { background: #f0f4ff; border: 1px solid #c7d7fa; border-radius: 6px; padding: 0.3rem 0.5rem; flex: 1; text-align: center; }
+    .style-b .score-num { font-size: 1rem; font-weight: 700; color: #1a56db; }
+    .style-b .score-label { font-size: 0.55rem; color: #6b7280; }
+    .style-b .list-row { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 4px; padding: 0.25rem 0.4rem; font-size: 0.6rem; color: #374151; display: flex; justify-content: space-between; }
+    .style-b .badge { background: #dcfce7; color: #166534; border-radius: 3px; padding: 0.1rem 0.3rem; font-size: 0.55rem; }
+    .style-b .badge.warn { background: #fef9c3; color: #854d0e; }
+    .style-b .badge.err { background: #fee2e2; color: #991b1b; }
+
+    /* Style C — Professional dark */
+    .style-c .card-preview { background: #111827; padding: 0.75rem; gap: 0.4rem; }
+    .style-c .topbar { display: flex; justify-content: space-between; align-items: center; }
+    .style-c .logo { font-size: 0.65rem; font-weight: 700; color: #f9fafb; letter-spacing: 0.05em; }
+    .style-c .pill { background: #6366f1; color: white; border-radius: 9999px; padding: 0.1rem 0.4rem; font-size: 0.55rem; }
+    .style-c .gauge-row { display: flex; gap: 0.4rem; margin-top: 0.3rem; }
+    .style-c .gauge { flex: 1; background: #1f2937; border-radius: 6px; padding: 0.4rem; }
+    .style-c .gauge-val { font-size: 1rem; font-weight: 700; color: #6366f1; }
+    .style-c .gauge-label { font-size: 0.55rem; color: #6b7280; }
+    .style-c .progress { height: 4px; background: #374151; border-radius: 2px; margin-top: 0.3rem; }
+    .style-c .progress-fill { height: 100%; border-radius: 2px; }
+    .style-c .grid-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem; margin-top: 0.3rem; }
+    .style-c .tag { background: #1f2937; border: 1px solid #374151; border-radius: 4px; padding: 0.15rem 0.3rem; font-size: 0.55rem; color: #9ca3af; text-align: center; }
+
+    .footer { background: var(--bg-secondary); border-top: 1px solid var(--border);
+               padding: 0.5rem 1.5rem; text-align: center;
+               font-size: 0.75rem; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Superpowers Brainstorming — claude-grc-engineering</h1>
+    <div class="status">Connected</div>
+  </div>
+  <div class="main">
+    <h2>What's the visual direction?</h2>
+    <p class="subtitle">These previews apply to all three surfaces (dashboard, landing page, CLI mockups). Pick the vibe that feels right for GRC Engineering Club.</p>
+
+    <div class="cards">
+      <!-- Style A: Dark engineering -->
+      <div class="card style-a" onclick="toggleSelect(this)" data-choice="a">
+        <div class="card-preview">
+          <div class="line"><span class="prompt">$</span><span class="cmd">/grc-engineer:gap-assessment SOC2,FedRAMP</span></div>
+          <div class="line"><span class="ok">✓</span> aws-inspector: 247 findings collected</div>
+          <div class="line"><span class="ok">✓</span> github-inspector: 89 findings</div>
+          <div class="line"><span class="warn">⚠</span> Crosswalking to SCF...</div>
+          <div style="margin-top:0.4rem">
+            <span class="metric">SOC2 96%</span>
+            <span class="metric" style="color:#d29922">FedRAMP 71%</span>
+          </div>
+          <div class="bar" style="margin-top:0.5rem"><div class="bar-fill" style="width:96%"></div></div>
+          <div class="bar"><div class="bar-fill" style="width:71%;background:#d29922"></div></div>
+        </div>
+        <div class="card-body">
+          <h3>A — Dark engineering</h3>
+          <p>Terminal-native, dense, technical. Feels like the CLI it wraps. Strong signal for the open-source dev audience.</p>
+        </div>
+      </div>
+
+      <!-- Style B: Clean SaaS -->
+      <div class="card style-b" onclick="toggleSelect(this)" data-choice="b">
+        <div class="card-preview">
+          <div class="nav"><div class="nav-dot"></div><div class="nav-dot"></div><span class="nav-title">GRC Engineering</span></div>
+          <div class="score-row" style="margin-top:0.4rem">
+            <div class="score"><div class="score-num">96%</div><div class="score-label">SOC 2</div></div>
+            <div class="score"><div class="score-num">71%</div><div class="score-label">FedRAMP</div></div>
+            <div class="score"><div class="score-num">88%</div><div class="score-label">NIST</div></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.2rem;margin-top:0.4rem">
+            <div class="list-row">S3 encryption missing — CRY-05<span class="badge err">HIGH</span></div>
+            <div class="list-row">CloudTrail retention short — AU-11<span class="badge warn">MED</span></div>
+            <div class="list-row">Branch protection enabled — CHG-02<span class="badge">PASS</span></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>B — Clean SaaS</h3>
+          <p>Light, structured, approachable. Works for CISOs and engineers alike. Familiar to anyone who's used a compliance platform.</p>
+        </div>
+      </div>
+
+      <!-- Style C: Professional dark -->
+      <div class="card style-c" onclick="toggleSelect(this)" data-choice="c">
+        <div class="card-preview">
+          <div class="topbar">
+            <div class="logo">GRC ENGINEERING</div>
+            <div class="pill">LIVE</div>
+          </div>
+          <div class="gauge-row">
+            <div class="gauge"><div class="gauge-val">96%</div><div class="gauge-label">SOC 2</div><div class="progress"><div class="progress-fill" style="width:96%;background:#6366f1"></div></div></div>
+            <div class="gauge"><div class="gauge-val">71%</div><div class="gauge-label">FedRAMP</div><div class="progress"><div class="progress-fill" style="width:71%;background:#f59e0b"></div></div></div>
+            <div class="gauge"><div class="gauge-val">88%</div><div class="gauge-label">NIST</div><div class="progress"><div class="progress-fill" style="width:88%;background:#6366f1"></div></div></div>
+          </div>
+          <div class="grid-row">
+            <div class="tag">1,468 SCF controls</div>
+            <div class="tag">249 frameworks</div>
+            <div class="tag">4 connectors</div>
+            <div class="tag">56% effort saved</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>C — Professional dark</h3>
+          <p>Bold, confident, modern. Security-tool aesthetic with executive polish. Works well for demos and landing pages.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">Click a style above, then tell me your pick in the terminal</div>
+  <script>
+    function toggleSelect(el) {
+      document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+  </script>
+</body>
+</html>

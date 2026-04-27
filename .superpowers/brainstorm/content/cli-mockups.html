@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>GRC Engineering — CLI Mockups</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0b0f19;
+      --surface: #111827;
+      --surface2: #1a2236;
+      --border: #1f2d45;
+      --text: #f1f5f9;
+      --muted: #64748b;
+      --dim: #374151;
+      --accent: #6366f1;
+      --accent2: #818cf8;
+      --green: #10b981;
+      --yellow: #f59e0b;
+      --red: #ef4444;
+      --blue: #3b82f6;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 13px;
+      padding: 0 0 4rem;
+    }
+
+    /* ── Page header ── */
+    .page-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .page-header-left { display: flex; align-items: center; gap: 0.6rem; }
+    .logo-icon { width: 24px; height: 24px; background: var(--accent); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 0.58rem; font-weight: 800; color: white; }
+    .page-header h1 { font-size: 0.82rem; font-weight: 600; }
+    .page-header .sub { font-size: 0.7rem; color: var(--muted); }
+    .tab-row { display: flex; gap: 0; border-bottom: 1px solid var(--border); background: var(--surface); padding: 0 1.5rem; }
+    .tab {
+      padding: 0.6rem 1.1rem; font-size: 0.75rem; color: var(--muted);
+      border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.1s;
+    }
+    .tab.active { color: var(--accent2); border-bottom-color: var(--accent); }
+
+    /* ── Workflow container ── */
+    .workflows { padding: 1.5rem; display: flex; flex-direction: column; gap: 2.5rem; }
+
+    /* ── Workflow card ── */
+    .workflow { display: grid; grid-template-columns: 1fr 340px; gap: 1.5rem; align-items: start; }
+    .workflow.reverse { grid-template-columns: 340px 1fr; }
+    .workflow.reverse .terminal-wrap { order: 2; }
+    .workflow.reverse .annotation { order: 1; }
+
+    .annotation { display: flex; flex-direction: column; gap: 0.9rem; padding-top: 0.5rem; }
+    .annotation-number {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: rgba(99,102,241,0.2); border: 1px solid rgba(99,102,241,0.4);
+      color: var(--accent2); font-size: 0.7rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .annotation-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.1rem; }
+    .annotation-title { font-size: 0.95rem; font-weight: 700; }
+    .annotation-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+    .annotation-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
+    .pill-tag {
+      font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 9999px;
+      border: 1px solid; font-weight: 500;
+    }
+    .pill-tag.green { background: rgba(16,185,129,0.1); color: var(--green); border-color: rgba(16,185,129,0.25); }
+    .pill-tag.purple { background: rgba(99,102,241,0.1); color: var(--accent2); border-color: rgba(99,102,241,0.25); }
+    .pill-tag.yellow { background: rgba(245,158,11,0.1); color: var(--yellow); border-color: rgba(245,158,11,0.25); }
+    .pill-tag.blue { background: rgba(59,130,246,0.1); color: var(--blue); border-color: rgba(59,130,246,0.25); }
+
+    /* ── Terminal ── */
+    .terminal-wrap {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .terminal-bar {
+      background: #161b22;
+      padding: 0.5rem 0.85rem;
+      display: flex; align-items: center; gap: 0.35rem;
+      border-bottom: 1px solid #30363d;
+    }
+    .t-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .terminal-label { margin-left: auto; font-size: 0.62rem; color: #484f58; font-family: monospace; }
+    .terminal-body {
+      padding: 1rem 1.1rem;
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+      font-size: 0.75rem;
+      line-height: 1.75;
+    }
+    .line { display: block; }
+    .t-prompt { color: #58a6ff; }
+    .t-cmd { color: #c9d1d9; }
+    .t-comment { color: #484f58; }
+    .t-ok { color: #3fb950; }
+    .t-warn { color: #d29922; }
+    .t-err { color: #f85149; }
+    .t-accent { color: #79c0ff; }
+    .t-dim { color: #6e7681; }
+    .t-bold { color: #e6edf3; font-weight: 600; }
+    .t-purple { color: #d2a8ff; }
+    .t-orange { color: #ffa657; }
+    .blank { display: block; height: 0.25rem; }
+
+    /* ── Callout box ── */
+    .callout {
+      border-left: 2px solid var(--accent);
+      background: rgba(99,102,241,0.07);
+      border-radius: 0 6px 6px 0;
+      padding: 0.6rem 0.8rem;
+      margin-top: 0.2rem;
+    }
+    .callout.green { border-color: var(--green); background: rgba(16,185,129,0.07); }
+    .callout.yellow { border-color: var(--yellow); background: rgba(245,158,11,0.07); }
+    .callout-title { font-size: 0.7rem; font-weight: 600; color: var(--accent2); margin-bottom: 0.2rem; }
+    .callout.green .callout-title { color: var(--green); }
+    .callout.yellow .callout-title { color: var(--yellow); }
+    .callout-body { font-size: 0.72rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── Divider ── */
+    .divider { border: none; border-top: 1px solid var(--border); }
+
+    /* ── All three summary row ── */
+    .summary-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; padding: 1.5rem; }
+    .summary-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .summary-card:hover { border-color: var(--accent); }
+    .summary-card-num { font-size: 0.65rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+    .summary-card-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .summary-card-cmd { font-family: monospace; font-size: 0.7rem; color: var(--accent2); }
+    .summary-card-desc { font-size: 0.75rem; color: var(--muted); margin-top: 0.4rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <div class="page-header-left">
+      <div class="logo-icon">GRC</div>
+      <div>
+        <div class="page-header h1" style="font-size:0.82rem;font-weight:600">GRC Engineering — CLI Workflows</div>
+        <div class="sub">4 key workflows · Professional dark theme · Demo-ready</div>
+      </div>
+    </div>
+    <div style="font-size:0.7rem;color:var(--muted)">claude-grc-engineering · v0.1.0</div>
+  </div>
+
+  <div class="tab-row">
+    <div class="tab active">Gap Assessment</div>
+    <div class="tab">IaC Scan + Auto-fix</div>
+    <div class="tab">Cross-Framework</div>
+    <div class="tab">Continuous Monitor</div>
+  </div>
+
+  <div class="workflows">
+
+    <!-- ── Workflow 1: Gap Assessment ── -->
+    <div class="workflow">
+      <div class="terminal-wrap">
+        <div class="terminal-bar">
+          <div class="t-dot" style="background:#ff5f57"></div>
+          <div class="t-dot" style="background:#febc2e"></div>
+          <div class="t-dot" style="background:#28c840"></div>
+          <span class="terminal-label">gap-assessment · acme-corp</span>
+        </div>
+        <div class="terminal-body">
+          <span class="line t-comment"># Run a gap assessment across two frameworks</span>
+          <span class="line"><span class="t-prompt">claude&gt;</span> <span class="t-cmd">/grc-engineer:gap-assessment SOC2,FedRAMP-High \</span></span>
+          <span class="line"><span style="color:transparent">claude&gt;</span>   <span class="t-cmd">--sources=aws-inspector,github-inspector</span></span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-dim">Collecting findings...</span></span>
+          <span class="line"><span class="t-ok">✓</span> <span class="t-dim">aws-inspector</span>    <span class="t-bold">247 findings</span>  <span class="t-dim">IAM, S3, CloudTrail, VPC</span></span>
+          <span class="line"><span class="t-ok">✓</span> <span class="t-dim">github-inspector</span>  <span class="t-bold"> 89 findings</span>  <span class="t-dim">branch, Actions, Dependabot</span></span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-dim">Crosswalking to SCF (1,468 controls × 249 frameworks)...</span></span>
+          <span class="line"><span class="t-ok">✓</span> <span class="t-dim">336 findings mapped · 190 gaps identified</span></span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-bold">── Gap Report ─────────────────────────────</span></span>
+          <span class="line"><span class="t-dim">SOC 2 TSC</span></span>
+          <span class="line">  <span class="t-ok">PASS</span>  <span class="t-dim">CC6.1</span>  Logical access controls       <span class="t-dim">aws, okta</span></span>
+          <span class="line">  <span class="t-ok">PASS</span>  <span class="t-dim">CC7.2</span>  System monitoring active      <span class="t-dim">aws</span></span>
+          <span class="line">  <span class="t-err">FAIL</span>  <span class="t-dim">CC6.7</span>  Encryption in transit          <span class="t-warn">HIGH</span></span>
+          <span class="line">  <span class="t-warn">WARN</span>  <span class="t-dim">CC9.1</span>  Vendor risk mgmt incomplete   <span class="t-dim">LOW</span></span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-dim">FedRAMP High</span></span>
+          <span class="line">  <span class="t-err">FAIL</span>  <span class="t-dim">AC-2</span>   Account mgmt — review overdue <span class="t-err">CRIT</span></span>
+          <span class="line">  <span class="t-err">FAIL</span>  <span class="t-dim">AU-11</span>  Audit retention 30d (req 1yr) <span class="t-warn">HIGH</span> <span class="t-ok">auto-fix</span></span>
+          <span class="line">  <span class="t-err">FAIL</span>  <span class="t-dim">SC-28</span>  RDS encryption disabled       <span class="t-warn">HIGH</span> <span class="t-ok">auto-fix</span></span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-bold">── Summary ────────────────────────────────</span></span>
+          <span class="line">  SOC 2:      <span class="t-ok">96%</span>  (3 gaps · est. 12 hrs to close)</span>
+          <span class="line">  FedRAMP:    <span class="t-warn">71%</span>  (55 gaps · est. 184 hrs to close)</span>
+          <span class="line">  Auto-fixable: <span class="t-ok">89/190</span> gaps  →  saves ~267k hrs</span>
+        </div>
+      </div>
+
+      <div class="annotation">
+        <div>
+          <div class="annotation-header">
+            <div class="annotation-number">1</div>
+            <div class="annotation-title">Gap Assessment</div>
+          </div>
+          <div class="annotation-desc">One command pulls evidence from any connected source, crosswalks every finding against SCF's 1,468 controls, and produces a prioritized gap report across as many frameworks as you request simultaneously.</div>
+          <div class="annotation-pills">
+            <span class="pill-tag purple">/grc-engineer:gap-assessment</span>
+            <span class="pill-tag green">SCF crosswalk</span>
+            <span class="pill-tag yellow">effort estimates</span>
+          </div>
+        </div>
+        <div class="callout green">
+          <div class="callout-title">Auto-fix signal</div>
+          <div class="callout-body">Findings marked <code style="font-size:0.68rem;color:var(--green)">auto-fix</code> can be remediated immediately with <code style="font-size:0.68rem">/grc-engineer:scan-iac --fix</code>. No manual Terraform required.</div>
+        </div>
+        <div class="callout">
+          <div class="callout-title">Multi-framework in one pass</div>
+          <div class="callout-body">Passing <code style="font-size:0.68rem">SOC2,FedRAMP-High</code> runs both frameworks against the same findings set. The SCF crosswalk means no double-collection.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ── Workflow 2: IaC Scan ── -->
+    <div class="workflow reverse">
+      <div class="annotation">
+        <div>
+          <div class="annotation-header">
+            <div class="annotation-number">2</div>
+            <div class="annotation-title">IaC Scan + Auto-fix</div>
+          </div>
+          <div class="annotation-desc">Scans Terraform, CloudFormation, and Kubernetes manifests for compliance violations across any framework. The <code style="font-size:0.75rem;color:var(--accent2)">--fix</code> flag writes remediations directly to the files — S3 encryption, log retention, KMS rotation, and more.</div>
+          <div class="annotation-pills">
+            <span class="pill-tag purple">/grc-engineer:scan-iac</span>
+            <span class="pill-tag green">auto-fix mode</span>
+            <span class="pill-tag blue">SARIF output</span>
+          </div>
+        </div>
+        <div class="callout yellow">
+          <div class="callout-title">CI/CD integration</div>
+          <div class="callout-body">Pass <code style="font-size:0.68rem">--format=sarif</code> to pipe results into GitHub Advanced Security or GitLab's security dashboard. Blocks PRs on critical findings.</div>
+        </div>
+        <div class="callout green">
+          <div class="callout-title">What auto-fix covers</div>
+          <div class="callout-body">S3 encryption · S3 versioning · S3 public-access block · KMS key rotation · log retention periods. Security group rules and IAM policies are flagged but require manual review.</div>
+        </div>
+      </div>
+
+      <div class="terminal-wrap">
+        <div class="terminal-bar">
+          <div class="t-dot" style="background:#ff5f57"></div>
+          <div class="t-dot" style="background:#febc2e"></div>
+          <div class="t-dot" style="background:#28c840"></div>
+          <span class="terminal-label">scan-iac · ./terraform</span>
+        </div>
+        <div class="terminal-body">
+          <span class="line t-comment"># Scan IaC and auto-fix what's safe to fix</span>
+          <span class="line"><span class="t-prompt">claude&gt;</span> <span class="t-cmd">/grc-engineer:scan-iac ./terraform SOC2,PCI-DSS,NIST \</span></span>
+          <span class="line"><span style="color:transparent">claude&gt;</span>   <span class="t-cmd">--format=detailed --fix</span></span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-dim">Scanning 23 files · Terraform · SOC2, PCI-DSS, NIST 800-53</span></span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-bold">── Violations ─────────────────────────────</span></span>
+          <span class="line">  <span class="t-err">● HIGH</span>  s3_buckets.tf:12    S3 encryption missing       <span class="t-ok">✓ fixed</span></span>
+          <span class="line">  <span class="t-err">● HIGH</span>  cloudtrail.tf:8     Retention 30d (req 365d)    <span class="t-ok">✓ fixed</span></span>
+          <span class="line">  <span class="t-err">● HIGH</span>  s3_buckets.tf:34    Public access not blocked   <span class="t-ok">✓ fixed</span></span>
+          <span class="line">  <span class="t-err">● HIGH</span>  kms.tf:5            Key rotation disabled       <span class="t-ok">✓ fixed</span></span>
+          <span class="line">  <span class="t-warn">● MED</span>   security_groups.tf:24 Port 22 open to 0.0.0.0/0 <span class="t-dim">manual</span></span>
+          <span class="line">  <span class="t-warn">● MED</span>   iam.tf:67           Overly broad IAM policy     <span class="t-dim">manual</span></span>
+          <span class="line">  <span class="t-warn">● MED</span>   rds.tf:15           Backup retention 1d         <span class="t-ok">✓ fixed</span></span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-bold">── Result ─────────────────────────────────</span></span>
+          <span class="line">  Before:  <span class="t-err">73%</span>  (42/57 controls passing)</span>
+          <span class="line">  After:   <span class="t-ok">91%</span>  (52/57 controls passing)  <span class="t-ok">↑ 18%</span></span>
+          <span class="blank"></span>
+          <span class="line">  Auto-fixed: <span class="t-ok">5 violations</span>  →  5 files modified</span>
+          <span class="line">  Manual:     <span class="t-warn">2 violations</span>  →  see findings above</span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-dim">Run `terraform plan` to review changes before apply.</span></span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ── Workflow 3: Cross-Framework ── -->
+    <div class="workflow">
+      <div class="terminal-wrap">
+        <div class="terminal-bar">
+          <div class="t-dot" style="background:#ff5f57"></div>
+          <div class="t-dot" style="background:#febc2e"></div>
+          <div class="t-dot" style="background:#28c840"></div>
+          <span class="terminal-label">map-controls-unified · access_control</span>
+        </div>
+        <div class="terminal-body">
+          <span class="line t-comment"># Implement once, satisfy many frameworks</span>
+          <span class="line"><span class="t-prompt">claude&gt;</span> <span class="t-cmd">/grc-engineer:map-controls-unified \</span></span>
+          <span class="line"><span style="color:transparent">claude&gt;</span>   <span class="t-cmd">access_control_account_management</span></span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-bold">── Framework Equivalencies ────────────────</span></span>
+          <span class="line">  <span class="t-purple">NIST 800-53</span>  AC-2, AC-2(1), AC-2(4)</span>
+          <span class="line">  <span class="t-accent">ISO 27001</span>   A.9.2.1, A.9.2.2, A.9.2.6</span>
+          <span class="line">  <span class="t-ok">SOC 2</span>       CC6.1, CC6.2, CC6.3</span>
+          <span class="line">  <span class="t-warn">PCI DSS</span>     8.2.1, 8.2.4, 8.3.6</span>
+          <span class="line">  <span class="t-err">FedRAMP</span>     AC-2, AC-2(1), AC-2(4)</span>
+          <span class="line">  <span class="t-orange">CMMC</span>        AC.L1-3.1.1, AC.L2-3.1.2</span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-bold">── Conflicts ──────────────────────────────</span></span>
+          <span class="line">  <span class="t-warn">⚠</span>  PCI DSS requires 90-day access reviews</span>
+          <span class="line">     NIST requires annual reviews</span>
+          <span class="line">     Resolution: <span class="t-ok">use 90-day (most restrictive)</span></span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-bold">── ROI ────────────────────────────────────</span></span>
+          <span class="line">  Implement once  →  satisfies <span class="t-ok">6 frameworks</span></span>
+          <span class="line">  Effort saved:   <span class="t-ok">~40 hrs</span> vs implementing per-framework</span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-dim">Generate implementation?</span></span>
+          <span class="line"><span class="t-prompt">claude&gt;</span> <span class="t-cmd">/grc-engineer:generate-implementation \</span></span>
+          <span class="line"><span style="color:transparent">claude&gt;</span>   <span class="t-cmd">access_control_account_management aws ./output</span></span>
+          <span class="line"><span class="t-ok">✓</span> <span class="t-dim">Terraform + Python evidence collector + CloudWatch dashboard</span></span>
+          <span class="line"><span class="t-ok">✓</span> <span class="t-dim">Written to ./output/ (4 files)</span></span>
+        </div>
+      </div>
+
+      <div class="annotation">
+        <div>
+          <div class="annotation-header">
+            <div class="annotation-number">3</div>
+            <div class="annotation-title">Cross-Framework Intelligence</div>
+          </div>
+          <div class="annotation-desc">Map any control to every framework it touches, surface conflicts between standards, and generate a single implementation that satisfies all of them. The average multi-framework engagement covers 815 controls — the crosswalk reduces that to 362 unique implementations.</div>
+          <div class="annotation-pills">
+            <span class="pill-tag purple">/grc-engineer:map-controls-unified</span>
+            <span class="pill-tag green">56% effort reduction</span>
+          </div>
+        </div>
+        <div class="callout green">
+          <div class="callout-title">Generate, don't write</div>
+          <div class="callout-body">After mapping, <code style="font-size:0.68rem">/generate-implementation</code> outputs production-ready Terraform, a Python evidence collector, and a CloudWatch dashboard — all wired to the specific control.</div>
+        </div>
+        <div class="callout yellow">
+          <div class="callout-title">Conflict resolution built in</div>
+          <div class="callout-body">When PCI DSS and NIST disagree on a requirement, the crosswalk surfaces the conflict and defaults to "most restrictive wins" — no manual reconciliation.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ── Workflow 4: Continuous Monitor ── -->
+    <div class="workflow reverse">
+      <div class="annotation">
+        <div>
+          <div class="annotation-header">
+            <div class="annotation-number">4</div>
+            <div class="annotation-title">Continuous Monitoring</div>
+          </div>
+          <div class="annotation-desc">Schedule automated control tests on a daily or hourly cadence. Tracks 30-day compliance trends, detects degradation, and fires Slack or PagerDuty alerts before controls fail an audit.</div>
+          <div class="annotation-pills">
+            <span class="pill-tag purple">/grc-engineer:monitor-continuous</span>
+            <span class="pill-tag blue">Slack · PagerDuty</span>
+            <span class="pill-tag green">30-day trends</span>
+          </div>
+        </div>
+        <div class="callout green">
+          <div class="callout-title">Health indicators</div>
+          <div class="callout-body">Controls are classified as <span style="color:var(--green)">HEALTHY</span> (&gt;95% 30-day pass rate), <span style="color:var(--yellow)">DEGRADING</span> (−5% in 7 days), or <span style="color:var(--red)">AT RISK</span> (&lt;80% pass rate).</div>
+        </div>
+        <div class="callout">
+          <div class="callout-title">Alert thresholds</div>
+          <div class="callout-body">Critical if overall compliance drops below 80%, or PCI DSS drops below 90%. Warning if any control degrades more than 5% in 7 days. Configurable via <code style="font-size:0.68rem">compliance-monitor.yaml</code>.</div>
+        </div>
+      </div>
+
+      <div class="terminal-wrap">
+        <div class="terminal-bar">
+          <div class="t-dot" style="background:#ff5f57"></div>
+          <div class="t-dot" style="background:#febc2e"></div>
+          <div class="t-dot" style="background:#28c840"></div>
+          <span class="terminal-label">monitor-continuous · daily</span>
+        </div>
+        <div class="terminal-body">
+          <span class="line t-comment"># Set up continuous monitoring with Slack alerts</span>
+          <span class="line"><span class="t-prompt">claude&gt;</span> <span class="t-cmd">/grc-engineer:monitor-continuous SOC2,PCI-DSS,NIST \</span></span>
+          <span class="line"><span style="color:transparent">claude&gt;</span>   <span class="t-cmd">daily --slack-webhook=$SLACK_URL</span></span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-ok">✓</span> <span class="t-dim">Scheduled: daily 02:00 UTC · 3 frameworks · Slack connected</span></span>
+          <span class="blank"></span>
+          <span class="line t-comment"># --- Daily report (Apr 26 02:00 UTC) ---</span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-bold">── 30-Day Trend ───────────────────────────</span></span>
+          <span class="line">  Apr 1   95% <span class="t-ok">████████████████████</span></span>
+          <span class="line">  Apr 8   94% <span class="t-ok">███████████████████</span> <span class="t-warn">⚠ -1%</span></span>
+          <span class="line">  Apr 15  94% <span class="t-ok">███████████████████</span> <span class="t-dim">→ stable</span></span>
+          <span class="line">  Apr 22  96% <span class="t-ok">████████████████████</span> <span class="t-ok">↑ +2%</span></span>
+          <span class="line">  Apr 26  96% <span class="t-ok">████████████████████</span> <span class="t-dim">→ stable</span></span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-bold">── Control Health ─────────────────────────</span></span>
+          <span class="line">  <span class="t-ok">HEALTHY</span>   138 controls  <span class="t-dim">(30-day pass rate &gt;95%)</span></span>
+          <span class="line">  <span class="t-warn">DEGRADING</span>   2 controls  <span class="t-dim">SI-2: 93%→87% (-6% / 7d)</span></span>
+          <span class="line">  <span class="t-err">AT RISK</span>     1 control   <span class="t-dim">AU-11: 73% pass rate</span></span>
+          <span class="blank"></span>
+          <span class="line"><span class="t-bold">── Alerts Fired ───────────────────────────</span></span>
+          <span class="line">  <span class="t-err">🔴 CRIT</span> AU-11 Audit Retention — S3 lifecycle misconfigured</span>
+          <span class="line">  <span class="t-warn">🟡 WARN</span> SI-2  Vuln Mgmt — degrading, patching behind</span>
+          <span class="line">  <span class="t-dim">→ Slack #security-alerts notified</span></span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Summary row -->
+    <div style="padding: 0 0 0.5rem">
+      <div style="padding:0 0 1rem;font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600">All 4 workflows at a glance</div>
+      <div class="summary-row" style="padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem">
+        <div class="summary-card">
+          <div class="summary-card-num">Workflow 1</div>
+          <div class="summary-card-title">Gap Assessment</div>
+          <div class="summary-card-cmd">/grc-engineer:gap-assessment</div>
+          <div class="summary-card-desc">Pull evidence → crosswalk SCF → prioritized gap report across any frameworks.</div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-card-num">Workflow 2</div>
+          <div class="summary-card-title">IaC Scan + Fix</div>
+          <div class="summary-card-cmd">/grc-engineer:scan-iac --fix</div>
+          <div class="summary-card-desc">Scan Terraform/CF/K8s for violations, auto-remediate what's safe, flag the rest.</div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-card-num">Workflow 3</div>
+          <div class="summary-card-title">Cross-Framework</div>
+          <div class="summary-card-cmd">/grc-engineer:map-controls-unified</div>
+          <div class="summary-card-desc">Implement once, satisfy 6+ frameworks. Surfaces conflicts, defaults to most restrictive.</div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-card-num">Workflow 4</div>
+          <div class="summary-card-title">Continuous Monitor</div>
+          <div class="summary-card-cmd">/grc-engineer:monitor-continuous</div>
+          <div class="summary-card-desc">Daily control tests, 30-day trends, Slack/PagerDuty alerts before auditors find it.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /workflows -->
+</body>
+</html>

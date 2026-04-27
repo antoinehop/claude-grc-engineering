@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg-primary: #1d1d1f; --text-secondary: #86868b; --success: #34c759; --bg-secondary: #2d2d2f; --border: #424245; }
+    body { font-family: system-ui, sans-serif; background: var(--bg-primary); color: var(--text-secondary);
+           display: flex; flex-direction: column; min-height: 100vh; }
+    .header { background: var(--bg-secondary); padding: 0.5rem 1.5rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+    .header h1 { font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); }
+    .status { font-size: 0.7rem; color: var(--success); display: flex; align-items: center; gap: 0.4rem; }
+    .status::before { content: ''; width: 6px; height: 6px; background: var(--success); border-radius: 50%; }
+    .main { flex: 1; display: flex; align-items: center; justify-content: center; }
+    p { font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Superpowers Brainstorming — claude-grc-engineering</h1>
+    <div class="status">Connected</div>
+  </div>
+  <div class="main">
+    <p>Continuing in terminal...</p>
+  </div>
+</body>
+</html>
