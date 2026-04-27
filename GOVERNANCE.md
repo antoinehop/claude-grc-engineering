@@ -53,6 +53,32 @@ high-quality participation. Our default bar is:
 
 Maintainership is a stewardship role, not just a merge permission.
 
+## Vouching new contributors
+
+To manage the volume of automated and AI-scaffolded pull requests, this repo
+uses [mitchellh/vouch](https://github.com/mitchellh/vouch). Vouched
+contributors are listed in `.github/VOUCHED.td`; users with `write` or `admin`
+role on the repository (including the leadership team) are auto-allowed and do
+not need to be listed.
+
+The gate runs in **enforcement mode**: PRs from unvouched authors are
+auto-closed with a templated comment. Bots and write/admin users are exempt.
+
+Only **AJ Yawn (`@ajy0127`) and Ethan Troy (`@ethanolivertroy`)** are
+authorized to manage the vouch list — see `.github/VOUCHED-MANAGERS.td`. They
+manage it by commenting on any issue or PR (the keyword must be the **first
+line** of the comment):
+
+- `!vouch` — vouch for the issue/PR author
+- `!vouch @user` — vouch for a specific user
+- `!denounce @user [reason]` — block a user
+- `!unvouch @user` — remove a user from the list
+
+Each command opens a small auto-PR editing `.github/VOUCHED.td` and
+auto-merges it via the `grc-eng-vouch-bot` GitHub App, which holds bypass
+permission on the main branch. Comments from anyone outside the managers
+file are ignored.
+
 ## History
 
 The toolkit was founded by Ethan Troy in 2025 and contributed to the GRC

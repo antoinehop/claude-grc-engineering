@@ -1,10 +1,8 @@
 # claude-grc-engineering
 
-
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/GRCEngClub/claude-grc-engineering?utm_source=oss&utm_medium=github&utm_campaign=GRCEngClub%2Fclaude-grc-engineering&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
 
 https://github.com/user-attachments/assets/a83aa297-9fba-4a7d-b56c-06f962d1ec6b
-
-
 
 The official open-source GRC toolkit from the [GRC Engineering Club](https://grcengclub.com). Checkbox compliance to engineered systems, shipped as [Claude Code](https://docs.claude.com/claude-code) plugins: persona plugins for engineers, auditors, internal GRC teams, and TPRM; 20+ framework reference plugins from SOC 2 to FedRAMP to APRA; and thin cloud/SaaS connectors that emit a common Finding contract. Assessors, platform engineers, and GRC teams everywhere rebuild the same pipeline on their own. Pull evidence, crosswalk to a framework, generate a gap report, wrestle OSCAL. One open toolkit, maintained by the community, end-to-end.
 
@@ -70,6 +68,7 @@ Full walkthrough: [`docs/QUICKSTART.md`](docs/QUICKSTART.md).
 | Analyze a vendor security questionnaire (SIG, CAIQ, Yardstick) | `/grc-tprm:analyze-questionnaire` |
 | Discover which of the 249 SCF-mapped frameworks have dedicated plugins | `/grc-engineer:frameworks` |
 | Scaffold a new framework plugin from the SCF crosswalk | `/grc-engineer:scaffold-framework` |
+| Get a primer on a framework, drill yourself on it, or onboard into a GRC role | `/teach-me:framework`, `/teach-me:control`, `/teach-me:role`, `/teach-me:quiz` |
 
 Every command's reference page lives in its plugin's `commands/` directory with full input and output documentation.
 
@@ -89,6 +88,12 @@ Every command's reference page lives in its plugin's `commands/` directory with 
 | **grc-internal** | `/grc-internal:` | Internal GRC teams: risk registers, policy lifecycle, cert portfolio tracking |
 | **grc-reporter** | `/report:` | GRC practitioners communicating up: exec summaries, board briefs, program-health, automation ROI |
 | **grc-tprm** | `/grc-tprm:` | Third-party risk: vendor assessments, questionnaire analysis, risk scoring |
+
+### Learning
+
+| Plugin | Namespace | Who it's for |
+|---|---|---|
+| **teach-me** | `/teach-me:` | Career transitioners and new-to-GRC practitioners: paraphrased framework primers, single-control deep-dives, role onboarding, Socratic drills |
 
 ### Framework plugins
 
@@ -241,6 +246,16 @@ This toolkit is developed openly by the [GRC Engineering Club](https://grcengclu
 - **Discussions**: [github.com/GRCEngClub/claude-grc-engineering/discussions](https://github.com/GRCEngClub/claude-grc-engineering/discussions) — "how would I add a connector for X?" and similar design questions welcome.
 - **Issues**: Use a template when opening. Security-sensitive issues go to a private advisory; see `SECURITY.md`.
 - **Recognition**: contributors are credited via the [all-contributors](https://allcontributors.org) bot on every PR. Comment `@all-contributors please add @you for code,doc` after your PR merges, or ask a maintainer.
+
+### How to contribute (issue → vouch → PR)
+
+We get a steady stream of AI-scaffolded drive-by PRs, so contributions go through a small trust-gate that lets maintainers spend review time on real people:
+
+1. **Open an issue or [Discussion](https://github.com/GRCEngClub/claude-grc-engineering/discussions)** with your idea before writing code — even two lines is fine ("I'd like to add a connector for X"). It tells maintainers what you want to build and confirms you're a human, not an agent on a PR-spamming spree.
+2. **A maintainer comments `!vouch`** on the issue, adding you to [`.github/VOUCHED.td`](.github/VOUCHED.td). This is a one-time step — once you're vouched, you stay vouched.
+3. **Open the PR.** Normal review applies. PRs from unvouched authors are auto-closed with a pointer back here. Bots (Dependabot etc.) and maintainers with write access are exempt.
+
+Full mechanics in [`GOVERNANCE.md`](GOVERNANCE.md#vouching-new-contributors). The contributor walkthrough lives in [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md#first-time-contributors).
 
 ### Maintainers
 

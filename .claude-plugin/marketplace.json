@@ -41,6 +41,12 @@
       "version": "0.1.0"
     },
     {
+      "name": "teach-me",
+      "source": "./plugins/teach-me",
+      "description": "Socratic primer + drill plugin for new-to-GRC practitioners. Get up to speed on a framework, control, or role without already knowing it.",
+      "version": "0.1.0"
+    },
+    {
       "name": "soc2",
       "source": "./plugins/frameworks/soc2",
       "description": "SOC 2 Trust Service Criteria expertise and Type I/II assessment support",
@@ -200,6 +206,30 @@
       "name": "singapore-pdpa",
       "source": "./plugins/frameworks/singapore-pdpa",
       "description": "Singapore - Personal Data Protection Ac (PDPA) (2012) — reference-depth plugin backed by the SCF crosswalk (30 SCF → 14 framework controls).",
+      "version": "0.1.0"
+    },
+    {
+      "name": "us-finra",
+      "source": "./plugins/frameworks/us-finra",
+      "description": "FINRA Broker-Dealer Cybersecurity Guidance — stub-depth plugin backed by the SCF crosswalk (17 SCF → 39 framework controls).",
+      "version": "0.1.0"
+    },
+    {
+      "name": "cyber-essentials-plus",
+      "source": "./plugins/frameworks/cyber-essentials-plus",
+      "description": "UK NCSC Cyber Essentials Plus (CE+) v3.3 Danzell — gap assessments, evidence checklists, remediation plans, and cross-framework mapping to ISO 27001 and NIST CSF.",
+      "version": "0.1.0"
+    },
+    {
+      "name": "ind-dpdpa",
+      "source": "./plugins/frameworks/ind-dpdpa",
+      "description": "India Digital Personal Data Protection Act, 2023 — reference-depth plugin with scope determination, evidence checklist, and breach-process workflow backed by the SCF crosswalk.",
+      "version": "0.1.0"
+    },
+    {
+      "name": "poam-automation",
+      "source": "./plugins/connectors/poam-automation",
+      "description": "GRC connector wrapping networkbm/POAM-Automation-Tool: converts vulnerability scans into FedRAMP POA&M Excel and emits NIST-800-53-r5 (SI-2) findings → v1 finding contract.",
       "version": "0.1.0"
     }
   ]
